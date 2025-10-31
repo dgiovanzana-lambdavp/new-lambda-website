@@ -31,7 +31,14 @@ export default function PortfolioPage() {
             <h1 className="text-5xl md:text-6xl font-bold mb-8">
               Our <span className="text-foreground">Portfolio</span>
             </h1>
-            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg md:text-xl text-muted leading-relaxed max-w-3xl mx-auto mb-12"
+            >
+              At Lambda, we take a concentrated approach to our portfolio and only invest in 1-2 companies per year at most. We think great returns come from solely backing winners and prefer to take a hands on approach to helping our portfolio grow, be more efficient, and achieve great outcomes.
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -127,7 +134,7 @@ export default function PortfolioPage() {
               Ready to <span className="text-foreground">partner</span> with us?
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button href="mailto:info@lambdavp.com" variant="primary" size="lg">
+              <Button href="/contact" variant="primary" size="lg">
                 Contact Us
               </Button>
               <Button href="/team" variant="secondary" size="lg">

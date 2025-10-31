@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Lambda Capital - Investing in Next-Generation Defense Technology',
+  title: 'Lambda Capital - Investing in Mission-Critical Technology',
   description: 'Lambda Capital is a venture capital firm focused on investing in defense technology companies. We partner with mission-driven founders building the future of national security through AI, autonomy, cybersecurity, and aerospace innovation.',
   keywords: 'venture capital, defense technology, AI, autonomy, cybersecurity, aerospace, investment, national security',
   authors: [{ name: 'Lambda Capital' }],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://lambdavp.com',
-    title: 'Lambda Venture Partners - Investing in Next-Generation Defense Technology',
+    title: 'Lambda Capital - Investing in Mission-Critical Technology',
     description: 'We partner with mission-driven founders building the future of national security through AI, autonomy, cybersecurity, and aerospace innovation.',
     siteName: 'Lambda Capital',
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lambda Venture Partners - Investing in Next-Generation Defense Technology',
+    title: 'Lambda Capital - Investing in Mission-Critical Technology',
     description: 'We partner with mission-driven founders building the future of national security through AI, autonomy, cybersecurity, and aerospace innovation.',
     images: ['/og-image.jpg'],
   },

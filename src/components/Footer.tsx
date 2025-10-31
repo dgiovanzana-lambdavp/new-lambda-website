@@ -12,6 +12,7 @@ const Footer: React.FC = () => {
       { name: 'About', href: '/about' },
       { name: 'Team', href: '/team' },
       { name: 'Portfolio', href: '/portfolio' },
+      { name: 'Contact', href: '/contact' },
     ],
     social: [
       { name: 'LinkedIn', href: 'https://www.linkedin.com/company/lambda-capital-management/', icon: 'linkedin' },
