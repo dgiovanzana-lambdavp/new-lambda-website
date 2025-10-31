@@ -40,6 +40,15 @@ export const teamMembers: TeamMember[] = [
     email: 'domenic@lambdavp.com',
     linkedin: 'https://www.linkedin.com/in/dgiovanzana',
   },
+  {
+    id: 'jake-haselden',
+    name: 'Jake Haselden',
+    title: 'Advisor',
+    bio: 'Engineer and operations leader with multiple successful exits and extensive experience scaling products for Fortune 50 companies and profitable startups.\n\nHis experience spans diverse industries and technologies:\n\n• Solar and battery-powered 30-foot trailers\n• Software and hardware solutions for risk prevention teams\n• Banking hardware and data center buildouts\n• Self-service spaces with booking, entry, usage, and lock functionality\n• Identity and access management systems\n• Casino accounting and security systems\n• Fleet management platforms for 1,000+ vehicle fleets with device and platform integrations',
+    image: '/Headshot - Jake.jpg',
+    email: 'jake@lambdavp.com',
+    linkedin: 'https://www.linkedin.com/in/jakehaselden/',
+  },
 ];
 
 // Portfolio companies
