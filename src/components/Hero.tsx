@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
             playsInline
             preload="auto"
           >
-            <source src={encodeURI('/Defense+ v2.mp4')} type="video/mp4" />
+            <source src="/Defense-plus.mp4" type="video/mp4" />
           </video>
         </div>
         

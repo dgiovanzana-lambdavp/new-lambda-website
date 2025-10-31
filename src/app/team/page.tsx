@@ -55,14 +55,18 @@ export default function TeamPage() {
             <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
               Lambda Capital is a permanent capital holding company. We take a patient approach and invest for the long term.
             </p>
-            <div className="flex justify-center items-center gap-16 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12 max-w-6xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold text-foreground mb-2">~4x</div>
                 <div className="text-muted">Avg. ARR growth per company</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-foreground mb-2">$186M</div>
-                <div className="text-muted">Invested</div>
+                <div className="text-muted">Invested<span className="text-xs block mt-1">*Career total</span></div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground mb-2">$5B+</div>
+                <div className="text-muted">Total transaction value<span className="text-xs block mt-1">*Career total</span></div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-foreground mb-2">400+</div>
