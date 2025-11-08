@@ -28,17 +28,17 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ company, index }) => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={{ y: -5 }}
-      className="group"
+      className="group h-full"
     >
-      <div className="card card-hover h-full">
+      <div className="card card-hover h-full flex flex-col">
         {/* Logo - Removed as requested */}
 
         {/* Company Info */}
         <div className="text-center mb-4">
-          <h3 className="text-xl font-semibold text-card-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+          <h3 className="text-xl font-semibold text-card-foreground mb-2 group-hover:text-accent transition-colors duration-300 min-h-[1.75rem] flex items-center justify-center">
             {company.name}
           </h3>
-          <p className="text-muted text-sm leading-relaxed">
+          <p className="text-muted text-sm leading-relaxed min-h-[3rem] flex items-start justify-center">
             {company.description}
           </p>
         </div>

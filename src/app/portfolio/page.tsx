@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import PortfolioCard from '@/components/PortfolioCard';
+import NewsCard from '@/components/NewsCard';
 import Button from '@/components/Button';
-import { portfolioCompanies } from '@/lib/data';
+import { portfolioCompanies, newsItems } from '@/lib/data';
 
 export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -88,7 +89,7 @@ export default function PortfolioPage() {
 
           <motion.div
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="flex flex-wrap justify-center gap-8"
           >
             {filteredCompanies.map((company, index) => (
               <motion.div
@@ -98,6 +99,7 @@ export default function PortfolioPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] max-w-sm"
               >
                 <PortfolioCard company={company} index={index} />
               </motion.div>
@@ -118,6 +120,39 @@ export default function PortfolioPage() {
               </p>
             </motion.div>
           )}
+        </div>
+      </section>
+
+      {/* News Section */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Portfolio <span className="text-foreground">News</span>
+            </h2>
+            <p className="text-lg text-muted max-w-2xl mx-auto">
+              Stay updated with the latest news and developments from our portfolio companies.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {(() => {
+              // Put SafeTraces first, then sort the rest by date
+              const safetraces = newsItems.find(item => item.id === 'news-1');
+              const others = newsItems
+                .filter(item => item.id !== 'news-1')
+                .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+              return safetraces ? [safetraces, ...others] : others;
+            })().map((newsItem, index) => (
+              <NewsCard key={newsItem.id} newsItem={newsItem} index={index} />
+            ))}
+          </div>
         </div>
       </section>
 
