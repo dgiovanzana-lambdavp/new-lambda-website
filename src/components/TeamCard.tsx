@@ -44,13 +44,18 @@ const TeamCard: React.FC<TeamCardProps> = ({ member, index }) => {
         </div>
 
         {/* Name and Title */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-4 min-h-[4.5rem]">
           <h3 className="text-xl font-semibold text-text-primary mb-1 group-hover:text-brand-red transition-colors duration-300">
             {member.name}
           </h3>
           <p className="text-text-secondary font-medium">
             {member.title}
           </p>
+          {member.subtitle && (
+            <p className="text-text-secondary font-medium text-sm mt-0.5">
+              {member.subtitle}
+            </p>
+          )}
         </div>
 
 
@@ -153,6 +158,9 @@ const TeamCard: React.FC<TeamCardProps> = ({ member, index }) => {
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-gray-900 mb-1">{member.name}</h2>
                   <p className="text-lg text-gray-600">{member.title}</p>
+                  {member.subtitle && (
+                    <p className="text-base text-gray-600 mt-0.5">{member.subtitle}</p>
+                  )}
                 </div>
               </div>
             </div>
