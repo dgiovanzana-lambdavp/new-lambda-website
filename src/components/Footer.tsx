@@ -9,7 +9,6 @@ const Footer: React.FC = () => {
 
   const footerLinks = {
     company: [
-      { name: 'About', href: '/about' },
       { name: 'Team', href: '/team' },
       { name: 'Portfolio', href: '/portfolio' },
       { name: 'Contact', href: '/contact' },
