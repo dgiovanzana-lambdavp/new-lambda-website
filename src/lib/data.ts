@@ -83,6 +83,14 @@ export const portfolioCompanies: PortfolioCompany[] = [
     category: 'Defense Tech',
     founded: '2020',
   },
+  {
+    id: 'pdhi',
+    name: 'PDHI',
+    description: 'Powering Digital Health & Welness Solutions',
+    website: 'https://www.pdhi.com/',
+    logo: '',
+    category: 'Healthcare Technology',
+  },
 ];
 
 // News items
