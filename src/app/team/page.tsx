@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import TeamCard from '@/components/TeamCard';
+import TeamShowcase from '@/components/TeamShowcase';
 import { teamMembers } from '@/lib/data';
 import Button from '@/components/Button';
 
@@ -28,14 +28,12 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Team Grid */}
+      {/* Team — vertical scroll, alternating image side */}
       <section className="section-padding bg-tactical-gray/20">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <TeamCard key={member.id} member={member} index={index} />
-            ))}
-          </div>
+        <div className="container-custom max-w-6xl">
+          {teamMembers.map((member, index) => (
+            <TeamShowcase key={member.id} member={member} index={index} />
+          ))}
         </div>
       </section>
 
