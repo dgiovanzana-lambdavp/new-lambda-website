@@ -1,26 +1,38 @@
 @import "tailwindcss";
+@import "../styles/theme.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Bind the next/font CSS variables to Tailwind's font utilities, so
+   `font-sans` and `font-display` mean the same thing here as they do on
+   the live site (Inter for body, Space Grotesk for headings). */
+@theme {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-lambda-bg);
+  color: var(--color-lambda-body);
+  font-family: var(--font-sans);
+}
+
+/* The site sets headings in Space Grotesk semibold globally. Matching
+   that here means funnel headings need no font class of their own and
+   will keep matching if the site's choice changes. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* One visible focus treatment for the whole flow. The spec requires the
+   funnel be completable by keyboard alone, which is only true if you
+   can see where you are. */
+:focus-visible {
+  outline: 2px solid var(--color-lambda-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

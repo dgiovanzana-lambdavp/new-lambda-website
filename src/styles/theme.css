@@ -1,0 +1,100 @@
+/* ═══════════════════════════════════════════════════════════════════
+   THE MERGE SWAP POINT
+
+   Every colour and motion value the funnel uses is declared here and
+   nowhere else. Funnel components reference these tokens and never
+   hardcode a hex value or a stock Tailwind palette class (no
+   `bg-slate-900`, no `text-gray-400`).
+
+   ── These values are now the REAL ones ──────────────────────────────
+
+   Taken from tailwind.config.js in dgiovanzana-lambdavp/new-lambda-website.
+   The mapping is one-to-one, so merging is re-pointing these tokens at
+   the site's own colour names rather than re-picking colours:
+
+     --color-lambda-bg          ← background         #FFFFFF
+     --color-lambda-raised      ← secondary          hsl(220 15% 96%)
+     --color-lambda-fg          ← primary            hsl(220 70% 18%)
+     --color-lambda-body        ← foreground         hsl(220 40% 15%)
+     --color-lambda-muted       ← muted              hsl(220 25% 45%)
+     --color-lambda-border      ← border             hsl(220 15% 90%)
+     --color-lambda-accent      ← accent             hsl(210 100% 42%)
+
+   ── On the light theme ──────────────────────────────────────────────
+
+   The spec asks for a "dark panel". The actual site is white with navy
+   and blue, so a dark panel would be precisely the "foreign design
+   language" the same spec forbids. Matching the site wins; the split
+   layout and one-question-per-screen rhythm are preserved.
+
+   NOTE the site runs Tailwind v3 with a JS config; this project runs
+   v4 with CSS `@theme`. On merge these values move into
+   tailwind.config.js under `extend.colors` — or, better, the funnel
+   simply uses the site's existing colour names and this file is
+   deleted.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Surfaces ------------------------------------------------------- */
+  --color-lambda-bg: #ffffff; /* page + question panel */
+  --color-lambda-panel: #ffffff;
+  --color-lambda-raised: hsl(220 15% 96%); /* pill hover, subtle fill */
+
+  /* Text ----------------------------------------------------------- */
+  --color-lambda-fg: hsl(220 70% 18%); /* headings — deep navy */
+  --color-lambda-body: hsl(220 40% 15%); /* body copy */
+  --color-lambda-muted: hsl(220 25% 45%); /* sub-copy, helper text.
+                                    5.5:1 on white — clears WCAG AA.
+                                    Note this is the site's `muted`,
+                                    NOT `muted-foreground`
+                                    (hsl 220 15% 70%), which lands at
+                                    about 2.4:1 and fails AA. The spec
+                                    flagged the site's muted text as
+                                    borderline; that is the token it
+                                    meant, and the funnel avoids it. */
+
+  /* Lines ---------------------------------------------------------- */
+  --color-lambda-border: hsl(220 15% 90%);
+  --color-lambda-border-strong: hsl(220 25% 45%);
+
+  /* Accent --------------------------------------------------------- */
+  --color-lambda-accent: hsl(210 100% 42%); /* 5.1:1 on white */
+  --color-lambda-accent-ink: #ffffff; /* text ON an accent fill */
+
+  /* Feedback ------------------------------------------------------- */
+  --color-lambda-error: hsl(0 72% 38%); /* ~6:1 on white */
+
+  /* Shape ---------------------------------------------------------- */
+  --radius-pill: 9999px;
+
+  /* Motion --------------------------------------------------------- */
+  /* Capped at 200ms per spec — anything longer reads as sluggish when
+     a single-select auto-advances.
+
+     This is `--default-transition-duration`, a Tailwind v4 theme
+     variable that changes what every `transition-*` utility uses when
+     no explicit duration class is present. So components write
+     `transition-colors` and nothing else, and the timing stays
+     centralised here.
+
+     Do NOT reintroduce a custom `--duration-*` token and a
+     `duration-<name>` class: Tailwind v4 has no `--duration-*` theme
+     namespace, so the class silently fails to generate and every
+     transition ends up instant. That bug is invisible in review and
+     only shows up by grepping the built CSS. */
+  --default-transition-duration: 180ms;
+}
+
+/* Respect the user's motion preference. The spec requires this, and it
+   is not optional politeness: auto-advancing screens with slide
+   animation are a genuine vestibular trigger. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
