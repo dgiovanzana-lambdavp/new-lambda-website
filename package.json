@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/migrate.mjs && next start",
     "lint": "eslint",
+    "db:migrate": "node scripts/migrate.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "check:bundle-leak": "node scripts/check-bundle-leak.mjs",
