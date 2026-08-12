@@ -43,6 +43,34 @@ if (!url) {
   process.exit(1);
 }
 
+/**
+ * Catch an unresolved Railway placeholder before handing it to pg.
+ *
+ * Railway variable references are scoped to the service they are read
+ * from. Copying the Postgres service's own definition —
+ * `postgresql://${{PGUSER}}:${{POSTGRES_PASSWORD}}@...` — onto the app
+ * service leaves those names undefined there, so the literal `${{...}}`
+ * text survives into the connection string.
+ *
+ * Without this check the failure surfaces as `getaddrinfo ENOTFOUND
+ * ${{RAILWAY_PRIVATE_DOMAIN}}`, which reads like a DNS problem and
+ * sends people looking in entirely the wrong place.
+ */
+if (url.includes("${{")) {
+  console.error(
+    "[migrate] DATABASE_URL still contains an unresolved Railway\n" +
+      "          placeholder, so it is not a real connection string:\n" +
+      `          ${url.replace(/:[^:@]*@/, ":****@")}\n\n` +
+      "          Those ${{...}} names only resolve inside the Postgres\n" +
+      "          service itself. From the app service, reference the\n" +
+      "          whole variable by service name instead. Set\n" +
+      "          DATABASE_URL to exactly:\n\n" +
+      "              ${{Postgres.DATABASE_URL}}\n\n" +
+      "          (replace `Postgres` with your database service's name)",
+  );
+  process.exit(1);
+}
+
 const pool = new pg.Pool({ connectionString: url, max: 1 });
 
 try {
