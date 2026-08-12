@@ -9,9 +9,10 @@ import type {
 /**
  * Development only.
  *
- * Registered solely so the funnel is fully exercisable before Neon and
- * Resend exist: you can complete a submission, see the whole payload,
- * and confirm the UTM tags survived — with no accounts configured.
+ * Registered solely so the funnel is fully exercisable before the
+ * database and Resend exist: you can complete a submission, see the
+ * whole payload, and confirm the UTM tags survived — with nothing
+ * configured.
  *
  * The production guard is not decoration. Lead payloads carry names,
  * emails, phone numbers, and company financials; on a hosted platform

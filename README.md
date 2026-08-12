@@ -17,7 +17,7 @@ Every submission lands in Postgres with its campaign tags intact, so
 | Question trees, types, config | Done |
 | Funnel UI, branching, progress, resume | Done |
 | `scoreLead` + 43 tests | Done |
-| Neon Postgres, `/api/leads`, destinations | Done, verified against a live database |
+| Postgres, `/api/leads`, destinations | Done, verified against a live database |
 | Cal.com embed + webhook | Done, awaiting account |
 | PostHog events + server-side flags | Done, awaiting keys |
 | Accessibility + mobile | Done |
@@ -72,17 +72,26 @@ Each one is independent. The funnel degrades gracefully without any of
 them — a missing key disables its feature and logs why, rather than
 breaking the form.
 
-### 1. `DATABASE_URL` — Neon Postgres · **configured**
+### 1. `DATABASE_URL` — Railway Postgres
 
 The system of record. Everything else here is reversible; a lead that
 was only ever emailed is unqueryable forever.
 
-```bash
-npx drizzle-kit migrate   # apply the schema to a new database
-```
+Railway exposes **two** connection strings, and the difference matters:
 
-> Rotate the current key in the Neon console before going live — it was
-> shared in a chat transcript during development.
+| Variable | Host | Use it for |
+|---|---|---|
+| `DATABASE_URL` | `postgres.railway.internal` | The deployed app. Private network, no egress cost |
+| `DATABASE_PUBLIC_URL` | `*.proxy.rlwy.net` | Your laptop — migrations and the dev scripts |
+
+In Railway, reference the internal one on the app service. In your local
+`.env.local`, use the public one — `postgres.railway.internal` does not
+resolve outside the Railway project, and the dev scripts fail with a
+clear message if you try.
+
+```bash
+npx drizzle-kit migrate   # apply the schema (uses DATABASE_URL)
+```
 
 ### 2. Cal.com — unlocks the Tier A inline calendar
 
@@ -165,17 +174,23 @@ thresholds in the browser bundle and defeat server-side scoring.
 > thresholds are readable by anyone, and a founder who reads them can
 > answer their way onto a partner's calendar.
 
-To move the marketing site to Vercel:
+To move the marketing site to Railway (where Lambda hosts everything
+else):
 
 1. Delete `output: 'export'`, `trailingSlash`, and `images.unoptimized`
    from `next.config.js`.
-2. Import the repo in Vercel.
+2. Point a Railway service at the repo.
 3. Add the environment variables above.
-4. Point DNS.
+4. Generate a public domain, then point DNS at it.
 5. Retire `.github/workflows/deploy.yml`.
 
 The site is plain Next.js and deploys as-is. Keeping `/contact` on the
 same origin is what lets both homepage CTAs keep working untouched.
+
+Railway runs a persistent container, which is why `src/lib/db/index.ts`
+uses a pooled TCP connection rather than a serverless HTTP driver. If
+this ever moves to a serverless host, that file needs revisiting — a
+plain pool there needs a pooler in front of it.
 
 ---
 

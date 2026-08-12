@@ -17,9 +17,15 @@ export default {
   out: "./src/lib/db/migrations",
   dialect: "postgresql",
   dbCredentials: {
-    // Read at command time, never committed. Absent until Neon exists,
-    // which only blocks `migrate` — `generate` works offline because it
-    // diffs the schema file, not the live database.
+    /**
+     * Read at command time, never committed. Only `migrate` needs it —
+     * `generate` works offline because it diffs the schema file, not
+     * the live database.
+     *
+     * Running this from a laptop against Railway requires the PUBLIC
+     * proxy URL; `postgres.railway.internal` resolves only inside the
+     * Railway project's network.
+     */
     url: process.env.DATABASE_URL ?? "",
   },
 } satisfies Config;

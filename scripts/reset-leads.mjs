@@ -10,8 +10,7 @@
  * reconstructed from anywhere else.
  */
 
-import { neon } from "@neondatabase/serverless";
-import { readFileSync } from "node:fs";
+import { connect } from "./db-connect.mjs";
 
 if (process.env.NODE_ENV === "production") {
   console.error("Refusing to run with NODE_ENV=production.");
@@ -25,24 +24,10 @@ if (!process.argv.includes("--yes")) {
   process.exit(1);
 }
 
-function loadEnv() {
-  try {
-    for (const line of readFileSync(".env.local", "utf8").split("\n")) {
-      const match = line.match(/^([A-Z_]+)=(.*)$/);
-      if (match && !process.env[match[1]]) process.env[match[1]] = match[2].trim();
-    }
-  } catch {
-    // fall through to the ambient environment
-  }
+const client = await connect();
+try {
+  const { rowCount } = await client.query("DELETE FROM leads");
+  console.log(`deleted ${rowCount} row(s)`);
+} finally {
+  await client.end();
 }
-
-loadEnv();
-
-if (!process.env.DATABASE_URL) {
-  console.error("DATABASE_URL not set.");
-  process.exit(1);
-}
-
-const sql = neon(process.env.DATABASE_URL);
-const rows = await sql`DELETE FROM leads RETURNING session_id`;
-console.log(`deleted ${rows.length} row(s)`);
