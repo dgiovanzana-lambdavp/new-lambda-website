@@ -87,11 +87,28 @@ npx drizzle-kit migrate   # apply the schema to a new database
 ### 2. Cal.com — unlocks the Tier A inline calendar
 
 1. Create the meeting type qualified founders should book.
-2. Put its slug in `src/config/funnel.ts`:
+2. **Connect Google Calendar** — Cal.com → Apps → Google Calendar →
+   Install. Set it as the *destination* calendar so every booking is
+   written there with a Meet link and an invite, and enable it as a
+   *conflict* calendar so Cal.com reads your existing busy times and
+   never double-books you.
+
+   Cal.com and Google Calendar are not alternatives: Cal.com is the
+   availability-aware booking front door, Google Calendar is where the
+   meeting lands and where you actually live. This step is configuration
+   only — nothing in this codebase changes.
+
+   Google Calendar cannot replace Cal.com here. Two Cal.com features are
+   load-bearing: arbitrary booking **metadata** (we plant `sessionId` in
+   it) and a **webhook that returns that metadata**. Google's appointment
+   schedules offer neither, so booking-to-campaign attribution would
+   degrade to matching by email and timestamp by hand — the exact
+   reconciliation this rebuild exists to eliminate.
+3. Put the event type's slug in `src/config/funnel.ts`:
    ```ts
    export const BOOKING_CONFIG = { tierACalLink: "lambda/intro" };
    ```
-3. Add a webhook → `https://YOUR-DOMAIN/api/webhooks/cal`, event
+4. Add a webhook → `https://YOUR-DOMAIN/api/webhooks/cal`, event
    `BOOKING_CREATED`, and copy the secret into `CAL_WEBHOOK_SECRET`.
 
 Until the slug is set, Tier A founders still get the right outcome and
