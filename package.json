@@ -5,13 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "node scripts/migrate.mjs && next start",
+    "start": "node scripts/migrate.mjs; next start",
     "lint": "eslint",
     "db:migrate": "node scripts/migrate.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "check:bundle-leak": "node scripts/check-bundle-leak.mjs",
     "verify": "npm run test && npm run build && npm run check:bundle-leak"
+  },
+  "engines": {
+    "node": ">=20.9"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
