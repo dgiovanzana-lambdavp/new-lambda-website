@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
-import { ProgressBar } from "./ProgressBar";
 
 type ForwardMode = "hidden" | "next" | "send";
 
@@ -10,8 +9,6 @@ interface StepShellProps {
   questionId: string;
   title: string;
   subtitle?: string;
-  current: number;
-  total: number;
   canGoBack: boolean;
   onBack: () => void;
   forwardMode: ForwardMode;
@@ -33,8 +30,6 @@ export function StepShell({
   questionId,
   title,
   subtitle,
-  current,
-  total,
   canGoBack,
   onBack,
   forwardMode,
@@ -66,18 +61,22 @@ export function StepShell({
   return (
     <div className="flex min-h-full flex-col justify-between">
       <div>
-        <ProgressBar current={current} total={total} />
-
         {/*
-          Position is announced separately from the heading. The heading
-          is announced by the focus move above; repeating it in a live
-          region would read the question twice. "Question 3 of 9" is the
-          part focus alone doesn't convey.
-        */}
-        <div aria-live="polite" className="sr-only">
-          Question {current} of {total}
-        </div>
+          No progress indicator, deliberately.
 
+          There was a "Question N of M" bar here. It was removed because
+          naming the number of questions up front is a reason to quit
+          before starting — the count is the discouraging part, not the
+          length.
+
+          The screen-reader live region that sat alongside it is gone
+          too, and for the same reason rather than by oversight. It
+          existed only to convey position, which is precisely what is no
+          longer being told to anyone; leaving it would have announced
+          "9 questions" to the one group who cannot see that it was
+          removed. Step changes are still announced — the focus move
+          below reads the new question heading.
+        */}
         <h1
           ref={headingRef}
           id={headingId}

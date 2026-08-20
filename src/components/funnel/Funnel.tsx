@@ -380,8 +380,6 @@ export function Funnel({ persona }: FunnelProps) {
       questionId={current.id}
       title={current.title}
       subtitle={current.subtitle}
-      current={currentIndex + 1}
-      total={path.length}
       canGoBack={currentIndex > 0}
       onBack={goBack}
       forwardMode={forwardMode}
