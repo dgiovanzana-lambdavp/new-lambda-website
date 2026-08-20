@@ -140,7 +140,7 @@ export const founderQuestions: Question[] = [
     // propositions from growth.
     required: true,
     options: [
-      { value: "growth", label: "Growth — sales and marketing" },
+      { value: "growth", label: "Growth: sales and marketing" },
       { value: "acquisition", label: "An acquisition" },
       { value: "refinancing", label: "Refinancing existing debt" },
       { value: "working_capital", label: "Working capital" },
@@ -177,14 +177,23 @@ export const founderQuestions: Question[] = [
     ],
   },
 
-  {
-    id: "about",
-    type: "text",
-    title: "Tell us about the company and what you're building.",
-    required: true,
-    placeholder:
-      "The more context you give us, the more useful our first conversation will be.",
-  },
+  /*
+   * The free-text "tell us about the company" question was removed.
+   *
+   * Nothing pointed at it: the path walks this array in order, so
+   * `timeline` now falls through to attribution with no resolver to
+   * update. Answers are stored as JSONB, so dropping a question needs
+   * no migration either.
+   *
+   * Leads already in the database keep whatever `about` text they gave.
+   * It simply stops being collected, and stops appearing in the
+   * notification email, which renders only the answers present.
+   *
+   * The out-of-focus branch below still asks for a description. That
+   * one is doing different work: it is the only thing a declined
+   * founder is asked, and it is what makes the decline path worth
+   * storing at all.
+   */
 
   heardAboutQuestion,
 

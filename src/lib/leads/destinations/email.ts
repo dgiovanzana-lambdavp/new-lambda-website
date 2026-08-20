@@ -66,7 +66,7 @@ function buildSubject(lead: LeadSubmission, scoring: LeadScoring | null): string
     segments.push(`via ${lead.attribution.utm_source}`);
   }
 
-  return `${parts.join(" ")} ${segments.join(" — ")}`;
+  return `${parts.join(" ")} ${segments.join(" | ")}`;
 }
 
 function buildPlainText(
@@ -96,14 +96,14 @@ function buildPlainText(
   }
 
   lines.push("── Attribution ──");
-  lines.push(`Source:    ${lead.attribution.utm_source ?? "—"}`);
-  lines.push(`Medium:    ${lead.attribution.utm_medium ?? "—"}`);
-  lines.push(`Campaign:  ${lead.attribution.utm_campaign ?? "—"}`);
-  lines.push(`Content:   ${lead.attribution.utm_content ?? "—"}`);
-  lines.push(`Term:      ${lead.attribution.utm_term ?? "—"}`);
-  lines.push(`Referrer:  ${lead.attribution.referrer ?? "—"}`);
-  lines.push(`Landed on: ${lead.attribution.landing_path ?? "—"}`);
-  lines.push(`Heard via: ${lead.attribution.heard_about_us || "—"}`);
+  lines.push(`Source:    ${lead.attribution.utm_source ?? "-"}`);
+  lines.push(`Medium:    ${lead.attribution.utm_medium ?? "-"}`);
+  lines.push(`Campaign:  ${lead.attribution.utm_campaign ?? "-"}`);
+  lines.push(`Content:   ${lead.attribution.utm_content ?? "-"}`);
+  lines.push(`Term:      ${lead.attribution.utm_term ?? "-"}`);
+  lines.push(`Referrer:  ${lead.attribution.referrer ?? "-"}`);
+  lines.push(`Landed on: ${lead.attribution.landing_path ?? "-"}`);
+  lines.push(`Heard via: ${lead.attribution.heard_about_us || "-"}`);
   lines.push("");
 
   lines.push("── Internal ──");

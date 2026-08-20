@@ -74,7 +74,7 @@ export const servicesQuestions: Question[] = [
       { value: "customer_success", label: "Customer success and retention" },
       { value: "finance", label: "Finance and CFO-level support" },
       { value: "marketing", label: "Marketing and demand generation" },
-      { value: "not_sure", label: "Not sure — want to talk it through" },
+      { value: "not_sure", label: "Not sure, want to talk it through" },
     ],
   },
   {
@@ -90,7 +90,7 @@ export const servicesQuestions: Question[] = [
     title: "What's your timeline?",
     required: true,
     options: [
-      { value: "urgent", label: "Urgent — this quarter" },
+      { value: "urgent", label: "Urgent, this quarter" },
       { value: "next_3_6_months", label: "Next 3–6 months" },
       { value: "later", label: "Exploring for later" },
       { value: "curious", label: "Just curious" },

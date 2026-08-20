@@ -13,7 +13,7 @@ import { isPersona, type Persona } from "@/lib/leads/types";
  * published URLs that outlive any refactor.
  */
 export const metadata: Metadata = {
-  title: "Contact — Lambda Capital",
+  title: "Contact | Lambda Capital",
 };
 
 /** Pre-render the lanes that are actually reachable. */

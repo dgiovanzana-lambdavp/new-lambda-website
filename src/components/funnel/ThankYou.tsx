@@ -172,8 +172,8 @@ export function ThankYou({
           <div className="max-w-prose">
             <p className="text-lg text-lambda-body">
               We invest in a deliberately narrow set of areas, and what
-              you&rsquo;re building sits outside them — so we&rsquo;d rather
-              tell you now than take a meeting under false pretences.
+              you&rsquo;re building sits outside them. We&rsquo;d rather tell
+              you now than take a meeting under false pretences.
             </p>
             <p className="mt-4 text-lg text-lambda-body">
               We&rsquo;ve kept your details. If our focus widens, or if we can

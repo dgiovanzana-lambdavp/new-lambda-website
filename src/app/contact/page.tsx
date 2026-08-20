@@ -4,7 +4,7 @@ import type { Persona } from "@/lib/leads/types";
 import { PersonaRouter } from "./PersonaRouter";
 
 export const metadata: Metadata = {
-  title: "Contact — Lambda Capital",
+  title: "Contact | Lambda Capital",
   description:
     "Tell us who you are and we'll route you to the right conversation.",
 };
