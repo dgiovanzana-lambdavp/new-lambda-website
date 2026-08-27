@@ -165,54 +165,109 @@ thresholds in the browser bundle and defeat server-side scoring.
 
 ## Deployment
 
-> **This app cannot run on GitHub Pages.**
->
-> lambdavp.com is currently a static export (`output: 'export'`)
-> deployed to GitHub Pages. A static export has no server, so it cannot
-> run `/api/leads`, cannot score on the server, and cannot write to
-> Postgres. Server-side scoring is not negotiable: in the browser, the
-> thresholds are readable by anyone, and a founder who reads them can
-> answer their way onto a partner's calendar.
+Two environments, two hosts, and the difference between them is the
+thing to understand before changing anything here.
 
-To move the marketing site to Railway (where Lambda hosts everything
-else):
+| | Staging | Production |
+|---|---|---|
+| Host | Railway | Netlify |
+| URL | `new-lambda-website-staging.up.railway.app` | lambdavp.com |
+| Branch | `Staging` | `main` |
+| Runs as | one long-lived container | serverless functions |
+| Migrations | on start, via `npm start` | at build, via `build:netlify` |
 
-1. Delete `output: 'export'`, `trailingSlash`, and `images.unoptimized`
-   from `next.config.js`.
-2. Point a Railway service at the repo.
-3. Add the environment variables above.
-4. Generate a public domain, then point DNS at it.
-5. Retire `.github/workflows/deploy.yml`.
+Production is on Netlify because the domain already was. Moving the app
+to the domain is cheaper than moving the domain to the app: the apex
+record cannot be a CNAME, and Google Cloud DNS has no ALIAS, so
+repointing lambdavp.com would have meant migrating DNS to a provider
+with CNAME flattening before anything else could happen.
 
-The site is plain Next.js and deploys as-is. Keeping `/contact` on the
-same origin is what lets both homepage CTAs keep working untouched.
+**The old site was a static export** (`output: 'export'`). That is why
+none of this could simply be dropped into it: a static export has no
+server, so it cannot run `/api/leads`, cannot score on the server, and
+cannot write to Postgres. Server-side scoring is not negotiable — in
+the browser the thresholds are readable by anyone, and a founder who
+reads them can answer their way onto a partner's calendar.
 
-Railway runs a persistent container, which is why `src/lib/db/index.ts`
-uses a pooled TCP connection rather than a serverless HTTP driver. If
-this ever moves to a serverless host, that file needs revisiting — a
-plain pool there needs a pooler in front of it.
+### What the serverless model changes
+
+**Migrations move to build time.** Railway has a process to run them
+before the server starts. Netlify has no equivalent — the build emits
+functions, and a function only runs when a request arrives, so the
+first request would be racing the schema. `netlify.toml` runs them in
+the build command instead, with `MIGRATE_STRICT=1` so a failure stops
+the deploy. That is the opposite of the Railway setting and it is not
+an inconsistency: a failed build leaves the previous deploy serving,
+whereas a failed start on Railway left nothing serving at all.
+
+**The database pool is small.** Every warm function instance holds its
+own pool, so the connection count against Postgres is `max` times the
+number of live instances. `max` is 2 for that reason. See the note in
+`src/lib/db/index.ts` — the fix for real volume is PgBouncer, never a
+bigger number.
+
+**Rate limiting is weaker.** `src/lib/rate-limit.ts` keeps its state in
+process memory, so the real limit is per instance rather than per site,
+and a cold start resets it. That was a documented trade before and it
+is a slightly worse one here. It still stops a naive script, which is
+what it is for. The file's interface matches what a Redis-backed
+version would look like, so swapping it is a one-file change.
+
+**`DATABASE_URL` must be the public URL.** Netlify runs outside
+Railway's network, so `postgres.railway.internal` fails there exactly
+as it does on a laptop. Use `DATABASE_PUBLIC_URL` (`*.proxy.rlwy.net`)
+with `?sslmode=require`, set in both the build and function contexts.
+
+### First deploy
+
+1. Point a Netlify site at the branch you want to test. Use a **branch
+   deploy or a separate site first** — the existing site serves
+   lambdavp.com and should not be the experiment.
+2. Set the environment variables above in Netlify.
+3. Deploy, and read the build log.
+
+**The known risk is the Next.js runtime.** Netlify installs its own
+Next runtime and this app is on Next 16, which is recent enough that
+support is worth confirming rather than assuming. If the build fails on
+the runtime, the options are to wait for it or to pin Next down a
+major. Find this out on a branch deploy, not on the apex domain.
+
+Once a branch deploy is verified, merge `Staging` into `main` and let
+the existing Netlify site build it. Nothing about the domain changes.
+
 
 ---
 
-## Merging into the marketing site
+## The marketing site lives here now
 
-Paths here mirror the target repo, so merging is mostly a copy. Two
-things need attention:
+This was once a standalone funnel meant to be copied into the marketing
+site. It went the other way instead: the site is 16 files of
+straightforward pages, this app is 59 files of tested infrastructure, so
+the site moved in here rather than this being merged into a codebase two
+Next majors, a React major and a Tailwind major behind.
 
-**Tailwind version.** This project uses v4 (CSS `@theme`); the site uses
-v3 (`tailwind.config.js`). Every colour the funnel uses is confined to
-`src/styles/theme.css`, mapped one-to-one onto the site's own tokens.
-Move those values into `tailwind.config.js` under `extend.colors`, or
-better, point the funnel at the site's existing colour names and delete
-that file.
+So `/`, `/about`, `/portfolio` and `/team` are in `src/app`, the shared
+components are in `src/components`, and the root layout carries the
+site's nav and footer around every route including the funnel.
 
-**Framer Motion.** The site animates with it; the funnel uses CSS
-transitions capped at 180ms and honours `prefers-reduced-motion`. Either
-is fine — don't mix them in one component.
+Two things resolved on the way in, worth knowing if you touch styling:
+
+**Tailwind is v4 everywhere.** The site's v3 palette was translated into
+`@theme` tokens in `src/styles/site-theme.css`, values unchanged, so
+existing class names still work. It sits beside `theme.css` and its
+`lambda-*` tokens rather than replacing it — the two are the same
+colours, and collapsing them touches every funnel component, which is a
+separate change from the port.
+
+**Framer Motion is on v13.** The marketing pages animate with it and v10
+does not support React 19. The funnel still uses CSS transitions capped
+at 180ms and honours `prefers-reduced-motion` — either approach is fine,
+just don't mix them in one component.
 
 > **Accessibility note:** the site's `muted-foreground`
-> (`hsl(220 15% 70%)`) is about **2.4:1 on white** and fails WCAG AA.
-> The funnel uses `muted` (`hsl(220 25% 45%)`, 5.5:1) for all sub-copy.
+> (`hsl(220 15% 70%)`) is about **2.4:1 on white** and fails WCAG AA. It
+> survives in the ported palette because a page still uses it. The
+> funnel uses `muted` (`hsl(220 25% 45%)`, 5.5:1) for all sub-copy.
 > Worth fixing site-wide.
 
 ---

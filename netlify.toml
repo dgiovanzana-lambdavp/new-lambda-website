@@ -1,0 +1,39 @@
+# ═══════════════════════════════════════════════════════════════════
+# Netlify build configuration
+#
+# The marketing site's domain already lives on Netlify, so the app is
+# deployed here rather than moving DNS. Netlify runs Next.js as
+# serverless functions, which is a different execution model from
+# Railway's long-lived container — the two places that matters are
+# migrations (below) and the database pool (src/lib/db/index.ts).
+#
+# The Next.js runtime is not listed as a plugin here on purpose:
+# Netlify detects Next.js and installs its own runtime, and pinning a
+# version in two places is how they drift apart.
+# ═══════════════════════════════════════════════════════════════════
+
+[build]
+  # Migrations run at BUILD time, not at start time.
+  #
+  # On Railway `npm start` runs them because there is a server process
+  # to run them before. Netlify has no equivalent: the build produces
+  # functions, and a function is only invoked by a request — the first
+  # request would be racing the schema.
+  command = "npm run build:netlify"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+  # Fail the deploy if migrations fail.
+  #
+  # This is the opposite of the Railway setting, and deliberately so.
+  # On Railway a failed migration used to mean no server at all, so it
+  # was made non-fatal. Here a failed build simply leaves the previous
+  # deploy serving — production stays up, and the broken deploy never
+  # goes live. Failing loudly is free.
+  MIGRATE_STRICT = "1"
+
+# Long-running work belongs in the background, but every function here
+# is request/response and finishes in well under the default timeout.
+# Left unset rather than raised speculatively.

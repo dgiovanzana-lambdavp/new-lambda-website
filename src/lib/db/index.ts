@@ -14,21 +14,29 @@ export * from "./schema";
  * connection, and a second client would mean a second connection pool
  * against the same database.
  *
- * ── Why a pooled TCP connection, not a serverless HTTP driver ───────
+ * ── A pooled TCP connection, sized for two very different hosts ─────
  *
- * This ran on Neon's HTTP driver while the target was Netlify, whose
- * functions are short-lived and created per request — a model where a
- * conventional connection pool exhausts the server's connection limit
- * under modest traffic.
+ * This file used to say a plain pool would need a pooler in front of
+ * it on a serverless host. Production is now exactly that: Netlify
+ * functions, while staging stays on Railway's long-lived container.
+ * The resolution is not a second driver, it is a smaller pool.
  *
- * Railway runs a long-lived container instead, so the process outlives
- * any single request and a pool is exactly right: connections are
- * opened once and reused, rather than renegotiated per query. The
- * serverless driver's advantage does not apply here, and it costs an
- * HTTP round trip per statement.
+ * The danger on serverless was never pooling itself. It is that every
+ * concurrently-live function instance holds its OWN pool, so the real
+ * connection count is `max` multiplied by however many instances are
+ * warm — which is what exhausts a database's connection limit. With
+ * `max` at 2 the arithmetic stops being frightening: it takes fifty
+ * simultaneously-warm instances to reach a hundred connections, and
+ * this funnel is designed around a handful of leads a quarter.
  *
- * If this ever moves to a serverless host, revisit this file — a plain
- * pool there needs a pooler (PgBouncer or equivalent) in front of it.
+ * A small pool costs the long-lived Railway container nothing either.
+ * Requests there arrive nowhere near close enough together to queue
+ * behind two connections, so one setting serves both hosts and there
+ * is no host-conditional branch to get wrong.
+ *
+ * If volume ever climbs enough to make that arithmetic uncomfortable,
+ * the answer is PgBouncer in front of Postgres — not a bigger number
+ * here, which makes it worse.
  */
 
 /**
@@ -61,10 +69,15 @@ export function getDb(): NodePgDatabase<typeof schema> | null {
   if (!globalForDb.__lambdaDb) {
     globalForDb.__lambdaPool ??= new Pool({
       connectionString: url,
-      // Modest: this funnel is low volume by design, and a large pool
-      // on a small Postgres plan just moves the contention.
-      max: 10,
-      idleTimeoutMillis: 30_000,
+      // Small on purpose — see the note above. Every warm serverless
+      // instance holds its own pool, so this number is multiplied by
+      // instance count against the database's connection limit.
+      max: 2,
+      // Shorter than the old 30s. A serverless instance that has gone
+      // idle is usually about to be frozen or discarded, and a
+      // connection held open across that is a connection the database
+      // counts but nothing is using.
+      idleTimeoutMillis: 10_000,
       // Fail fast rather than hanging a submission for the default
       // 30 seconds if the database is unreachable.
       connectionTimeoutMillis: 10_000,
