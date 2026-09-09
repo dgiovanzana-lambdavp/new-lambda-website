@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { RESPONSE_WINDOW_COPY } from "@/config/funnel";
 import type { ContactFieldName } from "@/config/questions/types";
-import { track } from "@/lib/analytics";
 import type { LeadResponse, Persona } from "@/lib/leads/types";
 import { BookingCalendar } from "./BookingCalendar";
 
@@ -56,16 +55,6 @@ export function ThankYou({
   useEffect(() => {
     headingRef.current?.focus({ preventScroll: true });
   }, []);
-
-  useEffect(() => {
-    if (showCalendar) {
-      track("funnel_calendar_shown", {
-        persona,
-        tier: "A",
-        utm_source: utmSource,
-      });
-    }
-  }, [showCalendar, persona, utmSource]);
 
   return (
     <div className="flex min-h-full flex-col justify-between">
@@ -133,25 +122,13 @@ export function ThankYou({
             {showCalendar ? (
               <div className="mt-6 h-[32rem] overflow-hidden rounded-xl border border-lambda-border">
                 <BookingCalendar
-                  calLink={response.calendarUrl!}
-                  sessionId={sessionId}
+                  bookingLink={response.calendarUrl!}
                   persona={persona}
-                  name={[contact.firstName, contact.lastName]
-                    .filter(Boolean)
-                    .join(" ")}
-                  email={contact.email}
-                  company={contact.company}
                   utmSource={utmSource}
                 />
               </div>
             ) : (
-              /*
-                Cal.com not configured yet. A qualifying founder still
-                gets the right outcome and the right copy; they just get
-                an email promise instead of a calendar. Rendering an
-                embed against a placeholder link would show a broken
-                Cal.com error page, which is worse than this.
-              */
+              /* Booking link not configured — fall back to a manual promise. */
               <p className="mt-4 max-w-prose text-lg text-lambda-body">
                 We&rsquo;ll follow up shortly with a time.
               </p>

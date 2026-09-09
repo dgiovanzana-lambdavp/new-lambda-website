@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getBookingCalLink, getScoringConfig } from "@/lib/config/runtime";
+import { getBookingLink, getScoringConfig } from "@/lib/config/runtime";
 import { deliverLead } from "@/lib/leads";
 import { scoreLead } from "@/lib/leads/score";
 import type {
@@ -155,14 +155,10 @@ async function buildResponse(
   }
 
   if (scoring.outcome === "book") {
-    const link = await getBookingCalLink();
-    // Until Cal.com is configured, a qualifying founder still gets the
-    // `book` outcome and the thank-you screen still says the right
-    // thing — it just has no calendar to render yet. Emitting a
-    // placeholder URL would render a broken embed instead.
+    const link = await getBookingLink();
     return {
       outcome: "book",
-      ...(link && link !== "TODO" ? { calendarUrl: link } : {}),
+      ...(link ? { calendarUrl: link } : {}),
     };
   }
 

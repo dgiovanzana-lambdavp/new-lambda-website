@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
                   />
                 </Link>
                 <p className="text-white text-lg leading-relaxed mb-6 max-w-md">
-                  Lambda Capital is a permanent capital holding company that invests in vertical market technology companies that strengthen our national security and core sectors of our economy.
+                  Lambda Capital is a permanent capital holding company that invests in vertical market technology.
                 </p>
                 <div className="flex space-x-4">
                   {footerLinks.social.map((social) => (

@@ -34,11 +34,9 @@ export const FUNNEL_CONFIG = {
 } as const;
 
 export const BOOKING_CONFIG = {
-  /**
-   * The Cal.com event type qualified founders book, as "user/slug".
-   * Populated once the Cal.com account exists.
-   */
-  tierACalLink: "TODO", // e.g. "lambda/intro"
+  /** Google Calendar appointment schedule for qualified founders. */
+  tierABookingLink:
+    "https://calendar.app.google/qZy7enQ2a9Q8jJxVA",
 } as const;
 
 /**

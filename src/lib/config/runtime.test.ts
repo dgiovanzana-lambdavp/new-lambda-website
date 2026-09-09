@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { SCORING_CONFIG } from "@/config/scoring";
-import { getBookingCalLink, getScoringConfig } from "./runtime";
+import { BOOKING_CONFIG } from "@/config/funnel";
+import { getBookingLink, getScoringConfig } from "./runtime";
 
 /**
  * The failure mode these tests protect against is the expensive one.
@@ -61,8 +62,10 @@ describe("getScoringConfig", () => {
   });
 });
 
-describe("getBookingCalLink", () => {
+describe("getBookingLink", () => {
   it("falls back to the checked-in booking link", async () => {
-    await expect(getBookingCalLink()).resolves.toBe("TODO");
+    await expect(getBookingLink()).resolves.toBe(
+      BOOKING_CONFIG.tierABookingLink,
+    );
   });
 });

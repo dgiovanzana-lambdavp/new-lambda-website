@@ -123,9 +123,9 @@ export async function getScoringConfig(): Promise<ScoringConfig> {
   return parsed.data;
 }
 
-/** The Tier A Cal.com link, overridable without a deploy. */
-export async function getBookingCalLink(): Promise<string> {
+/** The Tier A booking link, overridable without a deploy. */
+export async function getBookingLink(): Promise<string> {
   const payload = await readFlagPayload("booking-cal-link");
   if (typeof payload === "string" && payload.trim()) return payload.trim();
-  return BOOKING_CONFIG.tierACalLink;
+  return BOOKING_CONFIG.tierABookingLink;
 }

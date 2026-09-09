@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Investing in mission-critical technology
+            Growth capital investments in vertical software
           </motion.p>
 
           <motion.div
@@ -65,8 +65,8 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-          <Button href="/portfolio" variant="white" size="lg">
-            View Our Portfolio
+          <Button href="/contact" variant="white" size="lg">
+            Apply for funding
           </Button>
           </motion.div>
         </motion.div>

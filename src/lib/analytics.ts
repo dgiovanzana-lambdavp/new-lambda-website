@@ -24,6 +24,7 @@ export type FunnelEvent =
   | "funnel_partial"
   | "funnel_complete"
   | "funnel_calendar_shown"
+  | "funnel_booking_link_clicked"
   | "funnel_booking_created";
 
 export interface EventProps {
