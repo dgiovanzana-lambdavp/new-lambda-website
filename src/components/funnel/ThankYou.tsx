@@ -37,7 +37,6 @@ export function ThankYou({
   response,
   persona,
   contact,
-  sessionId,
   utmSource,
 }: ThankYouProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);

@@ -64,8 +64,6 @@ describe("getScoringConfig", () => {
 
 describe("getBookingLink", () => {
   it("falls back to the checked-in booking link", async () => {
-    await expect(getBookingLink()).resolves.toBe(
-      BOOKING_CONFIG.tierABookingLink,
-    );
+    await expect(getBookingLink()).resolves.toBe(BOOKING_CONFIG.embedUrl);
   });
 });

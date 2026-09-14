@@ -34,9 +34,18 @@ export const FUNNEL_CONFIG = {
 } as const;
 
 export const BOOKING_CONFIG = {
-  /** Google Calendar appointment schedule for qualified founders. */
-  tierABookingLink:
-    "https://calendar.app.google/qZy7enQ2a9Q8jJxVA",
+  /**
+   * Public booking page. Used for the "open in a new tab" fallback.
+   * Do not iframe this URL — calendar.app.google sends
+   * X-Frame-Options: SAMEORIGIN and the embed stays blank.
+   */
+  bookingUrl: "https://calendar.app.google/qZy7enQ2a9Q8jJxVA",
+  /**
+   * Embeddable appointment-schedule URL (`gv=true`). This is what the
+   * thank-you screen iframes.
+   */
+  embedUrl:
+    "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0hh6-0FDzKr-U2kk09vR0gwr2ywo0lw6kld0VCO1EMsuYjfBoSIIVhTC-R251V6cPB38V-6VAV?gv=true",
 } as const;
 
 /**
