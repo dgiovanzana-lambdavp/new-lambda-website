@@ -1,8 +1,17 @@
 import "server-only";
 
+import { getConnectionString } from "@netlify/database";
 import { drizzle, type NodePgDatabase } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as schema from "./schema";
+
+function resolveDatabaseUrl(): string | undefined {
+  try {
+    return getConnectionString();
+  } catch {
+    return process.env.DATABASE_URL || process.env.NETLIFY_DB_URL;
+  }
+}
 
 export * from "./schema";
 
@@ -63,7 +72,7 @@ const globalForDb = globalThis as unknown as {
  * failure than a missing row.
  */
 export function getDb(): NodePgDatabase<typeof schema> | null {
-  const url = process.env.DATABASE_URL || process.env.NETLIFY_DB_URL;
+  const url = resolveDatabaseUrl();
   if (!url) return null;
 
   if (!globalForDb.__lambdaDb) {
@@ -99,5 +108,5 @@ export function getDb(): NodePgDatabase<typeof schema> | null {
 }
 
 export function isDatabaseConfigured(): boolean {
-  return Boolean(process.env.DATABASE_URL || process.env.NETLIFY_DB_URL);
+  return Boolean(resolveDatabaseUrl());
 }
