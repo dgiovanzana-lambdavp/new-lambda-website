@@ -80,7 +80,7 @@ function halt(message) {
   process.exit(0);
 }
 
-const url = process.env.DATABASE_URL;
+const url = process.env.DATABASE_URL || process.env.NETLIFY_DB_URL;
 
 if (!url) {
   halt(

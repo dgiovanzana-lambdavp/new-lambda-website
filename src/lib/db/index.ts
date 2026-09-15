@@ -63,7 +63,7 @@ const globalForDb = globalThis as unknown as {
  * failure than a missing row.
  */
 export function getDb(): NodePgDatabase<typeof schema> | null {
-  const url = process.env.DATABASE_URL;
+  const url = process.env.DATABASE_URL || process.env.NETLIFY_DB_URL;
   if (!url) return null;
 
   if (!globalForDb.__lambdaDb) {
@@ -99,5 +99,5 @@ export function getDb(): NodePgDatabase<typeof schema> | null {
 }
 
 export function isDatabaseConfigured(): boolean {
-  return Boolean(process.env.DATABASE_URL);
+  return Boolean(process.env.DATABASE_URL || process.env.NETLIFY_DB_URL);
 }
