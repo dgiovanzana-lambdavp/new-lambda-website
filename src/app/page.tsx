@@ -68,7 +68,7 @@ export default function HomePage() {
               Our <span className="text-foreground">Focus Areas</span>
             </h2>
             <p className="text-xl text-muted max-w-3xl mx-auto">
-              Lambda Capital invests in vertical market technology companies that strengthen our national security and core sectors of our economy. Our portfolio is purposefully concentrated, enabling us to provide deep expertise and strategic value to our portfolio companies.
+              Lambda Capital invests in vertical market technology. Our portfolio is purposefully concentrated, enabling us to provide deep expertise and strategic value to our portfolio companies.
             </p>
           </motion.div>
 

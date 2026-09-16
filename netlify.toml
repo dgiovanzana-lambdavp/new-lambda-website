@@ -1,0 +1,25 @@
+# ═══════════════════════════════════════════════════════════════════
+# Netlify build configuration
+#
+# The marketing site's domain already lives on Netlify, so the app is
+# deployed here rather than moving DNS. Next.js runs as serverless
+# functions. Schema changes go through netlify/database/migrations.
+#
+# The Next.js runtime is not listed as a plugin here on purpose:
+# Netlify detects Next.js and installs its own runtime, and pinning a
+# version in two places is how they drift apart.
+# ═══════════════════════════════════════════════════════════════════
+
+[build]
+  # Schema is applied from netlify/database/migrations by the deploy,
+  # not by scripts/migrate.mjs. The Netlify Database role cannot create
+  # the drizzle schema that migrator needs.
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Long-running work belongs in the background, but every function here
+# is request/response and finishes in well under the default timeout.
+# Left unset rather than raised speculatively.

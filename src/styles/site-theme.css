@@ -1,0 +1,71 @@
+/* ═══════════════════════════════════════════════════════════════════
+   THE MARKETING SITE'S PALETTE, PORTED FROM TAILWIND v3
+
+   Straight translation of `theme.extend.colors` in the old
+   tailwind.config.js. The site ran Tailwind v3 with a JS config; this
+   app runs v4, where colours are CSS custom properties under `@theme`
+   and `--color-<name>` generates `bg-<name>`, `text-<name>`,
+   `border-<name>`, `ring-<name>` and friends automatically.
+
+   Values are unchanged. Every marketing page and component keeps its
+   existing class names and renders as it did before.
+
+   ── Why this sits beside theme.css rather than replacing it ─────────
+
+   theme.css defines the funnel's `lambda-*` tokens and calls itself the
+   merge swap point, suggesting the funnel should be re-pointed at these
+   site names and that file deleted. The two palettes are the same
+   colours, so that refactor is safe — but it touches every funnel
+   component, and doing it in the same change as the site port would
+   mean any visual regression could have come from either. Both token
+   sets are live for now. Collapsing them is a separate, mechanical
+   change.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Core palette --------------------------------------------------- */
+  --color-primary: hsl(220 70% 18%); /* deep navy — main brand */
+  --color-primary-foreground: #ffffff;
+  --color-secondary: hsl(220 15% 96%); /* soft blue-grey surfaces */
+  --color-secondary-foreground: hsl(220 40% 15%);
+  --color-accent: hsl(210 100% 42%); /* CTA blue */
+  --color-accent-foreground: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: hsl(220 40% 15%);
+  --color-card: #ffffff;
+  --color-card-foreground: hsl(220 40% 15%);
+  --color-border: hsl(220 15% 90%);
+  --color-muted: hsl(220 25% 45%);
+
+  /*
+    Kept for fidelity, but note it is about 2.4:1 on white and fails
+    WCAG AA. Used once, in src/app/about/page.tsx. `muted` above is the
+    same family at 5.5:1 and passes — prefer it for any new sub-copy.
+  */
+  --color-muted-foreground: hsl(220 15% 70%);
+
+  --color-brand-red: hsl(210 100% 42%); /* misnomer inherited from the
+                                           original palette — it is the
+                                           accent blue, not red */
+
+  /* Legacy aliases -------------------------------------------------
+     Carried over verbatim. Several are still referenced by the
+     marketing pages, so they cannot simply be dropped. */
+  --color-tactical-black: hsl(220 40% 15%);
+  --color-tactical-gray: hsl(220 25% 45%);
+  --color-electric-blue: hsl(210 100% 42%);
+  --color-bright-green: hsl(210 100% 42%);
+  --color-light-gray: hsl(220 15% 96%);
+  --color-navy-blue: hsl(220 70% 18%);
+  --color-teal-blue: hsl(220 25% 45%);
+  --color-light-blue: hsl(210 100% 42%);
+  --color-off-white: #ffffff;
+  --color-dark-navy: hsl(220 40% 15%);
+  --color-steel-gray: hsl(220 15% 90%);
+  --color-text-primary: hsl(220 40% 15%);
+  --color-text-secondary: hsl(220 25% 45%);
+  --color-text-muted: hsl(220 15% 70%);
+  --color-card-bg: #ffffff;
+  --color-accent-blue: hsl(210 100% 42%);
+  --color-accent-gray: hsl(220 15% 96%);
+}

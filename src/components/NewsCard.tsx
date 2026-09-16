@@ -10,12 +10,30 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ newsItem, index }) => {
+  /**
+   * Format a plain calendar date without letting the reader's timezone
+   * shift it.
+   *
+   * `new Date('2025-10-01')` parses as midnight UTC, but
+   * `toLocaleDateString` renders in the local zone. On a server running
+   * UTC that prints "October 1, 2025"; in any US timezone the same
+   * instant is still the previous evening, so the browser prints
+   * "September 30, 2025".
+   *
+   * Two bugs at once: the date is simply wrong for anyone west of UTC,
+   * and the server and client HTML disagree, which React reports as
+   * hydration error #418.
+   *
+   * Pinning the output zone to UTC matches how the value was parsed, so
+   * what renders is the date that was written in the data.
+   */
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
     });
   };
 
