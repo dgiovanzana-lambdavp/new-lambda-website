@@ -47,9 +47,9 @@ export type RevenueBand = (typeof REVENUE_BANDS)[number];
 export const REVENUE_LABELS: Record<RevenueBand, string> = {
   pre_revenue: "Pre-revenue",
   under_1m: "Under $1M",
-  "1m_3m": "$1M – $3M",
-  "3m_10m": "$3M – $10M",
-  "10m_25m": "$10M – $25M",
+  "1m_3m": "$1M - $3M",
+  "3m_10m": "$3M - $10M",
+  "10m_25m": "$10M - $25M",
   over_25m: "Over $25M",
 };
 

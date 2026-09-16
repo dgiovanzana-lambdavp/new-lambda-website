@@ -91,7 +91,7 @@ export const servicesQuestions: Question[] = [
     required: true,
     options: [
       { value: "urgent", label: "Urgent, this quarter" },
-      { value: "next_3_6_months", label: "Next 3–6 months" },
+      { value: "next_3_6_months", label: "Next 3-6 months" },
       { value: "later", label: "Exploring for later" },
       { value: "curious", label: "Just curious" },
     ],

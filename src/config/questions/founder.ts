@@ -6,7 +6,6 @@ import {
   REVENUE_BANDS,
   REVENUE_LABELS,
 } from "@/config/answer-values";
-import { heardAboutQuestion } from "./attribution";
 import type { Question } from "./types";
 
 /**
@@ -156,9 +155,9 @@ export const founderQuestions: Question[] = [
     required: true,
     options: [
       { value: "under_1m", label: "Under $1M" },
-      { value: "1m_3m", label: "$1M – $3M" },
-      { value: "3m_10m", label: "$3M – $10M" },
-      { value: "10m_25m", label: "$10M – $25M" },
+      { value: "1m_3m", label: "$1M - $3M" },
+      { value: "3m_10m", label: "$3M - $10M" },
+      { value: "10m_25m", label: "$10M - $25M" },
       { value: "over_25m", label: "Over $25M" },
       { value: "not_sure", label: "Not sure yet" },
     ],
@@ -172,37 +171,20 @@ export const founderQuestions: Question[] = [
     options: [
       { value: "immediate", label: "Immediate need" },
       { value: "next_3_months", label: "Next 3 months" },
-      { value: "next_6_12_months", label: "Next 6–12 months" },
+      { value: "next_6_12_months", label: "Next 6-12 months" },
       { value: "exploring", label: "Exploring options" },
     ],
+    // Terminal. Without this, the path would fall through to
+    // `out_of_focus`, which is only for the "none" focus-area branch.
+    next: () => null,
   },
 
-  /*
-   * The free-text "tell us about the company" question was removed.
-   *
-   * Nothing pointed at it: the path walks this array in order, so
-   * `timeline` now falls through to attribution with no resolver to
-   * update. Answers are stored as JSONB, so dropping a question needs
-   * no migration either.
-   *
-   * Leads already in the database keep whatever `about` text they gave.
-   * It simply stops being collected, and stops appearing in the
-   * notification email, which renders only the answers present.
-   *
-   * The out-of-focus branch below still asks for a description. That
-   * one is doing different work: it is the only thing a declined
-   * founder is asked, and it is what makes the decline path worth
-   * storing at all.
-   */
-
-  heardAboutQuestion,
-
   /**
-   * Reached only from the focus-area branch. Placed after the terminal
-   * attribution question on purpose: array position is the fall-through
-   * order, so anything sitting between two main-line questions would be
-   * walked into by default. Parking off-path questions at the end keeps
-   * the main line readable.
+   * Reached only from the focus-area branch. Placed after the main line
+   * on purpose: array position is the fall-through order, so anything
+   * sitting between two main-line questions would be walked into by
+   * default. Parking off-path questions at the end keeps the main line
+   * readable.
    */
   {
     id: "out_of_focus",
@@ -212,6 +194,6 @@ export const founderQuestions: Question[] = [
       "We invest in a concentrated set of areas, but we'd still like to know.",
     required: true,
     placeholder: "A sentence or two is plenty.",
-    next: () => "heard_about",
+    next: () => null,
   },
 ];

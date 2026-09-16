@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getBookingLink, getScoringConfig } from "@/lib/config/runtime";
 import { deliverLead } from "@/lib/leads";
+import { withInferredCompanyUrl } from "@/lib/leads/company-url";
 import { scoreLead } from "@/lib/leads/score";
 import type {
   LeadResponse,
@@ -87,7 +88,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   /**
    * Minimum time on form.
    *
-   * Nobody types a name, an email, a company, and eight answers in
+   * Nobody types a name, an email, a company, and the remaining answers in
    * three seconds. Scoped to complete submissions only — an abandonment
    * beacon legitimately fires seconds after landing, and dropping those
    * would discard exactly the partial leads this build exists to catch.
@@ -99,7 +100,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     }
   }
 
-  const submission = lead as LeadSubmission;
+  const submission = withInferredCompanyUrl(lead as LeadSubmission);
 
   /**
    * Score complete founder submissions only.

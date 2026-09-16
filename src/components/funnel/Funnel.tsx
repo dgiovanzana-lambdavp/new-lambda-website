@@ -69,9 +69,9 @@ export function Funnel({ persona }: FunnelProps) {
   /**
    * The branch the current answers imply, recomputed on every change.
    *
-   * This single line is what makes "Question N of M" honest. M is the
-   * length of THIS path, so a founder who answers "None of these" sees
-   * a 4-question flow while a qualifying founder sees 9.
+   * This single line is what makes the current path honest. Length is
+   * of THIS branch, so a founder who answers "None of these" is on a
+   * short path while a qualifying founder walks the full set.
    */
   const path = useMemo(
     () => resolvePath(questions, state.answers),

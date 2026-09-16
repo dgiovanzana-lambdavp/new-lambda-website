@@ -56,4 +56,4 @@ export const BOOKING_CONFIG = {
  * component so the promise is one edit, and so it is obvious that
  * changing it changes a commitment made to real people.
  */
-export const RESPONSE_WINDOW_COPY = "within 3–5 business days" as const;
+export const RESPONSE_WINDOW_COPY = "within 3-5 business days" as const;

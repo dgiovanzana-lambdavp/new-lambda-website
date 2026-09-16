@@ -27,9 +27,9 @@ const PERSONA_LABEL: Record<string, string> = {
 /**
  * The subject line does the triage.
  *
- * `[Founder] Jane Smith — Acme Corp — $3M–$10M — via LinkedIn`
- * `[REVIEW] Jane Smith — Acme Corp — $1M–$3M — FAILED: profitability`
- * `[PARTIAL] [Founder] Jane Smith — Acme Corp — abandoned at step 4`
+ * `[Founder] Jane Smith | Acme Corp | $3M-$10M | via LinkedIn`
+ * `[REVIEW] Jane Smith | Acme Corp | $1M-$3M | FAILED: profitability`
+ * `[PARTIAL] [Founder] Jane Smith | Acme Corp | abandoned at step 4`
  *
  * Everything needed to decide whether to open it is in the subject,
  * because in practice these get read on a phone between meetings.
