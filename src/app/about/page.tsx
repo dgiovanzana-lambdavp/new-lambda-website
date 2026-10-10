@@ -125,7 +125,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-muted leading-relaxed">
-                  We work with founders who want an honest buyer and with teams who need a partner that can operate and scale revenue.
+                  We work with companies that want an honest buyer and with teams who need a partner that can operate and scale revenue.
                 </p>
               </motion.div>
 
@@ -256,7 +256,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-lg text-muted leading-relaxed">
-                  We tailor the deal to the company. Sometimes we lead operations. Sometimes we back the founder.
+                  We tailor the deal to the company. Sometimes we lead operations. Sometimes we back the existing leadership team.
                 </p>
               </motion.div>
 

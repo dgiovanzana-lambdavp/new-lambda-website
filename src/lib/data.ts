@@ -156,7 +156,7 @@ export const values = [
   },
   {
     title: 'Long-term Vision',
-    description: 'Lambda Capital supports founders building companies that will define the future of defense tech.',
+    description: 'Lambda Capital supports companies building products that will define the future of defense tech.',
   },
   {
     title: 'Strategic Partnership',

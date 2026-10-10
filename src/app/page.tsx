@@ -146,7 +146,7 @@ export default function HomePage() {
               Ready to Build the <span className="text-foreground">Future?</span>
             </h2>
             <p className="text-xl text-muted max-w-3xl mx-auto mb-8">
-              If you're a founder with breakthrough technology in our focus areas, Lambda Capital would love to hear from you.
+              If you're building vertical software in our focus areas, Lambda Capital would love to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/contact" variant="primary" size="lg">
