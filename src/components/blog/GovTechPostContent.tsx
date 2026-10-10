@@ -214,7 +214,10 @@ export default function GovTechPostContent() {
         invoice.
       </p>
 
-      <TableWrap caption="Government contract financing options compared">
+      <TableWrap
+        caption="Government contract financing options compared"
+        scrollable
+      >
         <table className="blog-table blog-table--options">
           <caption>Government contract financing options compared</caption>
           <thead>

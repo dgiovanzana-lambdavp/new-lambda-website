@@ -1,5 +1,28 @@
 /* Blog styles. Uses only live site CSS variables. */
 
+/* Skip link: first in body per a11y landmarks. Hidden until focused. */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-navy-blue);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.skip-to-content:focus,
+.skip-to-content:focus-visible {
+  left: 1rem;
+  top: 0.5rem;
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
 .blog-page {
   min-height: 100vh;
   padding-top: 5rem; /* fixed header */
@@ -377,8 +400,29 @@
   }
 }
 
+/* Reading column stays 680px; tables may break out (see below). */
 .blog-prose > * {
   max-width: 680px;
+}
+
+.blog-prose > .blog-table-wrap {
+  max-width: 100%;
+}
+
+/* Spec: table wrapper up to 968px from 1024px up so all six columns fit. */
+@media (min-width: 1024px) {
+  .blog-prose {
+    max-width: 968px;
+  }
+
+  .blog-prose > .blog-table-wrap {
+    max-width: 968px;
+    width: 100%;
+  }
+
+  .blog-table--options {
+    min-width: 0;
+  }
 }
 
 .blog-prose p {
@@ -439,10 +483,55 @@
 
 /* Tables */
 .blog-table-wrap {
+  position: relative;
   max-width: 968px;
   margin: 0 0 1.5rem;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+/*
+  Between 768px and 1023px the options table still scrolls horizontally.
+  Edge fade + hint make that scroll discoverable (no cue at 1024+ where
+  all six columns fit).
+*/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .blog-table-wrap--scrollable {
+    padding-bottom: 0.25rem;
+  }
+
+  .blog-table-wrap--scrollable::before {
+    content: "Scroll →";
+    position: absolute;
+    top: 0.15rem;
+    right: 0.5rem;
+    z-index: 2;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    background: rgb(255 255 255 / 0.92);
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    pointer-events: none;
+  }
+
+  .blog-table-wrap--scrollable::after {
+    content: "";
+    position: absolute;
+    top: 1.75rem;
+    right: 0;
+    bottom: 0;
+    width: 2.5rem;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to right,
+      rgb(255 255 255 / 0),
+      rgb(255 255 255 / 0.95)
+    );
+  }
 }
 
 .blog-table {
@@ -494,6 +583,8 @@
 @media (max-width: 767px) {
   .blog-table-wrap {
     overflow-x: visible;
+    max-width: none;
+    width: 100%;
   }
 
   .blog-table,
@@ -503,10 +594,19 @@
     display: block;
     width: 100%;
     min-width: 0;
+    max-width: none;
   }
 
   .blog-table--options {
     min-width: 0;
+  }
+
+  /* Caption was collapsing to a narrow column when the table stacked. */
+  .blog-table caption {
+    display: block;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
   }
 
   .blog-table thead {
@@ -525,6 +625,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
   }
 
   .blog-table tr {
