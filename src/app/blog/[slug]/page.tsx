@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               className="blog-byline__photo"
             />
             <div>
-              <p className="blog-byline__name">By {BLOG_AUTHOR.byline}</p>
+              <p className="blog-byline__name">{`By ${BLOG_AUTHOR.byline}`}</p>
               <p className="blog-byline__meta">
                 Last updated{" "}
                 <time dateTime={post.updated}>
