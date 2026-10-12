@@ -3,7 +3,7 @@ import Link from "next/link";
 import InlineCta from "./InlineCta";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import { GOVTECH_FAQ, POST_HEADINGS } from "@/lib/blog/posts";
+import { GOVTECH_FAQ, GOVTECH_POST, POST_HEADINGS } from "@/lib/blog/posts";
 
 const H = Object.fromEntries(POST_HEADINGS.map((h) => [h.text, h.id])) as Record<
   string,
@@ -394,7 +394,7 @@ export default function GovTechPostContent() {
         )
       </p>
 
-      <InlineCta />
+      <InlineCta postSlug={GOVTECH_POST.slug} />
 
       <h2
         id={

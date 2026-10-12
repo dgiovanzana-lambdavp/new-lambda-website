@@ -144,8 +144,16 @@ Subject lines are built to be triaged from a phone:
 
 ### 4. PostHog — unlocks analytics and no-deploy threshold changes
 
-`NEXT_PUBLIC_POSTHOG_KEY` for events; `POSTHOG_PERSONAL_API_KEY` for
-server-side flag evaluation.
+| Variable | Where | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_POSTHOG_KEY` | browser + server | Client events (funnel + marketing/blog). Analytics no-ops when unset. |
+| `NEXT_PUBLIC_POSTHOG_HOST` | browser + server | PostHog API host (default `https://us.i.posthog.com`) |
+| `POSTHOG_PERSONAL_API_KEY` | server only | Server-side flag evaluation for scoring overrides |
+
+Marketing pageviews (including App Router SPA navigations), blog CTA /
+jump-link / scroll-depth events, and funnel events all use the same
+project key. Autocapture stays off. Session replay stays off on
+marketing pages and turns on only inside the contact funnel.
 
 Flags to create:
 

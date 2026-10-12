@@ -2,12 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import type { BlogHeading } from "@/lib/blog/types";
+import { track } from "@/lib/analytics";
 
 type JumpListProps = {
   headings: BlogHeading[];
+  postSlug?: string;
 };
 
-export default function JumpList({ headings }: JumpListProps) {
+export default function JumpList({ headings, postSlug }: JumpListProps) {
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
@@ -35,7 +37,17 @@ export default function JumpList({ headings }: JumpListProps) {
         <ol className="blog-jump__list">
           {headings.map((heading, index) => (
             <li key={heading.id} className="blog-jump__item">
-              <a href={`#${heading.id}`} className="blog-jump__link">
+              <a
+                href={`#${heading.id}`}
+                className="blog-jump__link"
+                onClick={() =>
+                  track("jump_link_click", {
+                    post_slug: postSlug,
+                    heading_id: heading.id,
+                    heading_text: heading.text,
+                  })
+                }
+              >
                 <span className="blog-jump__num" aria-hidden="true">
                   {index + 1}.
                 </span>

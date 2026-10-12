@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "./blog/blog.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AnalyticsProvider from "@/components/AnalyticsProvider";
 
 /**
  * The site's two typefaces.
@@ -104,14 +106,18 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <a href="#main-content" className="skip-to-content">
-          Skip to content
-        </a>
-        <Navigation />
-        <div id="main-content" className="flex-1" tabIndex={-1}>
-          {children}
-        </div>
-        <Footer />
+        <Suspense fallback={null}>
+          <AnalyticsProvider>
+            <a href="#main-content" className="skip-to-content">
+              Skip to content
+            </a>
+            <Navigation />
+            <div id="main-content" className="flex-1" tabIndex={-1}>
+              {children}
+            </div>
+            <Footer />
+          </AnalyticsProvider>
+        </Suspense>
       </body>
     </html>
   );

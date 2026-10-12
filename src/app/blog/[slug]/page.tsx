@@ -4,6 +4,7 @@ import Link from "next/link";
 import JumpList from "@/components/blog/JumpList";
 import CtaBand from "@/components/blog/CtaBand";
 import AuthorBox from "@/components/blog/AuthorBox";
+import ScrollDepthTracker from "@/components/blog/ScrollDepthTracker";
 import GovTechPostContent from "@/components/blog/GovTechPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
@@ -121,6 +122,8 @@ export default async function BlogPostPage({ params }: PageProps) {
         }}
       />
 
+      <ScrollDepthTracker postSlug={slug} />
+
       <article>
         <header className="blog-post-header">
           <nav className="blog-breadcrumb" aria-label="Breadcrumb">
@@ -154,14 +157,17 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </header>
 
-        <JumpList headings={POST_HEADINGS} />
+        <JumpList headings={POST_HEADINGS} postSlug={slug} />
 
         {slug === "government-contract-financing-for-software-companies" ? (
           <GovTechPostContent />
         ) : null}
       </article>
 
-      <CtaBand heading="Growing a GovTech software company?" />
+      <CtaBand
+        heading="Growing a GovTech software company?"
+        postSlug={slug}
+      />
       <AuthorBox />
     </main>
   );
