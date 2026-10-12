@@ -1,11 +1,9 @@
 /**
  * Blog publish configuration.
  *
- * PUBLISH_DATE_PLACEHOLDER: set `BLOG_PUBLISH_DATE` to the go-live day
- * before publishing. The draft used 2026-10-10 as a working date only.
- * Do not treat that value as final until Domenic confirms go-live.
+ * Go-live: 2026-10-12 (Domenic approved publishing).
  */
-export const BLOG_PUBLISH_DATE = "2026-10-10"; // PLACEHOLDER: replace with go-live date
+export const BLOG_PUBLISH_DATE = "2026-10-12";
 
 export const BLOG_SITE_ORIGIN = "https://lambdavp.com";
 

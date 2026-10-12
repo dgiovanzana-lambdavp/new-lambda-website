@@ -19,7 +19,7 @@ Every submission lands in Postgres with its campaign tags intact, so
 | `scoreLead` + 43 tests | Done |
 | Postgres, `/api/leads`, destinations | Done, verified against a live database |
 | Cal.com embed + webhook | Done, awaiting account |
-| PostHog events + server-side flags | Wired (set keys in Netlify + Railway) |
+| PostHog events + server-side flags | Wired (set keys on Railway) |
 | Accessibility + mobile | Done |
 | Admin panel (Payload) | **Deliberately not built.** Phase 2. |
 
@@ -152,9 +152,8 @@ Subject lines are built to be triaged from a phone:
 | `NEXT_PUBLIC_POSTHOG_HOST` | browser + server | Yes (set explicitly) | `https://us.i.posthog.com` |
 | `POSTHOG_PERSONAL_API_KEY` | server only | No | Server-side flag evaluation for scoring overrides |
 
-**Set these in Netlify (production site for lambdavp.com)** — Site
-configuration → Environment variables → both **Builds** and
-**Functions** / deploy contexts that serve production:
+**Set these on Railway** (production service that serves the site, and
+staging):
 
 ```
 NEXT_PUBLIC_POSTHOG_KEY=phc_yKH2bLpfWTBPjofbY5dsAgYZBzPvqevPQwZ9eF34Vbhy
@@ -162,11 +161,8 @@ NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 ```
 
 `NEXT_PUBLIC_*` values are inlined at **build** time for the browser
-bundle, so after adding them trigger a new Netlify deploy (or clear
-cache and rebuild). Setting them only on Functions is not enough.
-
-Same two variables belong on Railway staging. Values are also listed in
-`.env.example` for local `.env.local`.
+bundle, so after adding them trigger a new Railway deploy. Values are
+also listed in `.env.example` for local `.env.local`.
 
 Marketing pageviews (including App Router SPA navigations), blog CTA /
 jump-link / scroll-depth events, and funnel events all use the same
