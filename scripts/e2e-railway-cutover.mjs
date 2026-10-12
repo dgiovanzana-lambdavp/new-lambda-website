@@ -324,16 +324,21 @@ console.log("\n=== 4) copy-from-netlify: seed → empty, then idempotent re-run 
   await source.query("TRUNCATE leads");
   await target.query("TRUNCATE leads");
 
-  // Seed three rows on source
+  // Seed three rows on source — include object and array jsonb so the
+  // copy path exercises the pg-json-bind stringify fix (22P02).
   for (let i = 0; i < 3; i++) {
     await source.query(
-      `INSERT INTO leads (persona, first_name, email, answers, session_id)
-       VALUES ($1, $2, $3, $4::jsonb, $5)`,
+      `INSERT INTO leads (persona, first_name, email, answers, failed_gates, session_id)
+       VALUES ($1, $2, $3, $4::jsonb, $5::jsonb, $6)`,
       [
         "founder",
         `Seed${i}`,
         `seed${i}@example.com`,
-        JSON.stringify({ focus_area: "govtech" }),
+        JSON.stringify({
+          focusArea: "govtech",
+          capital: ["3m_10m", "10m_plus"],
+        }),
+        JSON.stringify(["revenue", "profitability"]),
         randomUUID(),
       ],
     );
