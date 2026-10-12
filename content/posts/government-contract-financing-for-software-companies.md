@@ -2,7 +2,7 @@
 meta_title: "Government Contract Financing for Software Companies"
 meta_description: "For GovTech and SLED software vendors with signed contracts and slow payments: compare early payment, factoring, credit lines, and contract-backed capital."
 slug: government-contract-financing-for-software-companies
-author: Domenic Giovanzana, Founding Partner, Lambda Capital
+author: Domenic Giovanzana, Founder and General Partner
 last_updated: 2026-10-10
 primary_keyword: government contract financing for software companies
 secondary_keywords: SLED payment terms software vendor; govtech receivables financing; financing against a signed government contract; Net 90 government contract cash flow
@@ -11,7 +11,7 @@ schema: Article, FAQPage (JSON-LD at bottom of file)
 
 # Government Contract Financing for Software Companies: How to Fund the Gap Between Award and Payment
 
-*By Domenic Giovanzana, Founding Partner, Lambda Capital. Last updated October 10, 2026.*
+*By Domenic Giovanzana, Founder and General Partner. Last updated October 10, 2026.*
 
 Software companies that sell to government can bridge the gap between a signed contract and the first payment with four main tools: early payment programs on approved invoices, invoice factoring, working capital or recurring revenue credit lines, and contract-backed capital that funds delivery before you can invoice. Which one fits depends on three questions.
 

@@ -13,8 +13,7 @@ export default function AuthorBox() {
           className="blog-author-box__photo"
         />
         <div>
-          <p className="blog-author-box__name">{BLOG_AUTHOR.name}</p>
-          <p className="blog-author-box__role">{BLOG_AUTHOR.role}</p>
+          <p className="blog-author-box__name">{BLOG_AUTHOR.byline}</p>
           <p className="blog-author-box__bio">{BLOG_AUTHOR.bio}</p>
           <Link href={BLOG_AUTHOR.teamHref} className="blog-author-box__link">
             More about the team
