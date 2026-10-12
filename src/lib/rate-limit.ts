@@ -82,10 +82,10 @@ export function checkRateLimit(identifier: string): RateLimitResult {
 /**
  * Best-effort client IP.
  *
- * Behind Vercel or Netlify the platform sets these headers and strips
- * client-supplied copies, so they are trustworthy there. Directly
- * exposed they are spoofable — which is another reason this limiter is
- * a speed bump rather than a security control.
+ * Behind a reverse proxy (Railway's edge, etc.) the platform sets these
+ * headers and strips client-supplied copies, so they are trustworthy
+ * there. Directly exposed they are spoofable — which is another reason
+ * this limiter is a speed bump rather than a security control.
  */
 export function clientIpFrom(headers: Headers): string {
   const forwarded = headers.get("x-forwarded-for");

@@ -5,8 +5,8 @@ import type { Persona } from "@/lib/leads/types";
  * Thin analytics wrapper.
  *
  * Requires `NEXT_PUBLIC_POSTHOG_KEY` (and optionally
- * `NEXT_PUBLIC_POSTHOG_HOST`, default US cloud). Set both in Netlify
- * (production) and Railway (staging); see `.env.example`.
+ * `NEXT_PUBLIC_POSTHOG_HOST`, default US cloud). Set both on the
+ * Railway production and staging services; see `.env.example`.
  *
  * What this module covers once the key is present:
  *   • site-wide `$pageview` via `trackPageview` / AnalyticsProvider

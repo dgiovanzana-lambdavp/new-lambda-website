@@ -187,22 +187,19 @@ thresholds in the browser bundle and defeat server-side scoring.
 
 ## Deployment
 
-Two environments, two hosts, and the difference between them is the
-thing to understand before changing anything here.
+Both environments run on Railway as long-lived containers. Schema is
+applied on every start via `npm start` → `scripts/migrate.mjs` against
+`DATABASE_URL` (reference `${{Postgres.DATABASE_URL}}` on the app
+service). The initial migration is idempotent (`IF NOT EXISTS`) so a
+database previously created by the retired Netlify SQL migration is safe.
 
 | | Staging | Production |
 |---|---|---|
-| Host | Railway | Netlify |
-| URL | `new-lambda-website-staging.up.railway.app` | lambdavp.com |
+| Host | Railway | Railway |
+| Service | `lambda-website-staging` | `lambda-website` |
 | Branch | `Staging` | `main` |
-| Runs as | one long-lived container | serverless functions |
-| Migrations | on start, via `npm start` | at build, via `build:netlify` |
-
-Production is on Netlify because the domain already was. Moving the app
-to the domain is cheaper than moving the domain to the app: the apex
-record cannot be a CNAME, and Google Cloud DNS has no ALIAS, so
-repointing lambdavp.com would have meant migrating DNS to a provider
-with CNAME flattening before anything else could happen.
+| Runs as | one long-lived container | one long-lived container |
+| Migrations | on start, via `npm start` | on start, via `npm start` |
 
 **The old site was a static export** (`output: 'export'`). That is why
 none of this could simply be dropped into it: a static export has no
@@ -211,51 +208,25 @@ cannot write to Postgres. Server-side scoring is not negotiable — in
 the browser the thresholds are readable by anyone, and a founder who
 reads them can answer their way onto a partner's calendar.
 
-### What the serverless model changes
+### Copying data from Netlify Postgres
 
-**Migrations move to build time.** Railway has a process to run them
-before the server starts. Netlify has no equivalent — the build emits
-functions, and a function only runs when a request arrives, so the
-first request would be racing the schema. `netlify.toml` runs them in
-the build command instead, with `MIGRATE_STRICT=1` so a failure stops
-the deploy. That is the opposite of the Railway setting and it is not
-an inconsistency: a failed build leaves the previous deploy serving,
-whereas a failed start on Railway left nothing serving at all.
+After Railway Postgres is provisioned and migrations have run once:
 
-**The database pool is small.** Every warm function instance holds its
-own pool, so the connection count against Postgres is `max` times the
-number of live instances. `max` is 2 for that reason. See the note in
-`src/lib/db/index.ts` — the fix for real volume is PgBouncer, never a
-bigger number.
+```bash
+SOURCE_DATABASE_URL="<netlify-read-only-url>" DATABASE_URL="<railway-url>" \
+  node scripts/copy-from-netlify.mjs
+```
 
-**Rate limiting is weaker.** `src/lib/rate-limit.ts` keeps its state in
-process memory, so the real limit is per instance rather than per site,
-and a cold start resets it. That was a documented trade before and it
-is a slightly worse one here. It still stops a naive script, which is
-what it is for. The file's interface matches what a Redis-backed
-version would look like, so swapping it is a one-file change.
+Upserts by primary key and prints per-table source/target counts. Safe
+to re-run.
 
-**`DATABASE_URL` must be the public URL.** Netlify runs outside
-Railway's network, so `postgres.railway.internal` fails there exactly
-as it does on a laptop. Use `DATABASE_PUBLIC_URL` (`*.proxy.rlwy.net`)
-with `?sslmode=require`, set in both the build and function contexts.
+### Rate limiting
 
-### First deploy
-
-1. Point a Netlify site at the branch you want to test. Use a **branch
-   deploy or a separate site first** — the existing site serves
-   lambdavp.com and should not be the experiment.
-2. Set the environment variables above in Netlify.
-3. Deploy, and read the build log.
-
-**The known risk is the Next.js runtime.** Netlify installs its own
-Next runtime and this app is on Next 16, which is recent enough that
-support is worth confirming rather than assuming. If the build fails on
-the runtime, the options are to wait for it or to pin Next down a
-major. Find this out on a branch deploy, not on the apex domain.
-
-Once a branch deploy is verified, merge `Staging` into `main` and let
-the existing Netlify site build it. Nothing about the domain changes.
+`src/lib/rate-limit.ts` keeps its state in process memory, so the real
+limit is per container rather than per site, and a restart resets it.
+It still stops a naive script. The file's interface matches what a
+Redis-backed version would look like, so swapping it is a one-file
+change.
 
 
 ---
