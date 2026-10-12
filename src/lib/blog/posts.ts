@@ -80,7 +80,48 @@ export const PROMPT_PAYMENT_POST: BlogPostMeta = {
   breadcrumbsTitle: "Prompt Payment Laws for GovTech Vendors",
 };
 
-export const ALL_POSTS: BlogPostMeta[] = [PROMPT_PAYMENT_POST, GOVTECH_POST];
+const UPFRONT_PAYMENT_SLUG = "government-saas-upfront-payment";
+
+const UPFRONT_PAYMENT_H2_TEXTS = [
+  "Why billing in arrears hurts GovTech cash flow",
+  "The federal rule: advance payments are restricted, but upfront SaaS is different",
+  "The six GSA criteria: a checklist for your quote",
+  "What GSA's ordering guidance adds",
+  "Federal, state and local rules compared",
+  "How to ask for upfront annual billing",
+  "When upfront billing is not available: closing the cash gap",
+  "Frequently asked questions",
+] as const;
+
+export const UPFRONT_PAYMENT_HEADINGS: BlogHeading[] =
+  UPFRONT_PAYMENT_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const UPFRONT_PAYMENT_POST: BlogPostMeta = {
+  slug: UPFRONT_PAYMENT_SLUG,
+  metaTitle:
+    "Can Government Customers Pay Your SaaS Subscription Upfront? A GovTech Vendor's Guide",
+  h1: "Can Government Customers Pay Your SaaS Subscription Upfront? A GovTech Vendor's Guide",
+  description:
+    "Federal GSA guidance says upfront annual SaaS payment is not a prohibited advance payment. Here is what federal, state, and local rules allow and how to ask.",
+  category: "Growth capital",
+  readingTimeMinutes: 11,
+  date: BLOG_PUBLISH_DATE,
+  updated: BLOG_PUBLISH_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-upfront-payment-hero.jpg",
+  ogImage: `/og/blog-${UPFRONT_PAYMENT_SLUG}.jpg`,
+  breadcrumbsTitle: "Government SaaS Upfront Payment",
+};
+
+export const ALL_POSTS: BlogPostMeta[] = [
+  UPFRONT_PAYMENT_POST,
+  PROMPT_PAYMENT_POST,
+  GOVTECH_POST,
+];
 
 export function getPostBySlug(slug: string): BlogPostMeta | undefined {
   return ALL_POSTS.find((post) => post.slug === slug);
@@ -89,12 +130,20 @@ export function getPostBySlug(slug: string): BlogPostMeta | undefined {
 export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === SLUG) return POST_HEADINGS;
   if (slug === PROMPT_PAYMENT_SLUG) return PROMPT_PAYMENT_HEADINGS;
+  if (slug === UPFRONT_PAYMENT_SLUG) return UPFRONT_PAYMENT_HEADINGS;
   return [];
 }
 
 export function getFaqJsonLdForSlug(slug: string): object | null {
   if (slug === SLUG) return GOVTECH_FAQ_JSON_LD;
   if (slug === PROMPT_PAYMENT_SLUG) return PROMPT_PAYMENT_FAQ_JSON_LD;
+  if (slug === UPFRONT_PAYMENT_SLUG) return null;
+  return null;
+}
+
+/** Combined Article + FAQPage @graph from the draft, pasted as-is. */
+export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
+  if (slug === UPFRONT_PAYMENT_SLUG) return UPFRONT_PAYMENT_JSON_LD;
   return null;
 }
 
@@ -314,4 +363,87 @@ export const PROMPT_PAYMENT_FAQ_JSON_LD = {
       text: item.answer,
     },
   })),
+} as const;
+
+export const UPFRONT_PAYMENT_FAQ: FaqItem[] = [
+  {
+    question: "Can a federal agency pay for a SaaS subscription upfront?",
+    answer:
+      "Under GSA guidance, yes when conditions are met. GSA's March 2024 acquisition letter says upfront payment for a SaaS license is not an advance payment when access is granted at the same time as payment, the price is fixed, and the term is fixed and continuous.",
+  },
+  {
+    question: "Why are advance payments restricted for federal contracts?",
+    answer:
+      "Federal law says a contract payment may not be more than the value of the service already provided or article delivered, unless an advance is authorized by a specific appropriation or other law. GSA notes advance payments to contractors are generally prohibited unless specifically authorized.",
+  },
+  {
+    question: "What are GSA's criteria for upfront SaaS payment?",
+    answer:
+      "Contemporaneous access with payment; fixed price or fixed price with economic price adjustment; seat, unit, or subscription price for a fixed term; no consumption metric other than quantity; no extra upfront fee for access or discount; and continuous, uninterrupted service for the term.",
+  },
+  {
+    question:
+      "Can implementation and training be billed upfront with the subscription?",
+    answer:
+      "Not under GSA's MAS cloud guidance. It states that all other cloud computing services and professional services must be paid in arrears under 31 U.S.C. 3324 and 41 U.S.C. 4505. Put services on separate lines from the fixed term license.",
+  },
+  {
+    question: "Can an agency prepay a multi-year SaaS deal?",
+    answer:
+      "Be careful. GSA's ordering guidance says multi-year cloud commitments must comply with the Bona Fide Needs rule and agencies cannot obligate funds for future years without multi-year contracting authority. Annual upfront billing per year is the safer request.",
+  },
+  {
+    question: "Can state and local governments prepay software subscriptions?",
+    answer:
+      "Some can, by statute. Minnesota lets counties prepay software development and maintenance services for county data processing equipment, and lets the commissioner allow state agencies to prepay software and IT hosting. Florida lets circuit court clerks prepay county maintenance agreements and subscriptions. Rules vary by state.",
+  },
+  {
+    question: "Are there states that prohibit prepayment on software contracts?",
+    answer:
+      "Some contracts do. Massachusetts statewide IT contract guides ITS64 and ITS86 say no prepayment should be made for products not yet delivered or services not yet rendered, and require payment within 45 days under the state Bill Payment Policy. Check your contract vehicle.",
+  },
+  {
+    question:
+      "What should I do if my government customer still insists on paying in arrears?",
+    answer:
+      "Make sure each invoice is proper so payment clocks start, know your prompt payment rights, and plan for the gap with early payment options or financing. See our guides on prompt payment laws and government contract financing.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const UPFRONT_PAYMENT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Can Government Customers Pay Your SaaS Subscription Upfront? A GovTech Vendor's Guide",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://lambdavp.com",
+      },
+      dateModified: "2026-10-12",
+      mainEntityOfPage:
+        "https://lambdavp.com/blog/government-saas-upfront-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: UPFRONT_PAYMENT_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
 } as const;
