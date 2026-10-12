@@ -19,7 +19,7 @@ export default defineConfig({
     // function with no DOM and no I/O. Pulling in jsdom would slow the
     // suite down for nothing.
     environment: "node",
-    include: ["src/**/*.test.ts"],
+    include: ["src/**/*.test.ts", "scripts/**/*.test.mjs"],
   },
   resolve: {
     alias: {

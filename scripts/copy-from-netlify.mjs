@@ -7,12 +7,14 @@
  *
  * - Upserts by primary key so a second run is a no-op resync.
  * - Prints per-table source and target row counts after each table.
+ * - json/jsonb values are JSON.stringify'd before bind (see pg-json-bind.mjs).
  *
  * Usage:
  *   SOURCE_DATABASE_URL=… DATABASE_URL=… node scripts/copy-from-netlify.mjs
  */
 
 import pg from "pg";
+import { prepareBoundValues } from "./pg-json-bind.mjs";
 
 function requireUrl(name) {
   const value = process.env[name];
@@ -92,7 +94,7 @@ for (const { table_name: table } of tables) {
 
   const { rows: colRows } = await source.query(
     `
-    SELECT column_name
+    SELECT column_name, data_type
     FROM information_schema.columns
     WHERE table_schema = 'public' AND table_name = $1
     ORDER BY ordinal_position
@@ -100,6 +102,10 @@ for (const { table_name: table } of tables) {
     [table],
   );
   const columns = colRows.map((r) => r.column_name);
+  /** @type {Record<string, string>} */
+  const columnTypes = Object.fromEntries(
+    colRows.map((r) => [r.column_name, r.data_type]),
+  );
 
   const { rows } = await source.query(
     `SELECT ${columns.map(quoteIdent).join(", ")} FROM ${quoteIdent(table)}`,
@@ -148,10 +154,7 @@ for (const { table_name: table } of tables) {
     await target.query("BEGIN");
     try {
       for (const row of rows) {
-        await target.query(
-          sql,
-          columns.map((c) => row[c]),
-        );
+        await target.query(sql, prepareBoundValues(row, columns, columnTypes));
       }
       await target.query("COMMIT");
     } catch (error) {
