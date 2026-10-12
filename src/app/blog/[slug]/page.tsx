@@ -7,12 +7,15 @@ import AuthorBox from "@/components/blog/AuthorBox";
 import ScrollDepthTracker from "@/components/blog/ScrollDepthTracker";
 import GovTechPostContent from "@/components/blog/GovTechPostContent";
 import PromptPaymentPostContent from "@/components/blog/PromptPaymentPostContent";
+import UpfrontPaymentPostContent from "@/components/blog/UpfrontPaymentPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   GOVTECH_POST,
   PROMPT_PAYMENT_POST,
+  UPFRONT_PAYMENT_POST,
   formatLongDate,
+  getArticleFaqGraphJsonLdForSlug,
   getFaqJsonLdForSlug,
   getHeadingsForSlug,
   getPostBySlug,
@@ -61,6 +64,7 @@ export async function generateMetadata({
 function PostBody({ slug }: { slug: string }) {
   if (slug === GOVTECH_POST.slug) return <GovTechPostContent />;
   if (slug === PROMPT_PAYMENT_POST.slug) return <PromptPaymentPostContent />;
+  if (slug === UPFRONT_PAYMENT_POST.slug) return <UpfrontPaymentPostContent />;
   return null;
 }
 
@@ -71,31 +75,36 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const canonical = postCanonical(post.slug);
   const headings = getHeadingsForSlug(slug);
-  const faqJsonLd = getFaqJsonLdForSlug(slug);
+  const articleFaqGraphJsonLd = getArticleFaqGraphJsonLdForSlug(slug);
+  const faqJsonLd = articleFaqGraphJsonLd
+    ? null
+    : getFaqJsonLdForSlug(slug);
 
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.h1,
-    description: post.description,
-    image: `${BLOG_SITE_ORIGIN}${post.ogImage}`,
-    datePublished: post.date,
-    dateModified: post.updated,
-    author: {
-      "@type": "Person",
-      name: BLOG_AUTHOR.name,
-      jobTitle: BLOG_AUTHOR.role,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Lambda Capital",
-      logo: {
-        "@type": "ImageObject",
-        url: `${BLOG_SITE_ORIGIN}/Capital - Black Long.png`,
-      },
-    },
-    mainEntityOfPage: canonical,
-  };
+  const articleJsonLd = articleFaqGraphJsonLd
+    ? null
+    : {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: post.h1,
+        description: post.description,
+        image: `${BLOG_SITE_ORIGIN}${post.ogImage}`,
+        datePublished: post.date,
+        dateModified: post.updated,
+        author: {
+          "@type": "Person",
+          name: BLOG_AUTHOR.name,
+          jobTitle: BLOG_AUTHOR.role,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Lambda Capital",
+          logo: {
+            "@type": "ImageObject",
+            url: `${BLOG_SITE_ORIGIN}/Capital - Black Long.png`,
+          },
+        },
+        mainEntityOfPage: canonical,
+      };
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -117,16 +126,26 @@ export default async function BlogPostPage({ params }: PageProps) {
   };
 
   const ctaHeading =
-    slug === PROMPT_PAYMENT_POST.slug
+    slug === PROMPT_PAYMENT_POST.slug || slug === UPFRONT_PAYMENT_POST.slug
       ? "Signed contracts and long receivables?"
       : "Growing a GovTech software company?";
 
   return (
     <main className="blog-page">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
+      {articleJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        />
+      ) : null}
+      {articleFaqGraphJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(articleFaqGraphJsonLd),
+          }}
+        />
+      ) : null}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
