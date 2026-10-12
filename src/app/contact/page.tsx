@@ -23,7 +23,7 @@ export default function ContactPage() {
     ...(FUNNEL_CONFIG.lpLaneEnabled
       ? [
           {
-            label: "I'm an investor interested in Lambda",
+            label: "I'm investing with Lambda",
             persona: "lp" as Persona,
           },
         ]

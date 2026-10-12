@@ -252,3 +252,49 @@ describe("POST /api/leads — other realistic paths", () => {
     });
   });
 });
+
+describe("POST /api/leads — investor / LP lane", () => {
+  it("accepts a complete LP submission without scoring", async () => {
+    const { status, json } = await postLead({
+      persona: "lp",
+      contact: {
+        firstName: "Alex",
+        lastName: "Ng",
+        email: "alex.ng@examplefamilyoffice.com",
+        phone: "",
+        company: "Ng Family Office",
+        companyUrl: "",
+      },
+      answers: {
+        investor_type: "family_office",
+        discuss: "learn_more",
+        notes: "",
+        heard_about: "linkedin",
+      },
+      attribution: {
+        landing_path: "/contact",
+        heard_about_us: "linkedin",
+      },
+      meta: {
+        submittedAt: new Date().toISOString(),
+        completedSteps: 5,
+        totalSteps: 5,
+        isPartial: false,
+        sessionId: sessionId(),
+      },
+      _hp: "",
+      _startedAt: Date.now() - 40_000,
+    });
+
+    expect(status).toBe(200);
+    expect(json).toEqual({ outcome: "review" });
+    expect(json).not.toHaveProperty("calendarUrl");
+    expect(json).not.toHaveProperty("tier");
+
+    const { lead, scoring } = lastStored();
+    expect(lead.persona).toBe("lp");
+    expect(lead.answers.investor_type).toBe("family_office");
+    expect(scoring).toBeNull();
+  });
+});
+

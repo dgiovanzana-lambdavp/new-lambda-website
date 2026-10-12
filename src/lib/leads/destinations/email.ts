@@ -17,9 +17,9 @@ import type {
  * error.
  */
 
-const PERSONA_LABEL: Record<string, string> = {
+export const PERSONA_LABEL: Record<string, string> = {
   founder: "Founder",
-  lp: "Investor",
+  lp: "Investor / LP",
   services: "Operating Support",
   general: "General",
 };

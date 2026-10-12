@@ -4,17 +4,10 @@ import type { Question } from "./types";
 /**
  * LP / investor branch.
  *
- * ⚠ Gated behind FUNNEL_CONFIG.lpLaneEnabled, default false, pending
- * counsel review. See the note in src/config/funnel.ts.
- *
- * Deliberately short and non-promotional. There is no offering
- * language here and there should not be: the copy describes a
- * conversation, not an investment.
- *
- * Note what is NOT asked — check size, accreditation status, net worth.
- * Those questions on a publicly accessible form are exactly what turns
- * a contact page into something a securities lawyer has opinions
- * about. Route the conversation to a human instead.
+ * Shown when FUNNEL_CONFIG.lpLaneEnabled is true. Deliberately short
+ * and non-promotional: the copy describes a conversation, not an
+ * investment. Check size, accreditation, and net worth stay off the
+ * public form and are handled by a human follow-up.
  */
 export const lpQuestions: Question[] = [
   {
