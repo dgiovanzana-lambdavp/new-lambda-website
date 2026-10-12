@@ -4,15 +4,20 @@ import type { Persona } from "@/lib/leads/types";
 /**
  * Thin analytics wrapper.
  *
- * Every call goes through `track()` / `trackPageview()`, which no-op when
- * no PostHog key is configured. That keeps local development and the
- * test suite clean — without it, every dev session would either throw
- * or pollute production analytics with fixture data.
+ * Requires `NEXT_PUBLIC_POSTHOG_KEY` (and optionally
+ * `NEXT_PUBLIC_POSTHOG_HOST`, default US cloud). Set both in Netlify
+ * (production) and Railway (staging); see `.env.example`.
  *
- * IMPORTANT: this module is client-side and therefore ships to the
- * browser. It must never import scoring config. `tier` appears in some
- * event payloads, but only as a value the SERVER already decided and
- * handed back — the thresholds behind it stay on the server.
+ * What this module covers once the key is present:
+ *   • site-wide `$pageview` via `trackPageview` / AnalyticsProvider
+ *     (initial load + App Router SPA navigations; blog tagged)
+ *   • blog `blog_cta_click`, `jump_link_click`, `blog_scroll_depth`
+ *   • contact funnel events via `track` + `initAnalytics`
+ *
+ * Every call no-ops when the key is unset — local/test stay clean.
+ *
+ * IMPORTANT: client-side; never import scoring config. `tier` in event
+ * payloads is only a value the server already decided.
  */
 
 /** The seven funnel events. A closed set, so reports stay comparable. */
