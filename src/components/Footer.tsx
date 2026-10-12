@@ -12,7 +12,6 @@ const Footer: React.FC = () => {
       { name: 'Team', href: '/team' },
       { name: 'Portfolio', href: '/portfolio' },
       { name: 'Contact', href: '/contact' },
-      { name: 'Blog', href: '/blog' },
     ],
     social: [
       { name: 'LinkedIn', href: 'https://www.linkedin.com/company/lambda-capital-management/', icon: 'linkedin' },
@@ -86,7 +85,7 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
-              <ul className="space-y-3 footer-company-links">
+              <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
                     <Link
