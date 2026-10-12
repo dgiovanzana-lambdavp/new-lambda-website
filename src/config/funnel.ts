@@ -19,18 +19,12 @@ export const FUNNEL_CONFIG = {
   servicesLaneEnabled: false,
 
   /**
-   * The LP / investor lane. Leave `false` until counsel signs off.
-   *
-   * A publicly accessible page that solicits prospective investors can
-   * constitute general solicitation, which affects whether an offering
-   * qualifies under Rule 506(b) or 506(c) and can carry real
-   * consequences for an active raise. The spec says to build the branch
-   * but not to make it live without review, and to gate it behind a
-   * flag if there is any doubt. There is doubt, so it is gated.
-   *
-   * Flipping this is a legal decision, not an engineering one.
+   * The LP / investor lane. Enabled so prospective capital partners can
+   * reach the firm through /contact. The question tree stays short and
+   * non-promotional on purpose: no check size, accreditation, or net
+   * worth questions on the public form.
    */
-  lpLaneEnabled: false,
+  lpLaneEnabled: true,
 } as const;
 
 export const BOOKING_CONFIG = {

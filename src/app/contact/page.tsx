@@ -19,11 +19,11 @@ export const metadata: Metadata = {
  */
 export default function ContactPage() {
   const options: { label: string; persona: Persona }[] = [
-    { label: "I'm a founder raising capital", persona: "founder" },
+    { label: "I'm raising growth capital", persona: "founder" },
     ...(FUNNEL_CONFIG.lpLaneEnabled
       ? [
           {
-            label: "I'm an investor interested in Lambda",
+            label: "I'm investing with Lambda",
             persona: "lp" as Persona,
           },
         ]
