@@ -575,6 +575,11 @@
   vertical-align: top;
 }
 
+/* Keep statute/citation labels like "FAR 52.232-25" on one line. */
+.blog-table a {
+  white-space: nowrap;
+}
+
 .blog-table tbody tr:nth-child(even) {
   background: var(--color-secondary);
 }
