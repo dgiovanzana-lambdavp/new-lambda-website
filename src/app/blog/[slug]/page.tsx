@@ -6,12 +6,15 @@ import CtaBand from "@/components/blog/CtaBand";
 import AuthorBox from "@/components/blog/AuthorBox";
 import ScrollDepthTracker from "@/components/blog/ScrollDepthTracker";
 import GovTechPostContent from "@/components/blog/GovTechPostContent";
+import PromptPaymentPostContent from "@/components/blog/PromptPaymentPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
-  GOVTECH_FAQ_JSON_LD,
-  POST_HEADINGS,
+  GOVTECH_POST,
+  PROMPT_PAYMENT_POST,
   formatLongDate,
+  getFaqJsonLdForSlug,
+  getHeadingsForSlug,
   getPostBySlug,
   postCanonical,
 } from "@/lib/blog/posts";
@@ -55,12 +58,20 @@ export async function generateMetadata({
   };
 }
 
+function PostBody({ slug }: { slug: string }) {
+  if (slug === GOVTECH_POST.slug) return <GovTechPostContent />;
+  if (slug === PROMPT_PAYMENT_POST.slug) return <PromptPaymentPostContent />;
+  return null;
+}
+
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
   const canonical = postCanonical(post.slug);
+  const headings = getHeadingsForSlug(slug);
+  const faqJsonLd = getFaqJsonLdForSlug(slug);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -105,6 +116,11 @@ export default async function BlogPostPage({ params }: PageProps) {
     ],
   };
 
+  const ctaHeading =
+    slug === PROMPT_PAYMENT_POST.slug
+      ? "Signed contracts and long receivables?"
+      : "Growing a GovTech software company?";
+
   return (
     <main className="blog-page">
       <script
@@ -115,12 +131,14 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(GOVTECH_FAQ_JSON_LD),
-        }}
-      />
+      {faqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd),
+          }}
+        />
+      ) : null}
 
       <ScrollDepthTracker postSlug={slug} />
 
@@ -155,17 +173,12 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </header>
 
-        <JumpList headings={POST_HEADINGS} postSlug={slug} />
+        <JumpList headings={headings} postSlug={slug} />
 
-        {slug === "government-contract-financing-for-software-companies" ? (
-          <GovTechPostContent />
-        ) : null}
+        <PostBody slug={slug} />
       </article>
 
-      <CtaBand
-        heading="Growing a GovTech software company?"
-        postSlug={slug}
-      />
+      <CtaBand heading={ctaHeading} postSlug={slug} />
       <AuthorBox />
     </main>
   );

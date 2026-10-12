@@ -41,10 +41,61 @@ export const GOVTECH_POST: BlogPostMeta = {
   breadcrumbsTitle: "Government Contract Financing for Software Companies",
 };
 
-export const ALL_POSTS: BlogPostMeta[] = [GOVTECH_POST];
+const PROMPT_PAYMENT_SLUG = "prompt-payment-laws-govtech-software-vendors";
+
+const PROMPT_PAYMENT_H2_TEXTS = [
+  "The federal rule in plain English",
+  'The "proper invoice" trap',
+  "When interest does not apply: disputes and withholdings",
+  "Faster than 30 days: accelerated payment for small businesses",
+  "State and local rules vary: five states compared",
+  "What interest actually recovers",
+  "A practical playbook when an agency or city pays late",
+  "What the law does not fix: the cash gap",
+  "Frequently asked questions",
+] as const;
+
+export const PROMPT_PAYMENT_HEADINGS: BlogHeading[] = PROMPT_PAYMENT_H2_TEXTS.map(
+  (text) => ({
+    id: slugifyHeading(text),
+    text,
+  }),
+);
+
+export const PROMPT_PAYMENT_POST: BlogPostMeta = {
+  slug: PROMPT_PAYMENT_SLUG,
+  metaTitle:
+    "Prompt Payment Act: What GovTech Vendors Can Collect When Government Pays Late",
+  h1: "When the Government Pays Late: Prompt Payment Laws Every GovTech Software Vendor Should Know",
+  description:
+    "How the federal Prompt Payment Act and state laws in Minnesota, Virginia, New Jersey, Florida and Texas treat late payment to software vendors, what interest you can claim, and how to bridge the gap.",
+  category: "Growth capital",
+  readingTimeMinutes: 12,
+  date: "2026-10-11",
+  updated: "2026-10-11",
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-prompt-payment-hero.jpg",
+  ogImage: `/og/blog-${PROMPT_PAYMENT_SLUG}.jpg`,
+  breadcrumbsTitle: "Prompt Payment Laws for GovTech Vendors",
+};
+
+export const ALL_POSTS: BlogPostMeta[] = [PROMPT_PAYMENT_POST, GOVTECH_POST];
 
 export function getPostBySlug(slug: string): BlogPostMeta | undefined {
   return ALL_POSTS.find((post) => post.slug === slug);
+}
+
+export function getHeadingsForSlug(slug: string): BlogHeading[] {
+  if (slug === SLUG) return POST_HEADINGS;
+  if (slug === PROMPT_PAYMENT_SLUG) return PROMPT_PAYMENT_HEADINGS;
+  return [];
+}
+
+export function getFaqJsonLdForSlug(slug: string): object | null {
+  if (slug === SLUG) return GOVTECH_FAQ_JSON_LD;
+  if (slug === PROMPT_PAYMENT_SLUG) return PROMPT_PAYMENT_FAQ_JSON_LD;
+  return null;
 }
 
 export function getNewestPost(): BlogPostMeta {
@@ -202,4 +253,65 @@ export const GOVTECH_FAQ_JSON_LD = {
       },
     },
   ],
+} as const;
+
+export const PROMPT_PAYMENT_FAQ: FaqItem[] = [
+  {
+    question:
+      "How long does the federal government have to pay a vendor under the Prompt Payment Act?",
+    answer:
+      "Generally the later of 30 days after the billing office receives a proper invoice or 30 days after the government accepts the goods or services. If the contract specifies a payment date, that date governs. The clock only starts once the agency has a proper invoice with all required information.",
+  },
+  {
+    question:
+      "Do I have to ask the federal government for late payment interest?",
+    answer:
+      "No. Under FAR 52.232-25 the payment office pays the interest penalty automatically if payment is late and the clause's conditions are met. If you believe an additional penalty is owed, you must make a written demand postmarked no later than 40 days after the invoice amount is paid.",
+  },
+  {
+    question: "What is the Prompt Payment Act interest rate in 2026?",
+    answer:
+      "The Bureau of the Fiscal Service lists 4.75% for July 1 through December 31, 2026. Treasury publishes the rate by period, so check the rate in effect when your invoice became late, and use Treasury's prompt payment calculator for the exact figure.",
+  },
+  {
+    question: 'What makes an invoice "improper" under the federal rules?',
+    answer:
+      "An invoice missing information the agency requires is improper. The agency must return it no later than 7 days after receipt, explain the defects and request a corrected invoice. Interest only becomes due after the payment period runs on the corrected invoice. Incorrect EFT information can also make an invoice improper.",
+  },
+  {
+    question: "Does a dispute stop late payment interest?",
+    answer:
+      "Usually, yes. Federal rules do not require interest when the delay comes from disagreement over the payment amount or contract compliance, or from amounts withheld under the contract. Minnesota also limits interest during disputes, and other states have their own rules. Check your statute and contract for how disputes are handled.",
+  },
+  {
+    question:
+      "Do state and local governments have prompt payment laws for software vendors?",
+    answer:
+      "Many do, and they vary. Minnesota, Virginia, New Jersey, Texas and Florida all have statutes covering vendor payments, with different deadlines, interest rates and claim steps. Some apply to state agencies and some to localities. Always read your state's statute and your contract's payment terms.",
+  },
+  {
+    question: "Can I stop work if a government customer does not pay?",
+    answer:
+      "It depends on state law and your contract. Texas, for example, lets a vendor suspend performance when an undisputed amount goes unpaid, after written notice and no earlier than the 10th day after that notice. Many states have no such right. Talk to counsel before suspending any service.",
+  },
+  {
+    question:
+      "Is late payment interest enough to cover the cost of waiting for government payment?",
+    answer:
+      "In my view, rarely. Interest accrues only after the due date, is paid with the late payment rather than during the wait, and usually stops during disputes. It does not fund payroll or hosting while you wait, which is why many vendors pair it with early payment programs or contract-backed financing.",
+  },
+];
+
+/** FAQPage JSON-LD from the draft; answers match the visible FAQ. */
+export const PROMPT_PAYMENT_FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: PROMPT_PAYMENT_FAQ.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
 } as const;

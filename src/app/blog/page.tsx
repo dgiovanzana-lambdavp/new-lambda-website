@@ -46,14 +46,16 @@ export default function BlogIndexPage() {
 
       <section className="blog-featured-section">
         <div className="blog-featured-section__inner">
-          <PostCard post={featured} />
+          <PostCard post={featured} featured />
           {morePosts.length === 0 ? (
             <p className="blog-more-note">More notes are on the way.</p>
           ) : (
-            <>
+            <div className="blog-more-grid">
               <h2 className="sr-only">More posts</h2>
-              {/* Grid reserved for 2+ posts; not shown with a single post. */}
-            </>
+              {morePosts.map((post) => (
+                <PostCard key={post.slug} post={post} />
+              ))}
+            </div>
           )}
         </div>
       </section>

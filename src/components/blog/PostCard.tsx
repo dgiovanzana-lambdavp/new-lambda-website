@@ -5,9 +5,10 @@ import { BLOG_AUTHOR } from "@/config/blog";
 
 type PostCardProps = {
   post: BlogPostMeta;
+  featured?: boolean;
 };
 
-export default function PostCard({ post }: PostCardProps) {
+export default function PostCard({ post, featured = false }: PostCardProps) {
   return (
     <article className="blog-featured-card">
       <div className="blog-featured-card__media" aria-hidden="true">
@@ -27,7 +28,7 @@ export default function PostCard({ post }: PostCardProps) {
       </div>
       <div className="blog-featured-card__body">
         <p className="blog-featured-card__eyebrow">
-          Featured · {post.category}
+          {featured ? `Featured · ${post.category}` : post.category}
         </p>
         <h2 className="blog-featured-card__title">
           <Link href={`/blog/${post.slug}`} className="blog-featured-card__link">

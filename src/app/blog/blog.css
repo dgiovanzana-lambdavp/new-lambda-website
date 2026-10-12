@@ -206,6 +206,12 @@
   color: var(--color-text-primary);
 }
 
+.blog-more-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
 /* ── Post layout ─────────────────────────────────────────────────── */
 
 .blog-post-header {
