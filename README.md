@@ -19,7 +19,7 @@ Every submission lands in Postgres with its campaign tags intact, so
 | `scoreLead` + 43 tests | Done |
 | Postgres, `/api/leads`, destinations | Done, verified against a live database |
 | Cal.com embed + webhook | Done, awaiting account |
-| PostHog events + server-side flags | Wired (set keys on Railway) |
+| PostHog events + server-side flags | Done, awaiting keys |
 | Accessibility + mobile | Done |
 | Admin panel (Payload) | **Deliberately not built.** Phase 2. |
 
@@ -142,32 +142,10 @@ Subject lines are built to be triaged from a phone:
 [PARTIAL] [Founder] Jane Smith — Acme Corp — abandoned at step 4 of 9
 ```
 
-### 4. PostHog — site-wide analytics + funnel + scoring flags
+### 4. PostHog — unlocks analytics and no-deploy threshold changes
 
-**Project:** `473817` (US cloud). Host: `https://us.i.posthog.com`.
-
-| Variable | Where | Required for events? | Purpose |
-|---|---|---|---|
-| `NEXT_PUBLIC_POSTHOG_KEY` | browser + server | **Yes** | Public project key. Without it, all client analytics no-op. |
-| `NEXT_PUBLIC_POSTHOG_HOST` | browser + server | Yes (set explicitly) | `https://us.i.posthog.com` |
-| `POSTHOG_PERSONAL_API_KEY` | server only | No | Server-side flag evaluation for scoring overrides |
-
-**Set these on Railway** (production service that serves the site, and
-staging):
-
-```
-NEXT_PUBLIC_POSTHOG_KEY=phc_yKH2bLpfWTBPjofbY5dsAgYZBzPvqevPQwZ9eF34Vbhy
-NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
-```
-
-`NEXT_PUBLIC_*` values are inlined at **build** time for the browser
-bundle, so after adding them trigger a new Railway deploy. Values are
-also listed in `.env.example` for local `.env.local`.
-
-Marketing pageviews (including App Router SPA navigations), blog CTA /
-jump-link / scroll-depth events, and funnel events all use the same
-project key. Autocapture stays off. Session replay stays off on
-marketing pages and turns on only inside the contact funnel.
+`NEXT_PUBLIC_POSTHOG_KEY` for events; `POSTHOG_PERSONAL_API_KEY` for
+server-side flag evaluation.
 
 Flags to create:
 
