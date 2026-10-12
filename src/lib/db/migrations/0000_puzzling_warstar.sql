@@ -1,4 +1,12 @@
-CREATE TABLE "leads" (
+-- Idempotent initial schema.
+--
+-- Safe against a fresh Postgres (creates everything) and against a
+-- database whose `leads` table was already created by the former
+-- Netlify SQL migration (`netlify/database/migrations/0000_create_leads.sql`).
+-- Drizzle still records this hash in `__drizzle_migrations` so later
+-- migrations run exactly once.
+
+CREATE TABLE IF NOT EXISTS "leads" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
@@ -28,6 +36,6 @@ CREATE TABLE "leads" (
 	"session_id" uuid NOT NULL
 );
 --> statement-breakpoint
-CREATE INDEX "leads_utm_source_idx" ON "leads" USING btree ("utm_source");--> statement-breakpoint
-CREATE INDEX "leads_created_at_idx" ON "leads" USING btree ("created_at");--> statement-breakpoint
-CREATE UNIQUE INDEX "leads_session_id_idx" ON "leads" USING btree ("session_id");
+CREATE INDEX IF NOT EXISTS "leads_utm_source_idx" ON "leads" USING btree ("utm_source");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "leads_created_at_idx" ON "leads" USING btree ("created_at");--> statement-breakpoint
+CREATE UNIQUE INDEX IF NOT EXISTS "leads_session_id_idx" ON "leads" USING btree ("session_id");

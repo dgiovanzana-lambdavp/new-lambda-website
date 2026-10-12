@@ -170,12 +170,17 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 ```
 
-**Option 2: Netlify Forms**
-If you deploy to Netlify, you can use their built-in form handling.
+**Option 2: App API (`/api/leads`)**
+Production contact flow posts to the Next.js `/api/leads` route and
+persists to Railway Postgres. See `README.md`.
 
 ## 🌐 Deployment
 
-### Deploy to GitHub Pages
+### Deploy to Railway (current)
+
+See `README.md` → Deployment. Production and staging both run on Railway.
+
+### Deploy to GitHub Pages (legacy archive)
 
 1. Initialize git repository (if not already done):
 ```bash
