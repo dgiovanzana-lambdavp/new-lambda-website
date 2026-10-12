@@ -22,10 +22,13 @@ export default function InlineCta({
         href={href}
         className="blog-inline-cta__link"
         onClick={() =>
-          track("blog_cta_click", {
-            cta: "inline",
-            post_slug: postSlug,
-          })
+          track(
+            "blog_cta_click",
+            { cta: "inline", post_slug: postSlug },
+            // Next.js client navigations can unmount before the batch
+            // flush; send immediately so the click is not lost.
+            { send_instantly: true },
+          )
         }
       >
         Talk to us →

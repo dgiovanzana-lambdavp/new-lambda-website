@@ -102,12 +102,22 @@ export function trackPageview(props: EventProps = {}): void {
   posthog.capture("$pageview", clean);
 }
 
-export function track(event: AnalyticsEvent, props: EventProps = {}): void {
+type CaptureOptions = {
+  /** Skip the request queue — needed when a link navigates away immediately. */
+  send_instantly?: boolean;
+  transport?: "sendBeacon" | "fetch" | "XHR";
+};
+
+export function track(
+  event: AnalyticsEvent,
+  props: EventProps = {},
+  options?: CaptureOptions,
+): void {
   if (!isConfigured() || typeof window === "undefined") return;
   ensureAnalytics();
   if (!initialised) return;
 
-  posthog.capture(event, cleanProps(props));
+  posthog.capture(event, cleanProps(props), options);
 }
 
 /** Flush pending events. Called before the page goes away. */

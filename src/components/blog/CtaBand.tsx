@@ -28,10 +28,11 @@ export default function CtaBand({
           href={href}
           className="blog-btn-white"
           onClick={() =>
-            track("blog_cta_click", {
-              cta: "end_band",
-              post_slug: postSlug,
-            })
+            track(
+              "blog_cta_click",
+              { cta: "end_band", post_slug: postSlug },
+              { send_instantly: true },
+            )
           }
         >
           {buttonLabel}
