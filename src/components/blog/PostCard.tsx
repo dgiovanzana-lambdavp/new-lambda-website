@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { formatShortDate } from "@/lib/blog/posts";
 import type { BlogPostMeta } from "@/lib/blog/types";
 import { BLOG_AUTHOR } from "@/config/blog";
 
@@ -36,9 +35,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           </Link>
         </h2>
         <p className="blog-featured-card__dek">{post.description}</p>
-        <p className="blog-featured-card__meta">
-          {BLOG_AUTHOR.name} · {formatShortDate(post.date)}
-        </p>
+        <p className="blog-featured-card__meta">{BLOG_AUTHOR.name}</p>
         <Link href={`/blog/${post.slug}`} className="blog-featured-card__btn">
           Read the post
         </Link>
