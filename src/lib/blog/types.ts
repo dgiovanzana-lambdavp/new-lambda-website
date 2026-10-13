@@ -6,7 +6,6 @@ export type BlogPostMeta = {
   h1: string;
   description: string;
   category: string;
-  readingTimeMinutes: number;
   date: string;
   updated: string;
   author: string;

@@ -37,8 +37,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
         </h2>
         <p className="blog-featured-card__dek">{post.description}</p>
         <p className="blog-featured-card__meta">
-          {BLOG_AUTHOR.name} · {formatShortDate(post.date)} ·{" "}
-          {post.readingTimeMinutes} min read
+          {BLOG_AUTHOR.name} · {formatShortDate(post.date)}
         </p>
         <Link href={`/blog/${post.slug}`} className="blog-featured-card__btn">
           Read the post

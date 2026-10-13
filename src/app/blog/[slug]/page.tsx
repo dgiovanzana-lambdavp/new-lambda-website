@@ -191,8 +191,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 Last updated{" "}
                 <time dateTime={post.updated}>
                   {formatLongDate(post.updated)}
-                </time>{" "}
-                · {post.readingTimeMinutes} min read
+                </time>
               </p>
             </div>
           </div>
