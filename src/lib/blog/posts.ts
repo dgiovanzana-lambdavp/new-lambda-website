@@ -31,7 +31,6 @@ export const GOVTECH_POST: BlogPostMeta = {
   description:
     "For GovTech and SLED software vendors with signed contracts and slow payments: compare early payment, factoring, credit lines, and contract-backed capital.",
   category: "Growth capital",
-  readingTimeMinutes: 13,
   date: BLOG_PUBLISH_DATE,
   updated: BLOG_PUBLISH_DATE,
   author: BLOG_AUTHOR.name,
@@ -70,7 +69,6 @@ export const PROMPT_PAYMENT_POST: BlogPostMeta = {
   description:
     "How the federal Prompt Payment Act and state laws in Minnesota, Virginia, New Jersey, Florida and Texas treat late payment to software vendors, what interest you can claim, and how to bridge the gap.",
   category: "Growth capital",
-  readingTimeMinutes: 12,
   date: BLOG_PUBLISH_DATE,
   updated: BLOG_PUBLISH_DATE,
   author: BLOG_AUTHOR.name,
@@ -107,7 +105,6 @@ export const UPFRONT_PAYMENT_POST: BlogPostMeta = {
   description:
     "Federal GSA guidance says upfront annual SaaS payment is not a prohibited advance payment. Here is what federal, state, and local rules allow and how to ask.",
   category: "Growth capital",
-  readingTimeMinutes: 11,
   date: BLOG_PUBLISH_DATE,
   updated: BLOG_PUBLISH_DATE,
   author: BLOG_AUTHOR.name,
@@ -145,7 +142,6 @@ export const IMPLEMENTATION_MILESTONES_POST: BlogPostMeta = {
   description:
     "In the government software contracts we reviewed, implementation is paid by accepted milestone minus a holdback. See real contract examples and what you can negotiate.",
   category: "Growth capital",
-  readingTimeMinutes: 11,
   date: IMPLEMENTATION_MILESTONES_DATE,
   updated: IMPLEMENTATION_MILESTONES_DATE,
   author: BLOG_AUTHOR.name,
