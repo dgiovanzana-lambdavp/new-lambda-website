@@ -9,6 +9,7 @@ import GovTechPostContent from "@/components/blog/GovTechPostContent";
 import PromptPaymentPostContent from "@/components/blog/PromptPaymentPostContent";
 import UpfrontPaymentPostContent from "@/components/blog/UpfrontPaymentPostContent";
 import ImplementationMilestonesPostContent from "@/components/blog/ImplementationMilestonesPostContent";
+import VentureDebtPostContent from "@/components/blog/VentureDebtPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
@@ -16,6 +17,7 @@ import {
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_POST,
+  VENTURE_DEBT_POST,
   formatLongDate,
   getArticleFaqGraphJsonLdForSlug,
   getFaqJsonLdForSlug,
@@ -69,6 +71,7 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === UPFRONT_PAYMENT_POST.slug) return <UpfrontPaymentPostContent />;
   if (slug === IMPLEMENTATION_MILESTONES_POST.slug)
     return <ImplementationMilestonesPostContent />;
+  if (slug === VENTURE_DEBT_POST.slug) return <VentureDebtPostContent />;
   return null;
 }
 
