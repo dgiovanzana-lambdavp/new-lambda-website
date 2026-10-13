@@ -29,7 +29,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lambdavp.com"),
+  metadataBase: new URL("https://www.lambdavp.com"),
   title: "Lambda Capital - Investing in Mission-Critical Technology",
   description:
     "Lambda Capital is a permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lambdavp.com",
+    url: "https://www.lambdavp.com",
     title: "Lambda Capital - Investing in Mission-Critical Technology",
     description:
       "A permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",
