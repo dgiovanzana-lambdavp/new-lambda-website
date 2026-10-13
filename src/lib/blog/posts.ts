@@ -117,7 +117,46 @@ export const UPFRONT_PAYMENT_POST: BlogPostMeta = {
   breadcrumbsTitle: "Government SaaS Upfront Payment",
 };
 
+const IMPLEMENTATION_MILESTONES_SLUG =
+  "government-software-implementation-payment-milestones";
+
+const IMPLEMENTATION_MILESTONES_DATE = "2026-10-13";
+
+const IMPLEMENTATION_MILESTONES_H2_TEXTS = [
+  "Why implementation is where the cash gap is widest",
+  "How state and local agencies structure implementation payments",
+  "What is negotiable: a vendor playbook",
+  "Federal contracts: commercial interim and advance payments, and performance-based payments",
+  "When the schedule still leaves a gap",
+  "Frequently asked questions",
+] as const;
+
+export const IMPLEMENTATION_MILESTONES_HEADINGS: BlogHeading[] =
+  IMPLEMENTATION_MILESTONES_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const IMPLEMENTATION_MILESTONES_POST: BlogPostMeta = {
+  slug: IMPLEMENTATION_MILESTONES_SLUG,
+  metaTitle:
+    "Getting Paid During Implementation: Milestones and Holdbacks on Government Software Contracts",
+  h1: "Getting Paid During Implementation: Milestones and Holdbacks on Government Software Contracts",
+  description:
+    "In the government software contracts we reviewed, implementation is paid by accepted milestone minus a holdback. See real contract examples and what you can negotiate.",
+  category: "Growth capital",
+  readingTimeMinutes: 11,
+  date: IMPLEMENTATION_MILESTONES_DATE,
+  updated: IMPLEMENTATION_MILESTONES_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-implementation-milestones-hero.jpg",
+  ogImage: `/og/blog-${IMPLEMENTATION_MILESTONES_SLUG}.jpg`,
+  breadcrumbsTitle: "Implementation Payment Milestones",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  IMPLEMENTATION_MILESTONES_POST,
   UPFRONT_PAYMENT_POST,
   PROMPT_PAYMENT_POST,
   GOVTECH_POST,
@@ -131,6 +170,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === SLUG) return POST_HEADINGS;
   if (slug === PROMPT_PAYMENT_SLUG) return PROMPT_PAYMENT_HEADINGS;
   if (slug === UPFRONT_PAYMENT_SLUG) return UPFRONT_PAYMENT_HEADINGS;
+  if (slug === IMPLEMENTATION_MILESTONES_SLUG)
+    return IMPLEMENTATION_MILESTONES_HEADINGS;
   return [];
 }
 
@@ -138,12 +179,15 @@ export function getFaqJsonLdForSlug(slug: string): object | null {
   if (slug === SLUG) return GOVTECH_FAQ_JSON_LD;
   if (slug === PROMPT_PAYMENT_SLUG) return PROMPT_PAYMENT_FAQ_JSON_LD;
   if (slug === UPFRONT_PAYMENT_SLUG) return null;
+  if (slug === IMPLEMENTATION_MILESTONES_SLUG) return null;
   return null;
 }
 
 /** Combined Article + FAQPage @graph from the draft, pasted as-is. */
 export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === UPFRONT_PAYMENT_SLUG) return UPFRONT_PAYMENT_JSON_LD;
+  if (slug === IMPLEMENTATION_MILESTONES_SLUG)
+    return IMPLEMENTATION_MILESTONES_JSON_LD;
   return null;
 }
 
@@ -412,6 +456,7 @@ export const UPFRONT_PAYMENT_FAQ: FaqItem[] = [
 
 /**
  * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * Publisher and mainEntityOfPage use the www canonical origin.
  */
 export const UPFRONT_PAYMENT_JSON_LD = {
   "@context": "https://schema.org",
@@ -428,15 +473,96 @@ export const UPFRONT_PAYMENT_JSON_LD = {
       publisher: {
         "@type": "Organization",
         name: "Lambda Capital",
-        url: "https://lambdavp.com",
+        url: "https://www.lambdavp.com",
       },
       dateModified: "2026-10-12",
       mainEntityOfPage:
-        "https://lambdavp.com/blog/government-saas-upfront-payment",
+        "https://www.lambdavp.com/blog/government-saas-upfront-payment",
     },
     {
       "@type": "FAQPage",
       mainEntity: UPFRONT_PAYMENT_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const IMPLEMENTATION_MILESTONES_FAQ: FaqItem[] = [
+  {
+    question: "How are government software implementations usually paid?",
+    answer:
+      "In the contracts we reviewed, by milestone. The vendor invoices after the agency accepts a defined deliverable or phase, and the agency withholds a holdback from each payment. Connecticut, New York, CCCERA, and Tampa's expressway authority all tie payment to acceptance.",
+  },
+  {
+    question: "What is a holdback on a government IT contract?",
+    answer:
+      "A percentage of each milestone payment the agency keeps until a later event, such as final system acceptance or the end of warranty. Published examples include 10 percent in Connecticut, 15 percent at CCCERA and New York, and 20 percent in a 2006 Colorado contract. These are examples, not a standard.",
+  },
+  {
+    question: "When is the holdback released?",
+    answer:
+      "It depends on the contract. Connecticut releases half after the acceptance period and half after warranty. CCCERA pays 7.5 percent of total project cost at final acceptance and 7.5 percent six months later. New York releases the withheld amount in stages up to 18 months after go-live.",
+  },
+  {
+    question: "Can I propose my own payment schedule in an RFP?",
+    answer:
+      "Often yes. Mississippi's Medicaid cost form says the vendor may propose an alternative payment schedule to be finalized in negotiations, and asks that payment amounts match the effort and criticality of each milestone. Read the RFP's cost and payment sections for similar language.",
+  },
+  {
+    question: "Can I get paid at the start of a government software project?",
+    answer:
+      "Sometimes. Tampa's expressway authority lists a 5 percent mobilization payment, 30 days after notice to proceed. On federal commercial contracts, advance payments are allowed under conditions, but their total cannot exceed 15 percent of the contract price before work starts.",
+  },
+  {
+    question: "Can I negotiate a lower holdback?",
+    answer:
+      "You can ask. In Jefferson Parish, Louisiana, a software vendor responded to a proposed 20 percent holdback by suggesting 5 percent of each implementation invoice, released at the completion of each phase. The document does not show the final term. If the gap remains, see our guide on government contract financing for software companies.",
+  },
+  {
+    question: "Do federal agencies offer milestone payments?",
+    answer:
+      "Yes, through contract financing terms. For noncommercial work, FAR calls performance-based payments the preferred financing method when practical and the contractor agrees. For commercial products and services, contracting officers may include commercial interim and advance payments when in the government's best interest.",
+  },
+  {
+    question: "What if the agency never formally accepts a deliverable?",
+    answer:
+      "Negotiate acceptance periods in writing. Pennsylvania's IT terms set 10 business days for interim items and 30 business days for final items unless agreed otherwise. Once a deliverable is accepted and invoiced, know your rights under prompt payment laws for GovTech vendors if payment is late.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const IMPLEMENTATION_MILESTONES_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Getting Paid During Implementation: Milestones and Holdbacks on Government Software Contracts",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      dateModified: "2026-10-13",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-software-implementation-payment-milestones",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: IMPLEMENTATION_MILESTONES_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {

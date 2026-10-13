@@ -8,10 +8,12 @@ import ScrollDepthTracker from "@/components/blog/ScrollDepthTracker";
 import GovTechPostContent from "@/components/blog/GovTechPostContent";
 import PromptPaymentPostContent from "@/components/blog/PromptPaymentPostContent";
 import UpfrontPaymentPostContent from "@/components/blog/UpfrontPaymentPostContent";
+import ImplementationMilestonesPostContent from "@/components/blog/ImplementationMilestonesPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   GOVTECH_POST,
+  IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_POST,
   formatLongDate,
@@ -65,6 +67,8 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === GOVTECH_POST.slug) return <GovTechPostContent />;
   if (slug === PROMPT_PAYMENT_POST.slug) return <PromptPaymentPostContent />;
   if (slug === UPFRONT_PAYMENT_POST.slug) return <UpfrontPaymentPostContent />;
+  if (slug === IMPLEMENTATION_MILESTONES_POST.slug)
+    return <ImplementationMilestonesPostContent />;
   return null;
 }
 
@@ -126,7 +130,9 @@ export default async function BlogPostPage({ params }: PageProps) {
   };
 
   const ctaHeading =
-    slug === PROMPT_PAYMENT_POST.slug || slug === UPFRONT_PAYMENT_POST.slug
+    slug === PROMPT_PAYMENT_POST.slug ||
+    slug === UPFRONT_PAYMENT_POST.slug ||
+    slug === IMPLEMENTATION_MILESTONES_POST.slug
       ? "Signed contracts and long receivables?"
       : "Growing a GovTech software company?";
 
