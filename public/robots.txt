@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lambdavp.com/sitemap.xml
+Sitemap: https://www.lambdavp.com/sitemap.xml
 
