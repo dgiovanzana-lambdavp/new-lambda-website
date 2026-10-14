@@ -191,7 +191,50 @@ export const VENTURE_DEBT_POST: BlogPostMeta = {
   breadcrumbsTitle: "Venture Debt vs Venture Capital",
 };
 
+const GROWTH_DEBT_SLUG = "how-much-growth-debt-govtech-software-company";
+
+const GROWTH_DEBT_DATE = "2026-10-15";
+
+const GROWTH_DEBT_H2_TEXTS = [
+  "How lenders size growth debt: multiples of recurring revenue, not EBITDA",
+  "Why gross margin and services revenue matter",
+  "What lenders underwrite: retention, concentration, contract term",
+  "Government contract clauses lenders will ask about",
+  "Covenants: the strings attached to growth debt",
+  "Term loan vs revenue based financing vs venture debt: which sizing model fits",
+  "A simple way to estimate your own number",
+  "Growth debt structures compared",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GROWTH_DEBT_HEADINGS: BlogHeading[] = GROWTH_DEBT_H2_TEXTS.map(
+  (text) => ({
+    id: slugifyHeading(text),
+    text,
+  }),
+);
+
+export const GROWTH_DEBT_POST: BlogPostMeta = {
+  slug: GROWTH_DEBT_SLUG,
+  metaTitle:
+    "How Much Can a SaaS Company Borrow? A GovTech CEO's Guide to ARR Loans, Covenants, and Government Customers",
+  h1: "How Much Growth Debt Can a GovTech Software Company Take On?",
+  description:
+    "How much growth debt can a GovTech software company carry? How lenders size loans against recurring revenue, what they underwrite, and the covenants to watch.",
+  category: "Growth capital",
+  date: GROWTH_DEBT_DATE,
+  updated: GROWTH_DEBT_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-growth-debt-hero.jpg",
+  ogImage: `/og/blog-${GROWTH_DEBT_SLUG}.jpg`,
+  breadcrumbsTitle: "How Much Growth Debt for GovTech",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  GROWTH_DEBT_POST,
   VENTURE_DEBT_POST,
   IMPLEMENTATION_MILESTONES_POST,
   UPFRONT_PAYMENT_POST,
@@ -210,6 +253,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === IMPLEMENTATION_MILESTONES_SLUG)
     return IMPLEMENTATION_MILESTONES_HEADINGS;
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_HEADINGS;
+  if (slug === GROWTH_DEBT_SLUG) return GROWTH_DEBT_HEADINGS;
   return [];
 }
 
@@ -219,6 +263,7 @@ export function getFaqJsonLdForSlug(slug: string): object | null {
   if (slug === UPFRONT_PAYMENT_SLUG) return null;
   if (slug === IMPLEMENTATION_MILESTONES_SLUG) return null;
   if (slug === VENTURE_DEBT_SLUG) return null;
+  if (slug === GROWTH_DEBT_SLUG) return null;
   return null;
 }
 
@@ -228,6 +273,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === IMPLEMENTATION_MILESTONES_SLUG)
     return IMPLEMENTATION_MILESTONES_JSON_LD;
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_JSON_LD;
+  if (slug === GROWTH_DEBT_SLUG) return GROWTH_DEBT_JSON_LD;
   return null;
 }
 
@@ -747,6 +793,145 @@ export const VENTURE_DEBT_JSON_LD = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "HubSpot for Startups says equity fits companies chasing fast growth, industry dominance, or large liquidity events. Debt fits predictable revenue, owners who want control, and sustainable growth. A steadily growing company with long term government customers often matches the debt profile, if cash flow can carry the payments.",
+          },
+        },
+      ],
+    },
+  ],
+} as const;
+
+export const GROWTH_DEBT_FAQ: FaqItem[] = [
+  {
+    question: "How much can a SaaS company borrow?",
+    answer:
+      "There is no single answer. Be wary of any firm number quoted before someone has seen your financials. Lenders generally size recurring revenue loans as a multiple of ARR, and the multiple moves with gross retention, growth, gross margin, customer concentration, and how close you are to positive cash flow.",
+  },
+  {
+    question: "Why do lenders lend against ARR instead of profits?",
+    answer:
+      "Growing software companies often spend ahead of revenue, so EBITDA can be low or negative even when the customer base is valuable. Les Barclays, citing White & Case, describes ARR financing as built for borrowers with little or no EBITDA to support a conventional loan.",
+  },
+  {
+    question: "What do lenders look at when underwriting SaaS revenue?",
+    answer:
+      "Gross retention, churn, customer concentration, contract length, and gross margin. Gross retention tends to carry the most weight because it shows how much revenue would remain if new sales stopped. Expect to hand over a contract schedule with renewal dates and termination rights.",
+  },
+  {
+    question:
+      "Does having one large government customer reduce how much I can borrow?",
+    answer:
+      "It can. Lenders discount revenue that depends on a few large accounts, and a big state agency can look like concentration risk even after years of renewals. Government contracts also add non appropriation risk, which JurisState says lenders view as political risk that can raise interest rates.",
+  },
+  {
+    question: "What covenants come with growth debt?",
+    answer:
+      "Usually a minimum liquidity or cash floor, a minimum recurring revenue or retention test, and sometimes a later switch to leverage and coverage tests once the company is profitable. Term loans can also carry cash sweeps or balloon payments, so read every covenant before you sign.",
+  },
+  {
+    question: "Why is a minimum cash covenant risky for a GovTech company?",
+    answer:
+      "Government payment timing is outside your control, so one slow agency can push cash toward the floor while the business is healthy. Inflection CFO suggests measuring the covenant on an average over a rolling quarter rather than a single day, and asking for a cure period.",
+  },
+  {
+    question:
+      "Is revenue based financing or a term loan better for a software company?",
+    answer:
+      "FinHelp notes that term loans give predictable monthly payments while revenue based payments vary with revenue, easing strain in slow months. Revenue based financing usually costs more for that flexibility. Uneven government receipts can make the flexibility worth paying for.",
+  },
+  {
+    question: "How much debt is too much?",
+    answer:
+      "Too much is any amount you cannot service if new sales stall and an agency pays late. Maxio warns that the lower your gross margin, the lower your debt ceiling should be. Model debt service and every covenant against a downside plan and your slowest government payment cycle.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const GROWTH_DEBT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "How Much Growth Debt Can a GovTech Software Company Take On?",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/how-much-growth-debt-govtech-software-company",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How much can a SaaS company borrow?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "There is no single answer. Be wary of any firm number quoted before someone has seen your financials. Lenders generally size recurring revenue loans as a multiple of ARR, and the multiple moves with gross retention, growth, gross margin, customer concentration, and how close you are to positive cash flow.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Why do lenders lend against ARR instead of profits?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Growing software companies often spend ahead of revenue, so EBITDA can be low or negative even when the customer base is valuable. Les Barclays, citing White & Case, describes ARR financing as built for borrowers with little or no EBITDA to support a conventional loan.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What do lenders look at when underwriting SaaS revenue?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Gross retention, churn, customer concentration, contract length, and gross margin. Gross retention tends to carry the most weight because it shows how much revenue would remain if new sales stopped. Expect to hand over a contract schedule with renewal dates and termination rights.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does having one large government customer reduce how much I can borrow?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "It can. Lenders discount revenue that depends on a few large accounts, and a big state agency can look like concentration risk even after years of renewals. Government contracts also add non appropriation risk, which JurisState says lenders view as political risk that can raise interest rates.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What covenants come with growth debt?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Usually a minimum liquidity or cash floor, a minimum recurring revenue or retention test, and sometimes a later switch to leverage and coverage tests once the company is profitable. Term loans can also carry cash sweeps or balloon payments, so read every covenant before you sign.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Why is a minimum cash covenant risky for a GovTech company?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Government payment timing is outside your control, so one slow agency can push cash toward the floor while the business is healthy. Inflection CFO suggests measuring the covenant on an average over a rolling quarter rather than a single day, and asking for a cure period.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is revenue based financing or a term loan better for a software company?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "FinHelp notes that term loans give predictable monthly payments while revenue based payments vary with revenue, easing strain in slow months. Revenue based financing usually costs more for that flexibility. Uneven government receipts can make the flexibility worth paying for.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much debt is too much?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Too much is any amount you cannot service if new sales stall and an agency pays late. Maxio warns that the lower your gross margin, the lower your debt ceiling should be. Model debt service and every covenant against a downside plan and your slowest government payment cycle.",
           },
         },
       ],
