@@ -233,7 +233,47 @@ export const GROWTH_DEBT_POST: BlogPostMeta = {
   breadcrumbsTitle: "How Much Growth Debt for GovTech",
 };
 
+const WARRANT_COVERAGE_SLUG = "warrant-coverage-explained-govtech";
+
+const WARRANT_COVERAGE_DATE = "2026-10-16";
+
+const WARRANT_COVERAGE_H2_TEXTS = [
+  "What warrant coverage is, in one example",
+  "The five terms that decide what a warrant really costs",
+  "Why the headline percentage is not your dilution",
+  "Warrants when you have not raised a priced round",
+  "What to negotiate",
+  "Ways to fund growth, by equity given up",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const WARRANT_COVERAGE_HEADINGS: BlogHeading[] =
+  WARRANT_COVERAGE_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const WARRANT_COVERAGE_POST: BlogPostMeta = {
+  slug: WARRANT_COVERAGE_SLUG,
+  metaTitle:
+    "Warrant Coverage Explained for GovTech CEOs: What It Costs and How to Negotiate It",
+  h1: "Warrant Coverage Explained for GovTech CEOs",
+  description:
+    "What warrant coverage is, how venture debt warrants work, what they really cost in equity, and what GovTech CEOs without a priced round should negotiate.",
+  category: "Growth capital",
+  date: WARRANT_COVERAGE_DATE,
+  updated: WARRANT_COVERAGE_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-warrant-coverage-hero.jpg",
+  ogImage: `/og/blog-${WARRANT_COVERAGE_SLUG}.jpg`,
+  breadcrumbsTitle: "Warrant Coverage Explained",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  WARRANT_COVERAGE_POST,
   GROWTH_DEBT_POST,
   VENTURE_DEBT_POST,
   IMPLEMENTATION_MILESTONES_POST,
@@ -254,6 +294,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return IMPLEMENTATION_MILESTONES_HEADINGS;
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_HEADINGS;
   if (slug === GROWTH_DEBT_SLUG) return GROWTH_DEBT_HEADINGS;
+  if (slug === WARRANT_COVERAGE_SLUG) return WARRANT_COVERAGE_HEADINGS;
   return [];
 }
 
@@ -264,6 +305,7 @@ export function getFaqJsonLdForSlug(slug: string): object | null {
   if (slug === IMPLEMENTATION_MILESTONES_SLUG) return null;
   if (slug === VENTURE_DEBT_SLUG) return null;
   if (slug === GROWTH_DEBT_SLUG) return null;
+  if (slug === WARRANT_COVERAGE_SLUG) return null;
   return null;
 }
 
@@ -274,6 +316,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return IMPLEMENTATION_MILESTONES_JSON_LD;
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_JSON_LD;
   if (slug === GROWTH_DEBT_SLUG) return GROWTH_DEBT_JSON_LD;
+  if (slug === WARRANT_COVERAGE_SLUG) return WARRANT_COVERAGE_JSON_LD;
   return null;
 }
 
@@ -932,6 +975,145 @@ export const GROWTH_DEBT_JSON_LD = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Too much is any amount you cannot service if new sales stall and an agency pays late. Maxio warns that the lower your gross margin, the lower your debt ceiling should be. Model debt service and every covenant against a downside plan and your slowest government payment cycle.",
+          },
+        },
+      ],
+    },
+  ],
+} as const;
+
+export const WARRANT_COVERAGE_FAQ: FaqItem[] = [
+  {
+    question: "What is warrant coverage?",
+    answer:
+      "Warrant coverage is the size of the warrant a lender receives alongside a loan, expressed as a percentage of the loan amount rather than of the company. The warrant gives the lender the right, but not the obligation, to buy shares at a fixed strike price before an expiration date.",
+  },
+  {
+    question:
+      "Does warrant coverage mean giving up that percentage of the company?",
+    answer:
+      "No. Coverage is a share of the loan, not of the company. No shares change hands at signing, the lender still pays the strike price or nets it out on exercise, and exercise only makes sense if the shares are worth more than the strike.",
+  },
+  {
+    question: "How is the strike price set?",
+    answer:
+      "It is often tied to the price per share of the most recent priced equity round. It can also be fair market value at grant, a formula, or the price of a future series of preferred stock. Each choice changes how much the warrant is worth to the lender.",
+  },
+  {
+    question:
+      "How do warrants work for a company that has never raised a priced round?",
+    answer:
+      "There is no last round price to anchor to, so the strike is negotiated directly. Lender warrants are generally not subject to the same 409A pricing rules as employee options. A clearly defined fair value strike is usually safer than one tied to a future round that may never happen.",
+  },
+  {
+    question: "When do lenders exercise warrants?",
+    answer:
+      "Typically around a sale or public offering, if the share price is above the strike. Many warrants are exercised automatically just before a sale if the price is above the strike, or are assumed by the buyer. If no exit happens before expiration, the warrant expires unused.",
+  },
+  {
+    question: "What is a cashless exercise?",
+    answer:
+      "Cooley GO describes cashless exercise as the holder receiving fewer shares instead of paying the exercise price in cash, which is why it is also called a net exercise. For a private company, cashless exercise is often limited to a sale or public offering.",
+  },
+  {
+    question: "What warrant terms can be negotiated?",
+    answer:
+      "Coverage, strike price, term, whether coverage applies to committed or drawn amounts, exercise mechanics, and what happens in a sale. The share class matters too: a vague class, or one the lender can choose, can create uncertainty on the cap table.",
+  },
+  {
+    question: "Is growth debt available with no warrants at all?",
+    answer:
+      "Sometimes. Underridge notes that revenue based financing and asset based lines are alternatives for later stage companies that generate revenue. Whether one fits depends on revenue quality, margins, and the lender, so compare the full cost of each structure, not only the warrant line.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const WARRANT_COVERAGE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Warrant Coverage Explained for GovTech CEOs",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/warrant-coverage-explained-govtech",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is warrant coverage?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Warrant coverage is the size of the warrant a lender receives alongside a loan, expressed as a percentage of the loan amount rather than of the company. The warrant gives the lender the right, but not the obligation, to buy shares at a fixed strike price before an expiration date.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does warrant coverage mean giving up that percentage of the company?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Coverage is a share of the loan, not of the company. No shares change hands at signing, the lender still pays the strike price or nets it out on exercise, and exercise only makes sense if the shares are worth more than the strike.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How is the strike price set?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "It is often tied to the price per share of the most recent priced equity round. It can also be fair market value at grant, a formula, or the price of a future series of preferred stock. Each choice changes how much the warrant is worth to the lender.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do warrants work for a company that has never raised a priced round?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "There is no last round price to anchor to, so the strike is negotiated directly. Lender warrants are generally not subject to the same 409A pricing rules as employee options. A clearly defined fair value strike is usually safer than one tied to a future round that may never happen.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "When do lenders exercise warrants?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Typically around a sale or public offering, if the share price is above the strike. Many warrants are exercised automatically just before a sale if the price is above the strike, or are assumed by the buyer. If no exit happens before expiration, the warrant expires unused.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is a cashless exercise?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Cooley GO describes cashless exercise as the holder receiving fewer shares instead of paying the exercise price in cash, which is why it is also called a net exercise. For a private company, cashless exercise is often limited to a sale or public offering.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What warrant terms can be negotiated?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Coverage, strike price, term, whether coverage applies to committed or drawn amounts, exercise mechanics, and what happens in a sale. The share class matters too: a vague class, or one the lender can choose, can create uncertainty on the cap table.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is growth debt available with no warrants at all?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sometimes. Underridge notes that revenue based financing and asset based lines are alternatives for later stage companies that generate revenue. Whether one fits depends on revenue quality, margins, and the lender, so compare the full cost of each structure, not only the warrant line.",
           },
         },
       ],

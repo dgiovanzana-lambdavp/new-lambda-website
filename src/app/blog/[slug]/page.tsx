@@ -11,6 +11,7 @@ import UpfrontPaymentPostContent from "@/components/blog/UpfrontPaymentPostConte
 import ImplementationMilestonesPostContent from "@/components/blog/ImplementationMilestonesPostContent";
 import VentureDebtPostContent from "@/components/blog/VentureDebtPostContent";
 import GrowthDebtPostContent from "@/components/blog/GrowthDebtPostContent";
+import WarrantCoveragePostContent from "@/components/blog/WarrantCoveragePostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
@@ -20,6 +21,7 @@ import {
   PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_POST,
   VENTURE_DEBT_POST,
+  WARRANT_COVERAGE_POST,
   getArticleFaqGraphJsonLdForSlug,
   getFaqJsonLdForSlug,
   getHeadingsForSlug,
@@ -74,6 +76,7 @@ function PostBody({ slug }: { slug: string }) {
     return <ImplementationMilestonesPostContent />;
   if (slug === VENTURE_DEBT_POST.slug) return <VentureDebtPostContent />;
   if (slug === GROWTH_DEBT_POST.slug) return <GrowthDebtPostContent />;
+  if (slug === WARRANT_COVERAGE_POST.slug) return <WarrantCoveragePostContent />;
   return null;
 }
 
