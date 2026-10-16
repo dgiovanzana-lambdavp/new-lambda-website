@@ -10,9 +10,11 @@ import PromptPaymentPostContent from "@/components/blog/PromptPaymentPostContent
 import UpfrontPaymentPostContent from "@/components/blog/UpfrontPaymentPostContent";
 import ImplementationMilestonesPostContent from "@/components/blog/ImplementationMilestonesPostContent";
 import VentureDebtPostContent from "@/components/blog/VentureDebtPostContent";
+import AssignmentOfClaimsPostContent from "@/components/blog/AssignmentOfClaimsPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
+  ASSIGNMENT_OF_CLAIMS_POST,
   GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
@@ -71,6 +73,8 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === IMPLEMENTATION_MILESTONES_POST.slug)
     return <ImplementationMilestonesPostContent />;
   if (slug === VENTURE_DEBT_POST.slug) return <VentureDebtPostContent />;
+  if (slug === ASSIGNMENT_OF_CLAIMS_POST.slug)
+    return <AssignmentOfClaimsPostContent />;
   return null;
 }
 
@@ -134,7 +138,8 @@ export default async function BlogPostPage({ params }: PageProps) {
   const ctaHeading =
     slug === PROMPT_PAYMENT_POST.slug ||
     slug === UPFRONT_PAYMENT_POST.slug ||
-    slug === IMPLEMENTATION_MILESTONES_POST.slug
+    slug === IMPLEMENTATION_MILESTONES_POST.slug ||
+    slug === ASSIGNMENT_OF_CLAIMS_POST.slug
       ? "Signed contracts and long receivables?"
       : "Growing a GovTech software company?";
 

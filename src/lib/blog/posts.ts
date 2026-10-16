@@ -191,7 +191,48 @@ export const VENTURE_DEBT_POST: BlogPostMeta = {
   breadcrumbsTitle: "Venture Debt vs Venture Capital",
 };
 
+const ASSIGNMENT_OF_CLAIMS_SLUG = "assignment-of-claims-act-govtech-software";
+
+const ASSIGNMENT_OF_CLAIMS_DATE = "2026-10-16";
+
+const ASSIGNMENT_OF_CLAIMS_H2_TEXTS = [
+  "What the Assignment of Claims Act is",
+  "The conditions an assignment has to meet",
+  "How the process works, step by step",
+  "What changes for your company after an assignment",
+  "State and local contracts work differently",
+  "How assignment fits with the payment wait",
+  "Federal vs state and local assignment of contract payments",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const ASSIGNMENT_OF_CLAIMS_HEADINGS: BlogHeading[] =
+  ASSIGNMENT_OF_CLAIMS_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const ASSIGNMENT_OF_CLAIMS_POST: BlogPostMeta = {
+  slug: ASSIGNMENT_OF_CLAIMS_SLUG,
+  metaTitle:
+    "The Assignment of Claims Act Explained for GovTech Software Companies",
+  h1: "The Assignment of Claims Act Explained",
+  description:
+    "What the Assignment of Claims Act is, how assigning federal contract payments works step by step, and how state and local software contracts differ.",
+  category: "Growth capital",
+  date: ASSIGNMENT_OF_CLAIMS_DATE,
+  updated: ASSIGNMENT_OF_CLAIMS_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-assignment-of-claims-hero.jpg",
+  ogImage: `/og/blog-${ASSIGNMENT_OF_CLAIMS_SLUG}.jpg`,
+  breadcrumbsTitle: "Assignment of Claims Act",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  ASSIGNMENT_OF_CLAIMS_POST,
   VENTURE_DEBT_POST,
   IMPLEMENTATION_MILESTONES_POST,
   UPFRONT_PAYMENT_POST,
@@ -210,6 +251,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === IMPLEMENTATION_MILESTONES_SLUG)
     return IMPLEMENTATION_MILESTONES_HEADINGS;
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_HEADINGS;
+  if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_HEADINGS;
   return [];
 }
 
@@ -219,6 +261,7 @@ export function getFaqJsonLdForSlug(slug: string): object | null {
   if (slug === UPFRONT_PAYMENT_SLUG) return null;
   if (slug === IMPLEMENTATION_MILESTONES_SLUG) return null;
   if (slug === VENTURE_DEBT_SLUG) return null;
+  if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return null;
   return null;
 }
 
@@ -228,6 +271,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === IMPLEMENTATION_MILESTONES_SLUG)
     return IMPLEMENTATION_MILESTONES_JSON_LD;
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_JSON_LD;
+  if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_JSON_LD;
   return null;
 }
 
@@ -750,6 +794,86 @@ export const VENTURE_DEBT_JSON_LD = {
           },
         },
       ],
+    },
+  ],
+} as const;
+
+export const ASSIGNMENT_OF_CLAIMS_FAQ: FaqItem[] = [
+  {
+    question: "What is the Assignment of Claims Act?",
+    answer:
+      "It is the federal law that lets a contractor assign money due or to become due under a federal contract to a bank, trust company, or other financing institution. It dates to 1940, is codified at 31 U.S.C. 3727 and 41 U.S.C. 6305, and is implemented in FAR subpart 32.8.",
+  },
+  {
+    question: "Is the contract itself assigned?",
+    answer:
+      "No. What moves is the right to receive payment. The contractor still performs the work, and the assignment changes where the government sends the money.",
+  },
+  {
+    question: "What conditions must an assignment meet?",
+    answer:
+      "The contract must specify payments aggregating $1,000 or more and must not prohibit assignment. The assignee must be a bank, trust company, or other financing institution. Unless the contract expressly permits otherwise, the assignment covers all unpaid amounts, goes to one party (or one agent for several), and cannot be assigned again.",
+  },
+  {
+    question: "Who receives notice of an assignment?",
+    answer:
+      "The assignee sends a written notice of assignment, with a true copy of the assignment instrument, to the contracting officer or agency head, any surety on a bond for the contract, and the disbursing officer designated in the contract.",
+  },
+  {
+    question: "How does an assignment end?",
+    answer:
+      "When the financing institution releases the contractor, the contractor files a written notice of release and a copy of the release instrument with the same offices that received the original notice. Payments then return to the contractor.",
+  },
+  {
+    question: "What is a no setoff commitment?",
+    answer:
+      "It is a contract term under which payments to the assignee will not be reduced to collect debts the contractor owes the government. An agency may include one only after a determination of need, so many contracts do not have one.",
+  },
+  {
+    question:
+      "Does the Assignment of Claims Act apply to state and local contracts?",
+    answer:
+      "No. It covers federal contracts. State and local contracts follow state law and the contract's own assignment clause.",
+  },
+  {
+    question: "How long do federal agencies have to pay an invoice?",
+    answer:
+      "Under FAR 32.904, the due date for many invoice payments is the later of the 30th day after the designated billing office receives a proper invoice or the 30th day after government acceptance. An assignment does not change that clock; it changes who is paid.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const ASSIGNMENT_OF_CLAIMS_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "The Assignment of Claims Act Explained",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/assignment-of-claims-act-govtech-software",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: ASSIGNMENT_OF_CLAIMS_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     },
   ],
 } as const;
