@@ -231,7 +231,48 @@ export const ASSIGNMENT_OF_CLAIMS_POST: BlogPostMeta = {
   breadcrumbsTitle: "Assignment of Claims Act",
 };
 
+const FINANCING_STRATEGY_SLUG = "software-company-financing-strategy";
+
+const FINANCING_STRATEGY_DATE = "2026-10-18";
+
+const FINANCING_STRATEGY_H2_TEXTS = [
+  "Why your exit comes before your financing",
+  "When venture capital fits, and when it does not",
+  "The financing toolbelt: what each tool is",
+  "Match the tool to your cash flow shape",
+  "Where government payment timing fits",
+  "Who gets paid first: the capital stack in one paragraph",
+  "The Financing Toolbelt series",
+  "What each tool is and when it is commonly used",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const FINANCING_STRATEGY_HEADINGS: BlogHeading[] =
+  FINANCING_STRATEGY_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const FINANCING_STRATEGY_POST: BlogPostMeta = {
+  slug: FINANCING_STRATEGY_SLUG,
+  metaTitle: "Software Company Financing Strategy: Start With Your Exit",
+  h1: "Start With Your Exit",
+  description:
+    "A software company financing strategy starts with your exit. How VC, loans, revolvers, factoring, revenue based financing, and preferred stock fit.",
+  category: "Growth capital",
+  date: FINANCING_STRATEGY_DATE,
+  updated: FINANCING_STRATEGY_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-financing-strategy-hero.jpg",
+  ogImage: `/og/blog-${FINANCING_STRATEGY_SLUG}.jpg`,
+  breadcrumbsTitle: "Software Company Financing Strategy",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  FINANCING_STRATEGY_POST,
   ASSIGNMENT_OF_CLAIMS_POST,
   VENTURE_DEBT_POST,
   IMPLEMENTATION_MILESTONES_POST,
@@ -252,6 +293,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return IMPLEMENTATION_MILESTONES_HEADINGS;
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_HEADINGS;
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_HEADINGS;
+  if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_HEADINGS;
   return [];
 }
 
@@ -262,6 +304,7 @@ export function getFaqJsonLdForSlug(slug: string): object | null {
   if (slug === IMPLEMENTATION_MILESTONES_SLUG) return null;
   if (slug === VENTURE_DEBT_SLUG) return null;
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return null;
+  if (slug === FINANCING_STRATEGY_SLUG) return null;
   return null;
 }
 
@@ -272,6 +315,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return IMPLEMENTATION_MILESTONES_JSON_LD;
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_JSON_LD;
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_JSON_LD;
+  if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_JSON_LD;
   return null;
 }
 
@@ -867,6 +911,82 @@ export const ASSIGNMENT_OF_CLAIMS_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: ASSIGNMENT_OF_CLAIMS_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const FINANCING_STRATEGY_FAQ: FaqItem[] = [
+  {
+    question: "What is a software company financing strategy?",
+    answer:
+      "It is the plan for which kinds of capital a company uses, in what order, to reach the outcome its founders want. It starts with the exit, then matches each tool to the company's cash flow.",
+  },
+  {
+    question: "Is venture capital right for a vertical software company?",
+    answer:
+      "Sometimes. Venture funds rely on a few very large outcomes, and big funding raises the bar for exit. A company that plans a modest sale or no sale may fit other tools better.",
+  },
+  {
+    question:
+      "What is the difference between a term loan and a revolving line of credit?",
+    answer:
+      "A term loan provides a lump sum repaid on a fixed schedule. A revolving line of credit can be drawn, repaid, and drawn again, which suits uneven cash flow.",
+  },
+  {
+    question: "What is receivables factoring?",
+    answer:
+      "Factoring is selling unpaid customer invoices to a factoring provider, which then collects from the customer. Receivables financing instead uses the invoices as collateral for a loan, and the company keeps control over collection.",
+  },
+  {
+    question: "What is revenue based financing?",
+    answer:
+      "It is capital repaid as a share of revenue until an agreed multiple or cap is reached. It can be structured as a loan or as equity the company buys back, and payments move with revenue.",
+  },
+  {
+    question: "What is nonconvertible preferred stock?",
+    answer:
+      "It is a class of ownership that ranks senior to common stock and below debt, and it does not convert into common stock.",
+  },
+  {
+    question: "How do slow government payments affect financing strategy?",
+    answer:
+      "On complex federal contracts, payment delays of 90 days or more are common, and growth widens the gap between paying for work and collecting. That gap is a cash flow question separate from growth capital.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const FINANCING_STRATEGY_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Start With Your Exit",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-18",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/software-company-financing-strategy",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FINANCING_STRATEGY_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {

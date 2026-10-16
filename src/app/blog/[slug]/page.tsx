@@ -11,10 +11,12 @@ import UpfrontPaymentPostContent from "@/components/blog/UpfrontPaymentPostConte
 import ImplementationMilestonesPostContent from "@/components/blog/ImplementationMilestonesPostContent";
 import VentureDebtPostContent from "@/components/blog/VentureDebtPostContent";
 import AssignmentOfClaimsPostContent from "@/components/blog/AssignmentOfClaimsPostContent";
+import FinancingStrategyPostContent from "@/components/blog/FinancingStrategyPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
+  FINANCING_STRATEGY_POST,
   GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
@@ -75,6 +77,8 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === VENTURE_DEBT_POST.slug) return <VentureDebtPostContent />;
   if (slug === ASSIGNMENT_OF_CLAIMS_POST.slug)
     return <AssignmentOfClaimsPostContent />;
+  if (slug === FINANCING_STRATEGY_POST.slug)
+    return <FinancingStrategyPostContent />;
   return null;
 }
 
