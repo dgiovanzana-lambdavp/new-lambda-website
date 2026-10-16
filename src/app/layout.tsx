@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import "./blog/blog.css";
 import Navigation from "@/components/Navigation";
@@ -10,11 +10,9 @@ import AnalyticsProvider from "@/components/AnalyticsProvider";
 /**
  * The site's two typefaces.
  *
- * The old marketing site pulled these from a Google Fonts `@import` at
- * the top of its globals.css. Loading them through `next/font` instead
- * self-hosts the files at build time, which removes a render-blocking
- * request to a third-party origin and eliminates the flash of fallback
- * text. Same fonts, same weights — better delivery.
+ * Loaded through `next/font` so files are self-hosted at build time
+ * (no render-blocking Google Fonts request, no flash of fallback text).
+ * Inter stays on body copy; Roboto Condensed is the display/heading face.
  */
 const inter = Inter({
   variable: "--font-inter",
@@ -22,10 +20,10 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const robotoCondensed = Roboto_Condensed({
+  variable: "--font-roboto-condensed",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -103,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${inter.variable} ${robotoCondensed.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Suspense fallback={null}>

@@ -4,10 +4,10 @@
 
 /* Bind the next/font CSS variables to Tailwind's font utilities, so
    `font-sans` and `font-display` mean the same thing here as they do on
-   the live site (Inter for body, Space Grotesk for headings). */
+   the live site (Inter for body, Roboto Condensed for headings). */
 @theme {
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-display: var(--font-roboto-condensed), system-ui, sans-serif;
 }
 
 @layer base {
@@ -39,7 +39,7 @@
   }
 
   /*
-    The site sets headings in Space Grotesk semibold globally. Matching
+    The site sets headings in Roboto Condensed semibold globally. Matching
     that here means funnel headings need no font class of their own and
     will keep matching if the site's choice changes.
   */
