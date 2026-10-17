@@ -33,7 +33,7 @@ const faqItems: { question: string; answer: React.ReactNode }[] = [
   {
     question: "How many companies do you invest in?",
     answer:
-      "We invest in at most 1-2 companies per year. The partnership is concentrated on purpose.",
+      "Very few. We partner with a small number of companies each year, and the partnership is concentrated on purpose.",
   },
   {
     question: "Who should reach out?",
@@ -71,7 +71,7 @@ const faqItems: { question: string; answer: React.ReactNode }[] = [
     question:
       "How do you compare to revenue-based financing or growth equity?",
     answer:
-      "Revenue-based financing and similar lenders are usually loan-style products. Growth equity and traditional PE often come with an exit timeline. Lambda Capital is a permanent capital holding company that also helps operate. We partner with at most 1-2 companies a year and do not run on a forced exit clock.",
+      "Revenue-based financing and similar lenders are usually loan-style products. Growth equity and traditional PE often come with an exit timeline. Lambda Capital is a permanent capital holding company that also helps operate. We partner with a small number of companies each year and do not run on a forced exit clock.",
   },
 ];
 
@@ -93,8 +93,8 @@ const processSteps = [
     body: "Capital and operating partnership go together. We stay for the long term.",
   },
   {
-    title: "At most 1-2 companies a year",
-    body: "We invest in at most 1-2 companies per year. The partnership is concentrated on purpose.",
+    title: "Partnership begins",
+    body: "We start working together on growth, efficiency, and the long-term plan.",
   },
 ];
 
@@ -113,7 +113,7 @@ const whatYouGet = [
   },
   {
     title: "Concentrated partnership",
-    body: "At most 1-2 companies per year. The partnership is concentrated on purpose.",
+    body: "We work with a small number of companies, so each one gets real time from us.",
   },
 ];
 
