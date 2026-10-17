@@ -71,7 +71,7 @@ const faqItems: { question: string; answer: React.ReactNode }[] = [
     question:
       "How do you compare to revenue-based financing or growth equity?",
     answer:
-      "Revenue-based financing and similar lenders are usually loan-style products. Growth equity and traditional PE often come with an exit timeline. Lambda Capital is a permanent capital holding company that also helps operate. We partner with a small number of companies each year and do not run on a forced exit clock.",
+      "Revenue-based financing and similar lenders are usually loan-style products. Growth equity and traditional PE often come with an exit timeline. Lambda Capital is a permanent capital holding company that also helps operate. We do not run on a forced exit clock.",
   },
 ];
 
