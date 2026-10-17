@@ -18,7 +18,7 @@ const faqItems: { question: string; answer: React.ReactNode }[] = [
   {
     question: "What revenue stage do you focus on?",
     answer:
-      "We focus on US software companies at roughly $2M-$10M in revenue. If you are outside that band, still reach out. Fit matters more than a hard cutoff, but that is the stage this page is written for.",
+      "We focus on US software companies at roughly $2M-$10M in revenue. If you are outside that band, still reach out. Fit matters more than a hard cutoff.",
   },
   {
     question: "Is this a loan, equity, or permanent capital?",
@@ -466,6 +466,9 @@ export default function GrowthCapitalPage() {
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             <article className="rounded-xl border border-border bg-white p-6">
+              <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.06em] text-accent">
+                Investment
+              </p>
               <h3 className="mb-2 text-lg font-semibold text-foreground">
                 SafeTraces
               </h3>
@@ -475,6 +478,9 @@ export default function GrowthCapitalPage() {
               </p>
             </article>
             <article className="rounded-xl border border-border bg-white p-6">
+              <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.06em] text-accent">
+                Investment
+              </p>
               <h3 className="mb-2 text-lg font-semibold text-foreground">
                 Databento
               </h3>
