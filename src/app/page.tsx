@@ -149,7 +149,7 @@ export default function HomePage() {
               If you're building vertical software in our focus areas, Lambda Capital would love to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/contact" variant="primary" size="lg">
+              <Button href="/growth-capital" variant="primary" size="lg">
                 Get In Touch
               </Button>
               <Button href="/portfolio" variant="secondary" size="lg">
