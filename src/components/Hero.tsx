@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-30 container-custom text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
           
           <motion.p
             className="text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
@@ -61,11 +61,11 @@ const Hero: React.FC = () => {
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-          <Button href="/contact" variant="white" size="lg">
+          <Button href="/growth-capital" variant="white" size="lg">
             Apply for funding
           </Button>
           </motion.div>
