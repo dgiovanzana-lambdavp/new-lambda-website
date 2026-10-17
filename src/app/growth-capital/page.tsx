@@ -93,8 +93,8 @@ const processSteps = [
     body: "Capital and operating partnership go together. We stay for the long term.",
   },
   {
-    title: "Partnership begins",
-    body: "We start working together on growth, efficiency, and the long-term plan.",
+    title: "At most 1-2 companies a year",
+    body: "We partner with very few companies each year, on purpose.",
   },
 ];
 
