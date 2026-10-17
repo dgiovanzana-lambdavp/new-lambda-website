@@ -104,7 +104,7 @@ const whatYouGet = [
     body: "Capital sized for companies in the roughly $2M-$10M revenue band.",
   },
   {
-    title: "Patient / permanent capital",
+    title: "Permanent capital",
     body: "Structured as a permanent capital holding company, not a forced exit clock.",
   },
   {
@@ -186,8 +186,8 @@ export default function GrowthCapitalPage() {
             </h2>
             <p className="text-lg text-muted leading-relaxed">
               If you run a US software company and want growth capital with
-              someone who will work alongside you, not just wire money, this
-              page is for you.
+              someone who will work alongside you, not just wire money, we
+              should talk.
             </p>
           </motion.div>
 
@@ -348,11 +348,11 @@ export default function GrowthCapitalPage() {
               How we compare
             </p>
             <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
-              What buyers look for, and where Lambda Capital sits
+              What founders look for, and where Lambda Capital fits
             </h2>
             <p className="text-lg text-muted leading-relaxed">
               Founders hear many names when they look for growth capital. Here
-              is how we position against the options people most often compare.
+              is how we compare with the options founders weigh most often.
             </p>
           </motion.div>
 
@@ -361,7 +361,7 @@ export default function GrowthCapitalPage() {
               <thead>
                 <tr>
                   <th className="bg-navy-blue px-4 py-4 font-semibold text-white">
-                    What buyers look for
+                    What founders look for
                   </th>
                   <th className="bg-navy-blue px-4 py-4 font-semibold text-white">
                     Names they hear
@@ -433,7 +433,7 @@ export default function GrowthCapitalPage() {
                 value: "$186M",
                 label: (
                   <>
-                    Invested*
+                    Invested
                     <br />
                     Career total
                   </>
@@ -443,7 +443,7 @@ export default function GrowthCapitalPage() {
                 value: "$5B+",
                 label: (
                   <>
-                    Total transaction value*
+                    Total transaction value
                     <br />
                     Career total
                   </>
@@ -490,7 +490,6 @@ export default function GrowthCapitalPage() {
               </p>
             </article>
           </div>
-          <p className="mt-5 text-xs text-muted">*Career totals.</p>
         </div>
       </section>
 
