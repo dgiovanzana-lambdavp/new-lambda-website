@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-          <Button href="/growth-capital" variant="white" size="lg">
+          <Button href="/contact" variant="white" size="lg">
             Apply for funding
           </Button>
           </motion.div>
