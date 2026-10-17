@@ -271,7 +271,49 @@ export const FINANCING_STRATEGY_POST: BlogPostMeta = {
   breadcrumbsTitle: "Software Company Financing Strategy",
 };
 
+const VC_WRONG_CHOICE_SLUG =
+  "when-venture-capital-is-wrong-for-vertical-saas";
+
+const VC_WRONG_CHOICE_DATE = "2026-10-19";
+
+const VC_WRONG_CHOICE_H2_TEXTS = [
+  "How venture capital works, in one paragraph",
+  "Seven signals venture capital is the wrong tool",
+  "The vertical SaaS debate: is the market too small?",
+  "What fund timelines mean for founders",
+  "What GovTech CEOs should weigh",
+  "If not venture capital, then what?",
+  "Venture capital fit check",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const VC_WRONG_CHOICE_HEADINGS: BlogHeading[] =
+  VC_WRONG_CHOICE_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const VC_WRONG_CHOICE_POST: BlogPostMeta = {
+  slug: VC_WRONG_CHOICE_SLUG,
+  metaTitle:
+    "Is Venture Capital Right for My Startup? Seven Signals for Vertical Software CEOs",
+  h1: "When Venture Capital Is the Wrong Choice for Vertical SaaS",
+  description:
+    "Is venture capital right for your startup? Seven signals that VC may be the wrong fit for a vertical SaaS or GovTech company, and what to weigh instead.",
+  category: "Growth capital",
+  date: VC_WRONG_CHOICE_DATE,
+  updated: VC_WRONG_CHOICE_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-vc-wrong-choice-hero.jpg",
+  ogImage: `/og/blog-${VC_WRONG_CHOICE_SLUG}.jpg`,
+  breadcrumbsTitle: "When Venture Capital Is Wrong for Vertical SaaS",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  VC_WRONG_CHOICE_POST,
   FINANCING_STRATEGY_POST,
   ASSIGNMENT_OF_CLAIMS_POST,
   VENTURE_DEBT_POST,
@@ -294,6 +336,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_HEADINGS;
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_HEADINGS;
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_HEADINGS;
+  if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_HEADINGS;
   return [];
 }
 
@@ -305,6 +348,7 @@ export function getFaqJsonLdForSlug(slug: string): object | null {
   if (slug === VENTURE_DEBT_SLUG) return null;
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return null;
   if (slug === FINANCING_STRATEGY_SLUG) return null;
+  if (slug === VC_WRONG_CHOICE_SLUG) return null;
   return null;
 }
 
@@ -316,6 +360,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === VENTURE_DEBT_SLUG) return VENTURE_DEBT_JSON_LD;
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_JSON_LD;
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_JSON_LD;
+  if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_JSON_LD;
   return null;
 }
 
@@ -987,6 +1032,88 @@ export const FINANCING_STRATEGY_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: FINANCING_STRATEGY_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const VC_WRONG_CHOICE_FAQ: FaqItem[] = [
+  {
+    question: "Is venture capital right for my startup?",
+    answer:
+      "It fits if a company can grow very large, very fast, and return a venture fund's worth of value within the fund's life. If the realistic ceiling is a healthy, profitable company, other capital may fit better.",
+  },
+  {
+    question:
+      "Why do venture capitalists look for companies that could get very big?",
+    answer:
+      "Venture returns depend on outliers, a small number of companies that return many times the investment. Investors look for companies that could return their whole fund.",
+  },
+  {
+    question: "Is vertical SaaS too small for venture capital?",
+    answer:
+      "Venture firms disagree. Some argue the market size objection is not supported by the facts, while others describe why many founders have avoided small markets.",
+  },
+  {
+    question: "Do venture investors expect dividends?",
+    answer:
+      "Usually not. Venture investors generally prefer that companies use their cash to grow and scale. A company that wants to distribute profits to owners may fit other capital better.",
+  },
+  {
+    question: "How long do venture capital funds last?",
+    answer:
+      "Most venture funds have a stated lifespan of about ten years, and some extend a few additional years.",
+  },
+  {
+    question:
+      "Does exit pressure from venture investors affect how companies are sold?",
+    answer:
+      "Research in the Strategic Management Journal found that exit pressure from venture investors did not change the odds of an IPO but significantly raised the odds of a sale or a shutdown. Independent directors moderated the effect.",
+  },
+  {
+    question: "Is venture capital a good fit for GovTech companies?",
+    answer:
+      "It can be, but government payment timing matters. On complex federal contracts, delays of 90 days or more are common, and that wait is a cash flow question separate from growth capital.",
+  },
+  {
+    question: "What are the alternatives to venture capital?",
+    answer:
+      "Alternatives include bootstrapping, revenue based financing, grants, and competitions. Some investors also offer models built around profitable growth.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const VC_WRONG_CHOICE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "When Venture Capital Is the Wrong Choice for Vertical SaaS",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-19",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/when-venture-capital-is-wrong-for-vertical-saas",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: VC_WRONG_CHOICE_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {

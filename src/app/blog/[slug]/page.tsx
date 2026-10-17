@@ -12,6 +12,7 @@ import ImplementationMilestonesPostContent from "@/components/blog/Implementatio
 import VentureDebtPostContent from "@/components/blog/VentureDebtPostContent";
 import AssignmentOfClaimsPostContent from "@/components/blog/AssignmentOfClaimsPostContent";
 import FinancingStrategyPostContent from "@/components/blog/FinancingStrategyPostContent";
+import VcWrongChoicePostContent from "@/components/blog/VcWrongChoicePostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
@@ -21,6 +22,7 @@ import {
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_POST,
+  VC_WRONG_CHOICE_POST,
   VENTURE_DEBT_POST,
   getArticleFaqGraphJsonLdForSlug,
   getFaqJsonLdForSlug,
@@ -79,6 +81,7 @@ function PostBody({ slug }: { slug: string }) {
     return <AssignmentOfClaimsPostContent />;
   if (slug === FINANCING_STRATEGY_POST.slug)
     return <FinancingStrategyPostContent />;
+  if (slug === VC_WRONG_CHOICE_POST.slug) return <VcWrongChoicePostContent />;
   return null;
 }
 
