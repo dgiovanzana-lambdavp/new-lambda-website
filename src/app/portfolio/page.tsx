@@ -24,7 +24,7 @@ export default function PortfolioPage() {
       <section className="section-padding">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
@@ -33,7 +33,7 @@ export default function PortfolioPage() {
               Our <span className="text-foreground">Portfolio</span>
             </h1>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl text-muted leading-relaxed max-w-3xl mx-auto mb-12"
@@ -48,7 +48,7 @@ export default function PortfolioPage() {
       <section className="pb-8">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-wrap justify-center gap-4"
@@ -76,7 +76,7 @@ export default function PortfolioPage() {
       <section className="section-padding bg-tactical-gray/20">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             className="mb-8 text-center"
@@ -95,9 +95,9 @@ export default function PortfolioPage() {
               <motion.div
                 key={company.id}
                 layout
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 1, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
+                exit={{ opacity: 1, y: -30 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] max-w-sm"
               >
@@ -108,7 +108,7 @@ export default function PortfolioPage() {
 
           {filteredCompanies.length === 0 && (
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
               className="text-center py-16"
@@ -127,7 +127,7 @@ export default function PortfolioPage() {
       <section className="section-padding bg-secondary">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -160,7 +160,7 @@ export default function PortfolioPage() {
       <section className="section-padding">
         <div className="container-custom text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}

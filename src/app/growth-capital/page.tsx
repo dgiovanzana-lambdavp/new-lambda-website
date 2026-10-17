@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import Button from "@/components/Button";
+import Reveal from "@/components/Reveal";
 
 const faqItems: { question: string; answer: React.ReactNode }[] = [
   {
     question: "What is Lambda Capital?",
     answer:
-      "Lambda Capital is a permanent capital holding company that invests in mission-critical technology and partners with software companies for the long term.",
+      "Lambda Capital is a permanent capital holding company that invests in and partners with software companies for the long term.",
   },
   {
     question: "Do you offer growth capital?",
@@ -71,7 +71,7 @@ const faqItems: { question: string; answer: React.ReactNode }[] = [
     question:
       "How do you compare to revenue-based financing or growth equity?",
     answer:
-      "Revenue-based financing and similar lenders are usually loan-style products. Growth equity and traditional PE often come with an exit timeline. Lambda Capital is a permanent capital holding company that also helps operate. We partner with at most 1-2 companies a year and do not run on a forced flip clock.",
+      "Revenue-based financing and similar lenders are usually loan-style products. Growth equity and traditional PE often come with an exit timeline. Lambda Capital is a permanent capital holding company that also helps operate. We partner with at most 1-2 companies a year and do not run on a forced exit clock.",
   },
 ];
 
@@ -117,6 +117,25 @@ const whatYouGet = [
   },
 ];
 
+const comparisonRows = [
+  {
+    lookFor: "Non-dilutive loan / RBF",
+    names: "Founderpath, Novel, Lighter, Bigfoot, SaaS Capital",
+    lambda:
+      "Permanent capital holding company plus operating partnership, not a pure lending product",
+  },
+  {
+    lookFor: "Growth equity / PE exit timeline",
+    names: "Traditional PE",
+    lambda: "Patient holding company. No forced exit clock.",
+  },
+  {
+    lookFor: "Capital plus someone in the business",
+    names: "Varies",
+    lambda: "Hands-on. A small number of companies each year.",
+  },
+];
+
 export default function GrowthCapitalPage() {
   return (
     <div className="min-h-screen">
@@ -129,24 +148,16 @@ export default function GrowthCapitalPage() {
           aria-hidden="true"
         />
         <div className="container-custom relative z-10 max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
+          <Reveal>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.08em] text-light-blue">
               Growth capital
             </p>
             <h1 className="mb-5 text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
               Growth capital for software companies at $2M-$10M revenue
             </h1>
-            <p className="mb-5 max-w-xl text-lg leading-relaxed text-white/90 md:text-xl">
+            <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/90 md:text-xl">
               Permanent capital and hands-on help for US software CEOs,
               founders, owners, and partners, bootstrapped or venture-backed.
-            </p>
-            <p className="mb-6 max-w-2xl text-base font-medium leading-relaxed text-white/95 md:text-lg">
-              Lambda Capital provides growth capital and hands-on help to US
-              software companies at roughly $2M-$10M revenue.
             </p>
             <p className="mb-8 max-w-xl border-l-[3px] border-light-blue pl-4 text-lg font-semibold leading-snug text-off-white md:text-xl">
               We date before we get married. Start with a real working
@@ -165,19 +176,13 @@ export default function GrowthCapitalPage() {
               small number of companies each year and stay focused on durable
               growth, not a forced exit clock.
             </p>
-          </motion.div>
+          </Reveal>
         </div>
       </section>
 
       <section id="who-for" className="section-padding bg-secondary">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-10 max-w-2xl"
-          >
+          <Reveal className="mb-10 max-w-2xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-muted">
               Who this is for
             </p>
@@ -189,16 +194,10 @@ export default function GrowthCapitalPage() {
               someone who will work alongside you, not just wire money, we
               should talk.
             </p>
-          </motion.div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="card"
-            >
+            <Reveal className="card">
               <h3 className="mb-4 text-xl font-semibold text-foreground">
                 A strong fit looks like
               </h3>
@@ -233,13 +232,10 @@ export default function GrowthCapitalPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
+            <Reveal
+              delayMs={80}
               className="rounded-xl border border-red-200 bg-[#FBF7F6] p-7 shadow-sm"
             >
               <h3 className="mb-4 text-xl font-semibold text-[#E44E3C]">
@@ -280,20 +276,14 @@ export default function GrowthCapitalPage() {
                 </a>
                 .
               </p>
-            </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       <section id="what-you-get" className="section-padding bg-white">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-10 max-w-2xl"
-          >
+          <Reveal className="mb-10 max-w-2xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-muted">
               What you get
             </p>
@@ -304,16 +294,13 @@ export default function GrowthCapitalPage() {
               Four things we put on the table when we partner: capital
               structure, patience, operating help, and concentration.
             </p>
-          </motion.div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {whatYouGet.map((item, index) => (
-              <motion.article
+              <Reveal
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
-                viewport={{ once: true }}
+                delayMs={index * 60}
                 className="rounded-xl border border-border bg-white p-6"
               >
                 <div className="mb-3.5 flex h-7 w-7 items-center justify-center rounded-full bg-accent/15 text-sm font-bold text-navy-blue">
@@ -323,7 +310,7 @@ export default function GrowthCapitalPage() {
                   {item.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-muted">{item.body}</p>
-              </motion.article>
+              </Reveal>
             ))}
           </div>
 
@@ -337,13 +324,7 @@ export default function GrowthCapitalPage() {
 
       <section id="comparison" className="section-padding bg-secondary">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-10 max-w-2xl"
-          >
+          <Reveal className="mb-10 max-w-2xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-muted">
               How we compare
             </p>
@@ -354,10 +335,11 @@ export default function GrowthCapitalPage() {
               Founders hear many names when they look for growth capital. Here
               is how we compare with the options founders weigh most often.
             </p>
-          </motion.div>
+          </Reveal>
 
-          <div className="overflow-x-auto rounded-xl border border-border bg-white shadow-sm">
-            <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+          {/* Desktop / tablet table */}
+          <div className="hidden overflow-hidden rounded-xl border border-border bg-white shadow-sm md:block">
+            <table className="w-full border-collapse text-left text-sm">
               <thead>
                 <tr>
                   <th className="bg-navy-blue px-4 py-4 font-semibold text-white">
@@ -372,51 +354,60 @@ export default function GrowthCapitalPage() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-border">
-                  <td className="px-4 py-4 font-semibold text-foreground">
-                    Non-dilutive loan / RBF
-                  </td>
-                  <td className="px-4 py-4 text-muted">
-                    Founderpath, Novel, Lighter, Bigfoot, SaaS Capital
-                  </td>
-                  <td className="bg-accent/5 px-4 py-4 font-medium text-foreground">
-                    Permanent capital holding company plus operating
-                    partnership, not a pure lending product
-                  </td>
-                </tr>
-                <tr className="border-b border-border">
-                  <td className="px-4 py-4 font-semibold text-foreground">
-                    Growth equity / PE exit timeline
-                  </td>
-                  <td className="px-4 py-4 text-muted">Traditional PE</td>
-                  <td className="bg-accent/5 px-4 py-4 font-medium text-foreground">
-                    Patient holding company. No forced flip clock.
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-4 font-semibold text-foreground">
-                    Capital plus someone in the business
-                  </td>
-                  <td className="px-4 py-4 text-muted">Varies</td>
-                  <td className="bg-accent/5 px-4 py-4 font-medium text-foreground">
-                    Hands-on. At most 1-2 new companies per year.
-                  </td>
-                </tr>
+                {comparisonRows.map((row, i) => (
+                  <tr
+                    key={row.lookFor}
+                    className={
+                      i < comparisonRows.length - 1
+                        ? "border-b border-border"
+                        : undefined
+                    }
+                  >
+                    <td className="px-4 py-4 font-semibold text-foreground">
+                      {row.lookFor}
+                    </td>
+                    <td className="px-4 py-4 text-muted">{row.names}</td>
+                    <td className="bg-accent/5 px-4 py-4 font-medium text-foreground">
+                      {row.lambda}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile stacked cards (< md) */}
+          <div className="flex flex-col gap-4 md:hidden">
+            {comparisonRows.map((row) => (
+              <article
+                key={row.lookFor}
+                className="rounded-xl border border-border bg-white p-5 shadow-sm"
+              >
+                <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.06em] text-muted">
+                  What founders look for
+                </p>
+                <p className="mb-4 text-base font-semibold text-foreground">
+                  {row.lookFor}
+                </p>
+                <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.06em] text-muted">
+                  Names they hear
+                </p>
+                <p className="mb-4 text-sm text-muted">{row.names}</p>
+                <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.06em] text-accent">
+                  Lambda Capital
+                </p>
+                <p className="text-sm font-medium text-foreground">
+                  {row.lambda}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section id="proof" className="section-padding bg-white">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-10 max-w-2xl"
-          >
+          <Reveal className="mb-10 max-w-2xl">
             <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
               A concentrated track record
             </h2>
@@ -424,31 +415,13 @@ export default function GrowthCapitalPage() {
               We meet hundreds of companies a year and invest in very few. That
               concentration is intentional.
             </p>
-          </motion.div>
+          </Reveal>
 
           <div className="mb-9 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
             {[
               { value: "~4x", label: "Avg. ARR growth per company" },
-              {
-                value: "$186M",
-                label: (
-                  <>
-                    Invested
-                    <br />
-                    Career total
-                  </>
-                ),
-              },
-              {
-                value: "$5B+",
-                label: (
-                  <>
-                    Total transaction value
-                    <br />
-                    Career total
-                  </>
-                ),
-              },
+              { value: "$186M", label: "Invested, career total" },
+              { value: "$5B+", label: "Total transaction value, career total" },
               { value: "400+", label: "Companies met per year" },
               { value: "1-2", label: "Companies invested per year" },
             ].map((stat) => (
@@ -495,30 +468,20 @@ export default function GrowthCapitalPage() {
 
       <section id="process" className="section-padding bg-navy-blue text-white">
         <div className="container-custom">
-          <div className="mb-9">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-light-blue">
-                How it works
-              </p>
-              <h2 className="text-3xl font-bold text-white md:text-4xl">
-                From intro to partnership
-              </h2>
-            </motion.div>
-          </div>
+          <Reveal className="mb-9">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-light-blue">
+              How it works
+            </p>
+            <h2 className="text-3xl font-bold text-white md:text-4xl">
+              From intro to partnership
+            </h2>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {processSteps.map((step, index) => (
-              <motion.article
+              <Reveal
                 key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: index * 0.06 }}
-                viewport={{ once: true }}
+                delayMs={index * 50}
                 className="rounded-xl border border-white/15 bg-white/5 p-5"
               >
                 <div className="mb-3.5 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
@@ -530,7 +493,7 @@ export default function GrowthCapitalPage() {
                 <p className="text-sm leading-relaxed text-white/75">
                   {step.body}
                 </p>
-              </motion.article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -538,20 +501,14 @@ export default function GrowthCapitalPage() {
 
       <section id="faq" className="section-padding bg-secondary">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-10 max-w-2xl"
-          >
+          <Reveal className="mb-10 max-w-2xl">
             <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
               Common questions
             </h2>
             <p className="text-lg text-muted leading-relaxed">
               Straight answers for founders comparing growth capital options.
             </p>
-          </motion.div>
+          </Reveal>
 
           <div className="flex max-w-3xl flex-col gap-2.5">
             {faqItems.map((item, index) => (
@@ -586,12 +543,7 @@ export default function GrowthCapitalPage() {
 
       <section id="cta" className="section-padding bg-white">
         <div className="container-custom text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <Reveal>
             <h2 className="mx-auto mb-3 max-w-xl text-3xl font-bold text-foreground md:text-4xl">
               Ready to talk about growth capital for your software company?
             </h2>
@@ -606,7 +558,7 @@ export default function GrowthCapitalPage() {
                 See our portfolio
               </Button>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </section>
     </div>

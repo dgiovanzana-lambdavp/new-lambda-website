@@ -25,13 +25,13 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-secondary/50" />
         <div className="container-custom relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-5xl mx-auto"
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 1 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="inline-block mb-6"
@@ -53,7 +53,7 @@ export default function AboutPage() {
               {taglines.map((tagline, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 1, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                   className="flex items-center justify-center gap-3"
@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section className="section-padding bg-secondary/30">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -96,7 +96,7 @@ export default function AboutPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 1, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
@@ -113,7 +113,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 1, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
@@ -130,7 +130,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 1, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
@@ -154,7 +154,7 @@ export default function AboutPage() {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -181,7 +181,7 @@ export default function AboutPage() {
               {whatWeLookFor.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 1, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
@@ -198,7 +198,7 @@ export default function AboutPage() {
             </div>
 
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
@@ -219,7 +219,7 @@ export default function AboutPage() {
       <section className="section-padding bg-gradient-to-br from-secondary/50 to-background">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -244,7 +244,7 @@ export default function AboutPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 1, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
@@ -261,7 +261,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 1, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
@@ -285,7 +285,7 @@ export default function AboutPage() {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -344,7 +344,7 @@ export default function AboutPage() {
       <section className="section-padding bg-secondary/30">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -369,7 +369,7 @@ export default function AboutPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 1, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
@@ -382,7 +382,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 1, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
@@ -402,7 +402,7 @@ export default function AboutPage() {
       <section className="section-padding bg-gradient-to-br from-accent/5 via-secondary/30 to-background">
         <div className="container-custom text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -429,7 +429,7 @@ export default function AboutPage() {
       <section className="section-padding bg-background border-t border-border">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
