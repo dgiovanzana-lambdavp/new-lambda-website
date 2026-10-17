@@ -417,9 +417,6 @@ export default function GrowthCapitalPage() {
             viewport={{ once: true }}
             className="mb-10 max-w-2xl"
           >
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-muted">
-              Proof
-            </p>
             <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
               A concentrated track record
             </h2>
@@ -469,9 +466,6 @@ export default function GrowthCapitalPage() {
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             <article className="rounded-xl border border-border bg-white p-6">
-              <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.06em] text-accent">
-                Portfolio
-              </p>
               <h3 className="mb-2 text-lg font-semibold text-foreground">
                 SafeTraces
               </h3>
@@ -481,9 +475,6 @@ export default function GrowthCapitalPage() {
               </p>
             </article>
             <article className="rounded-xl border border-border bg-white p-6">
-              <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.06em] text-accent">
-                Portfolio
-              </p>
               <h3 className="mb-2 text-lg font-semibold text-foreground">
                 Databento
               </h3>
@@ -549,9 +540,6 @@ export default function GrowthCapitalPage() {
             viewport={{ once: true }}
             className="mb-10 max-w-2xl"
           >
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-muted">
-              FAQ
-            </p>
             <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
               Common questions
             </h2>
