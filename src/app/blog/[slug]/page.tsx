@@ -13,6 +13,7 @@ import VentureDebtPostContent from "@/components/blog/VentureDebtPostContent";
 import AssignmentOfClaimsPostContent from "@/components/blog/AssignmentOfClaimsPostContent";
 import FinancingStrategyPostContent from "@/components/blog/FinancingStrategyPostContent";
 import VcWrongChoicePostContent from "@/components/blog/VcWrongChoicePostContent";
+import TermLoanAmortizingPostContent from "@/components/blog/TermLoanAmortizingPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
@@ -21,6 +22,7 @@ import {
   GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
+  TERM_LOAN_AMORTIZING_POST,
   UPFRONT_PAYMENT_POST,
   VC_WRONG_CHOICE_POST,
   VENTURE_DEBT_POST,
@@ -82,6 +84,8 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === FINANCING_STRATEGY_POST.slug)
     return <FinancingStrategyPostContent />;
   if (slug === VC_WRONG_CHOICE_POST.slug) return <VcWrongChoicePostContent />;
+  if (slug === TERM_LOAN_AMORTIZING_POST.slug)
+    return <TermLoanAmortizingPostContent />;
   return null;
 }
 

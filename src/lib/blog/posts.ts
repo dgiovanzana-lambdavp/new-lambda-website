@@ -312,7 +312,48 @@ export const VC_WRONG_CHOICE_POST: BlogPostMeta = {
   breadcrumbsTitle: "When Venture Capital Is Wrong for Vertical SaaS",
 };
 
+const TERM_LOAN_AMORTIZING_SLUG =
+  "term-loan-vs-amortizing-loan-software-companies";
+
+const TERM_LOAN_AMORTIZING_DATE = "2026-10-20";
+
+const TERM_LOAN_AMORTIZING_H2_TEXTS = [
+  'What "term loan" means, and why the word is confusing',
+  "How an amortizing loan works",
+  "How a lump sum term loan works",
+  "The tradeoff: lower payments now, a bigger obligation later",
+  "How each structure lines up with cash flow",
+  "What slow government payment means for repayment",
+  "Amortizing loan vs lump sum term loan",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const TERM_LOAN_AMORTIZING_HEADINGS: BlogHeading[] =
+  TERM_LOAN_AMORTIZING_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
+  slug: TERM_LOAN_AMORTIZING_SLUG,
+  metaTitle: "Term Loan vs Amortizing Loan for Software Companies",
+  h1: "Term Loans vs Amortizing Loans for Software Companies",
+  description:
+    "Term loan vs amortizing loan: how lump sum and installment repayment differ, and how each structure lines up with a software company's cash flow.",
+  category: "Growth capital",
+  date: TERM_LOAN_AMORTIZING_DATE,
+  updated: TERM_LOAN_AMORTIZING_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-term-loan-amortizing-hero.jpg",
+  ogImage: `/og/blog-${TERM_LOAN_AMORTIZING_SLUG}.jpg`,
+  breadcrumbsTitle: "Term Loan vs Amortizing Loan",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  TERM_LOAN_AMORTIZING_POST,
   VC_WRONG_CHOICE_POST,
   FINANCING_STRATEGY_POST,
   ASSIGNMENT_OF_CLAIMS_POST,
@@ -337,6 +378,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_HEADINGS;
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_HEADINGS;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_HEADINGS;
+  if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
 }
 
@@ -361,6 +403,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_JSON_LD;
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_JSON_LD;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_JSON_LD;
+  if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
 }
 
@@ -1114,6 +1157,82 @@ export const VC_WRONG_CHOICE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: VC_WRONG_CHOICE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
+  {
+    question:
+      "What is the difference between a term loan and an amortizing loan?",
+    answer:
+      "A term loan, as used here, is a set amount borrowed for a set period and repaid with interest. It can be repaid in installments, which is an amortizing loan, or mostly at the end, which is a lump sum term loan, sometimes called a bullet or balloon loan.",
+  },
+  {
+    question: "What is an amortizing loan?",
+    answer:
+      "It is a loan repaid in installments, sometimes called a reducing loan, because each payment includes principal and the balance falls. With equal payments, the interest share of each payment is higher early on and lower later.",
+  },
+  {
+    question: "What is a balloon payment?",
+    answer:
+      "It is a large last payment at the end of a loan term. In mortgage lending, a balloon loan has lower monthly payments that do not fully pay off the loan over the term, followed by a large last payment.",
+  },
+  {
+    question: "What is an interest only period?",
+    answer:
+      "It is a stretch when scheduled payments cover only interest, so the amount owed does not go down. For interest only mortgages, when the period ends the borrower may pay off the balance all at once, refinance if available, or begin higher monthly payments.",
+  },
+  {
+    question: "What is refinance risk?",
+    answer:
+      "It is the risk that a borrower cannot replace existing debt at a future date under reasonable terms and prevailing market conditions. It mainly affects loans with principal remaining at maturity, and fully amortizing loans to sound borrowers generally carry less of it.",
+  },
+  {
+    question: "Which cash flow shape does each structure line up with?",
+    answer:
+      "Installment repayment lines up with steady, predictable cash flow. A lump sum structure lines up with a large inflow expected near the time the principal comes due, and it carries refinance risk.",
+  },
+  {
+    question: "How do slow government payments affect loan repayment?",
+    answer:
+      "Government contractors often deliver work first and wait 30, 60, or 90 days to be paid, and growth can widen the gap between costs and cash. Scheduled loan payments come due regardless of when an agency pays.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const TERM_LOAN_AMORTIZING_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Term Loans vs Amortizing Loans for Software Companies",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-20",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/term-loan-vs-amortizing-loan-software-companies",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: TERM_LOAN_AMORTIZING_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
