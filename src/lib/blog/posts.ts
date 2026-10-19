@@ -312,7 +312,47 @@ export const VC_WRONG_CHOICE_POST: BlogPostMeta = {
   breadcrumbsTitle: "When Venture Capital Is Wrong for Vertical SaaS",
 };
 
+const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
+
+const REVOLVING_LINE_DATE = "2026-10-21";
+
+const REVOLVING_LINE_H2_TEXTS = [
+  "How a revolving line of credit works",
+  "What a revolver is for, and what it is not for",
+  "The risk: what happens at renewal",
+  "When you are waiting months on a government payment",
+  "Why growth makes the gap wider",
+  "Lines tied to receivables",
+  "Revolving line of credit vs installment loan",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const REVOLVING_LINE_HEADINGS: BlogHeading[] =
+  REVOLVING_LINE_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const REVOLVING_LINE_POST: BlogPostMeta = {
+  slug: REVOLVING_LINE_SLUG,
+  metaTitle: "Revolving Line of Credit for SaaS: How It Works",
+  h1: "Revolving Line of Credit for SaaS",
+  description:
+    "How a revolving line of credit works for SaaS companies, how it fits uneven cash flow and slow government payments, and the risk it carries.",
+  category: "Growth capital",
+  date: REVOLVING_LINE_DATE,
+  updated: REVOLVING_LINE_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-revolving-line-hero.jpg",
+  ogImage: `/og/blog-${REVOLVING_LINE_SLUG}.jpg`,
+  breadcrumbsTitle: "Revolving Line of Credit for SaaS",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  REVOLVING_LINE_POST,
   VC_WRONG_CHOICE_POST,
   FINANCING_STRATEGY_POST,
   ASSIGNMENT_OF_CLAIMS_POST,
@@ -337,6 +377,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_HEADINGS;
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_HEADINGS;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_HEADINGS;
+  if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   return [];
 }
 
@@ -361,6 +402,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_JSON_LD;
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_JSON_LD;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_JSON_LD;
+  if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   return null;
 }
 
@@ -1114,6 +1156,77 @@ export const VC_WRONG_CHOICE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: VC_WRONG_CHOICE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const REVOLVING_LINE_FAQ: FaqItem[] = [
+  {
+    question: "What is a revolving line of credit?",
+    answer:
+      "It is a line of credit with an established maximum that a business can draw from, repay, and draw from again until the arrangement expires. Interest is charged only on the amount drawn.",
+  },
+  {
+    question:
+      "How is a revolving line of credit different from an installment loan?",
+    answer:
+      "An installment loan is repaid in fixed payments over a set period, and once it is paid off it cannot be drawn again. A revolving line can be drawn, repaid, and drawn again any number of times until it expires.",
+  },
+  {
+    question: "What is a revolving line of credit commonly used for?",
+    answer:
+      "It is generally described as short term financing for operating purposes, especially for businesses with sharp swings in cash flow, such as a seasonal business covering payroll while it waits to collect receivables.",
+  },
+  {
+    question: "What is the main risk of a revolving line of credit?",
+    answer:
+      "Refinance risk. A federal bank regulator lists revolving working capital lines among the loan types most affected by it, meaning a borrower may not be able to replace the debt at a future date under reasonable terms.",
+  },
+  {
+    question: "How long do government payments usually take?",
+    answer:
+      "Government contractors often deliver work first and wait 30, 60, or 90 days to be paid, and a rejected invoice, a government shutdown, or a continuing resolution can stretch a 45 day cycle to 90.",
+  },
+  {
+    question: "Why does growth increase the need for working capital?",
+    answer:
+      "Growing contractors hire staff and incur costs before invoices are submitted, then wait weeks or months for payment, so revenue can grow while cash lags behind.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const REVOLVING_LINE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Revolving Line of Credit for SaaS",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-21",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/revolving-line-of-credit-saas",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: REVOLVING_LINE_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
