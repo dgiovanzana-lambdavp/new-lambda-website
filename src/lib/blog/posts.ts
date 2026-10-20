@@ -313,19 +313,19 @@ export const VC_WRONG_CHOICE_POST: BlogPostMeta = {
 };
 
 const TERM_LOAN_AMORTIZING_SLUG =
-  "term-loan-vs-amortizing-loan-software-companies";
+  "bullet-loan-vs-amortizing-loan-software-companies";
 
 const TERM_LOAN_AMORTIZING_DATE = "2026-10-20";
 
 const TERM_LOAN_AMORTIZING_H2_TEXTS = [
-  'What "term loan" means, and why the word is confusing',
+  "Where term loans fit",
+  "When to use a bullet loan and when to use an amortizing loan",
   "How an amortizing loan works",
   "How a bullet loan works",
   "How a balloon loan works",
   "The tradeoff: lower payments now, a bigger obligation later",
-  "How each structure lines up with cash flow",
   "What slow government payment means for repayment",
-  "Bullet loan vs amortizing loan",
+  "Bullet loan vs amortizing loan at a glance",
   "Frequently asked questions",
   "Related reading",
   "About Lambda Capital",
@@ -339,10 +339,10 @@ export const TERM_LOAN_AMORTIZING_HEADINGS: BlogHeading[] =
 
 export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   slug: TERM_LOAN_AMORTIZING_SLUG,
-  metaTitle: "Term Loan vs Amortizing Loan for Software Companies",
-  h1: "Term Loans vs Amortizing Loans for Software Companies",
+  metaTitle: "Bullet Loan vs Amortizing Loan for Software Companies",
+  h1: "Bullet Loans vs Amortizing Loans for Software Companies",
   description:
-    "Term loan vs amortizing loan: how a bullet loan and an amortizing loan repay principal, and how each structure lines up with a software company's cash flow.",
+    "Bullet loan vs amortizing loan: when each one fits a software company, based on the shape of your cash flow and the refinance risk at maturity.",
   category: "Growth capital",
   date: TERM_LOAN_AMORTIZING_DATE,
   updated: TERM_LOAN_AMORTIZING_DATE,
@@ -350,7 +350,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   authorRole: BLOG_AUTHOR.role,
   featuredImage: "/blog/featured-term-loan-amortizing-hero.jpg",
   ogImage: `/og/blog-${TERM_LOAN_AMORTIZING_SLUG}.jpg`,
-  breadcrumbsTitle: "Term Loan vs Amortizing Loan",
+  breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
@@ -1172,9 +1172,15 @@ export const VC_WRONG_CHOICE_JSON_LD = {
 export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
   {
     question:
-      "What is the difference between a term loan and an amortizing loan?",
+      "What is the difference between a bullet loan and an amortizing loan?",
     answer:
-      "A term loan is the broader category, and it can be repaid either way. An amortizing loan repays principal in installments over its life. A bullet loan repays the principal at the end of the term, usually with interest only payments until then. A balloon loan falls in between, with a large final payment.",
+      "An amortizing loan repays principal in installments over its life, so the balance falls with each payment. A bullet loan repays the principal at the end of the term, usually with interest only payments until then. Both are term loans; they differ in when the principal comes back.",
+  },
+  {
+    question:
+      "When should a software company use a bullet loan instead of an amortizing loan?",
+    answer:
+      "A bullet loan fits when the company expects a large inflow near maturity or plans to refinance when the principal comes due. It carries refinance risk, because the full principal remains at maturity. Steady, recurring cash flow lines up with an amortizing loan, and fully amortizing loans to sound borrowers generally carry less refinance risk.",
   },
   {
     question: "What is an amortizing loan?",
@@ -1202,11 +1208,6 @@ export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
       "It is the risk that a borrower cannot replace existing debt at a future date under reasonable terms and prevailing market conditions. It mainly affects loans with principal remaining at maturity, and fully amortizing loans to sound borrowers generally carry less of it.",
   },
   {
-    question: "Which cash flow shape does each structure line up with?",
-    answer:
-      "Installment repayment lines up with steady, predictable cash flow. A bullet or balloon structure lines up with a large inflow expected near the time the final payment comes due, and it carries refinance risk.",
-  },
-  {
     question: "How do slow government payments affect loan repayment?",
     answer:
       "Government contractors often deliver work first and wait 30, 60, or 90 days to be paid, and growth can widen the gap between costs and cash. Scheduled loan payments come due regardless of when an agency pays.",
@@ -1221,7 +1222,7 @@ export const TERM_LOAN_AMORTIZING_JSON_LD = {
   "@graph": [
     {
       "@type": "Article",
-      headline: "Term Loans vs Amortizing Loans for Software Companies",
+      headline: "Bullet Loans vs Amortizing Loans for Software Companies",
       author: {
         "@type": "Person",
         name: "Domenic Giovanzana",
@@ -1234,7 +1235,7 @@ export const TERM_LOAN_AMORTIZING_JSON_LD = {
       },
       datePublished: "2026-10-20",
       mainEntityOfPage:
-        "https://www.lambdavp.com/blog/term-loan-vs-amortizing-loan-software-companies",
+        "https://www.lambdavp.com/blog/bullet-loan-vs-amortizing-loan-software-companies",
     },
     {
       "@type": "FAQPage",
