@@ -80,10 +80,12 @@ export default function TermLoanAmortizingPostContent() {
         <strong>Use an amortizing loan when cash comes in steadily.</strong>{" "}
         Recurring revenue that arrives on a regular rhythm lines up with
         installment repayment, because each payment comes due on the same
-        rhythm. Every payment includes principal, so the balance falls, and the
-        Office of the Comptroller of the Currency (OCC) says fully amortizing
-        loans to sound borrowers generally have lower refinance risk than loans
-        that are not fully amortizing.
+        rhythm. Every payment includes principal, so the balance falls, and the{" "}
+        <ExtLink href="https://www.occ.gov/news-issuances/bulletins/2024/bulletin-2024-29.html">
+          Office of the Comptroller of the Currency (OCC)
+        </ExtLink>{" "}
+        says fully amortizing loans to sound borrowers generally have lower
+        refinance risk than loans that are not fully amortizing.
       </p>
       <p>
         <strong>
@@ -92,7 +94,10 @@ export default function TermLoanAmortizingPostContent() {
         A bullet loan keeps payments smaller, usually interest only, and leaves
         the principal due at the end of the term. That lines up with a business
         that expects a large payment around the time the principal comes due, or
-        one that plans to refinance then. The Corporate Finance Institute (CFI)
+        one that plans to refinance then. The{" "}
+        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/bullet-loan/">
+          Corporate Finance Institute (CFI)
+        </ExtLink>{" "}
         notes that bullet loans are refinanced quite often when the final
         payment comes due. If the inflow you have in mind is an exit, I cover
         exit planning in the{" "}
@@ -146,9 +151,7 @@ export default function TermLoanAmortizingPostContent() {
       </p>
       <p>
         Because every payment includes principal, the balance falls steadily. If
-        the loan fully amortizes, nothing is left to repay at maturity, which is
-        why the OCC says fully amortizing loans to sound borrowers generally
-        have lower refinance risk than loans that are not fully amortizing.
+        the loan fully amortizes, nothing is left to repay at maturity.
       </p>
       <h2 id={H["How a bullet loan works"]}>How a bullet loan works</h2>
       <p>
