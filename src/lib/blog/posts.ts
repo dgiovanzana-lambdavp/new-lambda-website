@@ -320,11 +320,11 @@ const TERM_LOAN_AMORTIZING_DATE = "2026-10-20";
 const TERM_LOAN_AMORTIZING_H2_TEXTS = [
   'What "term loan" means, and why the word is confusing',
   "How an amortizing loan works",
-  "How a lump sum term loan works",
+  "How a bullet loan works",
   "The tradeoff: lower payments now, a bigger obligation later",
   "How each structure lines up with cash flow",
   "What slow government payment means for repayment",
-  "Amortizing loan vs lump sum term loan",
+  "Bullet loan vs amortizing loan",
   "Frequently asked questions",
   "Related reading",
   "About Lambda Capital",
@@ -341,7 +341,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   metaTitle: "Term Loan vs Amortizing Loan for Software Companies",
   h1: "Term Loans vs Amortizing Loans for Software Companies",
   description:
-    "Term loan vs amortizing loan: how lump sum and installment repayment differ, and how each structure lines up with a software company's cash flow.",
+    "Term loan vs amortizing loan: how a bullet loan and an amortizing loan repay principal, and how each structure lines up with a software company's cash flow.",
   category: "Growth capital",
   date: TERM_LOAN_AMORTIZING_DATE,
   updated: TERM_LOAN_AMORTIZING_DATE,
@@ -1173,12 +1173,17 @@ export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
     question:
       "What is the difference between a term loan and an amortizing loan?",
     answer:
-      "A term loan, as used here, is a set amount borrowed for a set period and repaid with interest. It can be repaid in installments, which is an amortizing loan, or mostly at the end, which is a lump sum term loan, sometimes called a bullet or balloon loan.",
+      "A term loan is the broader category, and it can be repaid either way. An amortizing loan repays principal in installments over its life. A bullet loan repays the principal at the end of the term, usually with interest only payments until then. A balloon loan falls in between, with a large final payment.",
   },
   {
     question: "What is an amortizing loan?",
     answer:
       "It is a loan repaid in installments, sometimes called a reducing loan, because each payment includes principal and the balance falls. With equal payments, the interest share of each payment is higher early on and lower later.",
+  },
+  {
+    question: "What is a bullet loan?",
+    answer:
+      "It is a loan whose principal is paid back at the end of the loan term. Scheduled payments before then usually cover only interest, and in some cases the interest is also added to the balance and paid at the end.",
   },
   {
     question: "What is a balloon payment?",
@@ -1198,7 +1203,7 @@ export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
   {
     question: "Which cash flow shape does each structure line up with?",
     answer:
-      "Installment repayment lines up with steady, predictable cash flow. A lump sum structure lines up with a large inflow expected near the time the principal comes due, and it carries refinance risk.",
+      "Installment repayment lines up with steady, predictable cash flow. A bullet or balloon structure lines up with a large inflow expected near the time the final payment comes due, and it carries refinance risk.",
   },
   {
     question: "How do slow government payments affect loan repayment?",

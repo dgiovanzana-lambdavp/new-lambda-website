@@ -42,11 +42,13 @@ export default function TermLoanAmortizingPostContent() {
       </p>
       <p>
         The difference between a term loan and an amortizing loan comes down to
-        how the principal is repaid. An amortizing loan pays principal down with
-        each scheduled payment, so the balance falls over the life of the loan.
-        A lump sum term loan keeps scheduled payments smaller, often interest
-        only, and leaves most or all of the principal due at the end. That
-        leftover balance creates refinance risk: the chance the borrower cannot
+        how the principal is repaid, since a term loan can be repaid either way.
+        An amortizing loan pays principal down with each scheduled payment, so
+        the balance falls over the life of the loan. A bullet loan keeps
+        scheduled payments smaller, usually interest only, and leaves the
+        principal due at the end. A balloon loan sits in between, paying down
+        part of the principal and leaving a large final payment. Any balance
+        left at the end creates refinance risk: the chance the borrower cannot
         replace the debt when it matures. Steady cash flow lines up naturally
         with installment repayment. A structure with a large payment at the end
         lines up with a large inflow expected at that time. If you have already
@@ -67,19 +69,31 @@ export default function TermLoanAmortizingPostContent() {
         What &quot;term loan&quot; means, and why the word is confusing
       </h2>
       <p>
-        &quot;Term loan&quot; can mean two different things, so I want to define
-        it up front. As I use the phrase, a term loan is a set amount borrowed
-        for a set period and paid back with interest. That working label covers
-        two very different ways of paying it back.
+        &quot;Term loan&quot; is the umbrella, and that is where the confusion
+        starts. Haynes Boone, a law firm, describes a term loan as a loan that
+        cannot be reborrowed once it is drawn, unlike a revolving loan, and
+        notes that it may require fixed payments over its term, known as
+        amortization, or full repayment in one bullet payment at the end. (
+        <ExtLink href="https://www.haynesboone.com/news/alerts/fund-finance-insights-term-tranche-components-in-subscription-secured-facilities.pdf">
+          Haynes Boone
+        </ExtLink>
+        ) So the real comparison is a bullet loan vs an amortizing loan.
       </p>
-      <p>So in this post I use two labels:</p>
+      <p>In this post I use three names:</p>
       <p>
         <strong>Amortizing loan:</strong> a loan whose principal is repaid in
         installments over its life.
       </p>
       <p>
-        <strong>Lump sum term loan:</strong> a loan whose principal is mostly or
-        entirely repaid at the end, sometimes called a bullet or balloon loan.
+        <strong>Bullet loan:</strong> a loan whose principal is repaid at the end
+        of the term, with scheduled payments before then that usually cover only
+        interest.
+      </p>
+      <p>
+        <strong>Balloon loan:</strong> a loan whose scheduled payments pay down
+        only part of the principal, leaving a large final payment called the
+        balloon. The word is used loosely, and some sources also call the final
+        payment on a bullet loan a balloon payment.
       </p>
 
       <h2 id={H["How an amortizing loan works"]}>
@@ -87,8 +101,8 @@ export default function TermLoanAmortizingPostContent() {
       </h2>
       <p>
         The amortizing structure is the one most founders picture when they
-        think of a loan. The Corporate Finance Institute explains: &quot;When a
-        loan is repaid in installments, it&apos;s typically referred to as an
+        think of a loan. The Corporate Finance Institute (CFI) explains:
+        &quot;When a loan is repaid in installments, it&apos;s typically referred to as an
         amortizing loan (or a reducing loan).&quot; (
         <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/amortization-schedule/">
           Corporate Finance Institute
@@ -105,11 +119,20 @@ export default function TermLoanAmortizingPostContent() {
         tradeoff section below.
       </p>
 
-      <h2 id={H["How a lump sum term loan works"]}>
-        How a lump sum term loan works
-      </h2>
+      <h2 id={H["How a bullet loan works"]}>How a bullet loan works</h2>
       <p>
-        The other structure flips the timing. The Consumer Financial Protection
+        The other structure flips the timing. CFI defines it: &quot;A bullet loan
+        is a type of loan in which the principal that is borrowed is paid back
+        at the end of the loan term.&quot; (
+        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/bullet-loan/">
+          CFI
+        </ExtLink>
+        ) Until then, the scheduled payments usually cover only interest, and in
+        some cases the interest is added to the balance and paid at the end as
+        well.
+      </p>
+      <p>
+        A balloon loan is the partial version. The Consumer Financial Protection
         Bureau explains the concept for mortgages: balloon loans &quot;are
         designed to have lower monthly payments that do not fully pay off the
         loan over the term, and then a large last payment, called the
@@ -117,10 +140,15 @@ export default function TermLoanAmortizingPostContent() {
         <ExtLink href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-balloon-payment-when-is-one-allowed-en-104/">
           CFPB
         </ExtLink>
-        )
+        ){" "}
+        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/balloon-payment/">
+          CFI
+        </ExtLink>{" "}
+        adds that a fully amortized loan is a special case of a balloon loan
+        where the balloon payment is zero.
       </p>
       <p>
-        Some lump sum structures start with an interest only period. In its
+        Some loans start with an interest only period. In its
         explanation of interest only mortgages, the CFPB notes that the amount
         owed does not go down with each payment, and that when the interest only
         period ends, the borrower may pay off the balance all at once, refinance
@@ -166,16 +194,18 @@ export default function TermLoanAmortizingPostContent() {
         comes due on the same rhythm.
       </p>
       <p>
-        <strong>A large inflow expected later.</strong> A lump sum structure
-        matches a business that expects a large payment around the time the
-        principal comes due. The refinance risk above is the other side of that
-        structure.
+        <strong>A large inflow expected later.</strong> A bullet or balloon
+        structure matches a business that expects a large inflow around the time
+        the final payment comes due. CFI gives the example of a small business
+        developing a new product: lower early payments ease the development
+        phase, and growth later generates the cash for the balloon payment. The
+        refinance risk above is the other side of that structure.
       </p>
       <p>
         <strong>Short gaps in working capital.</strong> That is usually a
-        different tool. The{" "}
+        different tool.{" "}
         <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/revolving-credit-facility/">
-          Corporate Finance Institute
+          CFI
         </ExtLink>{" "}
         describes a revolving credit facility as mostly useful for operating
         purposes, especially for a business with sharp swings in its cash flow.
@@ -225,66 +255,50 @@ export default function TermLoanAmortizingPostContent() {
         .
       </p>
 
-      <h2 id={H["Amortizing loan vs lump sum term loan"]}>
-        Amortizing loan vs lump sum term loan
+      <h2 id={H["Bullet loan vs amortizing loan"]}>
+        Bullet loan vs amortizing loan
       </h2>
       <p>
-        <em>A summary of the structures described above.</em>
+        <em>
+          A summary of the structures described above. A balloon loan falls
+          between the two columns.
+        </em>
       </p>
-      <TableWrap
-        caption="Amortizing loan vs lump sum term loan"
-        scrollable
-      >
+      <TableWrap caption="Bullet loan vs amortizing loan" scrollable>
         <table>
-          <caption>Amortizing loan vs lump sum term loan</caption>
+          <caption>Bullet loan vs amortizing loan</caption>
           <thead>
             <tr>
               <th></th>
+              <th>Bullet loan</th>
               <th>Amortizing loan</th>
-              <th>Lump sum term loan</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td data-label="">How principal is repaid</td>
-              <td data-label="Amortizing loan">
-                In installments over the life of the loan
-              </td>
-              <td data-label="Lump sum term loan">
-                Mostly or entirely at the end
-              </td>
+              <td data-label="Bullet loan">All at the end of the term</td>
+              <td data-label="Amortizing loan">In installments over the life of the loan</td>
             </tr>
             <tr>
               <td data-label="">Scheduled payments</td>
+              <td data-label="Bullet loan">Smaller; usually interest only</td>
               <td data-label="Amortizing loan">Interest plus principal</td>
-              <td data-label="Lump sum term loan">
-                Smaller; often interest only at first
-              </td>
             </tr>
             <tr>
               <td data-label="">Balance during the loan</td>
+              <td data-label="Bullet loan">Does not fall before maturity</td>
               <td data-label="Amortizing loan">Falls with each payment</td>
-              <td data-label="Lump sum term loan">
-                Stays high; does not fall during an interest only period
-              </td>
             </tr>
             <tr>
               <td data-label="">Refinance risk</td>
-              <td data-label="Amortizing loan">
-                Generally lower when fully amortizing
-              </td>
-              <td data-label="Lump sum term loan">
-                Higher, because principal remains at maturity
-              </td>
+              <td data-label="Bullet loan">Higher, because the full principal remains at maturity</td>
+              <td data-label="Amortizing loan">Generally lower when fully amortizing</td>
             </tr>
             <tr>
               <td data-label="">Cash flow shape it lines up with</td>
-              <td data-label="Amortizing loan">
-                Steady, predictable cash flow
-              </td>
-              <td data-label="Lump sum term loan">
-                A large inflow expected near maturity
-              </td>
+              <td data-label="Bullet loan">A large inflow expected near maturity</td>
+              <td data-label="Amortizing loan">Steady, predictable cash flow</td>
             </tr>
           </tbody>
         </table>
