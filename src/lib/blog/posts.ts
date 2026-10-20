@@ -321,6 +321,7 @@ const TERM_LOAN_AMORTIZING_H2_TEXTS = [
   'What "term loan" means, and why the word is confusing',
   "How an amortizing loan works",
   "How a bullet loan works",
+  "How a balloon loan works",
   "The tradeoff: lower payments now, a bigger obligation later",
   "How each structure lines up with cash flow",
   "What slow government payment means for repayment",

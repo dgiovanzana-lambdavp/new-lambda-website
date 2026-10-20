@@ -131,6 +131,8 @@ export default function TermLoanAmortizingPostContent() {
         some cases the interest is added to the balance and paid at the end as
         well.
       </p>
+
+      <h2 id={H["How a balloon loan works"]}>How a balloon loan works</h2>
       <p>
         A balloon loan is the partial version. The Consumer Financial Protection
         Bureau explains the concept for mortgages: balloon loans &quot;are
@@ -196,10 +198,8 @@ export default function TermLoanAmortizingPostContent() {
       <p>
         <strong>A large inflow expected later.</strong> A bullet or balloon
         structure matches a business that expects a large inflow around the time
-        the final payment comes due. CFI gives the example of a small business
-        developing a new product: lower early payments ease the development
-        phase, and growth later generates the cash for the balloon payment. The
-        refinance risk above is the other side of that structure.
+        the final payment comes due. The refinance risk above is the other side
+        of that structure.
       </p>
       <p>
         <strong>Short gaps in working capital.</strong> That is usually a
