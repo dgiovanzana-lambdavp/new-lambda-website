@@ -37,6 +37,13 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+/**
+ * Only live posts in ALL_POSTS are valid. Unknown /blog/<slug> URLs
+ * (including unpublished drafts still on open PR branches) return a real
+ * HTTP 404 instead of soft-404ing to the homepage shell.
+ */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return ALL_POSTS.map((post) => ({ slug: post.slug }));
 }
