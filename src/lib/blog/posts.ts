@@ -353,7 +353,49 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const PREFERRED_STOCK_SLUG = "non-convertible-preferred-stock";
+
+const PREFERRED_STOCK_DATE = "2026-10-22";
+
+const PREFERRED_STOCK_H2_TEXTS = [
+  "What nonconvertible preferred stock is",
+  "Nonconvertible vs convertible preferred",
+  "Where it sits in the capital stack",
+  "How the dividends work, and why they can wait",
+  "What it means for control",
+  "How holders get their money back without a sale",
+  "Preferred stock vs a loan: cash flow and cost",
+  "When it fits a government technology software company",
+  "Nonconvertible preferred, convertible preferred, and a loan",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const PREFERRED_STOCK_HEADINGS: BlogHeading[] =
+  PREFERRED_STOCK_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const PREFERRED_STOCK_POST: BlogPostMeta = {
+  slug: PREFERRED_STOCK_SLUG,
+  metaTitle: "Nonconvertible Preferred Stock for Software Companies",
+  h1: "Nonconvertible Preferred Stock",
+  description:
+    "Nonconvertible preferred stock explained: where it sits between debt and common, how its dividends work, and how it compares with a loan.",
+  category: "Growth capital",
+  date: PREFERRED_STOCK_DATE,
+  updated: PREFERRED_STOCK_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-non-convertible-preferred-hero.jpg",
+  ogImage: `/og/blog-${PREFERRED_STOCK_SLUG}.jpg`,
+  breadcrumbsTitle: "Nonconvertible Preferred Stock",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  PREFERRED_STOCK_POST,
   TERM_LOAN_AMORTIZING_POST,
   VC_WRONG_CHOICE_POST,
   FINANCING_STRATEGY_POST,
@@ -380,6 +422,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_HEADINGS;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
+  if (slug === PREFERRED_STOCK_SLUG) return PREFERRED_STOCK_HEADINGS;
   return [];
 }
 
@@ -405,6 +448,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_JSON_LD;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
+  if (slug === PREFERRED_STOCK_SLUG) return PREFERRED_STOCK_JSON_LD;
   return null;
 }
 
@@ -1240,6 +1284,82 @@ export const TERM_LOAN_AMORTIZING_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: TERM_LOAN_AMORTIZING_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const PREFERRED_STOCK_FAQ: FaqItem[] = [
+  {
+    question: "What is nonconvertible preferred stock?",
+    answer:
+      "It is a class of ownership, often called straight preferred, that receives a priority return of capital and yield ahead of common stock but never converts into common shares.",
+  },
+  {
+    question: "How is it different from convertible preferred stock?",
+    answer:
+      "Convertible preferred holders can switch into common shares when that is more advantageous, which lets them share in a large sale. Straight preferred holders receive their priority return of capital and yield instead.",
+  },
+  {
+    question: "Where does preferred stock rank in the capital stack?",
+    answer:
+      "Between debt and common equity. In a default, preferred holders are paid after lenders and before common shareholders.",
+  },
+  {
+    question: "Is a missed preferred dividend a default?",
+    answer:
+      "No. Preferred stock represents an ownership interest, not a liability, so an unpaid dividend is not treated as a default the way a missed loan payment is.",
+  },
+  {
+    question:
+      "What is the difference between cumulative and noncumulative dividends?",
+    answer:
+      "With cumulative preferred stock, a skipped dividend must eventually be paid to preferred holders before common holders receive dividends. With noncumulative preferred stock, a skipped dividend is lost to the holder for good.",
+  },
+  {
+    question: "Do preferred holders get a vote?",
+    answer:
+      "Usually not. Preferred stock typically carries no vote, although in some cases preferred holders receive voting rights until the dividends due to them are paid.",
+  },
+  {
+    question: "Is preferred stock cheaper than a loan?",
+    answer:
+      "Usually not for the company. Interest on debt is tax deductible to the corporation, while preferred dividends are not. The difference is flexibility: there are no monthly repayments, and a missed dividend is not a default.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ */
+export const PREFERRED_STOCK_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Nonconvertible Preferred Stock",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-22",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/non-convertible-preferred-stock",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: PREFERRED_STOCK_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
