@@ -285,7 +285,7 @@ export default function FinancingStrategyPostContent() {
         <li>Start With Your Exit (this post)</li>
         <li>When Venture Capital Is the Wrong Choice for Vertical SaaS</li>
         <li>How to Build a VC Target List by Fit, Not Prestige</li>
-        <li>Term Loans vs Amortizing Loans for Software Companies</li>
+        <li>Bullet Loans vs Amortizing Loans for Software Companies</li>
         <li>Revolving Line of Credit for SaaS: Smoothing Lumpy Cash Flow</li>
         <li>
           Receivables Financing for GovTech: Getting Paid While Government Takes
