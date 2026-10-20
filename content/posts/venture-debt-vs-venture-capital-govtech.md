@@ -39,14 +39,6 @@ In the same guide's example, 10% coverage on a $2 million loan gives the lender 
 
 The real cost depends on what your company is worth later. Startup Fortune explains that the strike price is locked when the loan closes and never resets upward ([Startup Fortune](https://startupfortune.com/how-does-venture-debt-warrant-coverage-work-and-why-it-costs-more/)), so the better you do, the more the warrant is worth to the lender.
 
-**Levers to negotiate:**
-
-1. **Coverage percentage.** The same guide calls coverage a pricing lever that rises with risk, and says competing term sheets are the best way to push it down.
-2. **Drawn vs committed.** Startup Fortune warns against coverage priced on the full committed facility rather than what you actually draw ([Startup Fortune](https://startupfortune.com/how-does-warrant-coverage-work-in-a-startup-venture-debt-loan/)). The guide also describes splitting issuance between commitment and drawdown.
-3. **Strike price and expiration.** It suggests tying the strike to your most recent round and pushing for a shorter term.
-4. **The share count, not just the percentage.** Startup Fortune suggests having counsel walk through the actual share count the warrant produces under the document's definitions.
-5. **Put options.** The guide also flags clauses that let the lender sell the warrant back to you for cash after a set number of years. Negotiate them out or cap them.
-
 ## Why venture debt may not be available to a bootstrapped GovTech company
 
 Here is the catch for the founders I talk to most: classic venture debt is built for companies that already have VC backing. HubSpot for Startups says that after a Series A, you "can unlock debt options," including venture debt, credit lines, and revenue based financing. ([HubSpot for Startups](https://www.hubspot.com/startups/fundraising/equity-vs-debt-financing))
@@ -107,10 +99,6 @@ HubSpot for Startups describes revenue based financing as a flexible loan repaid
 ### Do government contracts help or hurt when borrowing?
 
 They can do both. In my experience government customers tend to renew, but lenders will look at termination for convenience rights, non appropriation risk, customer concentration, and how long collections take. Federal receivables can be assigned to a lender only under the Assignment of Claims Act. Bring your renewal history and contract terms to any lender conversation.
-
-### What should I negotiate in a venture debt term sheet?
-
-Push on the coverage percentage, whether coverage applies to the committed facility or only to what you draw, the strike price, and the expiration date. Startup Fortune also suggests having counsel walk through the actual share count the warrant produces, not just the stated percentage.
 
 ### When is VC the better choice than debt?
 
@@ -200,14 +188,6 @@ We read every note and reply to founders directly.
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "They can do both. In my experience government customers tend to renew, but lenders will look at termination for convenience rights, non appropriation risk, customer concentration, and how long collections take. Federal receivables can be assigned to a lender only under the Assignment of Claims Act. Bring your renewal history and contract terms to any lender conversation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What should I negotiate in a venture debt term sheet?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Push on the coverage percentage, whether coverage applies to the committed facility or only to what you draw, the strike price, and the expiration date. Startup Fortune also suggests having counsel walk through the actual share count the warrant produces, not just the stated percentage."
           }
         },
         {

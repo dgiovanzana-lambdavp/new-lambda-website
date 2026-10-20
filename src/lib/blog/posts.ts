@@ -824,11 +824,6 @@ export const VENTURE_DEBT_FAQ: FaqItem[] = [
       "They can do both. In my experience government customers tend to renew, but lenders will look at termination for convenience rights, non appropriation risk, customer concentration, and how long collections take. Federal receivables can be assigned to a lender only under the Assignment of Claims Act. Bring your renewal history and contract terms to any lender conversation.",
   },
   {
-    question: "What should I negotiate in a venture debt term sheet?",
-    answer:
-      "Push on the coverage percentage, whether coverage applies to the committed facility or only to what you draw, the strike price, and the expiration date. Startup Fortune also suggests having counsel walk through the actual share count the warrant produces, not just the stated percentage.",
-  },
-  {
     question: "When is VC the better choice than debt?",
     answer:
       "HubSpot for Startups says equity fits companies chasing fast growth, industry dominance, or large liquidity events. Debt fits predictable revenue, owners who want control, and sustainable growth. A steadily growing company with long term government customers often matches the debt profile, if cash flow can carry the payments.",
@@ -908,14 +903,6 @@ export const VENTURE_DEBT_JSON_LD = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "They can do both. In my experience government customers tend to renew, but lenders will look at termination for convenience rights, non appropriation risk, customer concentration, and how long collections take. Federal receivables can be assigned to a lender only under the Assignment of Claims Act. Bring your renewal history and contract terms to any lender conversation.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What should I negotiate in a venture debt term sheet?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Push on the coverage percentage, whether coverage applies to the committed facility or only to what you draw, the strike price, and the expiration date. Startup Fortune also suggests having counsel walk through the actual share count the warrant produces, not just the stated percentage.",
           },
         },
         {
