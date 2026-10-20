@@ -65,7 +65,7 @@ export default function TeamShowcase({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 36 }}
+      initial={{ opacity: 1, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.65 }}

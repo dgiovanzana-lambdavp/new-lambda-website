@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Reveal from './Reveal';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -11,6 +12,7 @@ const Footer: React.FC = () => {
     company: [
       { name: 'Team', href: '/team' },
       { name: 'Portfolio', href: '/portfolio' },
+      { name: 'Growth capital', href: '/growth-capital' },
       { name: 'Contact', href: '/contact' },
       { name: 'Blog', href: '/blog' },
     ],
@@ -44,14 +46,8 @@ const Footer: React.FC = () => {
       <div className="container-custom">
         <div className="py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Company Info */}
             <div className="lg:col-span-2">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
+              <Reveal>
                 <Link href="/" className="flex items-center space-x-2 mb-6">
                   <img
                     src="/Capital - White Long.png"
@@ -75,16 +71,10 @@ const Footer: React.FC = () => {
                     </motion.a>
                   ))}
                 </div>
-              </motion.div>
+              </Reveal>
             </div>
 
-            {/* Company Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
+            <Reveal delayMs={80}>
               <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
               <ul className="space-y-3 footer-company-links">
                 {footerLinks.company.map((link) => (
@@ -98,18 +88,11 @@ const Footer: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </Reveal>
 
           </div>
 
-          {/* Bottom Bar */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="border-t border-gray-700 mt-12 pt-8"
-          >
+          <Reveal delayMs={120} className="border-t border-gray-700 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-300 text-sm">
                 © {currentYear} Lambda Capital. All rights reserved.
@@ -118,7 +101,7 @@ const Footer: React.FC = () => {
                 Built for the brave. Built for the future.
               </p>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </footer>
