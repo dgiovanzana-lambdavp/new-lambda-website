@@ -14,6 +14,7 @@ import AssignmentOfClaimsPostContent from "@/components/blog/AssignmentOfClaimsP
 import FinancingStrategyPostContent from "@/components/blog/FinancingStrategyPostContent";
 import VcWrongChoicePostContent from "@/components/blog/VcWrongChoicePostContent";
 import RevolvingLinePostContent from "@/components/blog/RevolvingLinePostContent";
+import TermLoanAmortizingPostContent from "@/components/blog/TermLoanAmortizingPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
@@ -23,6 +24,7 @@ import {
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
   REVOLVING_LINE_POST,
+  TERM_LOAN_AMORTIZING_POST,
   UPFRONT_PAYMENT_POST,
   VC_WRONG_CHOICE_POST,
   VENTURE_DEBT_POST,
@@ -36,6 +38,13 @@ import {
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
+
+/**
+ * Only live posts in ALL_POSTS are valid. Unknown /blog/<slug> URLs
+ * (including unpublished drafts still on open PR branches) return a real
+ * HTTP 404 instead of soft-404ing to the homepage shell.
+ */
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return ALL_POSTS.map((post) => ({ slug: post.slug }));
@@ -85,6 +94,8 @@ function PostBody({ slug }: { slug: string }) {
     return <FinancingStrategyPostContent />;
   if (slug === VC_WRONG_CHOICE_POST.slug) return <VcWrongChoicePostContent />;
   if (slug === REVOLVING_LINE_POST.slug) return <RevolvingLinePostContent />;
+  if (slug === TERM_LOAN_AMORTIZING_POST.slug)
+    return <TermLoanAmortizingPostContent />;
   return null;
 }
 

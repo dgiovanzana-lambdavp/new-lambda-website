@@ -121,40 +121,6 @@ export default function VentureDebtPostContent() {
         </ExtLink>
         ), so the better you do, the more the warrant is worth to the lender.
       </p>
-      <p>
-        <strong>Levers to negotiate:</strong>
-      </p>
-      <ol>
-        <li>
-          <strong>Coverage percentage.</strong> The same guide calls coverage a
-          pricing lever that rises with risk, and says competing term sheets are
-          the best way to push it down.
-        </li>
-        <li>
-          <strong>Drawn vs committed.</strong> Startup Fortune warns against
-          coverage priced on the full committed facility rather than what you
-          actually draw (
-          <ExtLink href="https://startupfortune.com/how-does-warrant-coverage-work-in-a-startup-venture-debt-loan/">
-            Startup Fortune
-          </ExtLink>
-          ). The guide also describes splitting issuance between commitment and
-          drawdown.
-        </li>
-        <li>
-          <strong>Strike price and expiration.</strong> It suggests tying the
-          strike to your most recent round and pushing for a shorter term.
-        </li>
-        <li>
-          <strong>The share count, not just the percentage.</strong> Startup
-          Fortune suggests having counsel walk through the actual share count
-          the warrant produces under the document&apos;s definitions.
-        </li>
-        <li>
-          <strong>Put options.</strong> The guide also flags clauses that let
-          the lender sell the warrant back to you for cash after a set number of
-          years. Negotiate them out or cap them.
-        </li>
-      </ol>
 
       <h2
         id={

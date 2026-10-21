@@ -24,6 +24,9 @@ export function generateStaticParams() {
   return personas.map((persona) => ({ persona }));
 }
 
+/** Unknown persona slugs hard-404 instead of soft-rendering. */
+export const dynamicParams = false;
+
 /**
  * `params` is typed explicitly rather than via Next's generated
  * `PageProps` helper. The generated types depend on `.next/types`

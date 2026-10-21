@@ -351,8 +351,50 @@ export const REVOLVING_LINE_POST: BlogPostMeta = {
   breadcrumbsTitle: "Revolving Line of Credit for SaaS",
 };
 
+const TERM_LOAN_AMORTIZING_SLUG =
+  "bullet-loan-vs-amortizing-loan-software-companies";
+
+const TERM_LOAN_AMORTIZING_DATE = "2026-10-20";
+
+const TERM_LOAN_AMORTIZING_H2_TEXTS = [
+  "Where term loans fit",
+  "When to use a bullet loan and when to use an amortizing loan",
+  "How an amortizing loan works",
+  "How a bullet loan works",
+  "How a balloon loan works",
+  "The tradeoff: lower payments now, a bigger obligation later",
+  "What slow government payment means for repayment",
+  "Bullet loan vs amortizing loan at a glance",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const TERM_LOAN_AMORTIZING_HEADINGS: BlogHeading[] =
+  TERM_LOAN_AMORTIZING_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
+  slug: TERM_LOAN_AMORTIZING_SLUG,
+  metaTitle: "Bullet Loan vs Amortizing Loan for Software Companies",
+  h1: "Bullet Loans vs Amortizing Loans for Software Companies",
+  description:
+    "Bullet loan vs amortizing loan: when each one fits a software company, based on the shape of your cash flow and the refinance risk at maturity.",
+  category: "Growth capital",
+  date: TERM_LOAN_AMORTIZING_DATE,
+  updated: TERM_LOAN_AMORTIZING_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-term-loan-amortizing-hero.jpg",
+  ogImage: `/og/blog-${TERM_LOAN_AMORTIZING_SLUG}.jpg`,
+  breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
   REVOLVING_LINE_POST,
+  TERM_LOAN_AMORTIZING_POST,
   VC_WRONG_CHOICE_POST,
   FINANCING_STRATEGY_POST,
   ASSIGNMENT_OF_CLAIMS_POST,
@@ -378,6 +420,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_HEADINGS;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
+  if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
 }
 
@@ -403,6 +446,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_JSON_LD;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
+  if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
 }
 
@@ -822,11 +866,6 @@ export const VENTURE_DEBT_FAQ: FaqItem[] = [
       "They can do both. In my experience government customers tend to renew, but lenders will look at termination for convenience rights, non appropriation risk, customer concentration, and how long collections take. Federal receivables can be assigned to a lender only under the Assignment of Claims Act. Bring your renewal history and contract terms to any lender conversation.",
   },
   {
-    question: "What should I negotiate in a venture debt term sheet?",
-    answer:
-      "Push on the coverage percentage, whether coverage applies to the committed facility or only to what you draw, the strike price, and the expiration date. Startup Fortune also suggests having counsel walk through the actual share count the warrant produces, not just the stated percentage.",
-  },
-  {
     question: "When is VC the better choice than debt?",
     answer:
       "HubSpot for Startups says equity fits companies chasing fast growth, industry dominance, or large liquidity events. Debt fits predictable revenue, owners who want control, and sustainable growth. A steadily growing company with long term government customers often matches the debt profile, if cash flow can carry the payments.",
@@ -906,14 +945,6 @@ export const VENTURE_DEBT_JSON_LD = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "They can do both. In my experience government customers tend to renew, but lenders will look at termination for convenience rights, non appropriation risk, customer concentration, and how long collections take. Federal receivables can be assigned to a lender only under the Assignment of Claims Act. Bring your renewal history and contract terms to any lender conversation.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What should I negotiate in a venture debt term sheet?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Push on the coverage percentage, whether coverage applies to the committed facility or only to what you draw, the strike price, and the expiration date. Startup Fortune also suggests having counsel walk through the actual share count the warrant produces, not just the stated percentage.",
           },
         },
         {
@@ -1201,6 +1232,51 @@ export const REVOLVING_LINE_FAQ: FaqItem[] = [
   },
 ];
 
+export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
+  {
+    question:
+      "What is the difference between a bullet loan and an amortizing loan?",
+    answer:
+      "An amortizing loan repays principal in installments over its life, so the balance falls with each payment. A bullet loan repays the principal at the end of the term, usually with interest only payments until then. Both are term loans; they differ in when the principal comes back.",
+  },
+  {
+    question:
+      "When should a software company use a bullet loan instead of an amortizing loan?",
+    answer:
+      "A bullet loan fits when the company expects a large inflow near maturity or plans to refinance when the principal comes due. It carries refinance risk, because the full principal remains at maturity. Steady, recurring cash flow lines up with an amortizing loan, and fully amortizing loans to sound borrowers generally carry less refinance risk.",
+  },
+  {
+    question: "What is an amortizing loan?",
+    answer:
+      "It is a loan repaid in installments, sometimes called a reducing loan, because each payment includes principal and the balance falls. With equal payments, the interest share of each payment is higher early on and lower later.",
+  },
+  {
+    question: "What is a bullet loan?",
+    answer:
+      "It is a loan whose principal is paid back at the end of the loan term. Scheduled payments before then usually cover only interest, and in some cases the interest is also added to the balance and paid at the end.",
+  },
+  {
+    question: "What is a balloon payment?",
+    answer:
+      "It is a large last payment at the end of a loan term. In mortgage lending, a balloon loan has lower monthly payments that do not fully pay off the loan over the term, followed by a large last payment.",
+  },
+  {
+    question: "What is an interest only period?",
+    answer:
+      "It is a stretch when scheduled payments cover only interest, so the amount owed does not go down. For interest only mortgages, when the period ends the borrower may pay off the balance all at once, refinance if available, or begin higher monthly payments.",
+  },
+  {
+    question: "What is refinance risk?",
+    answer:
+      "It is the risk that a borrower cannot replace existing debt at a future date under reasonable terms and prevailing market conditions. It mainly affects loans with principal remaining at maturity, and fully amortizing loans to sound borrowers generally carry less of it.",
+  },
+  {
+    question: "How do slow government payments affect loan repayment?",
+    answer:
+      "Government contractors often deliver work first and wait 30, 60, or 90 days to be paid, and growth can widen the gap between costs and cash. Scheduled loan payments come due regardless of when an agency pays.",
+  },
+];
+
 /**
  * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
  */
@@ -1227,6 +1303,40 @@ export const REVOLVING_LINE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: REVOLVING_LINE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const TERM_LOAN_AMORTIZING_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Bullet Loans vs Amortizing Loans for Software Companies",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-20",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/bullet-loan-vs-amortizing-loan-software-companies",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: TERM_LOAN_AMORTIZING_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
