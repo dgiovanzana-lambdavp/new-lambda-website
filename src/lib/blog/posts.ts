@@ -312,6 +312,46 @@ export const VC_WRONG_CHOICE_POST: BlogPostMeta = {
   breadcrumbsTitle: "When Venture Capital Is Wrong for Vertical SaaS",
 };
 
+const REVENUE_BASED_FINANCING_SLUG =
+  "revenue-based-financing-government-contractors";
+
+const REVENUE_BASED_FINANCING_DATE = "2026-10-23";
+
+const REVENUE_BASED_FINANCING_H2_TEXTS = [
+  "What revenue based financing and royalty financing are",
+  "Why government receipts are lumpy",
+  "When a revenue share fits a GovTech software company",
+  "Where a revenue share stops helping: slow government payments",
+  "What you can ask an agency for instead",
+  "When a revenue share becomes a drag",
+  "How it compares with other sources",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const REVENUE_BASED_FINANCING_HEADINGS: BlogHeading[] =
+  REVENUE_BASED_FINANCING_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const REVENUE_BASED_FINANCING_POST: BlogPostMeta = {
+  slug: REVENUE_BASED_FINANCING_SLUG,
+  metaTitle: "Revenue Based Financing for Government Contractors",
+  h1: "Revenue Based Financing for Government Contractors",
+  description:
+    "Revenue based financing repays from a share of revenue. Here is when that fits a GovTech software company with slow government payments, and when it drags.",
+  category: "Growth capital",
+  date: REVENUE_BASED_FINANCING_DATE,
+  updated: REVENUE_BASED_FINANCING_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-revenue-based-financing-hero.jpg",
+  ogImage: `/og/blog-${REVENUE_BASED_FINANCING_SLUG}.jpg`,
+  breadcrumbsTitle: "Revenue Based Financing for Government Contractors",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -393,6 +433,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  REVENUE_BASED_FINANCING_POST,
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
   VC_WRONG_CHOICE_POST,
@@ -419,6 +460,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_HEADINGS;
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_HEADINGS;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_HEADINGS;
+  if (slug === REVENUE_BASED_FINANCING_SLUG)
+    return REVENUE_BASED_FINANCING_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -445,6 +488,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === ASSIGNMENT_OF_CLAIMS_SLUG) return ASSIGNMENT_OF_CLAIMS_JSON_LD;
   if (slug === FINANCING_STRATEGY_SLUG) return FINANCING_STRATEGY_JSON_LD;
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_JSON_LD;
+  if (slug === REVENUE_BASED_FINANCING_SLUG)
+    return REVENUE_BASED_FINANCING_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -1187,6 +1232,82 @@ export const VC_WRONG_CHOICE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: VC_WRONG_CHOICE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const REVENUE_BASED_FINANCING_FAQ: FaqItem[] = [
+  {
+    question: "Can a government contractor use revenue based financing?",
+    answer:
+      "Yes, if it has collected revenue to share. Repayment is a share of revenue rather than a fixed payment.",
+  },
+  {
+    question: "Is revenue based financing the same as royalty financing?",
+    answer:
+      "The names often travel together, and public programs described as royalty funds have been counted among early revenue based financing programs. Read each agreement to see how it is structured.",
+  },
+  {
+    question: "Is revenue based financing the same as a merchant cash advance?",
+    answer:
+      "Not usually. Merchant cash advances draw repayments daily or weekly over less than a year, while revenue based financing is typically repaid monthly.",
+  },
+  {
+    question: "Does revenue based financing help when an agency pays late?",
+    answer:
+      "Not directly. A revenue share is not tied to any single invoice, so it does not speed up an agency payment. Invoice factoring, by contrast, involves selling unpaid invoices.",
+  },
+  {
+    question: "What happens in a quarter with no government payments?",
+    answer:
+      "Payments are a share of revenue, so they usually fall when collections fall.",
+  },
+  {
+    question: "Can I ask an agency for upfront or milestone payments instead?",
+    answer:
+      "You can raise it before award. Advance payment is something you negotiate with the agency, not a default, and many contracting officers will not offer it on a first award.",
+  },
+  {
+    question: "How is revenue based financing different from a bullet loan?",
+    answer:
+      "Revenue based financing repays from revenue as it comes in. A bullet loan repays the principal at the end of the term, usually with interest only payments until then.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const REVENUE_BASED_FINANCING_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Revenue Based Financing for Government Contractors",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-23",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/revenue-based-financing-government-contractors",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: REVENUE_BASED_FINANCING_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
