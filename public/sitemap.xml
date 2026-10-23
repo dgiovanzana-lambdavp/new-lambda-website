@@ -32,9 +32,15 @@
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lambdavp.com/blog/revenue-based-financing-government-contractors</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog/revolving-line-of-credit-saas</loc>
