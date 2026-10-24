@@ -49,8 +49,11 @@ export default function RevolvingLinePostContent() {
         especially for businesses whose cash flow swings. That makes them a
         natural fit to consider for a software as a service (SaaS) company with
         uneven months, or a government technology (GovTech) company waiting on
-        agencies to pay. The tradeoff is refinance risk: a balance can remain
-        when the line comes up for renewal. For the full set of options, see the{" "}
+        agencies to pay. Use a revolver if you have recurring gaps between paying
+        costs and collecting cash; use a loan with a set repayment date if you
+        have a one time need tied to a known future inflow. With a revolver, part
+        of the plan is how any balance will be handled when the line comes up for
+        renewal. For the full set of options, see the{" "}
         <Link href={`/blog/${FINANCING_STRATEGY_POST.slug}`}>
           series hub on software company financing strategy
         </Link>
@@ -97,30 +100,29 @@ export default function RevolvingLinePostContent() {
         to collect receivables.
       </p>
       <p>
-        In my judgment, a revolver is a poor match for a long term purchase that
-        will take years to pay back. Installment debt, which repays on a fixed
-        schedule, is built around that kind of need.
+        In my judgment, a revolver fits short gaps in operating cash, and
+        installment debt, which repays on a fixed schedule, fits a long term
+        purchase that will take years to pay back.
       </p>
 
-      <h2 id={H["The risk: what happens at renewal"]}>
-        The risk: what happens at renewal
-      </h2>
+      <h2 id={H["Planning for renewal"]}>Planning for renewal</h2>
       <p>
-        A revolver smooths uneven months, but it carries a specific risk worth
-        understanding. The Office of the Comptroller of the Currency, a federal
-        bank regulator, defines it in a bulletin on commercial lending:
-        &quot;Refinance risk is the risk that borrowers will not be able to
-        replace existing debt at a future date under reasonable terms and
-        prevailing market conditions.&quot; (
+        A revolver fits when you plan how the line will be paid down or renewed.
+        The{" "}
         <ExtLink href="https://www.occ.gov/news-issuances/bulletins/2024/bulletin-2024-29.html">
           Office of the Comptroller of the Currency
         </ExtLink>
-        ) The same bulletin names revolving working capital lines among the loan
-        types most affected by refinance risk.
+        , a federal bank regulator, describes the related planning consideration
+        in a bulletin on commercial lending: &quot;Refinance risk is the risk
+        that borrowers will not be able to replace existing debt at a future date
+        under reasonable terms and prevailing market conditions.&quot; The same
+        bulletin notes that this consideration applies to revolving working
+        capital lines, which is why the renewal plan is part of choosing a
+        revolver.
       </p>
       <p>
-        In plain terms, a line that is fully drawn when it comes up for renewal
-        leaves a balance that still has to be repaid or replaced.
+        If the line is fully drawn at renewal, that balance still has to be
+        repaid or replaced.
       </p>
 
       <h2 id={H["When you are waiting months on a government payment"]}>

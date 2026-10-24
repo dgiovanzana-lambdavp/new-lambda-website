@@ -323,7 +323,7 @@ const REVENUE_BASED_FINANCING_H2_TEXTS = [
   "When a revenue share fits a GovTech software company",
   "Where a revenue share stops helping: slow government payments",
   "What you can ask an agency for instead",
-  "When a revenue share becomes a drag",
+  "When another tool fits better",
   "How it compares with other sources",
   "Frequently asked questions",
   "Related reading",
@@ -341,7 +341,7 @@ export const REVENUE_BASED_FINANCING_POST: BlogPostMeta = {
   metaTitle: "Revenue Based Financing for Government Contractors",
   h1: "Revenue Based Financing for Government Contractors",
   description:
-    "Revenue based financing repays from a share of revenue. Here is when that fits a GovTech software company with slow government payments, and when it drags.",
+    "Revenue based financing repays from a share of revenue. When it fits a GovTech company with slow government payments, and when another tool fits better.",
   category: "Growth capital",
   date: REVENUE_BASED_FINANCING_DATE,
   updated: REVENUE_BASED_FINANCING_DATE,
@@ -359,7 +359,7 @@ const REVOLVING_LINE_DATE = "2026-10-21";
 const REVOLVING_LINE_H2_TEXTS = [
   "How a revolving line of credit works",
   "What a revolver is for, and what it is not for",
-  "The risk: what happens at renewal",
+  "Planning for renewal",
   "When you are waiting months on a government payment",
   "Why growth makes the gap wider",
   "Lines tied to receivables",
@@ -380,7 +380,7 @@ export const REVOLVING_LINE_POST: BlogPostMeta = {
   metaTitle: "Revolving Line of Credit for SaaS: How It Works",
   h1: "Revolving Line of Credit for SaaS",
   description:
-    "How a revolving line of credit works for SaaS companies, how it fits uneven cash flow and slow government payments, and the risk it carries.",
+    "How a revolving line of credit works for SaaS companies, how it fits uneven cash flow and slow government payments, and how to plan for renewal.",
   category: "Growth capital",
   date: REVOLVING_LINE_DATE,
   updated: REVOLVING_LINE_DATE,
@@ -397,12 +397,12 @@ const TERM_LOAN_AMORTIZING_SLUG =
 const TERM_LOAN_AMORTIZING_DATE = "2026-10-20";
 
 const TERM_LOAN_AMORTIZING_H2_TEXTS = [
-  "Where term loans fit",
+  "Two ways to repay the same loan",
   "When to use a bullet loan and when to use an amortizing loan",
   "How an amortizing loan works",
   "How a bullet loan works",
   "How a balloon loan works",
-  "The tradeoff: lower payments now, a bigger obligation later",
+  "Planning for repayment at maturity",
   "What slow government payment means for repayment",
   "Bullet loan vs amortizing loan at a glance",
   "Frequently asked questions",
@@ -421,7 +421,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   metaTitle: "Bullet Loan vs Amortizing Loan for Software Companies",
   h1: "Bullet Loans vs Amortizing Loans for Software Companies",
   description:
-    "Bullet loan vs amortizing loan: when each one fits a software company, based on the shape of your cash flow and the refinance risk at maturity.",
+    "Bullet loan vs amortizing loan: when each one fits a software company, based on the shape of your cash flow and when you expect cash to arrive.",
   category: "Growth capital",
   date: TERM_LOAN_AMORTIZING_DATE,
   updated: TERM_LOAN_AMORTIZING_DATE,
@@ -1337,9 +1337,9 @@ export const REVOLVING_LINE_FAQ: FaqItem[] = [
       "It is generally described as short term financing for operating purposes, especially for businesses with sharp swings in cash flow, such as a seasonal business covering payroll while it waits to collect receivables.",
   },
   {
-    question: "What is the main risk of a revolving line of credit?",
+    question: "What should I plan for with a revolving line of credit?",
     answer:
-      "Refinance risk. A federal bank regulator lists revolving working capital lines among the loan types most affected by it, meaning a borrower may not be able to replace the debt at a future date under reasonable terms.",
+      "Renewal. A federal bank regulator notes that revolving working capital lines can face refinancing at renewal, so a revolver fits best when you know how the balance will be paid down or renewed.",
   },
   {
     question: "How long do government payments usually take?",
@@ -1358,13 +1358,13 @@ export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
     question:
       "What is the difference between a bullet loan and an amortizing loan?",
     answer:
-      "An amortizing loan repays principal in installments over its life, so the balance falls with each payment. A bullet loan repays the principal at the end of the term, usually with interest only payments until then. Both are term loans; they differ in when the principal comes back.",
+      "A bullet loan repays the principal at the end of the term, usually with interest only payments until then, so it fits a company that expects to sell the business or has a big cash flow event coming. An amortizing loan repays principal in installments over its life, so the balance falls with each payment, and it fits a company with recurring, predictable cash flow.",
   },
   {
     question:
       "When should a software company use a bullet loan instead of an amortizing loan?",
     answer:
-      "A bullet loan fits when the company expects a large inflow near maturity or plans to refinance when the principal comes due. It carries refinance risk, because the full principal remains at maturity. Steady, recurring cash flow lines up with an amortizing loan, and fully amortizing loans to sound borrowers generally carry less refinance risk.",
+      "Use a bullet loan when you expect to sell the business or have a big cash flow event coming, or plan to refinance when the principal comes due. Use an amortizing loan when you have recurring, predictable cash flow that can carry principal and interest in every scheduled payment.",
   },
   {
     question: "What is an amortizing loan?",
@@ -1389,7 +1389,7 @@ export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
   {
     question: "What is refinance risk?",
     answer:
-      "It is the risk that a borrower cannot replace existing debt at a future date under reasonable terms and prevailing market conditions. It mainly affects loans with principal remaining at maturity, and fully amortizing loans to sound borrowers generally carry less of it.",
+      "It is the risk that a borrower cannot replace existing debt at a future date under reasonable terms and prevailing market conditions. It applies mainly to loans with principal remaining at maturity, so with a bullet loan the plan for repaying the principal is part of choosing the structure.",
   },
   {
     question: "How do slow government payments affect loan repayment?",

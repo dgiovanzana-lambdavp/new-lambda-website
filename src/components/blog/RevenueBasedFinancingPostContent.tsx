@@ -205,9 +205,15 @@ export default function RevenueBasedFinancingPostContent() {
         pays in arrears, your first year&apos;s cash flow changes.
       </p>
 
-      <h2 id={H["When a revenue share becomes a drag"]}>
-        When a revenue share becomes a drag
+      <h2 id={H["When another tool fits better"]}>
+        When another tool fits better
       </h2>
+      <p>
+        Use a revenue share if collections are steady and the need is short. If
+        the need is tied to a signed contract or a known future inflow,{" "}
+        <Link href={`/blog/${GOVTECH_POST.slug}`}>contract financing</Link> or a
+        loan with a bullet payment fits better.
+      </p>
       <p>
         Every payment comes off the top. Before signing, model how much of each
         month&apos;s collections would go to repayment and how much cash would be
