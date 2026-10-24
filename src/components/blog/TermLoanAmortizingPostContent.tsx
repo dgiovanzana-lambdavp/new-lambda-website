@@ -30,20 +30,21 @@ export default function TermLoanAmortizingPostContent() {
     <div className="blog-prose">
       <p>
         <strong>
-          Two loans for the same amount can put very different pressure on your
-          cash, depending on when the principal comes due.
+          A sale or a big payment on the horizon points to a bullet loan. Steady,
+          recurring cash points to an amortizing loan.
         </strong>
       </p>
       <p>
         When should a software company use a bullet loan, and when should it use
-        an amortizing loan? I start with the shape of the company&apos;s cash
-        flow. An amortizing loan pays principal down with each scheduled
-        payment, so it fits cash that arrives on a steady, recurring rhythm. A
-        bullet loan keeps scheduled payments smaller, usually interest only, and
-        leaves the principal due at the end, so it fits a company that expects a
-        large inflow near maturity or plans to refinance. The price of those
-        smaller payments is refinance risk: the chance the borrower cannot
-        replace the debt when it matures. If you have already ruled out venture
+        an amortizing loan? Use a bullet loan when you expect to sell the
+        business or have a big cash flow event coming; use an amortizing loan
+        when you have recurring, predictable cash flow. A bullet loan keeps
+        scheduled payments smaller, usually interest only, and leaves the
+        principal due at the end of the term, when that sale or payment, or a
+        planned refinance, can repay it. An amortizing loan pays principal down
+        with each scheduled payment, which lines up with cash that arrives on a
+        steady, recurring rhythm. With either structure, part of the plan is how
+        the principal will be repaid. If you have already ruled out venture
         capital, this is one of the next questions; see{" "}
         <Link href={`/blog/${VC_WRONG_CHOICE_POST.slug}`}>
           when venture capital is the wrong choice for vertical SaaS
@@ -57,15 +58,17 @@ export default function TermLoanAmortizingPostContent() {
           structure fits different cash flow patterns.
         </em>
       </p>
-      <h2 id={H["Where term loans fit"]}>Where term loans fit</h2>
+      <h2 id={H["Two ways to repay the same loan"]}>
+        Two ways to repay the same loan
+      </h2>
       <p>
-        Both structures are term loans. Haynes Boone, a law firm, notes that a
-        term loan may require fixed payments over its term, known as
-        amortization, or full repayment in one bullet payment at the end. (
         <ExtLink href="https://www.haynesboone.com/news/alerts/fund-finance-insights-term-tranche-components-in-subscription-secured-facilities.pdf">
           Haynes Boone
         </ExtLink>
-        ) The difference is when the principal comes back.
+        , a law firm, notes that a loan with a set term may require fixed
+        payments over that term, known as amortization, or full repayment in one
+        bullet payment at the end. The difference is when the principal comes
+        back.
       </p>
       <h2
         id={H["When to use a bullet loan and when to use an amortizing loan"]}
@@ -77,24 +80,13 @@ export default function TermLoanAmortizingPostContent() {
         cash flow, not the size of the loan.
       </p>
       <p>
-        <strong>Use an amortizing loan when cash comes in steadily.</strong>{" "}
-        Recurring revenue that arrives on a regular rhythm lines up with
-        installment repayment, because each payment comes due on the same
-        rhythm. Every payment includes principal, so the balance falls, and the{" "}
-        <ExtLink href="https://www.occ.gov/news-issuances/bulletins/2024/bulletin-2024-29.html">
-          Office of the Comptroller of the Currency (OCC)
-        </ExtLink>{" "}
-        says fully amortizing loans to sound borrowers generally have lower
-        refinance risk than loans that are not fully amortizing.
-      </p>
-      <p>
         <strong>
-          Use a bullet loan when a large inflow is expected near maturity.
+          When a sale or big cash flow event is coming, a bullet loan fits.
         </strong>{" "}
         A bullet loan keeps payments smaller, usually interest only, and leaves
         the principal due at the end of the term. That lines up with a business
-        that expects a large payment around the time the principal comes due, or
-        one that plans to refinance then. The{" "}
+        that expects a sale or a large payment around the time the principal
+        comes due, or one that plans to refinance then. The{" "}
         <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/bullet-loan/">
           Corporate Finance Institute (CFI)
         </ExtLink>{" "}
@@ -108,13 +100,28 @@ export default function TermLoanAmortizingPostContent() {
       </p>
       <p>
         <strong>
-          Name the refinance risk before you choose a bullet loan.
+          When cash flow is recurring and predictable, an amortizing loan fits.
         </strong>{" "}
-        A planned refinance depends on the rates and terms available at
-        maturity. The OCC says refinance risk primarily affects loans with
+        Recurring revenue that arrives on a regular rhythm lines up with
+        installment repayment, because each payment comes due on the same
+        rhythm. Every payment includes principal, so the balance falls, and if
+        the loan fully amortizes, nothing is left to repay at maturity.
+      </p>
+      <p>
+        <strong>
+          Plan the source of repayment for either structure.
+        </strong>{" "}
+        With a bullet loan, the plan is the inflow or refinance that will repay
+        the principal at maturity, and a planned refinance depends on the rates
+        and terms available then. The{" "}
+        <ExtLink href="https://www.occ.gov/news-issuances/bulletins/2024/bulletin-2024-29.html">
+          Office of the Comptroller of the Currency (OCC)
+        </ExtLink>{" "}
+        notes that this refinancing consideration applies mainly to loans with
         principal balances remaining at maturity, and that it increases when
-        interest rates rise. I cover it in more detail in the tradeoff section
-        below.
+        interest rates rise. With an amortizing loan, the plan is cash flow that
+        can carry principal and interest in every scheduled payment. I cover both
+        in the planning section below.
       </p>
       <p>
         <strong>
@@ -123,7 +130,8 @@ export default function TermLoanAmortizingPostContent() {
         Government contractors often deliver the work first and wait 30, 60, or
         90 days to be paid, and growth can widen the gap between costs and cash,
         as I cover below. Scheduled loan payments come due on the loan&apos;s
-        calendar regardless of when an agency pays.
+        calendar regardless of when an agency pays, so the structure that fits is
+        the one whose payment schedule matches when your cash actually arrives.
       </p>
       <p>
         <strong>
@@ -196,24 +204,27 @@ export default function TermLoanAmortizingPostContent() {
         </Link>
         .
       </p>
-      <h2 id={H["The tradeoff: lower payments now, a bigger obligation later"]}>
-        The tradeoff: lower payments now, a bigger obligation later
+      <h2 id={H["Planning for repayment at maturity"]}>
+        Planning for repayment at maturity
       </h2>
       <p>
-        This is the part of the comparison I would want every CEO to understand
-        before anything else. The OCC defines it in a bulletin: &quot;Refinance
-        risk is the risk that borrowers will not be able to replace existing
-        debt at a future date under reasonable terms and prevailing market
-        conditions.&quot; (
+        A bullet loan fits when the inflow or refinance that will repay the
+        principal is planned ahead of maturity. The OCC describes the refinancing
+        consideration in{" "}
         <ExtLink href="https://www.occ.gov/news-issuances/bulletins/2024/bulletin-2024-29.html">
-          OCC
+          a bulletin
         </ExtLink>
-        )
+        : &quot;Refinance risk is the risk that borrowers will not be able to
+        replace existing debt at a future date under reasonable terms and
+        prevailing market conditions.&quot;
       </p>
       <p>
-        The same bulletin adds that refinance risk primarily affects loans with
-        principal balances remaining at maturity, and it names interest only
-        loans among the types most affected.
+        The same bulletin notes that this consideration applies mainly to loans
+        with principal balances remaining at maturity, including interest only
+        loans, which is why the repayment plan is part of choosing a bullet loan.
+        An amortizing loan fits when the business can carry principal in every
+        scheduled payment from the start, because its balance is repaid along the
+        way.
       </p>
       <h2 id={H["What slow government payment means for repayment"]}>
         What slow government payment means for repayment
@@ -274,6 +285,16 @@ export default function TermLoanAmortizingPostContent() {
           </thead>
           <tbody>
             <tr>
+              <td data-label="">When it fits</td>
+              <td data-label="Bullet loan">
+                You expect to sell the business or have a big cash flow event
+                coming
+              </td>
+              <td data-label="Amortizing loan">
+                You have recurring, predictable cash flow
+              </td>
+            </tr>
+            <tr>
               <td data-label="">How principal is repaid</td>
               <td data-label="Bullet loan">All at the end of the term</td>
               <td data-label="Amortizing loan">
@@ -291,20 +312,15 @@ export default function TermLoanAmortizingPostContent() {
               <td data-label="Amortizing loan">Falls with each payment</td>
             </tr>
             <tr>
-              <td data-label="">Refinance risk</td>
+              <td data-label="">Planning consideration</td>
               <td data-label="Bullet loan">
-                Higher, because the full principal remains at maturity
+                How the principal will be repaid at maturity, from an expected
+                inflow or a planned refinance
               </td>
               <td data-label="Amortizing loan">
-                Generally lower when fully amortizing
+                Cash flow that can carry principal and interest in every
+                scheduled payment
               </td>
-            </tr>
-            <tr>
-              <td data-label="">When it fits</td>
-              <td data-label="Bullet loan">
-                A large inflow expected near maturity, or a planned refinance
-              </td>
-              <td data-label="Amortizing loan">Steady, recurring cash flow</td>
             </tr>
           </tbody>
         </table>
