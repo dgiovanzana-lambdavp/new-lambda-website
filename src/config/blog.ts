@@ -1,3 +1,5 @@
+import { SITE_ORIGIN } from "@/config/site";
+
 /**
  * Blog publish configuration.
  *
@@ -6,7 +8,7 @@
 export const BLOG_PUBLISH_DATE = "2026-10-12";
 
 /** Canonical site origin. Must match the www host after the apex redirect. */
-export const BLOG_SITE_ORIGIN = "https://www.lambdavp.com";
+export const BLOG_SITE_ORIGIN = SITE_ORIGIN;
 
 export const BLOG_AUTHOR = {
   name: "Domenic Giovanzana",
