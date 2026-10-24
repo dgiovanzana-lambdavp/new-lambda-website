@@ -352,6 +352,45 @@ export const REVENUE_BASED_FINANCING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Revenue Based Financing for Government Contractors",
 };
 
+const CAPITAL_STACK_SENIORITY_SLUG =
+  "capital-stack-seniority-govtech-software";
+
+const CAPITAL_STACK_SENIORITY_DATE = "2026-10-24";
+
+const CAPITAL_STACK_SENIORITY_H2_TEXTS = [
+  "What the capital stack is",
+  "The order of payment when a company is sold",
+  "Seniority among lenders: liens on government receivables",
+  "Which layer fits which problem",
+  "How the layers compare",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const CAPITAL_STACK_SENIORITY_HEADINGS: BlogHeading[] =
+  CAPITAL_STACK_SENIORITY_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const CAPITAL_STACK_SENIORITY_POST: BlogPostMeta = {
+  slug: CAPITAL_STACK_SENIORITY_SLUG,
+  metaTitle: "Capital Stack Seniority Explained for GovTech Software Companies",
+  h1: "Capital Stack Seniority Explained for GovTech Software Companies",
+  description:
+    "Capital stack seniority sets who is repaid first at a sale and whose lien comes first on government receivables. Which layer fits which GovTech problem.",
+  category: "Growth capital",
+  date: CAPITAL_STACK_SENIORITY_DATE,
+  updated: CAPITAL_STACK_SENIORITY_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-capital-stack-seniority-hero.jpg",
+  ogImage: `/og/blog-${CAPITAL_STACK_SENIORITY_SLUG}.jpg`,
+  breadcrumbsTitle:
+    "Capital Stack Seniority Explained for GovTech Software Companies",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -433,6 +472,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  CAPITAL_STACK_SENIORITY_POST,
   REVENUE_BASED_FINANCING_POST,
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
@@ -462,6 +502,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_HEADINGS;
   if (slug === REVENUE_BASED_FINANCING_SLUG)
     return REVENUE_BASED_FINANCING_HEADINGS;
+  if (slug === CAPITAL_STACK_SENIORITY_SLUG)
+    return CAPITAL_STACK_SENIORITY_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -490,6 +532,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === VC_WRONG_CHOICE_SLUG) return VC_WRONG_CHOICE_JSON_LD;
   if (slug === REVENUE_BASED_FINANCING_SLUG)
     return REVENUE_BASED_FINANCING_JSON_LD;
+  if (slug === CAPITAL_STACK_SENIORITY_SLUG)
+    return CAPITAL_STACK_SENIORITY_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -1458,6 +1502,87 @@ export const TERM_LOAN_AMORTIZING_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: TERM_LOAN_AMORTIZING_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const CAPITAL_STACK_SENIORITY_FAQ: FaqItem[] = [
+  {
+    question: "What is capital stack seniority?",
+    answer:
+      "It is the order in which each source of capital is repaid: lenders first, then preferred shareholders, then common shareholders.",
+  },
+  {
+    question: "In what order are people paid when a software company is sold?",
+    answer:
+      "Debts and transaction costs are paid first. Preferred shareholders are then paid according to their place in the stack, and common shareholders are paid last.",
+  },
+  {
+    question: "Where does preferred stock sit in the capital stack?",
+    answer:
+      "Between debt and common equity. Lenders are paid before preferred shareholders, and preferred shareholders are paid before common shareholders.",
+  },
+  {
+    question: "Do preferred holders always take their preference?",
+    answer:
+      "Not always. In a non participating structure, preferred shareholders typically receive the greater of their liquidation preference or what they would have received by converting to common stock.",
+  },
+  {
+    question: "Can two lenders both have a claim on my government receivables?",
+    answer:
+      "Yes. The Uniform Commercial Code sets the starting order between secured lenders, and a contract between the lenders can change that order. On a federal contract, an assignment of payments generally goes to a single party, which can act as agent for several lenders.",
+  },
+  {
+    question: "What is lien subordination?",
+    answer:
+      "It is a contract between two or more secured lenders that sets whose lien comes first on which assets. It can override the order the Uniform Commercial Code would otherwise set.",
+  },
+  {
+    question: "How does the Assignment of Claims Act fit in?",
+    answer:
+      "On a federal contract, a contractor can assign its payments to a bank, trust company, or other financing institution when all of the conditions in the Federal Acquisition Regulation are met. That is how a financing institution gets paid directly from a federal receivable.",
+  },
+  {
+    question: "Which layer of the capital stack should I use?",
+    answer:
+      "It depends on the problem. Receivables or contract financing fits a slow government receivable, a bullet loan fits a cash need with a sale or big cash flow event ahead, an amortizing loan fits steady collections, preferred stock fits capital without fixed loan payments, and venture equity fits a bet on a very large exit.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const CAPITAL_STACK_SENIORITY_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Capital Stack Seniority Explained for GovTech Software Companies",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-24",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/capital-stack-seniority-govtech-software",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: CAPITAL_STACK_SENIORITY_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
