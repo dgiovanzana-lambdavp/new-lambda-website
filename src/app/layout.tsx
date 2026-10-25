@@ -6,6 +6,7 @@ import "./blog/blog.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
+import { SITE_ORIGIN, absoluteUrl } from "@/config/site";
 
 /**
  * The site's two typefaces.
@@ -26,8 +27,15 @@ const robotoCondensed = Roboto_Condensed({
   weight: ["500", "600", "700"],
 });
 
+/*
+  Homepage-only defaults live here because `src/app/page.tsx` is a
+  client component and cannot export metadata. Child routes MUST
+  override `alternates.canonical` and `openGraph.url` — otherwise
+  Google sees "Alternate page with proper canonical tag" and drops
+  them from the index (they inherit the homepage canonical).
+*/
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.lambdavp.com"),
+  metadataBase: new URL(SITE_ORIGIN),
   title: "Lambda Capital - Investing in Mission-Critical Technology",
   description:
     "Lambda Capital is a permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",
@@ -37,7 +45,7 @@ export const metadata: Metadata = {
   creator: "Lambda Capital",
   publisher: "Lambda Capital",
   formatDetection: { email: false, address: false, telephone: false },
-  alternates: { canonical: "/" },
+  alternates: { canonical: absoluteUrl("/") },
   /*
     Icons declared here rather than as raw <link> tags in a <head>
     block. Next emits them into the document head itself, and keeping
@@ -56,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.lambdavp.com",
+    url: absoluteUrl("/"),
     title: "Lambda Capital - Investing in Mission-Critical Technology",
     description:
       "A permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",

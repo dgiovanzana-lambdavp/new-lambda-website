@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { Funnel } from "@/components/funnel/Funnel";
 import { FUNNEL_CONFIG } from "@/config/funnel";
+import { absoluteUrl } from "@/config/site";
 import { isPersona, type Persona } from "@/lib/leads/types";
 
 /**
@@ -11,10 +12,23 @@ import { isPersona, type Persona } from "@/lib/leads/types";
  * straight at /contact/founder and skip the router screen. That is why
  * the slugs are human-readable and must stay stable: they end up in
  * published URLs that outlive any refactor.
+ *
+ * Self-referencing canonical so these deep links do not inherit the
+ * homepage canonical from the root layout.
  */
-export const metadata: Metadata = {
-  title: "Contact | Lambda Capital",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ persona: string }>;
+}): Promise<Metadata> {
+  const { persona } = await params;
+  const canonical = absoluteUrl(`/contact/${persona}`);
+  return {
+    title: "Contact | Lambda Capital",
+    alternates: { canonical },
+    openGraph: { url: canonical },
+  };
+}
 
 /** Pre-render the lanes that are actually reachable. */
 export function generateStaticParams() {

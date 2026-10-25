@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { FUNNEL_CONFIG } from "@/config/funnel";
+import { absoluteUrl } from "@/config/site";
 import type { Persona } from "@/lib/leads/types";
 import { PersonaRouter } from "./PersonaRouter";
+
+const canonical = absoluteUrl("/contact");
 
 export const metadata: Metadata = {
   title: "Contact | Lambda Capital",
   description:
     "Tell us who you are and we'll route you to the right conversation.",
+  alternates: { canonical },
+  openGraph: { url: canonical },
 };
 
 /**
