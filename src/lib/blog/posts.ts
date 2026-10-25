@@ -391,6 +391,47 @@ export const CAPITAL_STACK_SENIORITY_POST: BlogPostMeta = {
     "Capital Stack Seniority Explained for GovTech Software Companies",
 };
 
+const COMMON_STOCK_FINANCING_SLUG =
+  "common-stock-financing-govtech-software";
+
+const COMMON_STOCK_FINANCING_DATE = "2026-10-25";
+
+const COMMON_STOCK_FINANCING_H2_TEXTS = [
+  "What common stock financing is",
+  "Which financing fits which problem",
+  "Every stock sale is a securities offering",
+  "Outside owners and your small business size status",
+  "Foreign investors and facility clearances",
+  "How the options compare",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const COMMON_STOCK_FINANCING_HEADINGS: BlogHeading[] =
+  COMMON_STOCK_FINANCING_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const COMMON_STOCK_FINANCING_POST: BlogPostMeta = {
+  slug: COMMON_STOCK_FINANCING_SLUG,
+  metaTitle:
+    "Common Stock Financing for GovTech Software Companies: When It Fits and What Rules Apply",
+  h1: "Common Stock Financing for GovTech Software Companies: When It Fits and What Rules Apply",
+  description:
+    "Common stock financing means selling ownership for cash with no loan to repay. When it fits a GovTech software company, and the SEC, SBA and FOCI checks.",
+  category: "Growth capital",
+  date: COMMON_STOCK_FINANCING_DATE,
+  updated: COMMON_STOCK_FINANCING_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-common-stock-financing-hero.jpg",
+  ogImage: `/og/blog-${COMMON_STOCK_FINANCING_SLUG}.jpg`,
+  breadcrumbsTitle:
+    "Common Stock Financing for GovTech Software Companies",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -472,6 +513,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  COMMON_STOCK_FINANCING_POST,
   CAPITAL_STACK_SENIORITY_POST,
   REVENUE_BASED_FINANCING_POST,
   REVOLVING_LINE_POST,
@@ -504,6 +546,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return REVENUE_BASED_FINANCING_HEADINGS;
   if (slug === CAPITAL_STACK_SENIORITY_SLUG)
     return CAPITAL_STACK_SENIORITY_HEADINGS;
+  if (slug === COMMON_STOCK_FINANCING_SLUG)
+    return COMMON_STOCK_FINANCING_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -534,6 +578,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return REVENUE_BASED_FINANCING_JSON_LD;
   if (slug === CAPITAL_STACK_SENIORITY_SLUG)
     return CAPITAL_STACK_SENIORITY_JSON_LD;
+  if (slug === COMMON_STOCK_FINANCING_SLUG)
+    return COMMON_STOCK_FINANCING_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -1583,6 +1629,88 @@ export const CAPITAL_STACK_SENIORITY_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: CAPITAL_STACK_SENIORITY_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const COMMON_STOCK_FINANCING_FAQ: FaqItem[] = [
+  {
+    question: "What is common stock financing?",
+    answer:
+      "It is selling ordinary ownership shares in your company for cash. Investors become owners, usually with voting rights, and there is no loan to repay.",
+  },
+  {
+    question: "Do I have to pay common stock investors back?",
+    answer:
+      "No. Equity has no maturity date, and the company is not required to repay the investment or pay dividends. Investors share in the company's future value through their ownership.",
+  },
+  {
+    question: "When does common stock fit a GovTech software company?",
+    answer:
+      "It fits when you need capital and do not have the cash flow to make payments to an investor. If the need is a slow government payment on a signed contract, contract financing or the contract's billing terms fit that problem.",
+  },
+  {
+    question: "Do I need to register a stock sale with the SEC?",
+    answer:
+      "Every offer and sale of securities, even to one person, must be registered with the Securities and Exchange Commission or made under an exemption. Exemptions include Rule 506(b) private placements, Rule 506(c) offerings, Rule 504 offerings, Regulation Crowdfunding, intrastate offerings and Regulation A. Talk to securities counsel before you offer shares.",
+  },
+  {
+    question: "Can I talk about my raise on social media?",
+    answer:
+      "Depending on context, a social media post about the company and specific investment opportunities could be considered an offer of securities, and a company cannot use general solicitation in a Rule 506(b) private placement. Regular, ordinary factual business communications are generally not considered an offer.",
+  },
+  {
+    question: "Can selling stock affect my small business set aside eligibility?",
+    answer:
+      "It can. The Small Business Administration adds the employees or receipts of all affiliates when it measures size, and an investor that controls or has the power to control your company can be an affiliate. A merger, acquisition or sale that changes the controlling interest requires recertification within 30 calendar days.",
+  },
+  {
+    question: "Do I need to tell DCSA if a foreign investor buys shares?",
+    answer:
+      "If your company holds a facility security clearance, it has a duty to inform the Defense Counterintelligence and Security Agency when its ownership and control change. The SF 328 asks about foreign persons who own five percent or more of the company on a fully diluted basis.",
+  },
+  {
+    question: "Which option should I use?",
+    answer:
+      "It depends on the problem. Common stock fits capital without the cash flow to pay an investor back, contract financing fits a signed contract that pays in 90 to 180 days, the contract's payment terms fit a billing schedule problem, a bullet loan fits a cash need with a sale or big cash flow event ahead, an amortizing loan fits steady collections, preferred stock fits capital without fixed loan payments, and venture equity fits a bet on a very large exit.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const COMMON_STOCK_FINANCING_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Common Stock Financing for GovTech Software Companies: When It Fits and What Rules Apply",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-25",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/common-stock-financing-govtech-software",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: COMMON_STOCK_FINANCING_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {

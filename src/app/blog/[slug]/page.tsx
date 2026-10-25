@@ -17,11 +17,13 @@ import RevolvingLinePostContent from "@/components/blog/RevolvingLinePostContent
 import TermLoanAmortizingPostContent from "@/components/blog/TermLoanAmortizingPostContent";
 import RevenueBasedFinancingPostContent from "@/components/blog/RevenueBasedFinancingPostContent";
 import CapitalStackSeniorityPostContent from "@/components/blog/CapitalStackSeniorityPostContent";
+import CommonStockFinancingPostContent from "@/components/blog/CommonStockFinancingPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
   CAPITAL_STACK_SENIORITY_POST,
+  COMMON_STOCK_FINANCING_POST,
   FINANCING_STRATEGY_POST,
   GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
@@ -101,6 +103,8 @@ function PostBody({ slug }: { slug: string }) {
     return <RevenueBasedFinancingPostContent />;
   if (slug === CAPITAL_STACK_SENIORITY_POST.slug)
     return <CapitalStackSeniorityPostContent />;
+  if (slug === COMMON_STOCK_FINANCING_POST.slug)
+    return <CommonStockFinancingPostContent />;
   if (slug === REVOLVING_LINE_POST.slug) return <RevolvingLinePostContent />;
   if (slug === TERM_LOAN_AMORTIZING_POST.slug)
     return <TermLoanAmortizingPostContent />;
