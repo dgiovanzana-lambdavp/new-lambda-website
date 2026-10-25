@@ -452,6 +452,9 @@ export default function CommonStockFinancingPostContent() {
         sectors of the economy. We take a patient approach and invest for the
         long term. GovTech contract funding is one of our lines of business.
       </p>
+      <p>
+        <Link href="/contact">Contact Lambda Capital</Link>
+      </p>
       <p>We read every note and reply to founders directly.</p>
     </div>
   );
