@@ -19,6 +19,7 @@ import RevenueBasedFinancingPostContent from "@/components/blog/RevenueBasedFina
 import CapitalStackSeniorityPostContent from "@/components/blog/CapitalStackSeniorityPostContent";
 import CommonStockFinancingPostContent from "@/components/blog/CommonStockFinancingPostContent";
 import MetaHyperionPostContent from "@/components/blog/MetaHyperionPostContent";
+import NeocloudFinancingPostContent from "@/components/blog/NeocloudFinancingPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
@@ -27,6 +28,7 @@ import {
   COMMON_STOCK_FINANCING_POST,
   FINANCING_STRATEGY_POST,
   META_HYPERION_POST,
+  NEOCLOUD_POST,
   GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
@@ -108,6 +110,7 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === COMMON_STOCK_FINANCING_POST.slug)
     return <CommonStockFinancingPostContent />;
   if (slug === META_HYPERION_POST.slug) return <MetaHyperionPostContent />;
+  if (slug === NEOCLOUD_POST.slug) return <NeocloudFinancingPostContent />;
   if (slug === REVOLVING_LINE_POST.slug) return <RevolvingLinePostContent />;
   if (slug === TERM_LOAN_AMORTIZING_POST.slug)
     return <TermLoanAmortizingPostContent />;
