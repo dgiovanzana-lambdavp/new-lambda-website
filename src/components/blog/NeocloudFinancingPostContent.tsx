@@ -320,10 +320,10 @@ export default function NeocloudFinancingPostContent() {
         </table>
       </TableWrap>
 
-      <h3>The software company with a January problem</h3>
+      <h3>The GovTech company with a January problem</h3>
 
       <p>
-        In September, I spoke with a software company that had a bunch of signed three year contracts. About $300,000 of those deals were renewing in January, and the company needed about $250,000 to get through the end of the year.
+        In September, I spoke with a GovTech company that had a bunch of signed three year government contracts. About $300,000 of those deals were renewing in January, and the company needed about $250,000 to get through the end of the year.
       </p>
 
       <p>
@@ -337,7 +337,7 @@ export default function NeocloudFinancingPostContent() {
       </p>
 
       <p>
-        The company&apos;s revenue comes from customers who signed multiyear deals, outside anything being financed. A GovTech company with signed government contracts sits in the same spot.
+        The company&apos;s revenue comes from government agencies that signed multiyear deals, outside anything being financed.
       </p>
 
       <p>
