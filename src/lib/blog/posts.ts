@@ -474,13 +474,14 @@ const NEOCLOUD_SLUG = "neocloud-financing-independent-revenue";
 const NEOCLOUD_DATE = "2026-10-26";
 
 const NEOCLOUD_H2_TEXTS = [
-  "The neocloud financing problem: a reply that moved the market",
-  "The options for paying for AI chips",
-  "What happened: SpaceX signs, Nebius borrows",
-  '"Closed," "callable debt" and what the filing says',
-  "Why each party acts as it does",
+  "The neocloud financing problem: the asset has to pay for itself",
+  "The characters and what each one wants",
+  "The exception: SpaceX borrows the same week",
+  "Why the lenders said yes",
+  "The neocloud that still borrowed",
+  "My take: lenders fund revenue the asset does not create",
+  "Which tool fits which problem",
   "The risks",
-  "What a smaller company owner can take from it",
   "Frequently asked questions",
   "Related reading",
   "About Lambda Capital",
