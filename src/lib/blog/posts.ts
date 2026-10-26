@@ -436,18 +436,12 @@ const META_HYPERION_SLUG = "meta-hyperion-data-center-spv-financing";
 const META_HYPERION_DATE = "2026-10-26";
 
 const META_HYPERION_H2_TEXTS = [
-  "The deal at a glance",
-  "Who is who in the deal",
-  "How the money and the lease flow",
-  "Who holds the debt",
-  "The lease back",
-  "The residual value guarantee",
-  "Construction sits with Meta",
-  "Why the debt sits off Meta's balance sheet",
-  "What Meta still carries",
-  "Meta used the same model again in Texas",
-  "Where the sources differ",
-  "What this means for software and infrastructure founders",
+  "Meta's problem: a huge build and an uncertain future",
+  "Three ways to pay for it",
+  "How the Meta Hyperion data center financing works",
+  "Why each party said yes",
+  "Here's the catch: the risks",
+  "What a smaller company owner can take from it",
   "Frequently asked questions",
   "Related reading",
   "About Lambda Capital",
@@ -461,8 +455,7 @@ export const META_HYPERION_HEADINGS: BlogHeading[] =
 
 export const META_HYPERION_POST: BlogPostMeta = {
   slug: META_HYPERION_SLUG,
-  metaTitle:
-    "Meta Hyperion Data Center Financing: How the Blue Owl Joint Venture, the $27.3 Billion Bond and the Lease Back Work",
+  metaTitle: "Meta Hyperion Data Center Financing: How the Deal Works",
   h1: "Meta Hyperion Data Center Financing: How the Blue Owl Joint Venture, the $27.3 Billion Bond and the Lease Back Work",
   description:
     "How Meta financed Hyperion: a Blue Owl joint venture, a $27.3 billion bond, a lease back and a value guarantee, and why it sits off Meta's balance sheet.",
@@ -1713,17 +1706,17 @@ export const META_HYPERION_FAQ: FaqItem[] = [
   {
     question: "How did Meta finance the Hyperion data center?",
     answer:
-      "Through a joint venture with funds managed by Blue Owl Capital, which own 80%, while Meta owns 20%. A bond issuer on the Blue Owl side, Beignet Investor, sold $27.3 billion of bonds, and Meta will lease the finished campus.",
+      "Through a joint venture with funds managed by Blue Owl Capital, which own 80%, while Meta owns 20%. A bond issuer on the Blue Owl side, Beignet Investor, sold $27.3 billion of bonds. Meta will lease the finished campus.",
   },
   {
     question: "Who bought the Hyperion bonds?",
     answer:
-      "Meta's announcement named PIMCO and select other bond investors, and PIMCO was reported to be the main anchor investor. The Wall Street Journal reported, citing people familiar with the matter, that BlackRock bought more than $3 billion.",
+      "Meta's announcement named PIMCO and select other bond investors. PIMCO was reported to be the main anchor investor. The Wall Street Journal reported, citing people familiar with the matter, that BlackRock bought more than $3 billion.",
   },
   {
     question: "What are the bond terms?",
     answer:
-      "They are 6.581% senior secured bonds due May 2049, rated A+, and they amortize, which means principal is repaid over the life of the bonds.",
+      "They are 6.581% senior secured bonds due May 2049, rated A+. They amortize, which means principal is repaid over the life of the bonds.",
   },
   {
     question: "Does Meta own the data center?",
@@ -1733,12 +1726,12 @@ export const META_HYPERION_FAQ: FaqItem[] = [
   {
     question: "What is the residual value guarantee?",
     answer:
-      "If Meta ends or does not renew a lease and certain other conditions are met, Meta pays any shortfall between the property's fair value and an agreed threshold. The aggregate threshold is approximately $28 billion and decreases over time.",
+      "It applies if Meta ends or does not renew a lease and certain other conditions are met. Meta then pays any shortfall between the property's fair value and an agreed threshold. The aggregate threshold is approximately $28 billion and decreases over time.",
   },
   {
     question: "Why is the debt not on Meta's balance sheet?",
     answer:
-      "Meta concluded that it does not have the power to direct the activities that most significantly affect the venture's economic performance, so it is not the primary beneficiary and does not consolidate the venture.",
+      "Meta concluded that it does not have the power to direct the activities that most significantly affect the venture's economic performance. So it is not the primary beneficiary and does not consolidate the venture.",
   },
   {
     question: "How much could Meta owe?",
@@ -1748,7 +1741,7 @@ export const META_HYPERION_FAQ: FaqItem[] = [
   {
     question: "Has Meta done another deal like this?",
     answer:
-      "Yes. Meta formed a second venture in Texas in July 2026, holds 20% of it, and describes the two ventures as similar in purpose, design, and risk and reward characteristics.",
+      "Yes. Meta formed a second venture in Texas in July 2026 and holds 20% of it. Meta describes the two ventures as similar in purpose, design, and risk and reward characteristics.",
   },
 ];
 
