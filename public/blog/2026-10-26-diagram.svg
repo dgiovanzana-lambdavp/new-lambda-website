@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1040" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Meta Hyperion financing diagram</title>
+<desc id="d">Diagram of the Meta Hyperion financing: bond investors and Blue Owl funds put money in, Meta contributes the site, the venture builds the campus, Meta leases it back and its rent supports repaying the bonds.</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs><marker id="ar" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><path d="M0,0 L12,5 L0,10 z" fill="#333"/></marker></defs>
+<g role="img" aria-label="Box A: Bond investors, with PIMCO as main anchor investor and BlackRock among the buyers, who bought $27.3 billion of senior secured bonds."><title>Box A: Bond investors</title><rect x="20" y="20" width="520" height="90" rx="8" fill="#eef3fb" stroke="#333" stroke-width="2"/>
+<text x="280.0" y="58.0" text-anchor="middle" font-size="18" font-weight="bold">A. Bond investors</text>
+<text x="280.0" y="84.0" text-anchor="middle" font-size="18">PIMCO (anchor), BlackRock, others</text>
+</g>
+<g role="img" aria-label="Box B: Beignet Investor, the bond issuer on the Blue Owl funds side, which sold $27.3 billion of 6.581% senior secured bonds due May 2049."><title>Box B: Beignet Investor</title><rect x="20" y="190" width="520" height="90" rx="8" fill="#eef3fb" stroke="#333" stroke-width="2"/>
+<text x="280.0" y="228.0" text-anchor="middle" font-size="18" font-weight="bold">B. Beignet Investor</text>
+<text x="280.0" y="254.0" text-anchor="middle" font-size="18">Bond issuer, Blue Owl side</text>
+</g>
+<g role="img" aria-label="Box C: Funds managed by Blue Owl Capital, which own 80% of the joint venture and contributed $7.0 billion in cash."><title>Box C: Funds managed by Blue Owl Capital</title><rect x="20" y="400" width="520" height="90" rx="8" fill="#eef3fb" stroke="#333" stroke-width="2"/>
+<text x="280.0" y="438.0" text-anchor="middle" font-size="18" font-weight="bold">C. Blue Owl funds</text>
+<text x="280.0" y="464.0" text-anchor="middle" font-size="18">80% owner</text>
+</g>
+<g role="img" aria-label="Box E: Meta, the 20% owner, construction and property manager, tenant and provider of the residual value guarantee."><title>Box E: Meta</title><rect x="20" y="570" width="150" height="260" rx="8" fill="#e9f6ec" stroke="#333" stroke-width="2"/>
+<text x="95.0" y="667.0" text-anchor="middle" font-size="18" font-weight="bold">E. Meta</text>
+<text x="95.0" y="693.0" text-anchor="middle" font-size="18">20% owner,</text>
+<text x="95.0" y="719.0" text-anchor="middle" font-size="18">manager,</text>
+<text x="95.0" y="745.0" text-anchor="middle" font-size="18">tenant</text>
+</g>
+<g role="img" aria-label="Box D: The Venture, the joint venture that owns the Hyperion campus, 80% owned by Blue Owl funds and 20% by Meta."><title>Box D: The Venture</title><rect x="390" y="570" width="150" height="260" rx="8" fill="#fdf3e6" stroke="#333" stroke-width="2"/>
+<text x="465.0" y="680.0" text-anchor="middle" font-size="18" font-weight="bold">D. Venture</text>
+<text x="465.0" y="706.0" text-anchor="middle" font-size="18">Owns the</text>
+<text x="465.0" y="732.0" text-anchor="middle" font-size="18">campus</text>
+</g>
+<g role="img" aria-label="Box F: The Hyperion data center campus in Richland Parish, Louisiana, a planned 2.1 gigawatt, four million square foot facility."><title>Box F: The Hyperion campus</title><rect x="230" y="930" width="310" height="90" rx="8" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+<text x="385.0" y="968.0" text-anchor="middle" font-size="18" font-weight="bold">F. Hyperion campus</text>
+<text x="385.0" y="994.0" text-anchor="middle" font-size="18">Richland Parish, Louisiana</text>
+</g>
+<g stroke="#333" stroke-width="2" fill="none">
+<path d="M60,110 L60,188" marker-end="url(#ar)"/>
+<path d="M60,280 L60,398" marker-end="url(#ar)" stroke-dasharray="8,6"/>
+<path d="M470,490 L470,568" marker-end="url(#ar)"/>
+<path d="M170,610 L388,610" marker-end="url(#ar)"/>
+<path d="M390,670 L172,670" marker-end="url(#ar)"/>
+<path d="M170,730 L388,730" marker-end="url(#ar)"/>
+<path d="M170,790 L388,790" marker-end="url(#ar)" stroke-dasharray="8,6"/>
+<path d="M465,830 L465,928" marker-end="url(#ar)"/>
+<path d="M230,975 L95,975 L95,832" marker-end="url(#ar)"/>
+<path d="M540,700 L580,700 L580,65 L542,65" marker-end="url(#ar)" stroke-dasharray="8,6"/>
+</g>
+<g font-size="16" fill="#222">
+<text x="76" y="155" text-anchor="start">1. $27.3B of bonds</text>
+<text x="76" y="330" text-anchor="start">2. Bonds fund part of the Blue Owl side</text>
+<text x="568" y="375" text-anchor="end">9. Rent supports repayment</text>
+<text x="455" y="535" text-anchor="end">3. $7.0B cash</text>
+<text x="280" y="598" text-anchor="middle">4. $4.30B assets</text>
+<text x="280" y="658" text-anchor="middle">5. $2.55B distribution</text>
+<text x="280" y="718" text-anchor="middle">8. Rent</text>
+<text x="280" y="778" text-anchor="middle">10. Value guarantee</text>
+<text x="450" y="885" text-anchor="end">6. Builds campus</text>
+<text x="110" y="880" text-anchor="start">7. Lease from 2029</text>
+</g></svg>

@@ -431,6 +431,51 @@ export const COMMON_STOCK_FINANCING_POST: BlogPostMeta = {
     "Common Stock Financing for GovTech Software Companies",
 };
 
+const META_HYPERION_SLUG = "meta-hyperion-data-center-spv-financing";
+
+const META_HYPERION_DATE = "2026-10-26";
+
+const META_HYPERION_H2_TEXTS = [
+  "The deal at a glance",
+  "Who is who in the deal",
+  "How the money and the lease flow",
+  "Who holds the debt",
+  "The lease back",
+  "The residual value guarantee",
+  "Construction sits with Meta",
+  "Why the debt sits off Meta's balance sheet",
+  "What Meta still carries",
+  "Meta used the same model again in Texas",
+  "Where the sources differ",
+  "What this means for software and infrastructure founders",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const META_HYPERION_HEADINGS: BlogHeading[] =
+  META_HYPERION_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const META_HYPERION_POST: BlogPostMeta = {
+  slug: META_HYPERION_SLUG,
+  metaTitle:
+    "Meta Hyperion Data Center Financing: How the Blue Owl Joint Venture, the $27.3 Billion Bond and the Lease Back Work",
+  h1: "Meta Hyperion Data Center Financing: How the Blue Owl Joint Venture, the $27.3 Billion Bond and the Lease Back Work",
+  description:
+    "How Meta financed Hyperion: a Blue Owl joint venture, a $27.3 billion bond, a lease back and a value guarantee, and why it sits off Meta's balance sheet.",
+  category: "Growth capital",
+  date: META_HYPERION_DATE,
+  updated: META_HYPERION_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-meta-hyperion-hero.jpg",
+  ogImage: `/og/blog-${META_HYPERION_SLUG}.jpg`,
+  breadcrumbsTitle: "Meta Hyperion Data Center Financing",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -512,6 +557,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  META_HYPERION_POST,
   COMMON_STOCK_FINANCING_POST,
   CAPITAL_STACK_SENIORITY_POST,
   REVENUE_BASED_FINANCING_POST,
@@ -547,6 +593,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return CAPITAL_STACK_SENIORITY_HEADINGS;
   if (slug === COMMON_STOCK_FINANCING_SLUG)
     return COMMON_STOCK_FINANCING_HEADINGS;
+  if (slug === META_HYPERION_SLUG) return META_HYPERION_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -579,6 +626,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return CAPITAL_STACK_SENIORITY_JSON_LD;
   if (slug === COMMON_STOCK_FINANCING_SLUG)
     return COMMON_STOCK_FINANCING_JSON_LD;
+  if (slug === META_HYPERION_SLUG) return META_HYPERION_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -1650,6 +1698,91 @@ export const COMMON_STOCK_FINANCING_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: COMMON_STOCK_FINANCING_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const META_HYPERION_FAQ: FaqItem[] = [
+  {
+    question: "How did Meta finance the Hyperion data center?",
+    answer:
+      "Through a joint venture with funds managed by Blue Owl Capital, which own 80%, while Meta owns 20%. A bond issuer on the Blue Owl side, Beignet Investor, sold $27.3 billion of bonds, and Meta will lease the finished campus.",
+  },
+  {
+    question: "Who bought the Hyperion bonds?",
+    answer:
+      "Meta's announcement named PIMCO and select other bond investors, and PIMCO was reported to be the main anchor investor. The Wall Street Journal reported, citing people familiar with the matter, that BlackRock bought more than $3 billion.",
+  },
+  {
+    question: "What are the bond terms?",
+    answer:
+      "They are 6.581% senior secured bonds due May 2049, rated A+, and they amortize, which means principal is repaid over the life of the bonds.",
+  },
+  {
+    question: "Does Meta own the data center?",
+    answer:
+      "The joint venture owns it, and Meta owns 20% of the joint venture. Meta will lease the campus once it is built, with leases starting in 2029.",
+  },
+  {
+    question: "What is the residual value guarantee?",
+    answer:
+      "If Meta ends or does not renew a lease and certain other conditions are met, Meta pays any shortfall between the property's fair value and an agreed threshold. The aggregate threshold is approximately $28 billion and decreases over time.",
+  },
+  {
+    question: "Why is the debt not on Meta's balance sheet?",
+    answer:
+      "Meta concluded that it does not have the power to direct the activities that most significantly affect the venture's economic performance, so it is not the primary beneficiary and does not consolidate the venture.",
+  },
+  {
+    question: "How much could Meta owe?",
+    answer:
+      "Meta reports a maximum exposure to loss of $45.95 billion as of December 31, 2025, and $46.03 billion as of June 30, 2026. The figure combines its equity investment, lease commitments, future funding commitments and the maximum guarantee threshold.",
+  },
+  {
+    question: "Has Meta done another deal like this?",
+    answer:
+      "Yes. Meta formed a second venture in Texas in July 2026, holds 20% of it, and describes the two ventures as similar in purpose, design, and risk and reward characteristics.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const META_HYPERION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Meta Hyperion Data Center Financing: How the Blue Owl Joint Venture, the $27.3 Billion Bond and the Lease Back Work",
+      description:
+        "How Meta financed Hyperion: a Blue Owl joint venture, a $27.3 billion bond, a lease back and a value guarantee, and why it sits off Meta's balance sheet.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-26",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/meta-hyperion-data-center-spv-financing",
+      keywords: "Meta Hyperion data center financing",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: META_HYPERION_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
