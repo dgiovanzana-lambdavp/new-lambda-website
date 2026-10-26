@@ -469,6 +469,47 @@ export const META_HYPERION_POST: BlogPostMeta = {
   breadcrumbsTitle: "Meta Hyperion Data Center Financing",
 };
 
+const NEOCLOUD_SLUG = "neocloud-financing-independent-revenue";
+
+const NEOCLOUD_DATE = "2026-10-26";
+
+const NEOCLOUD_H2_TEXTS = [
+  "The neocloud financing problem: a reply that moved the market",
+  "The options for paying for AI chips",
+  "What happened: SpaceX signs, Nebius borrows",
+  '"Closed," "callable debt" and what the filing says',
+  "Why each party acts as it does",
+  "The risks",
+  "What a smaller company owner can take from it",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const NEOCLOUD_HEADINGS: BlogHeading[] = NEOCLOUD_H2_TEXTS.map(
+  (text) => ({
+    id: slugifyHeading(text),
+    text,
+  }),
+);
+
+export const NEOCLOUD_POST: BlogPostMeta = {
+  slug: NEOCLOUD_SLUG,
+  metaTitle:
+    "Neocloud Financing After Musk's Warning: Why Lenders Now Want Revenue the Asset Does Not Create",
+  h1: "Neocloud Financing After Musk's Warning: Why Lenders Now Want Revenue the Asset Does Not Create",
+  description:
+    "Musk says lenders shut out neoclouds without revenue beyond AI. What SpaceX filed for its $40 billion GPU lease, and what it teaches small software companies.",
+  category: "Growth capital",
+  date: NEOCLOUD_DATE,
+  updated: NEOCLOUD_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-neocloud-financing-hero.jpg",
+  ogImage: `/og/blog-${NEOCLOUD_SLUG}.jpg`,
+  breadcrumbsTitle: "Neocloud Financing After Musk's Warning",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -550,6 +591,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  NEOCLOUD_POST,
   META_HYPERION_POST,
   COMMON_STOCK_FINANCING_POST,
   CAPITAL_STACK_SENIORITY_POST,
@@ -587,6 +629,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === COMMON_STOCK_FINANCING_SLUG)
     return COMMON_STOCK_FINANCING_HEADINGS;
   if (slug === META_HYPERION_SLUG) return META_HYPERION_HEADINGS;
+  if (slug === NEOCLOUD_SLUG) return NEOCLOUD_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -620,6 +663,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === COMMON_STOCK_FINANCING_SLUG)
     return COMMON_STOCK_FINANCING_JSON_LD;
   if (slug === META_HYPERION_SLUG) return META_HYPERION_JSON_LD;
+  if (slug === NEOCLOUD_SLUG) return NEOCLOUD_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -1776,6 +1820,73 @@ export const META_HYPERION_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: META_HYPERION_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const NEOCLOUD_FAQ: FaqItem[] = [
+  {
+    question: "What is a neocloud?",
+    answer:
+      "A neocloud is a company that rents AI computing power, mostly GPUs, to other businesses instead of selling software. CoreWeave, Nebius and IREN are examples named in recent news coverage.",
+  },
+  {
+    question: "What did Elon Musk say about neocloud financing?",
+    answer:
+      "On October 25, 2026, he said debt markets have almost shut off money for companies without substantial revenue outside AI data centers. He also predicted that only a few of the more than 200 neoclouds will make it through.",
+  },
+  {
+    question: "Did SpaceX close a $40 billion debt deal?",
+    answer:
+      'Musk said "closed." SpaceX\'s SEC filing describes a binding commitment for a master finance lease, expected to close before year end, with about $40 billion of principal over the lease schedules.',
+  },
+  {
+    question: "Why can SpaceX borrow when neoclouds struggle?",
+    answer:
+      "Musk credits investment grade status and Starlink and launch revenue. That other revenue likely lets the lessor get paid even if GPU rental prices fall.",
+  },
+  {
+    question: "What does this mean for a small GovTech company?",
+    answer:
+      "Lenders want revenue that stands on its own. Signed government contracts and the receivables they create are that kind of revenue, even when agencies pay slowly.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const NEOCLOUD_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Neocloud Financing After Musk's Warning: Why Lenders Now Want Revenue the Asset Does Not Create",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-26",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/neocloud-financing-independent-revenue",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: NEOCLOUD_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
