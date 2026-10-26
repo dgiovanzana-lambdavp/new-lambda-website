@@ -29,19 +29,15 @@ export default function MetaHyperionPostContent() {
       <p>
         <strong>
           The $27.3 billion of bonds behind Meta&apos;s Hyperion data center are
-          not Meta&apos;s debt. Meta owns 20% of the venture that owns the campus,
-          will lease the campus back and guarantees part of its value, yet the
+          not Meta&apos;s debt. Meta owns 20% of the venture that owns the
+          campus, will lease it back and guarantees part of its value. Yet the
           venture stays off Meta&apos;s balance sheet.
         </strong>
       </p>
       <p>
-        Meta financed its Hyperion data center in Richland Parish, Louisiana,
-        through a joint venture with funds managed by Blue Owl Capital. Blue Owl
-        funds own 80% and Meta owns 20%. A bond issuer on the Blue Owl side sold
-        $27.3 billion of bonds. Meta will lease the campus starting in 2029 and
-        guarantees part of its value, but does not consolidate the venture. A
-        separate company set up to hold one project and its financing like this
-        is often called a special purpose vehicle (SPV).
+        Meta needed a giant data center in Louisiana. It got one without adding
+        the build&apos;s debt to its own books. This is the story of how it did
+        that, and why each side said yes.
       </p>
       <p>
         <em>
@@ -49,145 +45,165 @@ export default function MetaHyperionPostContent() {
         </em>
       </p>
 
-      <h2 id={H["The deal at a glance"]}>The deal at a glance</h2>
+      <blockquote>
+        <p>
+          <strong>The short version</strong>
+        </p>
+        <ul>
+          <li>
+            Funds managed by Blue Owl Capital own 80% of the venture that owns
+            the campus. Meta owns 20%.
+          </li>
+          <li>
+            Beignet Investor, on the Blue Owl side, sold $27.3 billion of bonds
+            due May 2049.
+          </li>
+          <li>
+            Meta will lease the campus starting in 2029 and guarantees part of
+            its value.
+          </li>
+          <li>
+            Meta does not consolidate the venture, but it reports a maximum
+            exposure to loss of $45.95 billion.
+          </li>
+        </ul>
+      </blockquote>
+
+      <h2 id={H["Meta's problem: a huge build and an uncertain future"]}>
+        Meta&apos;s problem: a huge build and an uncertain future
+      </h2>
+      <p>
+        Meta is building Hyperion in Richland Parish, Louisiana. It is a 2.1
+        gigawatt, four million square foot campus slated for completion in June
+        2029, according to{" "}
+        <ExtLink href="https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond">
+          International Financing Review (IFR)
+        </ExtLink>
+        .
+      </p>
+      <p>
+        The bill is about $27 billion in total estimated development costs, per
+        Meta&apos;s{" "}
+        <ExtLink href="https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm">
+          annual report for 2025
+        </ExtLink>
+        . So Meta needed tens of billions of dollars for one project.
+      </p>
+      <p>
+        It also did not know how much space it would need later. On the{" "}
+        <ExtLink href="https://s21.q4cdn.com/399680738/files/doc_financials/2025/q3/META-Q3-2025-Earnings-Call-Transcript.pdf">
+          October 29, 2025 earnings call
+        </ExtLink>
+        , chief financial officer Susan Li pointed to &quot;the magnitude, but
+        also uncertainty of what the capacity outlook in future years looks
+        like.&quot;
+      </p>
+
+      <h2 id={H["Three ways to pay for it"]}>Three ways to pay for it</h2>
+      <p>
+        Meta had three broad choices. It could pay cash, borrow in its own name,
+        or bring in a partner.
+      </p>
+
+      <h3>Pay cash</h3>
+      <p>
+        Paying cash would put the whole build in CapEx, as Meta&apos;s own
+        spending on the site did before the venture existed. CapEx, or capital
+        expenditure, is what a company spends on long lived assets such as
+        buildings.
+      </p>
+      <p>
+        Meta has not said why it passed on this. The likely reason: it did not
+        want to carry all of a huge, uncertain bet alone.
+      </p>
+
+      <h3>Borrow in its own name</h3>
+      <p>
+        Meta could have sold its own bonds. Weeks after this deal, it did raise
+        $30 billion in its own regular, unsecured bond sale. That debt does
+        appear on Meta&apos;s balance sheet.
+      </p>
+      <p>
+        The Hyperion bonds will not, IFR notes. Meta has not called that a goal.
+      </p>
+      <p>
+        Most likely it mattered because Meta keeps its reported debt lower and
+        its own borrowing room free. That can help protect its credit rating.
+      </p>
+
+      <h3>Bring in a partner</h3>
+      <p>
+        That&apos;s where Blue Owl came in. Li said the deal &quot;enabled us to
+        partner with external capital providers&quot; to develop data centers
+        together &quot;in a way that gives us long term optionality in supporting
+        our future capacity needs&quot;.
+      </p>
+      <p>
+        She added: &quot;Going forward, the construction cost of the data center
+        will not be recorded in CapEx.&quot; So a partner pays most of the bill,
+        and Meta keeps room to change course.
+      </p>
+
+      <h2 id={H["How the Meta Hyperion data center financing works"]}>
+        How the Meta Hyperion data center financing works
+      </h2>
       <p>
         Meta announced the deal in a{" "}
         <ExtLink href="https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Announces-Joint-Venture-with-Funds-Managed-by-Blue-Owl-Capital-to-Develop-Hyperion-Data-Center/default.aspx">
           press release
         </ExtLink>{" "}
-        dated October 21, 2025. The joint venture will develop and own the
-        Hyperion data center campus. On ownership, the release says: &quot;Funds
-        managed by Blue Owl Capital will own an 80% interest in the joint
-        venture, while Meta will retain the remaining 20% ownership.&quot;
+        on October 21, 2025. It says: &quot;Funds managed by Blue Owl Capital
+        will own an 80% interest in the joint venture, while Meta will retain the
+        remaining 20% ownership.&quot;
       </p>
-      <ul>
-        <li>
-          <strong>Who:</strong> Meta and funds managed by Blue Owl Capital.
-        </li>
-        <li>
-          <strong>Where:</strong> Richland Parish, Louisiana, according to
-          Meta&apos;s{" "}
-          <ExtLink href="https://www.sec.gov/Archives/edgar/data/1326801/000162828025047240/meta-20250930.htm">
-            quarterly report for the quarter ended September 30, 2025
-          </ExtLink>
-          .
-        </li>
-        <li>
-          <strong>Total cost:</strong> both owners committed to fund their pro
-          rata share of approximately $27 billion in total estimated development
-          costs, according to Meta&apos;s{" "}
-          <ExtLink href="https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm">
-            annual report for 2025
-          </ExtLink>
-          .
-        </li>
-        <li>
-          <strong>Size:</strong> a 2.1 gigawatt, four million square foot facility
-          slated for completion in June 2029, according to{" "}
-          <ExtLink href="https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond">
-            International Financing Review (IFR)
-          </ExtLink>
-          .
-        </li>
-        <li>
-          <strong>Debt:</strong> $27.3 billion of 6.581% senior secured bonds due
-          May 2049, priced on October 16, 2025, per the same report, which named
-          the bonds its Financing Package of the Year.
-        </li>
-        <li>
-          <strong>Accounting:</strong> Meta does not consolidate the venture,
-          which it treats as a variable interest entity, per its annual report.
-        </li>
-      </ul>
-
-      <h2 id={H["Who is who in the deal"]}>Who is who in the deal</h2>
-      <TableWrap caption="Parties and their roles in the Meta Hyperion deal">
-        <table>
-          <caption>Parties and their roles in the Meta Hyperion deal</caption>
-          <thead>
-            <tr>
-              <th>Party</th>
-              <th>Role in the deal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="Party">Meta Platforms</td>
-              <td data-label="Role in the deal">
-                20% owner; construction and property manager; tenant; residual
-                value guarantee provider
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Party">Funds managed by Blue Owl Capital</td>
-              <td data-label="Role in the deal">
-                80% owner; contributed $7.0 billion in cash at closing
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Party">Beignet Investor</td>
-              <td data-label="Role in the deal">
-                Issuer of the $27.3 billion bonds, on the Blue Owl funds side
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Party">PIMCO</td>
-              <td data-label="Role in the deal">
-                Reported main anchor investor in the bonds
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Party">BlackRock</td>
-              <td data-label="Role in the deal">
-                Reported buyer of more than $3 billion of the bonds
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Party">Morgan Stanley</td>
-              <td data-label="Role in the deal">
-                Exclusive financial advisor to Meta and sole bookrunner on the
-                bond offering
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Party">S&amp;P Global Ratings</td>
-              <td data-label="Role in the deal">
-                Credit rating agency that rated the project and published its
-                view of the structure
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Party">Ernst &amp; Young</td>
-              <td data-label="Role in the deal">
-                Meta&apos;s auditor; listed the consolidation decision as a
-                critical audit matter
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Party">Advisers</td>
-              <td data-label="Role in the deal">
-                Latham &amp; Watkins (legal counsel to Meta), Eversheds
-                Sutherland (Meta leasing matters), Kirkland &amp; Ellis (legal
-                counsel to the Blue Owl funds), Milbank (legal counsel to Morgan
-                Stanley on the securities offering), Arthur D. Little (commercial
-                due diligence for Meta), Marsh (project risk analysis and
-                insurance for Meta), Arup (technical and environmental independent
-                engineer for Meta)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </TableWrap>
       <p>
-        <em>
-          Roles come from Meta&apos;s press release and filings, the bond award
-          report and news reports, as cited in each section below.
-        </em>
+        A joint venture is a company that two or more owners set up together.
+        Both owners fund their pro rata share of the build, meaning a share in
+        line with what each owns.
       </p>
 
-      <h2 id={H["How the money and the lease flow"]}>
-        How the money and the lease flow
-      </h2>
+      <h3>Who put in what</h3>
+      <p>
+        At closing, Blue Owl&apos;s side put in $7.0 billion in cash, per
+        Meta&apos;s{" "}
+        <ExtLink href="https://www.sec.gov/Archives/edgar/data/1326801/000162828025047240/meta-20250930.htm">
+          quarterly report for the quarter ended September 30, 2025
+        </ExtLink>
+        . Meta put in $4.30 billion of assets, net of liabilities, mostly land
+        and construction in progress, per its annual report.
+      </p>
+      <p>
+        Then the venture paid Meta a distribution of $2.55 billion. The next
+        section explains why.
+      </p>
+
+      <h3>Where the bonds come in</h3>
+      <p>
+        Part of Blue Owl&apos;s money is borrowed. Beignet Investor, on the Blue
+        Owl side, sold $27.3 billion of bonds. A bond is a loan from investors
+        that the issuer pays back with interest.
+      </p>
+      <p>
+        The press release says: &quot;A portion of capital raised by Blue Owl
+        will be funded by debt issued to PIMCO and select other bond investors
+        through a private securities offering.&quot;
+      </p>
+      <p>
+        The two big numbers count different things. The roughly $27 billion is
+        the total development cost for the campus buildings and infrastructure,
+        per the press release. The $27.3 billion is the size of the bond sale
+        that Blue Owl&apos;s funds made through their subsidiary Beignet Investor,
+        per IFR. None of these sources says how the bond money and the equity are
+        split, so this post does not guess.
+      </p>
+
+      <h3>Then Meta rents it back</h3>
+      <p>
+        Once the campus is built, Meta leases it from the venture. These are
+        operating leases. An operating lease is a rental agreement: the tenant
+        uses the property but does not own it.
+      </p>
+      <p>Meta&apos;s rent then supports paying back the bonds.</p>
       <figure className="blog-prose-figure">
         <img
           src="/blog/2026-10-26-diagram.svg"
@@ -197,276 +213,252 @@ export default function MetaHyperionPostContent() {
           className="blog-prose-figure__img"
         />
       </figure>
-      <p>The diagram has six boxes.</p>
+
+      <h3>The deal at a glance</h3>
       <ul>
         <li>
-          <strong>Box A, bond investors:</strong> PIMCO as main anchor investor,
-          BlackRock and other investors.
+          <strong>Bonds:</strong> $27.3 billion of 6.581% senior secured bonds
+          due May 2049, rated A+, priced on October 16, 2025. Senior secured
+          bonds are backed by assets and are repaid ahead of other debt.
         </li>
         <li>
-          <strong>Box B, Beignet Investor:</strong> the bond issuer, on the Blue
-          Owl funds side.
+          <strong>Repayment:</strong> the bonds amortize, which means principal
+          is repaid over the life of the bonds.
         </li>
         <li>
-          <strong>Box C, funds managed by Blue Owl Capital:</strong> the 80%
-          owner.
+          <strong>Buyers:</strong> PIMCO was reported as the main anchor
+          investor, or lead buyer.{" "}
+          <ExtLink href="https://www.wsj.com/finance/investing/blackrock-etfs-among-biggest-investors-in-metas-giant-data-center-debt-deal-087fe671">
+            The Wall Street Journal
+          </ExtLink>{" "}
+          reported: &quot;BlackRock bought more than $3 billion of bonds issued
+          last week to finance the data center, which is called Hyperion,
+          according to people familiar with the matter.&quot;
         </li>
         <li>
-          <strong>Box D, the Venture:</strong> the joint venture that owns the
-          campus. Meta&apos;s filings call it the Venture.
+          <strong>Bank:</strong> Morgan Stanley was exclusive financial advisor
+          to Meta and sole bookrunner, the bank that runs the bond sale.
         </li>
         <li>
-          <strong>Box E, Meta:</strong> the 20% owner, construction and property
-          manager, and tenant.
-        </li>
-        <li>
-          <strong>Box F, the Hyperion campus:</strong> the data center campus in
-          Richland Parish, Louisiana.
-        </li>
-      </ul>
-      <p>
-        In the diagram, the dashed arrows 2 and 9 mark flows the public sources
-        do not fully trace, and the dashed arrow 10 marks the residual value
-        guarantee, which is paid only in certain cases. The arrows, in order:
-      </p>
-      <ol>
-        <li>
-          <strong>Bond investors to Beignet Investor (A to B):</strong> $27.3
-          billion of 6.581% senior secured bonds due May 2049.
-        </li>
-        <li>
-          <strong>Bonds fund part of the Blue Owl side (B to C):</strong>{" "}
-          Meta&apos;s press release says: &quot;A portion of capital raised by
-          Blue Owl will be funded by debt issued to PIMCO and select other bond
-          investors through a private securities offering.&quot; The public
-          sources do not show the exact path of the bond proceeds within the Blue
-          Owl side.
-        </li>
-        <li>
-          <strong>Blue Owl funds to the Venture (C to D):</strong> at closing,
-          the Blue Owl affiliate contributed $7.0 billion in cash.
-        </li>
-        <li>
-          <strong>Meta to the Venture (E to D):</strong> Meta contributed $4.30
-          billion of assets, mostly land and construction in progress.
-        </li>
-        <li>
-          <strong>The Venture to Meta (D to E):</strong> a distribution of $2.55
-          billion to Meta at formation.
-        </li>
-        <li>
-          <strong>The Venture to the campus (D to F):</strong> the Venture builds
-          the campus. Meta provides construction management, administrative and
-          property management services, and both owners fund their pro rata share
-          of about $27 billion.
-        </li>
-        <li>
-          <strong>The campus to Meta (F to E):</strong> Meta leases the finished
-          campus. Leases start in 2029, each with an initial four year term and
-          options to renew for up to 20 years in total.
-        </li>
-        <li>
-          <strong>Meta to the Venture (E to D), rent:</strong> the aggregate
+          <strong>Leases:</strong> start in 2029, each with an initial four year
+          term and options to renew for up to 20 years in total. The aggregate
           initial lease commitment is approximately $12.31 billion.
         </li>
         <li>
-          <strong>Rent and bond repayment (D to A):</strong> in the rating
-          agency&apos;s view, the minimum rent level supports stable cash flows
-          until the debt is fully repaid. The bonds amortize, which means
-          principal is repaid over the life of the bonds. The public sources do
-          not show the exact path of payments from the Venture to bondholders.
+          <strong>Others:</strong> Ernst &amp; Young is Meta&apos;s auditor.
+          Legal, diligence, insurance and engineering advisers are listed in
+          Meta&apos;s press release.
         </li>
+      </ul>
+      <p>
+        IFR named the bonds its Financing Package of the Year. A few figures vary
+        by source, such as the distribution to Meta (approximately $3 billion in
+        the press release, $2.55 billion in the annual report). This post uses
+        Meta&apos;s filing figures throughout.
+      </p>
+
+      <h2 id={H["Why each party said yes"]}>Why each party said yes</h2>
+      <p>
+        Every party gave something up and got something back. Here is what each
+        one got.
+      </p>
+
+      <h3>Meta: flexibility and its cash back</h3>
+      <p>
+        Short leases let Meta decide later how much space it needs. The press
+        release says each lease starts with a four year term, with options to
+        extend, which gives Meta strategic flexibility over the long term.
+      </p>
+      <p>
+        Then there is the $2.55 billion. Meta had started building before the
+        venture existed. Li said Meta&apos;s &quot;prior CapEx reflected a
+        portion of the data center build cost prior to the joint venture being
+        established.&quot;
+      </p>
+      <p>
+        On Meta&apos;s own figures, the $4.30 billion of assets, net of
+        liabilities, that it put in was more than its 20% share. Meta has not
+        explained the amount, but evening out what each owner put in is the
+        likely reason. Meta&apos;s own figures fit:
+      </p>
+      <ul>
+        <li>$4.30 billion minus $2.55 billion leaves $1.75 billion.</li>
         <li>
-          <strong>
-            Dashed line from Meta to the Venture (E to D), residual value
-            guarantee:
-          </strong>{" "}
-          paid only if Meta ends or does not renew a lease and the property is
-          worth less than an agreed threshold.
+          Add Blue Owl&apos;s $7.0 billion, and the total is $8.75 billion.
         </li>
-      </ol>
+        <li>$1.75 billion is 20% of that, matching Meta&apos;s stake.</li>
+      </ul>
       <p>
-        Sources for the figures: Meta&apos;s press release, its quarterly and
-        annual reports, the bond award report and the rating agency report, each
-        cited in the sections below.
+        In effect, Meta most likely got back cash it had already spent on the
+        site, beyond its 20% share.
       </p>
 
-      <h2 id={H["Who holds the debt"]}>Who holds the debt</h2>
+      <h3>Blue Owl: a big project with a strong tenant</h3>
       <p>
-        The bonds were issued by Beignet Investor. IFR reports that funds managed
-        by Blue Owl Capital priced the bonds through this subsidiary on October
-        16, 2025. Meta&apos;s filings do not name Beignet Investor.
+        The press release credits Blue Owl with &quot;its ability to deliver
+        substantial capital at scale&quot;. Its funds get 80% of the venture that
+        will collect Meta&apos;s rent.
       </p>
       <p>
-        The same report gives the public terms: $27.3 billion of 6.581% senior
-        secured bonds due May 2049, rated A+, amortizing, and priced at 225 basis
-        points over Treasuries. Meta&apos;s press release describes the sale as a
-        private securities offering.
-      </p>
-      <p>
-        Meta&apos;s press release names PIMCO and select other bond investors as
-        buyers, and the bond award report says people familiar with the deal
-        identified PIMCO as the main anchor investor.{" "}
-        <ExtLink href="https://www.wsj.com/finance/investing/blackrock-etfs-among-biggest-investors-in-metas-giant-data-center-debt-deal-087fe671">
-          The Wall Street Journal
+        Blue Owl&apos;s leaders were also upbeat about AI infrastructure in
+        general. On Blue Owl&apos;s second quarter 2025 earnings call, before
+        this deal was announced, Marc Lipschultz, one of its two chief
+        executives, said demand for capital to build AI infrastructure had
+        created, for its real estate funds, the best setup of risk and reward
+        that its leaders had seen in their careers,{" "}
+        <ExtLink href="https://pitchbook.com/news/articles/meta-blue-owl-data-center-jv-puts-investor-protections-in-the-spotlight">
+          PitchBook
         </ExtLink>{" "}
-        reported: &quot;BlackRock bought more than $3 billion of bonds issued
-        last week to finance the data center, which is called Hyperion, according
-        to people familiar with the matter.&quot; Morgan Stanley was exclusive
-        financial advisor to Meta and sole bookrunner on the offering.
+        reported. That remark was not about this deal.
       </p>
       <p>
-        On the rating, the bond award report says S&amp;P Global Ratings put the
-        issuer only one notch below Meta, because the joint venture contract
-        passes substantial credit risk to Meta during both construction and
-        operation.
-      </p>
-      <p>
-        The bond award report also notes the contrast: weeks later, Meta raised
-        $30 billion in its own regular, unsecured bond offering, which does
-        appear on Meta&apos;s balance sheet. The Hyperion bonds are a separate
-        issuer&apos;s debt. For background on secured debt and the order of
-        repayment, see{" "}
-        <Link href={`/blog/${CAPITAL_STACK_SENIORITY_POST.slug}`}>
-          capital stack seniority explained
-        </Link>
-        .
+        Why 80/20 and not 50/50? Meta has not said. Probably it is the accounting
+        test covered below: to keep the venture off its books, Meta must not hold
+        the power over the key decisions.
       </p>
 
-      <h2 id={H["The lease back"]}>The lease back</h2>
+      <h3>The bond buyers: Meta&apos;s credit and steady repayment</h3>
       <p>
-        Meta signed operating leases with the joint venture for all of the campus
-        facilities once construction is complete. According to the annual report,
-        the leases will commence in 2029. Each property has an initial four year
-        lease term, with options to renew for a total lease period of up to 20
-        years. The aggregate initial lease commitment is approximately $12.31
-        billion.
+        S&amp;P Global Ratings put the issuer only one notch below Meta, IFR
+        reports. A notch is one step on the rating scale. The rating agency&apos;s
+        reason: the contract passes substantial credit risk to Meta during both
+        construction and operation.
       </p>
       <p>
-        Meta gives its reason for the structure, citing artificial intelligence
-        (AI) markets, in its{" "}
-        <ExtLink href="https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm">
-          quarterly report for the quarter ended June 30, 2026
-        </ExtLink>
-        : &quot;This Venture provides strategic optionality and flexibility,
-        which we expect will enable us to effectively meet future infrastructure
-        capacity needs as AI markets and technologies develop.&quot;
-      </p>
-
-      <h2 id={H["The residual value guarantee"]}>
-        The residual value guarantee
-      </h2>
-      <p>
-        Meta also provided residual value guarantees (RVG) with an aggregate
-        threshold of approximately $28 billion that decreases over time, per the
-        annual report. The earlier quarterly report says the guarantee covers the
-        first 16 years of operations.
+        One investor called the amortizing feature &quot;extremely
+        attractive&quot; in IFR&apos;s report. The person said: &quot;The debt
+        gets repaid over time even if AI/data centres have issues in the
+        future.&quot;
       </p>
       <p>
-        Meta describes how a payment would work: &quot;If we decide to terminate
-        or not renew a lease, and if certain other conditions are met, our
-        maximum RVG payment would equal any shortfall between the fair value at
-        that time and the RVG threshold for that property.&quot;
-      </p>
-      <p>
-        As of December 31, 2025, Meta said RVG payments were not probable, so no
-        liability was recorded. In plain terms, the guarantee covers the gap if
-        Meta walks away from a lease and the property is worth less than the
-        threshold. It does not pay the bonds directly. The rating agency
-        describes the guarantee as the part of the structure that addresses a
-        lease that is not renewed or is terminated.
+        The bonds also paid 225 basis points over Treasuries. A basis point is
+        one hundredth of a percentage point, and Treasuries are U.S. government
+        bonds.
       </p>
 
-      <h2 id={H["Construction sits with Meta"]}>Construction sits with Meta</h2>
+      <h3>Why bonds, not a bank loan</h3>
+      <p>
+        Morgan Stanley ran a competitive auction, over several rounds, to select
+        equity and debt capital partners, IFR reports. Bank financing during
+        construction was another option.
+      </p>
+      <p>
+        The bond locked in the money early. Teddy Hodgson, one of the global
+        heads of investment grade debt capital markets at Morgan Stanley, told
+        IFR: &quot;Meta&apos;s price and size outcome was derisked a significant
+        number of months ahead of the pricing date in October&quot;.
+      </p>
+      <p>
+        Derisked here means the price and size were settled early, so market
+        swings mattered less.
+      </p>
+
+      <h3>The construction side: Meta takes the build risk</h3>
       <p>
         Meta provides construction management, administrative and property
-        management services to the Venture, according to its annual report. In
-        the rating agency&apos;s view, the contract structure moves construction
-        risk to Meta, including cost overruns beyond 105% of the initial budget,
-        so the project does not carry it. The same rating report says the
-        remaining 5% above budget was already built into the proposed financing.
+        management services to the venture. Its press release says &quot;Meta has
+        15 years of experience developing, constructing and operating world class
+        data center facilities.&quot;
+      </p>
+      <p>
+        In the rating agency&apos;s view, the contract moves construction risk to
+        Meta, including cost overruns beyond 105% of the initial budget. Overruns
+        up to 5% above budget were already built into the financing.
       </p>
 
-      <h2 id={H["Why the debt sits off Meta's balance sheet"]}>
-        Why the debt sits off Meta&apos;s balance sheet
+      <h2 id={H["Here's the catch: the risks"]}>
+        Here&apos;s the catch: the risks
       </h2>
       <p>
-        Under the accounting rules, a variable interest entity is consolidated by
-        its primary beneficiary. Meta&apos;s auditor describes that party as the
-        one with both the power to direct the activities that most significantly
-        affect the entity&apos;s economic performance and a variable interest that
-        could absorb significant losses or receive significant benefits.
-      </p>
-      <p>
-        Meta&apos;s conclusion, from its annual report: &quot;We do not have the
-        power to direct the activities that most significantly impact the
-        Venture&apos;s economic performance. Therefore, we are not the primary
-        beneficiary and do not consolidate the variable interest entity
-        (VIE).&quot;
-      </p>
-      <p>
-        Meta&apos;s later quarterly report identifies which activities mattered
-        most: decisions on remarketing the data center campus, including talks
-        with future lease tenants and individual property sales. Meta accounts
-        for its 20% under the equity method, which means it records its share of
-        the Venture&apos;s results rather than the Venture&apos;s assets and
-        liabilities.
-      </p>
-      <p>
-        Ernst &amp; Young, Meta&apos;s auditor, listed consolidation accounting
-        for the variable interest entity as a critical audit matter in its report
-        on the 2025 financial statements. It wrote that auditing Meta&apos;s
-        determination of the primary beneficiary was especially challenging
-        because of the significant judgment involved.
+        The short leases help Meta and worry investors. The guarantee is how Meta
+        closes that gap.
       </p>
 
-      <h2 id={H["What Meta still carries"]}>What Meta still carries</h2>
+      <h3>Short leases cut both ways</h3>
       <p>
-        Meta discloses the most it could lose on the Venture. From the annual
-        report: &quot;Our maximum exposure to loss related to the Venture was
-        $45.95 billion as of December 31, 2025, consisting of $1.83 billion
-        carrying value of our equity investment, the lease commitments, our
-        estimated future fundings, and the maximum RVG threshold.&quot;
+        Short leases are a risk for the owners and bondholders. After the first
+        four years, Meta could leave.
+      </p>
+      <p>
+        PitchBook quoted a managing director at S&amp;P Global Ratings. In his
+        view, Meta wants the option to walk away if its strategy or its approach
+        to AI training changes, or if the AI market turns.
+      </p>
+
+      <h3>The guarantee is Meta&apos;s answer</h3>
+      <p>
+        The press release says Meta balanced this optionality in a cost efficient
+        way: it &quot;provided the joint venture with a residual value guarantee
+        for the first 16 years of operations&quot;.
+      </p>
+      <p>
+        In plain terms, Meta covers the gap if it walks away from a lease, the
+        property is worth less than an agreed threshold and certain other
+        conditions are met. The guarantee does not pay the bonds directly. The
+        aggregate threshold is approximately $28 billion and decreases over time.
+      </p>
+      <p>
+        As of December 31, 2025, Meta said guarantee payments were not probable.
+        So no liability was recorded.
+      </p>
+
+      <h3>Off the balance sheet, not off the hook</h3>
+      <p>
+        Under the accounting rules, a variable interest entity is consolidated by
+        its primary beneficiary. To consolidate means to add the entity&apos;s
+        assets and debts to your own financial statements.
+      </p>
+      <p>
+        Meta&apos;s annual report says: &quot;We do not have the power to direct
+        the activities that most significantly impact the Venture&apos;s economic
+        performance. Therefore, we are not the primary beneficiary and do not
+        consolidate the variable interest entity (VIE).&quot;
+      </p>
+      <p>
+        Meta&apos;s{" "}
+        <ExtLink href="https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/meta-20260930.htm">
+          2026 quarterly reports
+        </ExtLink>{" "}
+        say the decisions that matter most are on remarketing the campus,
+        including talks with future tenants and property sales. In the annual
+        report, Meta&apos;s auditor called this consolidation question a critical
+        audit matter because of the significant judgment involved.
+      </p>
+
+      <h3>What Meta could still owe</h3>
+      <p>
+        Meta still tells readers the most it could lose. Its maximum exposure to
+        loss was $45.95 billion as of December 31, 2025. Carrying value is the
+        amount shown on Meta&apos;s books.
       </p>
       <TableWrap caption="Meta maximum exposure to loss as of December 31, 2025">
         <table>
-          <caption>
-            Meta maximum exposure to loss as of December 31, 2025
-          </caption>
           <thead>
             <tr>
-              <th>Item, as of December 31, 2025</th>
-              <th>Amount (in millions)</th>
+              <th>Item</th>
+              <th>Amount (millions)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td data-label="Item, as of December 31, 2025">
-                Carrying value of equity investment
-              </td>
-              <td data-label="Amount (in millions)">$1,826</td>
+              <td data-label="Item">Equity investment, carrying value</td>
+              <td data-label="Amount (millions)">$1,826</td>
             </tr>
             <tr>
-              <td data-label="Item, as of December 31, 2025">
-                Lease commitments
-              </td>
-              <td data-label="Amount (in millions)">$12,311</td>
+              <td data-label="Item">Lease commitments</td>
+              <td data-label="Amount (millions)">$12,311</td>
             </tr>
             <tr>
-              <td data-label="Item, as of December 31, 2025">
-                Future funding commitments
-              </td>
-              <td data-label="Amount (in millions)">$3,724</td>
+              <td data-label="Item">Future funding commitments</td>
+              <td data-label="Amount (millions)">$3,724</td>
             </tr>
             <tr>
-              <td data-label="Item, as of December 31, 2025">
-                Maximum residual value guarantees
-              </td>
-              <td data-label="Amount (in millions)">$28,091</td>
+              <td data-label="Item">Maximum residual value guarantees</td>
+              <td data-label="Amount (millions)">$28,091</td>
             </tr>
             <tr>
-              <td data-label="Item, as of December 31, 2025">Total</td>
-              <td data-label="Amount (in millions)">$45,952</td>
+              <td data-label="Item">Total</td>
+              <td data-label="Amount (millions)">$45,952</td>
             </tr>
           </tbody>
         </table>
@@ -477,100 +469,39 @@ export default function MetaHyperionPostContent() {
           <ExtLink href="https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/meta-20260930.htm">
             quarterly report for the quarter ended September 30, 2026
           </ExtLink>
-          , December 31, 2025 column, which covers only the Louisiana venture.
+          , December 31, 2025 column. That column covers only the Louisiana
+          venture.
         </em>
       </p>
       <p>
-        As of June 30, 2026, Meta reported a maximum exposure to loss of $46.03
-        billion, with an equity investment carrying value of $2.92 billion.
-      </p>
-      <p>
-        In my view, off balance sheet does not mean off the hook. Meta tells
-        readers exactly what it could owe, and it is a large number.
+        Meta has since done it again. In July 2026 it formed a second venture in
+        Texas and holds 20% of it. Its latest quarterly report says: &quot;The
+        Ventures are similar in purpose, design, and risk and reward
+        characteristics.&quot;
       </p>
 
-      <h2 id={H["Meta used the same model again in Texas"]}>
-        Meta used the same model again in Texas
+      <h2 id={H["What a smaller company owner can take from it"]}>
+        What a smaller company owner can take from it
       </h2>
       <p>
-        In July 2026, Meta formed a second venture in Texas, holds a 20% interest
-        in it, and expects that lease to start in 2028, with about $14 billion in
-        total estimated development costs. Meta&apos;s latest quarterly report
-        says: &quot;The Ventures are similar in purpose, design, and risk and
-        reward characteristics.&quot; Meta&apos;s exposure figures for later
-        dates combine both ventures, so this post uses the Louisiana figures
-        above.
+        In my view, each piece of this deal answers one party&apos;s need. Meta
+        wanted flexibility, so it took short leases. Investors wanted protection,
+        so Meta added a guarantee and took the building risk.
       </p>
-
-      <h2 id={H["Where the sources differ"]}>Where the sources differ</h2>
-      <ul>
-        <li>
-          <strong>The distribution to Meta:</strong> Meta&apos;s press release
-          said approximately $3 billion, and{" "}
-          <ExtLink href="https://www.cnbc.com/2025/10/21/meta-blue-owl-capital-partner-on-27-billion-ai-data-center-project-.html">
-            CNBC
-          </ExtLink>{" "}
-          reported a payout of $3 billion. Meta&apos;s quarterly report for the
-          quarter ended September 30, 2025 said $2.6 billion. Meta&apos;s annual
-          report says $2.55 billion, and its cash flow statement shows $2,554
-          million. This post uses Meta&apos;s filing figure, $2.55 billion.
-        </li>
-        <li>
-          <strong>Blue Owl&apos;s cash:</strong> the press release said
-          approximately $7 billion, and the quarterly report says $7.0 billion.
-          Same figure, different rounding. This post uses the filing figure, $7.0
-          billion.
-        </li>
-        <li>
-          <strong>The lease commitment:</strong> the earlier quarterly report
-          rounds it to $12.3 billion. The annual report gives approximately $12.31
-          billion, which this post uses.
-        </li>
-        <li>
-          <strong>What Beignet Investor is:</strong> the bond award report
-          describes it as a subsidiary of the Blue Owl funds, and the rating
-          agency describes the financing as sitting at the joint venture partner
-          level. Meta&apos;s filings do not name it. This post treats it as the
-          bond issuer on the Blue Owl side.
-        </li>
-      </ul>
-
-      <h2 id={H["What this means for software and infrastructure founders"]}>
-        What this means for software and infrastructure founders
-      </h2>
-      <ol>
-        <li>
-          <strong>The bond buyers looked to the tenant.</strong> In my view,
-          investors were underwriting Meta&apos;s lease, not a new company. The
-          rating agency tied its project rating to Meta and said it would lower
-          the project rating if Meta&apos;s credit quality declined. The same
-          logic applies to a government technology (GovTech) company: contract
-          based funding looks at the strength of the signed government contract.
-          See{" "}
-          <Link href={`/blog/${ASSIGNMENT_OF_CLAIMS_POST.slug}`}>
-            the Assignment of Claims Act explained
-          </Link>
-          .
-        </li>
-        <li>
-          <strong>Off balance sheet still comes with disclosure.</strong> Meta
-          reports $45.95 billion of maximum exposure. In my view, anyone reading a
-          large company&apos;s financials should read the footnotes, not just the
-          balance sheet.
-        </li>
-        <li>
-          <strong>Repayment follows the cash.</strong> The Hyperion bonds
-          amortize, and the rating agency sees the minimum rent as supporting
-          repayment. Use an amortizing structure if your cash arrives steadily.
-          Use a bullet payment loan if your cash arrives as a larger known payment
-          later, such as a government receivable. Each fits a different cash
-          pattern. See{" "}
-          <Link href={`/blog/${TERM_LOAN_AMORTIZING_POST.slug}`}>
-            bullet loan vs amortizing loan
-          </Link>
-          .
-        </li>
-      </ol>
+      <p>
+        The bond buyers looked to the tenant, not to a new company. S&amp;P
+        Global Ratings said it would lower the project rating if Meta&apos;s
+        credit quality declined.
+      </p>
+      <p>
+        Off balance sheet also does not mean hidden. Read the footnotes, not just
+        the balance sheet.
+      </p>
+      <p>
+        The same question works at any size. What does each party need, and what
+        does it give up to get it? A smaller company owner can ask that before
+        choosing how to fund a big project.
+      </p>
 
       <h2 id={H["Frequently asked questions"]}>Frequently asked questions</h2>
       <Faq items={META_HYPERION_FAQ} />

@@ -508,6 +508,28 @@
   height: auto;
 }
 
+/* Callout / short-version box (markdown blockquote) */
+.blog-prose blockquote {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--color-navy-blue);
+  background: var(--color-secondary);
+  border-radius: 0 8px 8px 0;
+}
+
+.blog-prose blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.blog-prose blockquote p {
+  margin: 0 0 0.75rem;
+}
+
+.blog-prose blockquote ul,
+.blog-prose blockquote ol {
+  margin: 0;
+}
+
 /* Tables */
 .blog-table-wrap {
   position: relative;
@@ -564,8 +586,11 @@
 .blog-table {
   width: 100%;
   border-collapse: collapse;
+  border: 1px solid var(--color-border);
   font-size: 15px;
+  line-height: 1.45;
   min-width: 0;
+  background: #fff;
 }
 
 .blog-table--options {
@@ -586,14 +611,19 @@
   color: #fff;
   font-weight: 600;
   font-size: 14px;
+  line-height: 1.35;
   text-align: left;
   padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--color-navy-blue) 80%, #000);
+  vertical-align: bottom;
 }
 
 .blog-table td {
   padding: 12px 16px;
-  border-bottom: 1px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  font-size: 15px;
   vertical-align: top;
+  color: var(--color-text-primary);
 }
 
 /* Keep statute/citation labels like "FAR 52.232-25" on one line. */
@@ -614,9 +644,21 @@
 
 @media (max-width: 767px) {
   .blog-table-wrap {
-    overflow-x: visible;
+    /* Keep horizontal scroll available on narrow viewports. */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     max-width: none;
     width: 100%;
+  }
+
+  .blog-table {
+    font-size: 14px;
+  }
+
+  .blog-table thead th,
+  .blog-table td {
+    padding: 10px 12px;
+    font-size: 14px;
   }
 
   .blog-table,
