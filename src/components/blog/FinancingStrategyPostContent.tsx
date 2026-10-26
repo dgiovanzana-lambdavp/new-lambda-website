@@ -6,7 +6,6 @@ import {
   ASSIGNMENT_OF_CLAIMS_POST,
   FINANCING_STRATEGY_FAQ,
   FINANCING_STRATEGY_HEADINGS,
-  GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_POST,
@@ -43,14 +42,15 @@ export default function FinancingStrategyPostContent() {
       <p>
         A software company financing strategy should start with the exit you
         want, then pick the capital that fits it. Venture capital fits companies
-        aiming for very large outcomes, because venture returns depend on a few
-        big winners and big funding raises the bar for exit. Companies that plan
-        to stay profitable, sell at a modest valuation, or never sell often fit
-        other tools better: term loans repaid from cash flow, revolving credit
-        for uneven months, receivables financing when a large customer pays
-        slowly, revenue based financing, or preferred stock. For GovTech vendors
-        waiting 90 days or more on government payments, the shape of your cash
-        flow matters as much as the exit.
+        aiming for very large outcomes, because venture funds need large exits
+        to reach their target returns and big funding raises the bar for exit.
+        Companies that plan to stay profitable, sell at a modest valuation, or
+        never sell often fit other tools better: loans with bullet payments or
+        amortizing loans repaid from cash flow, revolving credit for uneven
+        months, receivables financing when a large customer pays slowly, revenue
+        based financing, or preferred stock. For GovTech vendors waiting 90 days
+        or more on government payments, the shape of your cash flow matters as
+        much as the exit.
       </p>
       <p>
         <em>
@@ -93,12 +93,10 @@ export default function FinancingStrategyPostContent() {
       </h2>
       <p>
         Venture capital is the tool most founders hear about first, and for some
-        companies it is the right one. Venture funds rely on a small number of
-        investments to generate most of their returns, a pattern{" "}
-        <ExtLink href="https://www.zerocarbon.vc/news/vc-isn%E2%80%99t-for-everyone-finding-the-right-funding-path-for-your-company">
-          Zero Carbon Capital
-        </ExtLink>{" "}
-        describes as the power law. That means each investment has to have a
+        companies it is the right one. Sarah Zou&apos;s guide explains why the
+        bar is high: a fund&apos;s target return depends on how much it invests
+        and how much it owns at exit, so even a successful small exit can be
+        immaterial to a large fund. That means each investment has to have a
         credible path to a very large outcome.
       </p>
       <p>
@@ -142,9 +140,16 @@ export default function FinancingStrategyPostContent() {
         . Being nonconvertible, it does not turn into common stock.
       </p>
       <p>
-        <strong>Term loans and amortizing loans.</strong> A lump sum repaid over
-        time on a fixed schedule from business cash flow. The FDIC notes that a
-        common use is financing acquisitions.
+        <strong>Loans with bullet payments and amortizing loans.</strong> A lump
+        sum borrowed up front. With bullet payments, the principal is repaid in
+        one lump sum at maturity, while each payment on an amortizing loan
+        covers both interest and principal, so the balance falls over time (
+        <ExtLink href="https://pressbooks.pub/introductiontofinancialanalysis/chapter/11-20-loans-the-conventional-mortgage/">
+          Touro University open textbook
+        </ExtLink>
+        ). The FDIC notes that amortizing loans are repaid from business cash
+        flow on a fixed schedule, and that a common use is financing business
+        acquisitions.
       </p>
       <p>
         <strong>Revolving line of credit.</strong> Credit you can draw, repay,
@@ -164,11 +169,8 @@ export default function FinancingStrategyPostContent() {
           ICAEW
         </ExtLink>
         ). Receivables financing is different: the invoices serve as collateral
-        for a loan and you keep control over collection, as{" "}
-        <ExtLink href="https://www.tabs.com/blog/accounts-receivable-factoring">
-          Tabs
-        </ExtLink>{" "}
-        explains. For federal contracts, see{" "}
+        for a loan and you keep control over collection. For federal contracts,
+        see{" "}
         <Link href={`/blog/${ASSIGNMENT_OF_CLAIMS_POST.slug}`}>
           the Assignment of Claims Act explained
         </Link>
@@ -198,13 +200,12 @@ export default function FinancingStrategyPostContent() {
       </p>
       <p>
         <strong>Predictable cash flow.</strong> Amortizing repayment works when
-        you can forecast what comes in. The FDIC&apos;s examination manual says:
-        &quot;Term loans are repaid through business cash flow, according to a
-        fixed amortization schedule, which can vary based on the cash flow
-        expectations of the underlying asset financed or the anticipated
-        profitability or cash flow of the business.&quot; (
+        you can forecast what comes in. The FDIC&apos;s examination manual
+        describes these loans as repaid through business cash flow on a fixed
+        amortization schedule, which can vary with the cash flow expected from
+        the asset financed or the business itself. (
         <ExtLink href="https://www.fdic.gov/risk-management-manual-examination-policies/commercial-and-industrial-lending.pdf">
-          FDIC
+          regulator&apos;s examination manual
         </ExtLink>
         )
       </p>
@@ -213,8 +214,9 @@ export default function FinancingStrategyPostContent() {
         and falls.
       </p>
       <p>
-        <strong>A big customer that pays slowly.</strong> The ICAEW notes that
-        factoring improves cash flow by getting invoices paid much sooner.
+        <strong>A big customer that pays slowly.</strong> The accounting body
+        cited above notes that factoring improves cash flow by getting invoices
+        paid much sooner.
       </p>
       <p>
         <strong>Revenue that rises and falls.</strong> Revenue based financing
@@ -249,14 +251,10 @@ export default function FinancingStrategyPostContent() {
           prompt payment laws for GovTech vendors
         </Link>
         . For ways to shorten the wait, see{" "}
-        <Link href={`/blog/${GOVTECH_POST.slug}`}>
-          government contract financing for software companies
-        </Link>
-        ,{" "}
         <Link href={`/blog/${UPFRONT_PAYMENT_POST.slug}`}>
           upfront SaaS payment
-        </Link>
-        , and{" "}
+        </Link>{" "}
+        and{" "}
         <Link href={`/blog/${IMPLEMENTATION_MILESTONES_POST.slug}`}>
           implementation payment milestones
         </Link>
@@ -273,7 +271,7 @@ export default function FinancingStrategyPostContent() {
         entity that is senior to common stock (discussed in FG 4) and
         subordinate to debt.&quot; (
         <ExtLink href="https://viewpoint.pwc.com/dt/us/en/pwc/accounting_guides/financing_transactio/financing_transactio_US/chapter_7_preferred__US/71_characteristics_pref_US.html">
-          PwC Viewpoint
+          accounting firm&apos;s guide
         </ExtLink>
         ) Every tool in this series sits somewhere in that stack.
       </p>
@@ -325,7 +323,8 @@ export default function FinancingStrategyPostContent() {
             <tr>
               <td data-label="Tool">Venture capital</td>
               <td data-label="What it is">
-                Equity from funds that rely on a few large winners
+                Equity from funds that need large exits to reach their target
+                returns
               </td>
               <td data-label="Commonly described for">
                 Companies aiming for very large exits
@@ -350,12 +349,13 @@ export default function FinancingStrategyPostContent() {
               </td>
             </tr>
             <tr>
-              <td data-label="Tool">Term loan</td>
+              <td data-label="Tool">Loan</td>
               <td data-label="What it is">
-                Lump sum repaid on a fixed schedule
+                Lump sum repaid on a fixed schedule, either in one bullet
+                payment at maturity or amortized over time
               </td>
               <td data-label="Commonly described for">
-                Assets and acquisitions
+                A capital need funded up front
               </td>
             </tr>
             <tr>
@@ -364,7 +364,7 @@ export default function FinancingStrategyPostContent() {
                 Repaid from cash flow on a fixed schedule
               </td>
               <td data-label="Commonly described for">
-                Predictable cash flow
+                Predictable cash flow; fixed assets and acquisitions
               </td>
             </tr>
             <tr>
@@ -426,11 +426,6 @@ export default function FinancingStrategyPostContent() {
           </Link>
         </li>
         <li>
-          <Link href={`/blog/${GOVTECH_POST.slug}`}>
-            Government Contract Financing for Software Companies
-          </Link>
-        </li>
-        <li>
           <Link href={`/blog/${UPFRONT_PAYMENT_POST.slug}`}>
             Can Government Customers Pay Your SaaS Subscription Upfront?
           </Link>
@@ -444,13 +439,13 @@ export default function FinancingStrategyPostContent() {
 
       <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
-        Lambda Capital is a permanent capital holding company. We take a patient
-        approach and invest for the long term. GovTech contract funding is one
-        of our lines of business.
+        Lambda Capital is a permanent capital holding company investing in
+        vertical market technology that strengthens national security and core
+        sectors of the economy. We take a patient approach and invest for the
+        long term. GovTech contract funding is one of our lines of business.
       </p>
       <p>
-        If you are working through your own financing strategy,{" "}
-        <Link href="/contact">get in touch</Link>.
+        <Link href="/contact">Contact Lambda Capital</Link>
       </p>
       <p>We read every note and reply to founders directly.</p>
     </div>

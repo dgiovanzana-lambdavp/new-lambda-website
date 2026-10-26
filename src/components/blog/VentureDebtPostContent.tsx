@@ -3,7 +3,6 @@ import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
 import {
-  GOVTECH_POST,
   PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_POST,
   IMPLEMENTATION_MILESTONES_POST,
@@ -44,10 +43,10 @@ export default function VentureDebtPostContent() {
         capital gives you capital you never repay, in exchange for shares and
         some control. Debt lets you keep your ownership, but you repay it on
         schedule no matter how the quarter goes. Venture debt sits in between: a
-        loan that usually comes with warrants, sized as a percentage of the
-        loan. For a steadily growing GovTech company with sticky government
-        contracts, debt often fits better than VC, provided the cash flow can
-        carry the payments.
+        loan that often carries a small equity component for the lender. For a
+        steadily growing GovTech company with sticky government contracts, debt
+        often fits better than VC, provided the cash flow can carry the
+        payments.
       </p>
       <p>
         <em>
@@ -70,56 +69,26 @@ export default function VentureDebtPostContent() {
         )
       </p>
       <p>
-        <strong>Venture capital.</strong> You sell ownership shares; HubSpot for
-        Startups notes there is no obligation to repay if the company fails, but
+        <strong>Venture capital.</strong> You sell ownership shares; the same
+        guide notes there is no obligation to repay if the company fails, but
         every round dilutes your stake.
       </p>
       <p>
-        <strong>Venture debt.</strong> HubSpot for Startups describes it as
-        similar in structure to a bank loan, usually paired with warrants or
-        other small equity kickers for the lender.
+        <strong>Venture debt.</strong> The guide describes it as similar in
+        structure to a bank loan, often paired with a small equity component for
+        the lender. Warrants are rights to buy shares later, and they sometimes
+        come attached to a loan.
       </p>
       <p>
-        <strong>Term loans and revenue based financing.</strong> Loans you repay
-        with interest. HubSpot for Startups describes revenue based financing as
+        <strong>Loans with bullet payments and revenue based financing.</strong>{" "}
+        Loans you repay with interest. With a bullet payment, the principal
+        comes due in one lump sum at maturity (
+        <ExtLink href="https://pressbooks.pub/introductiontofinancialanalysis/chapter/11-20-loans-the-conventional-mortgage/">
+          Touro University open textbook
+        </ExtLink>
+        ). The startup guide quoted above describes revenue based financing as
         repaid from a fixed percentage of future revenue, and notes it is still
         a loan that must be repaid.
-      </p>
-
-      <h2 id={H["How warrant coverage works: the minimal equity middle ground"]}>
-        How warrant coverage works: the minimal equity middle ground
-      </h2>
-      <p>
-        The warrant percentage is the number that scares founders, and in my
-        experience it is usually misread. Venturemage is clear on this:
-        &quot;Warrant coverage is expressed as a percentage of the loan amount,
-        not the company valuation.&quot; (
-        <ExtLink href="https://venturemage.com/warrant-coverage-venture-debt">
-          Venturemage
-        </ExtLink>
-        )
-      </p>
-      <p>
-        In the same guide&apos;s example, 10% coverage on a $2 million loan
-        gives the lender warrants worth $200,000 at the agreed strike price. A
-        warrant is a right, not an obligation, to buy shares at that fixed price
-        before an expiration date. If it is never exercised, the guide notes, no
-        dilution occurs.
-      </p>
-      <p>
-        <strong>How much dilution?</strong> Venturemage says the average venture
-        debt deal results in roughly 1 to 2 percent total equity dilution if the
-        lender exercises, while its own FAQ puts the range at 1 to 3 percent;
-        treat both as the publisher&apos;s estimate, not independent data.
-      </p>
-      <p>
-        The real cost depends on what your company is worth later. Startup
-        Fortune explains that the strike price is locked when the loan closes
-        and never resets upward (
-        <ExtLink href="https://startupfortune.com/how-does-venture-debt-warrant-coverage-work-and-why-it-costs-more/">
-          Startup Fortune
-        </ExtLink>
-        ), so the better you do, the more the warrant is worth to the lender.
       </p>
 
       <h2
@@ -133,25 +102,19 @@ export default function VentureDebtPostContent() {
       </h2>
       <p>
         Here is the catch for the founders I talk to most: classic venture debt
-        is built for companies that already have VC backing. HubSpot for
-        Startups says that after a Series A, you &quot;can unlock debt
-        options,&quot; including venture debt, credit lines, and revenue based
-        financing. (
+        is built for companies that already have VC backing. The same guide says
+        that after a Series A, you &quot;can unlock debt options,&quot;
+        including venture debt, credit lines, and revenue based financing. (
         <ExtLink href="https://www.hubspot.com/startups/fundraising/equity-vs-debt-financing">
-          HubSpot for Startups
+          equity vs debt guide
         </ExtLink>
         )
       </p>
       <p>
-        The same warrant guide adds that the best venture debt terms come within
-        6 to 12 months of closing an equity round. If you have never raised one,
-        that window does not exist for you.
-      </p>
-      <p>
-        That does not close the door on debt. HubSpot for Startups notes that
-        lenders generally want proven revenue and predictable cash flow. A
-        GovTech company with years of renewals often has exactly that, which
-        makes term loans and revenue based financing the more natural
+        That does not close the door on debt. The guide also notes that lenders
+        generally want proven revenue and predictable cash flow. A GovTech
+        company with years of renewals often has exactly that, which makes loans
+        with bullet payments and revenue based financing the more natural
         comparison.
       </p>
 
@@ -212,23 +175,30 @@ export default function VentureDebtPostContent() {
       </h2>
       <p>
         I tell founders to decide based on the business they actually want to
-        run, not the one a pitch deck describes. HubSpot for Startups puts it
-        plainly: &quot;Choose debt when you have predictable revenue streams,
-        want to maintain full ownership and control, prefer sustainable growth
-        over hypergrowth, or have strong financials and credit history.&quot; (
+        run, not the one a pitch deck describes. The equity vs debt guide quoted
+        earlier puts it plainly: &quot;Choose debt when you have predictable
+        revenue streams, want to maintain full ownership and control, prefer
+        sustainable growth over hypergrowth, or have strong financials and
+        credit history.&quot; (
         <ExtLink href="https://www.hubspot.com/startups/fundraising/equity-vs-debt-financing">
-          HubSpot for Startups
+          equity vs debt guide
         </ExtLink>
         )
       </p>
       <p>
-        On the other side, HubSpot for Startups says equity fits companies
-        chasing fast growth, industry dominance, or large liquidity events, and
-        companies that are prerevenue or cannot handle regular debt payments.
+        On the other side, the guide says equity fits companies chasing fast
+        growth, industry dominance, or large liquidity events, and companies
+        that are prerevenue or cannot handle regular debt payments.
       </p>
 
-      <h2 id={H["Venture capital, venture debt and term loans compared"]}>
-        Venture capital, venture debt and term loans compared
+      <h2
+        id={
+          H[
+            "Venture capital, venture debt and loans with bullet payments compared"
+          ]
+        }
+      >
+        Venture capital, venture debt and loans with bullet payments compared
       </h2>
       <p>
         <em>
@@ -238,29 +208,31 @@ export default function VentureDebtPostContent() {
       </p>
 
       <TableWrap
-        caption="Venture capital, venture debt and term loans compared"
+        caption="Venture capital, venture debt and loans with bullet payments compared"
         scrollable
       >
         <table className="blog-table blog-table--options">
           <caption>
-            Venture capital, venture debt and term loans compared
+            Venture capital, venture debt and loans with bullet payments compared
           </caption>
           <thead>
             <tr>
               <th scope="col"></th>
               <th scope="col">Venture capital round</th>
-              <th scope="col">Venture debt with warrants</th>
-              <th scope="col">Term loan or revenue based financing</th>
+              <th scope="col">Venture debt</th>
+              <th scope="col">
+                Loan with bullet payments or revenue based financing
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td data-label="Row">What the provider gets</td>
               <td data-label="Venture capital round">Ownership shares</td>
-              <td data-label="Venture debt with warrants">
-                Interest, repayment, and usually warrants
+              <td data-label="Venture debt">
+                Interest, repayment, and often a small equity component
               </td>
-              <td data-label="Term loan or revenue based financing">
+              <td data-label="Loan with bullet payments or revenue based financing">
                 Interest and repayment
               </td>
             </tr>
@@ -269,10 +241,8 @@ export default function VentureDebtPostContent() {
               <td data-label="Venture capital round">
                 Dilution at every round
               </td>
-              <td data-label="Venture debt with warrants">
-                Small and contingent; warrants may never be exercised
-              </td>
-              <td data-label="Term loan or revenue based financing">
+              <td data-label="Venture debt">Small and contingent</td>
+              <td data-label="Loan with bullet payments or revenue based financing">
                 Ownership kept
               </td>
             </tr>
@@ -281,11 +251,11 @@ export default function VentureDebtPostContent() {
               <td data-label="Venture capital round">
                 No obligation to repay
               </td>
-              <td data-label="Venture debt with warrants">
+              <td data-label="Venture debt">
                 Required regardless of performance
               </td>
-              <td data-label="Term loan or revenue based financing">
-                Required regardless of performance
+              <td data-label="Loan with bullet payments or revenue based financing">
+                Required, though revenue based payments move with revenue
               </td>
             </tr>
             <tr>
@@ -293,10 +263,10 @@ export default function VentureDebtPostContent() {
               <td data-label="Venture capital round">
                 Some control exchanged for support
               </td>
-              <td data-label="Venture debt with warrants">
+              <td data-label="Venture debt">
                 Kept, as long as payments are timely
               </td>
-              <td data-label="Term loan or revenue based financing">
+              <td data-label="Loan with bullet payments or revenue based financing">
                 Kept, as long as payments are timely
               </td>
             </tr>
@@ -305,8 +275,8 @@ export default function VentureDebtPostContent() {
               <td data-label="Venture capital round">
                 Often the only option before revenue
               </td>
-              <td data-label="Venture debt with warrants">After a Series A</td>
-              <td data-label="Term loan or revenue based financing">
+              <td data-label="Venture debt">After a Series A</td>
+              <td data-label="Loan with bullet payments or revenue based financing">
                 Proven revenue and cash flow
               </td>
             </tr>
@@ -315,10 +285,10 @@ export default function VentureDebtPostContent() {
               <td data-label="Venture capital round">
                 Fast growth, large liquidity events
               </td>
-              <td data-label="Venture debt with warrants">
+              <td data-label="Venture debt">
                 Runway between equity rounds
               </td>
-              <td data-label="Term loan or revenue based financing">
+              <td data-label="Loan with bullet payments or revenue based financing">
                 Predictable revenue, owners who want control
               </td>
             </tr>
@@ -331,12 +301,6 @@ export default function VentureDebtPostContent() {
 
       <h2 id={H["Related reading"]}>Related reading</h2>
       <ul>
-        <li>
-          If your growth problem is really a payment timing problem:{" "}
-          <Link href={`/blog/${GOVTECH_POST.slug}`}>
-            Government Contract Financing for Software Companies
-          </Link>
-        </li>
         <li>
           If an agency is paying late:{" "}
           <Link href={`/blog/${PROMPT_PAYMENT_POST.slug}`}>
@@ -359,13 +323,13 @@ export default function VentureDebtPostContent() {
 
       <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
-        Lambda Capital is a permanent capital holding company. We take a patient
-        approach and invest for the long term. GovTech is one of our focus
-        areas.
+        Lambda Capital is a permanent capital holding company investing in
+        vertical market technology that strengthens national security and core
+        sectors of the economy. We take a patient approach and invest for the
+        long term. GovTech contract funding is one of our lines of business.
       </p>
       <p>
-        If you are weighing how to fund your next stage of growth,{" "}
-        <Link href="/contact">get in touch</Link>.
+        <Link href="/contact">Contact Lambda Capital</Link>
       </p>
       <p>We read every note and reply to founders directly.</p>
     </div>
