@@ -26,13 +26,24 @@ function ExtLink({ href, children }: { href: string; children: ReactNode }) {
 export default function MetaHyperionPostContent() {
   return (
     <div className="blog-prose">
+      <h2 id={H["The bottom line for founders"]}>
+        The bottom line for founders
+      </h2>
       <p>
-        <strong>
-          The $27.3 billion of bonds behind Meta&apos;s Hyperion data center are
-          not Meta&apos;s debt. Meta owns 20% of the venture that owns the
-          campus, will lease it back and guarantees part of its value. Yet the
-          venture stays off Meta&apos;s balance sheet.
-        </strong>
+        Each piece of this deal answers one party&apos;s need. Meta wanted
+        flexibility through short leases; investors wanted a guarantee and Meta
+        on the build risk.
+      </p>
+      <p>
+        Bond buyers looked to the tenant&apos;s credit, not to a new company
+        alone. Off balance sheet does not mean hidden; read the footnotes.
+      </p>
+
+      <p>
+        The $27.3 billion of bonds behind Meta&apos;s Hyperion data center are
+        not Meta&apos;s debt. Meta owns 20% of the venture that owns the campus,
+        will lease it back and guarantees part of its value. Yet the venture
+        stays off Meta&apos;s balance sheet.
       </p>
       <p>
         Meta needed a giant data center in Louisiana. It got one without adding
@@ -46,9 +57,7 @@ export default function MetaHyperionPostContent() {
       </p>
 
       <blockquote>
-        <p>
-          <strong>The short version</strong>
-        </p>
+        <p>The short version</p>
         <ul>
           <li>
             Funds managed by Blue Owl Capital own 80% of the venture that owns
@@ -94,9 +103,11 @@ export default function MetaHyperionPostContent() {
         <ExtLink href="https://s21.q4cdn.com/399680738/files/doc_financials/2025/q3/META-Q3-2025-Earnings-Call-Transcript.pdf">
           October 29, 2025 earnings call
         </ExtLink>
-        , chief financial officer Susan Li pointed to &quot;the magnitude, but
-        also uncertainty of what the capacity outlook in future years looks
-        like.&quot;
+        , chief financial officer Susan Li pointed to{" "}
+        <em>
+          &quot;the magnitude, but also uncertainty of what the capacity outlook
+          in future years looks like.&quot;
+        </em>
       </p>
 
       <h2 id={H["Three ways to pay for it"]}>Three ways to pay for it</h2>
@@ -133,15 +144,24 @@ export default function MetaHyperionPostContent() {
 
       <h3>Bring in a partner</h3>
       <p>
-        That&apos;s where Blue Owl came in. Li said the deal &quot;enabled us to
-        partner with external capital providers&quot; to develop data centers
-        together &quot;in a way that gives us long term optionality in supporting
-        our future capacity needs&quot;.
+        That&apos;s where Blue Owl came in. Li said the deal{" "}
+        <em>
+          &quot;enabled us to partner with external capital providers&quot;
+        </em>{" "}
+        to develop data centers together{" "}
+        <em>
+          &quot;in a way that gives us long term optionality in supporting our
+          future capacity needs&quot;
+        </em>
+        .
       </p>
       <p>
-        She added: &quot;Going forward, the construction cost of the data center
-        will not be recorded in CapEx.&quot; So a partner pays most of the bill,
-        and Meta keeps room to change course.
+        She added:{" "}
+        <em>
+          &quot;Going forward, the construction cost of the data center will not
+          be recorded in CapEx.&quot;
+        </em>{" "}
+        So a partner pays most of the bill, and Meta keeps room to change course.
       </p>
 
       <h2 id={H["How the Meta Hyperion data center financing works"]}>
@@ -152,9 +172,12 @@ export default function MetaHyperionPostContent() {
         <ExtLink href="https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Announces-Joint-Venture-with-Funds-Managed-by-Blue-Owl-Capital-to-Develop-Hyperion-Data-Center/default.aspx">
           press release
         </ExtLink>{" "}
-        on October 21, 2025. It says: &quot;Funds managed by Blue Owl Capital
-        will own an 80% interest in the joint venture, while Meta will retain the
-        remaining 20% ownership.&quot;
+        on October 21, 2025. It says:{" "}
+        <em>
+          &quot;Funds managed by Blue Owl Capital will own an 80% interest in the
+          joint venture, while Meta will retain the remaining 20%
+          ownership.&quot;
+        </em>
       </p>
       <p>
         A joint venture is a company that two or more owners set up together.
@@ -184,9 +207,12 @@ export default function MetaHyperionPostContent() {
         that the issuer pays back with interest.
       </p>
       <p>
-        The press release says: &quot;A portion of capital raised by Blue Owl
-        will be funded by debt issued to PIMCO and select other bond investors
-        through a private securities offering.&quot;
+        The press release says:{" "}
+        <em>
+          &quot;A portion of capital raised by Blue Owl will be funded by debt
+          issued to PIMCO and select other bond investors through a private
+          securities offering.&quot;
+        </em>
       </p>
       <p>
         The two big numbers count different things. The roughly $27 billion is
@@ -231,9 +257,12 @@ export default function MetaHyperionPostContent() {
           <ExtLink href="https://www.wsj.com/finance/investing/blackrock-etfs-among-biggest-investors-in-metas-giant-data-center-debt-deal-087fe671">
             The Wall Street Journal
           </ExtLink>{" "}
-          reported: &quot;BlackRock bought more than $3 billion of bonds issued
-          last week to finance the data center, which is called Hyperion,
-          according to people familiar with the matter.&quot;
+          reported:{" "}
+          <em>
+            &quot;BlackRock bought more than $3 billion of bonds issued last week
+            to finance the data center, which is called Hyperion, according to
+            people familiar with the matter.&quot;
+          </em>
         </li>
         <li>
           <strong>Bank:</strong> Morgan Stanley was exclusive financial advisor
@@ -271,9 +300,11 @@ export default function MetaHyperionPostContent() {
       </p>
       <p>
         Then there is the $2.55 billion. Meta had started building before the
-        venture existed. Li said Meta&apos;s &quot;prior CapEx reflected a
-        portion of the data center build cost prior to the joint venture being
-        established.&quot;
+        venture existed. Li said Meta&apos;s{" "}
+        <em>
+          &quot;prior CapEx reflected a portion of the data center build cost
+          prior to the joint venture being established.&quot;
+        </em>
       </p>
       <p>
         On Meta&apos;s own figures, the $4.30 billion of assets, net of
@@ -295,9 +326,9 @@ export default function MetaHyperionPostContent() {
 
       <h3>Blue Owl: a big project with a strong tenant</h3>
       <p>
-        The press release credits Blue Owl with &quot;its ability to deliver
-        substantial capital at scale&quot;. Its funds get 80% of the venture that
-        will collect Meta&apos;s rent.
+        The press release credits Blue Owl with{" "}
+        <em>&quot;its ability to deliver substantial capital at scale&quot;</em>.
+        Its funds get 80% of the venture that will collect Meta&apos;s rent.
       </p>
       <p>
         Blue Owl&apos;s leaders were also upbeat about AI infrastructure in
@@ -325,10 +356,13 @@ export default function MetaHyperionPostContent() {
         construction and operation.
       </p>
       <p>
-        One investor called the amortizing feature &quot;extremely
-        attractive&quot; in IFR&apos;s report. The person said: &quot;The debt
-        gets repaid over time even if AI/data centres have issues in the
-        future.&quot;
+        One investor called the amortizing feature{" "}
+        <em>&quot;extremely attractive&quot;</em> in IFR&apos;s report. The
+        person said:{" "}
+        <em>
+          &quot;The debt gets repaid over time even if AI/data centres have
+          issues in the future.&quot;
+        </em>
       </p>
       <p>
         The bonds also paid 225 basis points over Treasuries. A basis point is
@@ -345,8 +379,12 @@ export default function MetaHyperionPostContent() {
       <p>
         The bond locked in the money early. Teddy Hodgson, one of the global
         heads of investment grade debt capital markets at Morgan Stanley, told
-        IFR: &quot;Meta&apos;s price and size outcome was derisked a significant
-        number of months ahead of the pricing date in October&quot;.
+        IFR:{" "}
+        <em>
+          &quot;Meta&apos;s price and size outcome was derisked a significant
+          number of months ahead of the pricing date in October&quot;
+        </em>
+        .
       </p>
       <p>
         Derisked here means the price and size were settled early, so market
@@ -356,9 +394,11 @@ export default function MetaHyperionPostContent() {
       <h3>The construction side: Meta takes the build risk</h3>
       <p>
         Meta provides construction management, administrative and property
-        management services to the venture. Its press release says &quot;Meta has
-        15 years of experience developing, constructing and operating world class
-        data center facilities.&quot;
+        management services to the venture. Its press release says{" "}
+        <em>
+          &quot;Meta has 15 years of experience developing, constructing and
+          operating world class data center facilities.&quot;
+        </em>
       </p>
       <p>
         In the rating agency&apos;s view, the contract moves construction risk to
@@ -388,8 +428,12 @@ export default function MetaHyperionPostContent() {
       <h3>The guarantee is Meta&apos;s answer</h3>
       <p>
         The press release says Meta balanced this optionality in a cost efficient
-        way: it &quot;provided the joint venture with a residual value guarantee
-        for the first 16 years of operations&quot;.
+        way: it{" "}
+        <em>
+          &quot;provided the joint venture with a residual value guarantee for
+          the first 16 years of operations&quot;
+        </em>
+        .
       </p>
       <p>
         In plain terms, Meta covers the gap if it walks away from a lease, the
@@ -409,10 +453,13 @@ export default function MetaHyperionPostContent() {
         assets and debts to your own financial statements.
       </p>
       <p>
-        Meta&apos;s annual report says: &quot;We do not have the power to direct
-        the activities that most significantly impact the Venture&apos;s economic
-        performance. Therefore, we are not the primary beneficiary and do not
-        consolidate the variable interest entity (VIE).&quot;
+        Meta&apos;s annual report says:{" "}
+        <em>
+          &quot;We do not have the power to direct the activities that most
+          significantly impact the Venture&apos;s economic performance.
+          Therefore, we are not the primary beneficiary and do not consolidate
+          the variable interest entity (VIE).&quot;
+        </em>
       </p>
       <p>
         Meta&apos;s{" "}
@@ -475,28 +522,16 @@ export default function MetaHyperionPostContent() {
       </p>
       <p>
         Meta has since done it again. In July 2026 it formed a second venture in
-        Texas and holds 20% of it. Its latest quarterly report says: &quot;The
-        Ventures are similar in purpose, design, and risk and reward
-        characteristics.&quot;
+        Texas and holds 20% of it. Its latest quarterly report says:{" "}
+        <em>
+          &quot;The Ventures are similar in purpose, design, and risk and reward
+          characteristics.&quot;
+        </em>
       </p>
 
       <h2 id={H["What a smaller company owner can take from it"]}>
         What a smaller company owner can take from it
       </h2>
-      <p>
-        In my view, each piece of this deal answers one party&apos;s need. Meta
-        wanted flexibility, so it took short leases. Investors wanted protection,
-        so Meta added a guarantee and took the building risk.
-      </p>
-      <p>
-        The bond buyers looked to the tenant, not to a new company. S&amp;P
-        Global Ratings said it would lower the project rating if Meta&apos;s
-        credit quality declined.
-      </p>
-      <p>
-        Off balance sheet also does not mean hidden. Read the footnotes, not just
-        the balance sheet.
-      </p>
       <p>
         The same question works at any size. What does each party need, and what
         does it give up to get it? A smaller company owner can ask that before

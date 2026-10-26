@@ -436,6 +436,7 @@ const META_HYPERION_SLUG = "meta-hyperion-data-center-spv-financing";
 const META_HYPERION_DATE = "2026-10-26";
 
 const META_HYPERION_H2_TEXTS = [
+  "The bottom line for founders",
   "Meta's problem: a huge build and an uncertain future",
   "Three ways to pay for it",
   "How the Meta Hyperion data center financing works",
