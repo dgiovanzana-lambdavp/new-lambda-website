@@ -7,7 +7,15 @@ export const metadata: Metadata = {
   title: "Contact | Lambda Capital",
   description:
     "Tell us who you are and we'll route you to the right conversation.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact | Lambda Capital",
+    description:
+      "Tell us who you are and we'll route you to the right conversation.",
+    url: "/contact",
+  },
 };
+
 
 /**
  * Screen 0 — the router.

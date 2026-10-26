@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           name: "Lambda Capital",
           logo: {
             "@type": "ImageObject",
-            url: `${BLOG_SITE_ORIGIN}/Capital - Black Long.png`,
+            url: `${BLOG_SITE_ORIGIN}/Capital%20-%20Black%20Long.png`,
           },
         },
         mainEntityOfPage: canonical,

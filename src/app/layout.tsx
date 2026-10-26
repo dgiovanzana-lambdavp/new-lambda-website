@@ -37,12 +37,15 @@ export const metadata: Metadata = {
   creator: "Lambda Capital",
   publisher: "Lambda Capital",
   formatDetection: { email: false, address: false, telephone: false },
-  alternates: { canonical: "/" },
   /*
     Icons declared here rather than as raw <link> tags in a <head>
     block. Next emits them into the document head itself, and keeping
     them in metadata means the app router can dedupe them against any
     per-page overrides.
+
+    Canonical and openGraph.url are set per page (see page.tsx files).
+    Leaving them here made every route declare the homepage as
+    canonical, which Search Console flagged as alternate pages.
   */
   icons: {
     icon: [
@@ -56,12 +59,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.lambdavp.com",
     title: "Lambda Capital - Investing in Mission-Critical Technology",
     description:
       "A permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",
     siteName: "Lambda Capital",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Lambda Capital - Investing in Mission-Critical Technology",
