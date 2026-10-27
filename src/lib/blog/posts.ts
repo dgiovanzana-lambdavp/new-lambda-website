@@ -512,6 +512,49 @@ export const NEOCLOUD_POST: BlogPostMeta = {
   breadcrumbsTitle: "Neocloud Financing After Musk's Warning",
 };
 
+const FISCAL_YEAR_2027_SLUG = "government-fiscal-year-2027-software-vendors";
+
+const FISCAL_YEAR_2027_DATE = "2026-10-27";
+
+const FISCAL_YEAR_2027_H2_TEXTS = [
+  "Why the customer's fiscal year sets your cash calendar",
+  "Federal fiscal year 2027 and where funding stands",
+  "State fiscal years: most start July 1, with exceptions",
+  "County and city fiscal years",
+  "How continuing resolutions and funding gaps delay payment",
+  'Year end and "use it or lose it" timing',
+  "Annual vs multi year money for software subscriptions",
+  "Practical steps for invoices and renewals",
+  "Bridging the gap: which option fits which problem",
+  "Government fiscal year 2027 calendar",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const FISCAL_YEAR_2027_HEADINGS: BlogHeading[] =
+  FISCAL_YEAR_2027_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const FISCAL_YEAR_2027_POST: BlogPostMeta = {
+  slug: FISCAL_YEAR_2027_SLUG,
+  metaTitle:
+    "Government Fiscal Year 2027 Calendar for Software Vendors: When Agencies Pay and How to Plan Cash Around It",
+  h1: "Government Fiscal Year 2027 Calendar for Software Vendors: When Agencies Pay and How to Plan Cash Around It",
+  description:
+    "Federal, state, county and city fiscal years for 2027, how continuing resolutions and year end timing affect when agencies pay, and how to plan cash around it.",
+  category: "Growth capital",
+  date: FISCAL_YEAR_2027_DATE,
+  updated: FISCAL_YEAR_2027_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-government-fiscal-year-hero.jpg",
+  ogImage: `/og/blog-${FISCAL_YEAR_2027_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Fiscal Year 2027 Calendar",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -593,6 +636,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  FISCAL_YEAR_2027_POST,
   NEOCLOUD_POST,
   META_HYPERION_POST,
   COMMON_STOCK_FINANCING_POST,
@@ -632,6 +676,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return COMMON_STOCK_FINANCING_HEADINGS;
   if (slug === META_HYPERION_SLUG) return META_HYPERION_HEADINGS;
   if (slug === NEOCLOUD_SLUG) return NEOCLOUD_HEADINGS;
+  if (slug === FISCAL_YEAR_2027_SLUG) return FISCAL_YEAR_2027_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -666,6 +711,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return COMMON_STOCK_FINANCING_JSON_LD;
   if (slug === META_HYPERION_SLUG) return META_HYPERION_JSON_LD;
   if (slug === NEOCLOUD_SLUG) return NEOCLOUD_JSON_LD;
+  if (slug === FISCAL_YEAR_2027_SLUG) return FISCAL_YEAR_2027_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -1889,6 +1935,91 @@ export const NEOCLOUD_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: NEOCLOUD_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const FISCAL_YEAR_2027_FAQ: FaqItem[] = [
+  {
+    question: "When does the federal fiscal year 2027 start and end?",
+    answer:
+      "The federal fiscal year 2027 starts on October 1, 2026 and ends on September 30, 2027. Federal law sets the fiscal year to begin on October 1 and end on September 30 of the following year.",
+  },
+  {
+    question: "Is the federal government funded for fiscal year 2027?",
+    answer:
+      "At the time of writing, a continuing resolution funds federal agencies through December 11, 2026. As of the latest congressional status tables, none of the 12 regular appropriations bills for fiscal year 2027 had become law.",
+  },
+  {
+    question: "When do state fiscal years start?",
+    answer:
+      "Forty six states start their fiscal year on July 1. New York starts on April 1, Texas on September 1, and Alabama and Michigan on October 1.",
+  },
+  {
+    question: "Do counties and cities use the same fiscal year?",
+    answer:
+      "No. Counties typically use the calendar year, July to June, or October to September. Most cities end their fiscal year on June 30, and others on December 31. Ask each customer which cycle it uses.",
+  },
+  {
+    question: "Do federal contractors get paid during a shutdown?",
+    answer:
+      "If work continues during a shutdown because it is funded with prior year or multiyear money, it is paid from those funds. But invoice processing and payment may be delayed, because the federal staff who handle them may be furloughed. Contractors whose work was paused or terminated are limited in the reimbursement they may receive.",
+  },
+  {
+    question: "Can a federal SaaS subscription cross fiscal years?",
+    answer:
+      "Often, yes. Federal rules allow a contract, option or order for severable services to start in one fiscal year and end in the next, if the period does not exceed one year. The agency can obligate the full amount from the first year's money.",
+  },
+  {
+    question: "What does the Availability of Funds clause mean for my invoice?",
+    answer:
+      "When a federal contract includes this clause, the government has no legal liability to pay until two things happen. Funds must be made available, and the contracting officer must give you notice, confirmed in writing. Keep that written notice on file.",
+  },
+  {
+    question: "Why do government awards cluster near fiscal year end?",
+    answer:
+      "Annual money is available only for expenses properly incurred, or contracts properly made, during its period of availability. A Defense Department study found that after longer continuing resolutions, programs had less time left in the year to obligate their funds. It also found that continuing resolutions can lead to uneven spending over the fiscal year.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const FISCAL_YEAR_2027_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Government Fiscal Year 2027 Calendar for Software Vendors: When Agencies Pay and How to Plan Cash Around It",
+      description:
+        "Federal, state, county and city fiscal years for 2027, how continuing resolutions and year end timing affect when agencies pay, and how to plan cash around it.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      datePublished: "2026-10-27",
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-fiscal-year-2027-software-vendors",
+      keywords: "government fiscal year 2027",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FISCAL_YEAR_2027_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
