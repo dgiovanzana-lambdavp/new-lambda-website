@@ -555,6 +555,47 @@ export const FISCAL_YEAR_2027_POST: BlogPostMeta = {
   breadcrumbsTitle: "Government Fiscal Year 2027 Calendar",
 };
 
+const WORKING_CAPITAL_VS_GROWTH_SLUG =
+  "working-capital-vs-growth-capital-govtech-software";
+
+const WORKING_CAPITAL_VS_GROWTH_DATE = "2026-10-28";
+
+const WORKING_CAPITAL_VS_GROWTH_H2_TEXTS = [
+  "The problem: a signed contract and an empty operating account",
+  "Choice one: what working capital is",
+  "Choice two: what growth capital is",
+  "Working capital vs growth capital: diagnose timing versus investment",
+  "Why each side of the market acts as it does",
+  "Lesson: wrong tool, real damage",
+  "Bridging the gap: use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const WORKING_CAPITAL_VS_GROWTH_HEADINGS: BlogHeading[] =
+  WORKING_CAPITAL_VS_GROWTH_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const WORKING_CAPITAL_VS_GROWTH_POST: BlogPostMeta = {
+  slug: WORKING_CAPITAL_VS_GROWTH_SLUG,
+  metaTitle:
+    "Working Capital vs Growth Capital for GovTech Software: Which Problem Are You Solving?",
+  h1: "Working Capital vs Growth Capital for GovTech Software: Which Problem Are You Solving?",
+  description:
+    "Working capital bridges slow pay on signed government contracts. Growth capital funds multi year expansion. How GovTech software CEOs choose the right tool.",
+  category: "Growth capital",
+  date: WORKING_CAPITAL_VS_GROWTH_DATE,
+  updated: WORKING_CAPITAL_VS_GROWTH_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-working-capital-vs-growth-hero.jpg",
+  ogImage: `/og/blog-${WORKING_CAPITAL_VS_GROWTH_SLUG}.jpg`,
+  breadcrumbsTitle: "Working Capital vs Growth Capital",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -636,6 +677,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  WORKING_CAPITAL_VS_GROWTH_POST,
   FISCAL_YEAR_2027_POST,
   NEOCLOUD_POST,
   META_HYPERION_POST,
@@ -677,6 +719,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === META_HYPERION_SLUG) return META_HYPERION_HEADINGS;
   if (slug === NEOCLOUD_SLUG) return NEOCLOUD_HEADINGS;
   if (slug === FISCAL_YEAR_2027_SLUG) return FISCAL_YEAR_2027_HEADINGS;
+  if (slug === WORKING_CAPITAL_VS_GROWTH_SLUG)
+    return WORKING_CAPITAL_VS_GROWTH_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -712,6 +756,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === META_HYPERION_SLUG) return META_HYPERION_JSON_LD;
   if (slug === NEOCLOUD_SLUG) return NEOCLOUD_JSON_LD;
   if (slug === FISCAL_YEAR_2027_SLUG) return FISCAL_YEAR_2027_JSON_LD;
+  if (slug === WORKING_CAPITAL_VS_GROWTH_SLUG)
+    return WORKING_CAPITAL_VS_GROWTH_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -2020,6 +2066,91 @@ export const FISCAL_YEAR_2027_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: FISCAL_YEAR_2027_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const WORKING_CAPITAL_VS_GROWTH_FAQ: FaqItem[] = [
+  {
+    question: "What is working capital?",
+    answer:
+      "Working capital is the resources needed for daily, weekly and monthly operating cash needs.",
+  },
+  {
+    question: "What is growth capital?",
+    answer:
+      "Growth capital is money raised so a relatively mature company can expand, enter new markets, build lasting capacity or fund a large acquisition. It funds a multi year investment, not next month's payroll against invoices already in process.",
+  },
+  {
+    question: "Why can a profitable GovTech company run out of cash?",
+    answer:
+      "Delivery costs go out on a short cycle. Government cash arrives after invoice acceptance, often weeks or months later. Strong sales can still leave the operating account short.",
+  },
+  {
+    question:
+      "Is slow payment on a signed contract a reason to raise growth capital?",
+    answer:
+      "Usually it is a timing problem first. Our view: fund the receivable cycle with timing tools; reserve growth capital for multi year investment.",
+  },
+  {
+    question:
+      "Does federal small business lending treat working capital as a real use of proceeds?",
+    answer:
+      "Yes. Working capital is listed among eligible uses for 7(a) and microloan proceeds under 13 CFR 120.120 and on the SBA 7(a) loans page.",
+  },
+  {
+    question: "How do I keep timing and growth from getting mixed?",
+    answer:
+      "Split the cash need into the amount that returns when invoices collect and the amount that returns only if the expansion works. Fund each with the matching tool.",
+  },
+  {
+    question: "Where do fiscal year calendars fit?",
+    answer:
+      "They tell you when agency money is available to obligate and pay, which shapes the receivable. See the government fiscal year 2027 calendar.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const WORKING_CAPITAL_VS_GROWTH_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Working Capital vs Growth Capital for GovTech Software: Which Problem Are You Solving?",
+      description:
+        "Working capital bridges slow pay on signed government contracts. Growth capital funds multi year expansion. How GovTech software CEOs choose the right tool.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-10-28",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/working-capital-vs-growth-capital-govtech-software",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: WORKING_CAPITAL_VS_GROWTH_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
