@@ -39,7 +39,7 @@ export default function CapitalStackSeniorityPostContent() {
       </p>
       <p>
         Capital stack seniority is the order in which each source of capital is
-        repaid. At a sale, debts and deal costs come out first, then preferred
+        repaid. At a sale, debts come out first, then preferred
         stock, then common stock. For a GovTech software company, seniority also
         decides which lender has first claim on government receivables. Each
         layer fits a different problem, and knowing the order helps you see how
@@ -89,16 +89,10 @@ export default function CapitalStackSeniorityPostContent() {
         The order of payment when a company is sold
       </h2>
       <p>
-        A sale is where the order becomes concrete.{" "}
-        <ExtLink href="https://www.glencoyne.com/guides/exit-planning-acquisition-ipo">
-          Glencoyne
-        </ExtLink>
-        , a startup finance firm, describes the first step: &quot;Before a
-        single dollar reaches a shareholder, the company&apos;s debts and
-        transaction costs are paid directly from the enterprise value.&quot;
+        A sale is where the order becomes concrete.
       </p>
       <p>
-        After debts and deal costs, shareholders are paid in their own order.
+        After lenders are repaid, shareholders are paid in their own order.
         Preferred stockholders often have the right to receive their investment
         back before common stockholders get any residual value. In a non
         participating structure, preferred shareholders typically receive the
@@ -116,21 +110,13 @@ export default function CapitalStackSeniorityPostContent() {
         Seniority among lenders: liens on government receivables
       </h2>
       <p>
-        Seniority also applies between lenders. A{" "}
-        <ExtLink href="https://iclg.com/practice-areas/lending-and-secured-finance-laws-and-regulations/15-subordination-in-us-operating-company-capital-structures-a-primer/">
-          law firm&apos;s primer on subordination
-        </ExtLink>{" "}
-        in United States operating companies puts it this way: &quot;Until this
-        most senior group is repaid in full, proceeds cannot be used to repay
-        more junior lenders.&quot;
+        Seniority also applies between lenders.
       </p>
       <p>
         For secured lenders, the starting order comes from the Uniform
         Commercial Code (UCC), the state law that governs liens on business
-        assets such as receivables. The same primer explains that lien
-        subordination is a contract between two or more secured lenders, and
-        that this contract can override the lien order the UCC would otherwise
-        set. Lenders can agree on who comes first on which assets.
+        assets such as receivables. Lenders can agree on who comes first on
+        which assets.
       </p>
       <p>
         Federal contracts add one more piece. Under the Federal Acquisition

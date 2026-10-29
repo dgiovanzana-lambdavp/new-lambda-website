@@ -140,7 +140,7 @@ export default function FiscalYear2027PostContent() {
 
       <p>
         What happens once a proper invoice is paid late is a separate set of
-        rules. I cover them in{" "}
+        rules. We cover them in{" "}
         <Link href={`/blog/${PROMPT_PAYMENT_POST.slug}`}>
           Prompt Payment Act: What GovTech Vendors Can Collect When Government
           Pays Late
@@ -438,7 +438,7 @@ export default function FiscalYear2027PostContent() {
       </p>
 
       <p>
-        In my view, for a vendor whose receivables already run 90 to 180 days, a
+        In our view, for a vendor whose receivables already run 90 to 180 days, a
         CR mostly hurts new awards and renewals. A funding gap can also stall
         invoices on contracts that are already funded, because the people who
         process them may be furloughed.
@@ -483,7 +483,7 @@ export default function FiscalYear2027PostContent() {
       </p>
 
       <p>
-        In my view, that is why federal awards and renewals tend to bunch up
+        In our view, that is why federal awards and renewals tend to bunch up
         before September 30, and state awards before June 30 in most states. The
         money must be obligated within the year, but payment still follows
         delivery and a proper invoice.

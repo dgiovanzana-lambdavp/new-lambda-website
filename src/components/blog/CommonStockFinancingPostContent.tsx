@@ -235,14 +235,7 @@ export default function CommonStockFinancingPostContent() {
       </h2>
       <p>
         If you hold or bid on small business set aside contracts, a stock sale
-        can affect your size under Small Business Administration (SBA) rules. A
-        law firm&apos;s{" "}
-        <ExtLink href="https://govcon.mofo.com/topics/venture-capital-investment-in-a-small-business-know-the-sba-rules-first-">
-          guide for government contractors
-        </ExtLink>{" "}
-        explains: &quot;To calculate the size of a business for purposes of SBA
-        small business rules, SBA aggregates the number of employees or annual
-        receipts of the business with those of all of its affiliates.&quot;
+        can affect your size under Small Business Administration (SBA) rules.
       </p>
       <p>
         The affiliation rule itself is in the Code of Federal Regulations (CFR)
@@ -280,20 +273,6 @@ export default function CommonStockFinancingPostContent() {
         ownership, control or influence (FOCI) rules apply to foreign
         shareholders and other foreign interests. The Defense Counterintelligence
         and Security Agency (DCSA) oversees those clearances.
-      </p>
-      <p>
-        A government contracts law firm,{" "}
-        <ExtLink href="https://www.pilieromazza.com/required-foci-submissions-the-shifting-landscape-for-foreign-ownership-control-or-influence-part-3/">
-          PilieroMazza
-        </ExtLink>
-        , describes the process. A company completes Standard Form 328 (SF 328),
-        the Certificate Pertaining to Foreign Interests, when it seeks a
-        clearance and again whenever significant changes occur. The form asks
-        about foreign persons who directly or indirectly own five percent or more
-        of the company on a fully diluted basis. A clearance reflects the
-        company&apos;s ownership and control at a moment in time, and the firm
-        puts the obligation plainly: &quot;When that picture changes, the company
-        has an affirmative duty to inform DCSA.&quot;
       </p>
       <p>
         If you hold or are seeking a clearance, talk to counsel before a foreign

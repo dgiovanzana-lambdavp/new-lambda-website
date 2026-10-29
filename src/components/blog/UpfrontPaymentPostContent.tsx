@@ -371,7 +371,7 @@ export default function UpfrontPaymentPostContent() {
           ITS64
         </ExtLink>
         ) Whether a SaaS term that starts on payment counts as
-        &quot;delivered&quot; is a question for the buyer and counsel. I am
+        &quot;delivered&quot; is a question for the buyer and counsel. We are
         raising it as a discussion point, not answering it.
       </p>
       <p>
@@ -413,7 +413,7 @@ export default function UpfrontPaymentPostContent() {
           not ask the agency to commit future year funds.
         </li>
         <li>
-          <strong>Send a proper invoice</strong> so the payment clock starts. I
+          <strong>Send a proper invoice</strong> so the payment clock starts. We
           covered{" "}
           <Link href={`/blog/${PROMPT_PAYMENT_POST.slug}`}>
             what makes an invoice proper
@@ -430,7 +430,7 @@ export default function UpfrontPaymentPostContent() {
         long receivables end up with a financing tool next to the statute: an
         early payment program if their agency offers one, factoring on large
         one-time invoices, a credit line, or capital backed by the signed
-        contract. I compared those options in detail in{" "}
+        contract. We compared those options in detail in{" "}
         <Link href={`/blog/${GOVTECH_POST.slug}`}>
           Government Contract Financing for Software Companies
         </Link>

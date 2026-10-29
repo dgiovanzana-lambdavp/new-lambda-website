@@ -44,7 +44,7 @@ export default function PromptPaymentPostContent() {
         while you wait.
       </p>
       <p>
-        I talk with a lot of GovTech founders who run real businesses: a few
+        We talk with a lot of GovTech founders who run real businesses: a few
         million in revenue, growing steadily, government customers who renew.
         Many of them carry receivables of 90 to 180 days and assume there is a
         legal remedy that fixes it. There is a remedy. It is just smaller and
@@ -504,7 +504,7 @@ export default function PromptPaymentPostContent() {
         So most GovTech companies with long receivables end up with a financing
         tool next to the statute: an early payment program if their agency
         offers one, factoring on large one-time invoices, a credit line, or
-        capital backed by the signed contract. I compared those options in
+        capital backed by the signed contract. We compared those options in
         detail in{" "}
         <Link href={`/blog/${GOVTECH_POST.slug}`}>
           Government Contract Financing for Software Companies

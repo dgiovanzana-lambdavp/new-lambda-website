@@ -62,13 +62,9 @@ export default function TermLoanAmortizingPostContent() {
         Two ways to repay the same loan
       </h2>
       <p>
-        <ExtLink href="https://www.haynesboone.com/news/alerts/fund-finance-insights-term-tranche-components-in-subscription-secured-facilities.pdf">
-          Haynes Boone
-        </ExtLink>
-        , a law firm, notes that a loan with a set term may require fixed
-        payments over that term, known as amortization, or full repayment in one
-        bullet payment at the end. The difference is when the principal comes
-        back.
+        A loan with a set term may require fixed payments over that term, known
+        as amortization, or full repayment in one bullet payment at the end. The
+        difference is when the principal comes back.
       </p>
       <h2
         id={H["When to use a bullet loan and when to use an amortizing loan"]}
@@ -76,7 +72,7 @@ export default function TermLoanAmortizingPostContent() {
         When to use a bullet loan and when to use an amortizing loan
       </h2>
       <p>
-        When I map these structures to a company, I start with the shape of its
+        When we map these structures to a company, we start with the shape of its
         cash flow, not the size of the loan.
       </p>
       <p>
@@ -86,12 +82,10 @@ export default function TermLoanAmortizingPostContent() {
         A bullet loan keeps payments smaller, usually interest only, and leaves
         the principal due at the end of the term. That lines up with a business
         that expects a sale or a large payment around the time the principal
-        comes due, or one that plans to refinance then. The{" "}
-        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/bullet-loan/">
-          Corporate Finance Institute (CFI)
-        </ExtLink>{" "}
-        notes that bullet loans are refinanced quite often when the final
-        payment comes due. If the inflow you have in mind is an exit, I cover
+        comes due, or one that plans to refinance then. The Corporate Finance
+        Institute (CFI) notes that bullet loans are refinanced quite often when
+        the final payment comes due. If the inflow you have in mind is an exit,
+        we cover
         exit planning in the{" "}
         <Link href={`/blog/${FINANCING_STRATEGY_POST.slug}`}>
           series hub on software company financing strategy
@@ -120,16 +114,14 @@ export default function TermLoanAmortizingPostContent() {
         notes that this refinancing consideration applies mainly to loans with
         principal balances remaining at maturity, and that it increases when
         interest rates rise. With an amortizing loan, the plan is cash flow that
-        can carry principal and interest in every scheduled payment. I cover both
+        can carry principal and interest in every scheduled payment. We cover both
         in the planning section below.
       </p>
       <p>
         <strong>
           If your customers are government agencies, map when the cash arrives.
         </strong>{" "}
-        Government contractors often deliver the work first and wait 30, 60, or
-        90 days to be paid, and growth can widen the gap between costs and cash,
-        as I cover below. Scheduled loan payments come due on the loan&apos;s
+        Scheduled loan payments come due on the loan&apos;s
         calendar regardless of when an agency pays, so the structure that fits is
         the one whose payment schedule matches when your cash actually arrives.
       </p>
@@ -137,10 +129,7 @@ export default function TermLoanAmortizingPostContent() {
         <strong>
           Short gaps in working capital call for a different tool.
         </strong>{" "}
-        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/revolving-credit-facility/">
-          CFI
-        </ExtLink>{" "}
-        describes a revolving credit facility as mostly useful for operating
+        CFI describes a revolving credit facility as mostly useful for operating
         purposes, especially for a business with sharp swings in its cash flow.
       </p>
       <h2 id={H["How an amortizing loan works"]}>
@@ -150,11 +139,8 @@ export default function TermLoanAmortizingPostContent() {
         The amortizing structure is the one most founders picture when they
         think of a loan. CFI explains: &quot;When a loan is repaid in
         installments, it&apos;s typically referred to as an amortizing loan (or
-        a reducing loan).&quot; (
-        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/amortization-schedule/">
-          Corporate Finance Institute
-        </ExtLink>
-        ) In its example of an equal payment loan, the interest share of each
+        a reducing loan).&quot; In its example of an equal payment loan, the
+        interest share of each
         payment is higher early on and lower later.
       </p>
       <p>
@@ -165,11 +151,8 @@ export default function TermLoanAmortizingPostContent() {
       <p>
         The other structure flips the timing. CFI defines it: &quot;A bullet
         loan is a type of loan in which the principal that is borrowed is paid
-        back at the end of the loan term.&quot; (
-        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/bullet-loan/">
-          CFI
-        </ExtLink>
-        ) Until then, the scheduled payments usually cover only interest, and in
+        back at the end of the loan term.&quot; Until then, the scheduled
+        payments usually cover only interest, and in
         some cases the interest is added to the balance and paid at the end as
         well.
       </p>
@@ -185,10 +168,7 @@ export default function TermLoanAmortizingPostContent() {
           CFPB
         </ExtLink>
         ){" "}
-        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/balloon-payment/">
-          CFI
-        </ExtLink>{" "}
-        adds that a fully amortized loan is a special case of a balloon loan
+        CFI adds that a fully amortized loan is a special case of a balloon loan
         where the balloon payment is zero. The word is used loosely, and some
         sources also call the final payment on a bullet loan a balloon payment.
       </p>
@@ -231,22 +211,7 @@ export default function TermLoanAmortizingPostContent() {
       </h2>
       <p>
         For GovTech founders, the timing of customer payments is where repayment
-        structure gets real. Amerifusion Bookkeeping puts the situation plainly:
-        &quot;you deliver the work first, then wait 30, 60, or 90 days for the
-        government to pay&quot; (
-        <ExtLink href="https://amerifusionbookkeeping.com/cash-flow-government-contractors/">
-          Amerifusion Bookkeeping
-        </ExtLink>
-        ).
-      </p>
-      <p>
-        Growth adds to the strain.{" "}
-        <ExtLink href="https://www.cjeffersoncpa.com/govcon-cash-flow-problems/">
-          C. Jefferson CPA
-        </ExtLink>
-        , an accounting firm, writes that government contractors hire staff and
-        incur costs before they are paid, so while revenue grows, cash lags
-        behind.
+        structure gets real.
       </p>
       <p>
         Shortening the wait on a signed contract is a separate decision from

@@ -45,7 +45,7 @@ export default function NeocloudFinancingPostContent() {
       </p>
 
       <p>
-        I think this story is not really about AI. It is the oldest rule in lending, and it applies to a small GovTech company as much as to SpaceX.
+        We think this story is not really about AI. It is the oldest rule in lending, and it applies to a small GovTech company as much as to SpaceX.
       </p>
 
       <p>
@@ -99,7 +99,7 @@ export default function NeocloudFinancingPostContent() {
       </h2>
 
       <p>
-        Every person in this story has a reason to say what they said. Some reasons are stated in the sources. Where they are not, I call it the likely reason.
+        Every person in this story has a reason to say what they said. Some reasons are stated in the sources. Where they are not, we call it the likely reason.
       </p>
 
       <h3>The landowner</h3>
@@ -206,7 +206,7 @@ export default function NeocloudFinancingPostContent() {
       </p>
 
       <p>
-        Musk also wrote: &quot;This is primarily callable debt for GPU purchases that will arrive in Q1 and Q2.&quot; (<ExtLink href="https://x.com/elonmusk/status/2114444535036321840">Musk on X</ExtLink>) Callable debt is debt the borrower can pay off early. The filing describes a finance lease and does not use the word callable, so I rely on the filing.
+        Musk also wrote: &quot;This is primarily callable debt for GPU purchases that will arrive in Q1 and Q2.&quot; (<ExtLink href="https://x.com/elonmusk/status/2114444535036321840">Musk on X</ExtLink>) Callable debt is debt the borrower can pay off early. The filing describes a finance lease and does not use the word callable, so we rely on the filing.
       </p>
 
       <h2 id={H["Why the lenders said yes"]}>
@@ -257,8 +257,8 @@ export default function NeocloudFinancingPostContent() {
         Its revenue chief, Marc Boroditsky, told <ExtLink href="https://www.cnbc.com/2026/10/26/neocloud-stocks-today-coreweave-nebius-iren-elon-musk.html">CNBC</ExtLink>: &quot;we&apos;re not carrying the kind of debt that they are&quot;. The likely reason the lender said yes: it looked past the GPU to who signed the contracts.
       </p>
 
-      <h2 id={H["My take: lenders fund revenue the asset does not create"]}>
-        My take: lenders fund revenue the asset does not create
+      <h2 id={H["Our take: lenders fund revenue the asset does not create"]}>
+        Our take: lenders fund revenue the asset does not create
       </h2>
 
       <p>
@@ -278,7 +278,7 @@ export default function NeocloudFinancingPostContent() {
       </p>
 
       <p>
-        The third row is Musk&apos;s view plus Reuters reporting. The fourth row is my own view.
+        The third row is Musk&apos;s view plus Reuters reporting. The fourth row is our own view.
       </p>
 
       <p>
@@ -314,7 +314,7 @@ export default function NeocloudFinancingPostContent() {
             <tr>
               <td data-label="Borrower">A GovTech company with signed contracts</td>
               <td data-label="What backs the money">Payments owed by government agencies</td>
-              <td data-label="Source">My view</td>
+              <td data-label="Source">Our view</td>
             </tr>
           </tbody>
         </table>
@@ -323,11 +323,11 @@ export default function NeocloudFinancingPostContent() {
       <h3>The GovTech company with a January problem</h3>
 
       <p>
-        In September, I spoke with a GovTech company that had a bunch of signed three year government contracts. About $300,000 of those deals were renewing in January, and the company needed about $250,000 to get through the end of the year.
+        In September, we spoke with a GovTech company that had a bunch of signed three year government contracts. About $300,000 of those deals were renewing in January, and the company needed about $250,000 to get through the end of the year.
       </p>
 
       <p>
-        To me, that was a true bridge: the deals were signed, and the cash was going to come in.
+        In our view, that was a true bridge: the deals were signed, and the cash was going to come in.
       </p>
 
       <h3>Why that company looks more like SpaceX than a neocloud</h3>
@@ -341,17 +341,17 @@ export default function NeocloudFinancingPostContent() {
       </p>
 
       <p>
-        In my view, a signed multiyear government contract is the small company version of Starlink revenue. It does not depend on one machine, one chip or one market price. The agency may pay slowly, but slow is a timing problem, not a missing payer.
+        In our view, a signed multiyear government contract is the small company version of Starlink revenue. It does not depend on one machine, one chip or one market price. The agency may pay slowly, but slow is a timing problem, not a missing payer.
       </p>
 
-      <h3>How I read a deal like this</h3>
+      <h3>How we read a deal like this</h3>
 
       <p>
-        Many capital providers want a leading venture capital firm to back a company first. I would rather look at the signed contracts and renewals. Who signed, for how long, and what has to happen before the agency pays?
+        Many capital providers want a leading venture capital firm to back a company first. We would rather look at the signed contracts and renewals. Who signed, for how long, and what has to happen before the agency pays?
       </p>
 
       <p>
-        I also weigh the founder&apos;s integrity and the company&apos;s record of paying its debts, not just the math. That is how I evaluate. It is not an offer or a promise of terms.
+        We also weigh the founder&apos;s integrity and the company&apos;s record of paying its debts, not just the math. That is how we evaluate. It is not an offer or a promise of terms.
       </p>
 
       <h2 id={H["Which tool fits which problem"]}>
@@ -390,7 +390,7 @@ export default function NeocloudFinancingPostContent() {
       </p>
 
       <p>
-        A signed contract has risks too. Renewals can slip, and an agency can be slow. That is why I read the contract, not just the total.
+        A signed contract has risks too. Renewals can slip, and an agency can be slow. That is why we read the contract, not just the total.
       </p>
 
       <h2 id={H["Frequently asked questions"]}>Frequently asked questions</h2>

@@ -77,11 +77,8 @@ export default function RevolvingLinePostContent() {
       <p>
         The mechanics are simpler than the name suggests. The Corporate Finance
         Institute defines it this way: &quot;A revolving credit facility is a
-        line of credit that is arranged between a bank and a business.&quot; (
-        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/revolving-credit-facility/">
-          Corporate Finance Institute
-        </ExtLink>
-        ) It comes with an established maximum, the business can draw at any
+        line of credit that is arranged between a bank and a business.&quot; It
+        comes with an established maximum, the business can draw at any
         time, interest is charged only on the amount withdrawn, and the business
         can withdraw, spend, and repay any number of times until the arrangement
         expires. That is what separates it from an installment loan, which is
@@ -92,7 +89,7 @@ export default function RevolvingLinePostContent() {
         What a revolver is for, and what it is not for
       </h2>
       <p>
-        The way I frame it, a revolver is for the gap between when money goes
+        The way we frame it, a revolver is for the gap between when money goes
         out and when it comes in. The same guide describes revolving credit as
         mostly useful for operating purposes, especially for businesses with
         sharp swings in cash flow, and gives the example of a seasonal business
@@ -100,7 +97,7 @@ export default function RevolvingLinePostContent() {
         to collect receivables.
       </p>
       <p>
-        In my judgment, a revolver fits short gaps in operating cash, and
+        In our judgment, a revolver fits short gaps in operating cash, and
         installment debt, which repays on a fixed schedule, fits a long term
         purchase that will take years to pay back.
       </p>
@@ -129,15 +126,7 @@ export default function RevolvingLinePostContent() {
         When you are waiting months on a government payment
       </h2>
       <p>
-        This is where the revolver idea meets the GovTech reality. Amerifusion
-        Bookkeeping, which works with government contractors, describes it this
-        way: &quot;you deliver the work first, then wait 30, 60, or 90 days for
-        the government to pay&quot; (
-        <ExtLink href="https://amerifusionbookkeeping.com/cash-flow-government-contractors/">
-          Amerifusion Bookkeeping
-        </ExtLink>
-        ). The firm adds that a rejected invoice, a government shutdown, or a
-        continuing resolution can stretch a 45 day cycle to 90.
+        This is where the revolver idea meets the GovTech reality.
       </p>
       <p>
         Revolving structures also appear in federal small business programs. The{" "}
@@ -170,21 +159,6 @@ export default function RevolvingLinePostContent() {
           implementation payment milestones
         </Link>
         .
-      </p>
-
-      <h2 id={H["Why growth makes the gap wider"]}>
-        Why growth makes the gap wider
-      </h2>
-      <p>
-        Growth tends to make the timing problem bigger, not smaller. As Cheryl
-        Jefferson &amp; Associates, a certified public accounting firm for
-        government contractors, puts it: &quot;So while revenue grows, cash lags
-        behind.&quot; (
-        <ExtLink href="https://www.cjeffersoncpa.com/govcon-cash-flow-problems/">
-          Cheryl Jefferson &amp; Associates
-        </ExtLink>
-        ) The firm explains that contractors hire staff and incur costs before
-        invoices are submitted, then wait weeks or months to be paid.
       </p>
 
       <h2 id={H["Lines tied to receivables"]}>Lines tied to receivables</h2>

@@ -36,21 +36,19 @@ export default function FinancingStrategyPostContent() {
       <p>
         <strong>
           Most software founders pick their financing first and discover their
-          exit later. I think that order is backwards.
+          exit later. We think that order is backwards.
         </strong>
       </p>
       <p>
         A software company financing strategy should start with the exit you
         want, then pick the capital that fits it. Venture capital fits companies
-        aiming for very large outcomes, because venture funds need large exits
-        to reach their target returns and big funding raises the bar for exit.
-        Companies that plan to stay profitable, sell at a modest valuation, or
-        never sell often fit other tools better: loans with bullet payments or
-        amortizing loans repaid from cash flow, revolving credit for uneven
-        months, receivables financing when a large customer pays slowly, revenue
-        based financing, or preferred stock. For GovTech vendors waiting 90 days
-        or more on government payments, the shape of your cash flow matters as
-        much as the exit.
+        aiming for very large outcomes. Companies that plan to stay profitable,
+        sell at a modest valuation, or never sell often fit other tools better:
+        loans with bullet payments or amortizing loans repaid from cash flow,
+        revolving credit for uneven months, receivables financing when a large
+        customer pays slowly, revenue based financing, or preferred stock. For
+        GovTech vendors waiting on government payments, the shape of your cash
+        flow matters as much as the exit.
       </p>
       <p>
         <em>
@@ -63,29 +61,10 @@ export default function FinancingStrategyPostContent() {
         Why your exit comes before your financing
       </h2>
       <p>
-        I ask every founder the same first question: what does the end look like
+        We ask every founder the same first question: what does the end look like
         for you? Selling in five years, selling to a strategic buyer, or running
         the company for decades are three very different plans, and each one
         points toward different capital.
-      </p>
-      <p>
-        The funding path also shapes who gets to decide. As one founder&apos;s
-        guide puts it: &quot;A bootstrapped exit is usually a founder decision. A
-        VC backed exit is usually a governance decision.&quot; (
-        <ExtLink href="https://livmo.com/blog/bootstrapped-vc-backed-saas-exit/">
-          Livmo
-        </ExtLink>
-        ) The same guide frames the goal as keeping your acceptable exit inside
-        the range of outcomes likely buyers will actually pay for.
-      </p>
-      <p>
-        Investor interest is not the same as fit, either. Sarah Zou makes the
-        point in her{" "}
-        <ExtLink href="https://sarahzou.com/fundraising/bootstrapping-vs-vc">
-          founder guide
-        </ExtLink>{" "}
-        that enthusiasm from investors shows a company is financeable today, not
-        that venture backing maximizes value for the founder.
       </p>
 
       <h2 id={H["When venture capital fits, and when it does not"]}>
@@ -93,21 +72,8 @@ export default function FinancingStrategyPostContent() {
       </h2>
       <p>
         Venture capital is the tool most founders hear about first, and for some
-        companies it is the right one. Sarah Zou&apos;s guide explains why the
-        bar is high: a fund&apos;s target return depends on how much it invests
-        and how much it owns at exit, so even a successful small exit can be
-        immaterial to a large fund. That means each investment has to have a
-        credible path to a very large outcome.
-      </p>
-      <p>
-        Raising more also changes the target. Greg Head of Practical Founders
-        writes: &quot;Big funding can help you grow faster but also raises the
-        bar for exit.&quot; (
-        <ExtLink href="https://practicalfounders.com/articles/bootstrappers-exiting-faster-bigger-vc-funded-founders/">
-          Practical Founders
-        </ExtLink>
-        ) He adds that bootstrapped founders do not need permission from
-        investors to sell.
+        companies it is the right one. The bar is high, though: venture capital
+        is built for companies aiming for very large outcomes.
       </p>
       <p>
         For a vertical software company that is profitable and growing steadily,
@@ -123,7 +89,7 @@ export default function FinancingStrategyPostContent() {
         The financing toolbelt: what each tool is
       </h2>
       <p>
-        Here is how I think about the toolbelt, one tool at a time. Each gets
+        Here is how we think about the toolbelt, one tool at a time. Each gets
         its own post later in this series.
       </p>
       <p>
@@ -133,11 +99,8 @@ export default function FinancingStrategyPostContent() {
       </p>
       <p>
         <strong>Nonconvertible preferred stock.</strong> A class of ownership
-        that ranks senior to common stock and below debt, according to{" "}
-        <ExtLink href="https://viewpoint.pwc.com/dt/us/en/pwc/accounting_guides/financing_transactio/financing_transactio_US/chapter_7_preferred__US/71_characteristics_pref_US.html">
-          PwC Viewpoint
-        </ExtLink>
-        . Being nonconvertible, it does not turn into common stock.
+        that ranks senior to common stock and below debt. Being nonconvertible,
+        it does not turn into common stock.
       </p>
       <p>
         <strong>Loans with bullet payments and amortizing loans.</strong> A lump
@@ -153,11 +116,8 @@ export default function FinancingStrategyPostContent() {
       </p>
       <p>
         <strong>Revolving line of credit.</strong> Credit you can draw, repay,
-        and draw again. The{" "}
-        <ExtLink href="https://corporatefinanceinstitute.com/resources/commercial-lending/revolving-credit-facility/">
-          Corporate Finance Institute
-        </ExtLink>{" "}
-        describes it as most useful for operating purposes, especially for a
+        and draw again. The Corporate Finance Institute describes it as most
+        useful for operating purposes, especially for a
         business with sharp swings in its cash flow.
       </p>
       <p>
@@ -195,7 +155,7 @@ export default function FinancingStrategyPostContent() {
         Match the tool to your cash flow shape
       </h2>
       <p>
-        Once the exit is clear, the next question I ask is what your cash flow
+        Once the exit is clear, the next question we ask is what your cash flow
         actually looks like month to month. The tool should fit that shape.
       </p>
       <p>
@@ -227,22 +187,7 @@ export default function FinancingStrategyPostContent() {
         Where government payment timing fits
       </h2>
       <p>
-        This is the section that matters most for GovTech founders I talk to.
-        Growth makes the payment gap wider, not narrower. As Averan Advisors
-        puts it: &quot;So every dollar of growth widens the gap.&quot; (
-        <ExtLink href="https://averanadvisors.com/resources/govcon/billing-and-cash-conversion/">
-          Averan Advisors
-        </ExtLink>
-        )
-      </p>
-      <p>
-        On federal work,{" "}
-        <ExtLink href="https://bureauify.com/guide/govcon-cash-flow">
-          Bureauify
-        </ExtLink>{" "}
-        describes 30 to 60 day payment cycles as standard, with delays of 90
-        days or more common on complex contracts. State and local timelines vary
-        by agency and contract.
+        This is the section that matters most for GovTech founders we talk to.
       </p>
       <p>
         Getting paid faster on a signed contract is a separate decision from
@@ -265,15 +210,9 @@ export default function FinancingStrategyPostContent() {
         Who gets paid first: the capital stack in one paragraph
       </h2>
       <p>
-        If you remember one thing from this post, I would make it this order.
-        Debt is repaid first, then preferred stock, then common stock. PwC
-        describes preferred stock as &quot;a class of ownership in a reporting
-        entity that is senior to common stock (discussed in FG 4) and
-        subordinate to debt.&quot; (
-        <ExtLink href="https://viewpoint.pwc.com/dt/us/en/pwc/accounting_guides/financing_transactio/financing_transactio_US/chapter_7_preferred__US/71_characteristics_pref_US.html">
-          accounting firm&apos;s guide
-        </ExtLink>
-        ) Every tool in this series sits somewhere in that stack.
+        If you remember one thing from this post, we would make it this order.
+        Debt is repaid first, then preferred stock, then common stock. Every
+        tool in this series sits somewhere in that stack.
       </p>
 
       <h2 id={H["The Financing Toolbelt series"]}>

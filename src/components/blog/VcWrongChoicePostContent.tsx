@@ -35,7 +35,7 @@ export default function VcWrongChoicePostContent() {
     <div className="blog-prose">
       <p>
         <strong>
-          Some of the best software companies I know would have been worse off
+          Some of the best software companies we know would have been worse off
           with a venture check.
         </strong>
       </p>
@@ -43,7 +43,7 @@ export default function VcWrongChoicePostContent() {
         Venture capital is right for a startup that can plausibly grow very
         large, very fast, and reach an exit within a venture fund&apos;s life.
         Venture investors look for companies that could return their whole fund,
-        and most funds have a stated lifespan of about ten years. Many good
+        and each fund runs on a set life. Many good
         vertical software companies do not fit that model: their markets are
         focused, they plan to stay profitable or pay their owners, they have no
         plan to sell on a fund&apos;s timeline, or they wait months to get paid
@@ -65,7 +65,7 @@ export default function VcWrongChoicePostContent() {
         How venture capital works, in one paragraph
       </h2>
       <p>
-        I find most of the confusion goes away once you see what venture capital
+        We find most of the confusion goes away once you see what venture capital
         is built to do. NYU&apos;s entrepreneurship program puts it plainly:
         &quot;Venture capital is a specific financial instrument designed for a
         specific type of business: one that can grow very large, very fast, in a
@@ -84,17 +84,12 @@ export default function VcWrongChoicePostContent() {
         Seven signals venture capital is the wrong tool
       </h2>
       <p>
-        When a founder asks me whether to raise, I walk through a short list.
-        Upmetrics, a business planning software company, has a useful{" "}
-        <ExtLink href="https://upmetrics.co/blog/when-you-shouldnt-raise-funding">
-          guide on when not to raise venture capital
-        </ExtLink>
-        ; what follows is my own version, written for vertical software.
+        When a founder asks us whether to raise, we walk through a short list.
       </p>
       <p>
         <strong>1. Your market is focused, not massive.</strong> Ask yourself
         honestly whether your market could support the kind of outcome a venture
-        fund needs. If the honest answer is a strong niche, I treat that as a
+        fund needs. If the honest answer is a strong niche, we treat that as a
         reason to look at other capital first.
       </p>
       <p>
@@ -103,29 +98,21 @@ export default function VcWrongChoicePostContent() {
         </strong>{" "}
         Picture the realistic version of your company several years out. If what
         you see is a durable, profitable business rather than one that could
-        return a fund, I count that as a signal.
+        return a fund, we count that as a signal.
       </p>
       <p>
         <strong>
           3. You want to pay yourself and other owners from profits.
         </strong>{" "}
-        Venture investors usually want cash reinvested. As Morrison Foerster
-        notes: &quot;It is important to keep in mind that venture investors are
-        not usually aiming to receive regular interest payments from their
-        portfolio companies since they generally prefer their companies use
-        their cash to grow and scale.&quot; (
-        <ExtLink href="https://www.mofo.com/resources/insights/230628-common-provisions-in-venture-capital-term-sheets-dividends">
-          Morrison Foerster
-        </ExtLink>
-        )
+        Venture investors usually want cash reinvested.
       </p>
       <p>
         <strong>
           4. You have no plan to sell within a fund&apos;s timeline.
         </strong>{" "}
         Ask whether you want to sell at all, and on what timeline. Venture funds
-        run on a set life, which I cover in the section on fund timelines below.
-        If selling is not part of your plan, I count that as a mismatch.
+        run on a set life.
+        If selling is not part of your plan, we count that as a mismatch.
       </p>
       <p>
         <strong>5. You want to keep control of big decisions.</strong> Ask how
@@ -137,14 +124,14 @@ export default function VcWrongChoicePostContent() {
         <strong>
           6. Your cash arrives on a government payment clock.
         </strong>{" "}
-        Long waits between invoice and payment are common on federal contracts,
-        which I cover in the GovTech section below.
+        Payment timing on government contracts matters here, which we cover in
+        the GovTech section below.
       </p>
       <p>
         <strong>
           7. You need money just to keep the business alive.
         </strong>{" "}
-        If the business needs a raise just to survive, I would slow down. I
+        If the business needs a raise just to survive, we would slow down. We
         would rather fix the business first than raise money to cover the gap.
       </p>
 
@@ -152,33 +139,11 @@ export default function VcWrongChoicePostContent() {
         The vertical SaaS debate: is the market too small?
       </h2>
       <p>
-        This is where venture firms themselves disagree, and I think founders
-        should hear both sides.{" "}
-        <ExtLink href="https://www.scalevp.com/blog/these-misconceptions-about-vertical-software-need-to-fade-away">
-          Scale Venture Partners
-        </ExtLink>{" "}
-        argues that the most common objection to vertical SaaS, that the market
-        is too small for a venture outcome, is not supported by the facts.
+        Investors disagree about whether vertical markets are too small for a
+        venture outcome.
       </p>
       <p>
-        Andreessen Horowitz describes why many founders stayed away from small
-        markets: &quot;it doesn&apos;t pay enough to be a big fish in too small
-        a pond (market).&quot; (
-        <ExtLink href="https://a16z.com/vsaas-vertical-saas-ai-opens-new-markets/">
-          Andreessen Horowitz
-        </ExtLink>
-        ) The firm argues that AI may change this by raising what each customer
-        is worth and lowering the cost to win them.
-      </p>
-      <p>
-        <ExtLink href="https://insights.euclid.vc/p/market-sizing-in-vertical-software-425">
-          Euclid Ventures
-        </ExtLink>{" "}
-        argues from its own analysis that vertical software companies appear no
-        more limited by market size than horizontal ones.
-      </p>
-      <p>
-        My own read: the debate is about whether some vertical companies can be
+        Our own read: the debate is about whether some vertical companies can be
         venture businesses. It does not mean every vertical company should be
         one.
       </p>
@@ -187,19 +152,8 @@ export default function VcWrongChoicePostContent() {
         What fund timelines mean for founders
       </h2>
       <p>
-        Fund life sounds like an investor detail, but in my experience it shapes
-        the founder&apos;s options years later. Plante Moran, an accounting and
-        advisory firm,{" "}
-        <ExtLink href="https://www.plantemoran.com/explore-our-thinking/insight/2025/03/unlocking-growth-venture-capitals-role-within-an-alternatives-allocation">
-          notes
-        </ExtLink>{" "}
-        that most venture funds have a stated lifespan of ten years, and some
-        extend a few additional years.{" "}
-        <ExtLink href="https://dsw.vc/vc-insights-structuring-an-investment-why-we-ask-for-dividends-but-really-dont-want-to-get-them/">
-          DSW Ventures
-        </ExtLink>{" "}
-        writes that venture investors generally have a timeline to get an exit
-        but no ability to force one.
+        Fund life sounds like an investor detail, but in our experience it shapes
+        the founder&apos;s options years later.
       </p>
       <p>
         Research suggests that pressure affects outcomes. A study in the
@@ -217,15 +171,8 @@ export default function VcWrongChoicePostContent() {
         What GovTech CEOs should weigh
       </h2>
       <p>
-        For the government software founders I talk to, payment timing is often
-        the deciding factor. On federal work, Bureauify writes: &quot;Payment
-        cycles of 30 to 60 days are standard, and delays of 90 days or more are
-        common on complex contracts with disputed deliverables, incomplete
-        documentation, or invoice processing backlogs.&quot; (
-        <ExtLink href="https://bureauify.com/guide/govcon-cash-flow">
-          Bureauify
-        </ExtLink>
-        )
+        For the government software founders we talk to, payment timing is often
+        the deciding factor.
       </p>
       <p>
         A long wait on a signed contract is a cash flow problem, and it has its
@@ -248,19 +195,10 @@ export default function VcWrongChoicePostContent() {
         If not venture capital, then what?
       </h2>
       <p>
-        There is a whole toolbelt, and I would rather founders see all of it.
+        There is a whole toolbelt, and we would rather founders see all of it.
         The NYU piece names bootstrapping, revenue based financing, grants, and
         competitions as instruments better suited to many companies, and says
         choosing them is not a failure.
-      </p>
-      <p>
-        Some investors build models around profitable growth.{" "}
-        <ExtLink href="https://teten.com/flexible-vc-a-new-model-for-companies-targeting-profitability/">
-          David Teten and Jamie Finney
-        </ExtLink>{" "}
-        argue that in what they call flexible VC, the founder keeps full control
-        over whether to optimize for rapid growth or for organic, profitable
-        growth.
       </p>
       <p>
         For the full map, see the{" "}
