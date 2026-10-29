@@ -62,7 +62,7 @@ export default function AssignmentOfClaimsPostContent() {
         What the Assignment of Claims Act is
       </h2>
       <p>
-        When founders first hear the phrase, I usually explain it as permission.
+        When founders first hear the phrase, we usually explain it as permission.
         By default, a contractor cannot simply pledge what the federal
         government owes it the way it might pledge a commercial receivable. The
         Act creates a defined path to do that.
@@ -83,7 +83,7 @@ export default function AssignmentOfClaimsPostContent() {
         The conditions an assignment has to meet
       </h2>
       <p>
-        What surprises most CEOs I talk to is how specific the conditions are.
+        What surprises most CEOs we talk to is how specific the conditions are.
         FAR 32.802 says &quot;a contractor may assign moneys due or to become
         due under a contract if all the following conditions are met,&quot; and
         then lists them (
@@ -121,7 +121,7 @@ export default function AssignmentOfClaimsPostContent() {
         How the process works, step by step
       </h2>
       <p>
-        My own way of picturing the process is as paperwork that changes the
+        Our own way of picturing the process is as paperwork that changes the
         payee on file. Here is the sequence the regulation describes:
       </p>
       <ol>
@@ -154,7 +154,7 @@ export default function AssignmentOfClaimsPostContent() {
         What changes for your company after an assignment
       </h2>
       <p>
-        From the inside, I have found that very little changes day to day. Your
+        From the inside, we have found that very little changes day to day. Your
         team still delivers the software, supports users, and invoices on the
         same schedule. The difference is where the money lands.
       </p>
@@ -176,7 +176,7 @@ export default function AssignmentOfClaimsPostContent() {
         State and local contracts work differently
       </h2>
       <p>
-        This is the section I would want every state and local vendor to read
+        This is the section we would want every state and local vendor to read
         twice. The Assignment of Claims Act governs federal contracts only.
         State and local contracts follow state law and the assignment clause in
         the contract itself.
@@ -190,8 +190,8 @@ export default function AssignmentOfClaimsPostContent() {
         How assignment fits with the payment wait
       </h2>
       <p>
-        Long payment cycles are the reason this topic comes up at all, and I see
-        them in nearly every GovTech company I talk to. For many federal
+        Long payment cycles are the reason this topic comes up at all, and we see
+        them in nearly every GovTech company we talk to. For many federal
         invoices, the due date is the later of the 30th day after a proper
         invoice is received or the 30th day after acceptance, under{" "}
         <ExtLink href="https://www.acquisition.gov/far/subpart-32.9">
@@ -200,13 +200,7 @@ export default function AssignmentOfClaimsPostContent() {
         . State and local timelines vary.
       </p>
       <p>
-        Growth makes the wait harder, not easier. As Averan Advisors puts it in
-        its guide to billing and cash conversion for government contractors:
-        &quot;So every dollar of growth widens the gap.&quot; (
-        <ExtLink href="https://averanadvisors.com/resources/govcon/billing-and-cash-conversion/">
-          Averan Advisors
-        </ExtLink>
-        ) For more on the options, see{" "}
+        For more on the options, see{" "}
         <Link href={`/blog/${GOVTECH_POST.slug}`}>
           government contract financing for software companies
         </Link>

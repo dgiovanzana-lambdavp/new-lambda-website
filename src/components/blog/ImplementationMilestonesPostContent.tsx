@@ -64,7 +64,7 @@ export default function ImplementationMilestonesPostContent() {
         <Link href={`/blog/${UPFRONT_PAYMENT_POST.slug}`}>
           upfront subscription billing
         </Link>{" "}
-        I covered how a fixed term license can be billed in advance.
+        we covered how a fixed term license can be billed in advance.
         Implementation is different. You staff the project for months, but
         payment waits on acceptance, then on the invoice cycle, then on a
         holdback release.
@@ -444,7 +444,7 @@ export default function ImplementationMilestonesPostContent() {
         cash. So most GovTech companies with long receivables end up with a
         financing tool alongside their contract terms: an early payment program
         if their agency offers one, factoring on large one-time invoices, a
-        credit line, or capital backed by the signed contract. I compared those
+        credit line, or capital backed by the signed contract. We compared those
         options in detail in{" "}
         <Link href={`/blog/${GOVTECH_POST.slug}`}>
           government contract financing for software companies

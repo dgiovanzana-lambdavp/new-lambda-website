@@ -39,7 +39,7 @@ export default function VentureDebtPostContent() {
         </strong>
       </p>
       <p>
-        I think most GovTech founders frame this choice too narrowly. Venture
+        We think most GovTech founders frame this choice too narrowly. Venture
         capital gives you capital you never repay, in exchange for shares and
         some control. Debt lets you keep your ownership, but you repay it on
         schedule no matter how the quarter goes. Venture debt sits in between: a
@@ -59,22 +59,16 @@ export default function VentureDebtPostContent() {
         The three options in one sentence each
       </h2>
       <p>
-        I find it helps to strip each option down to what you give and what you
-        get. HubSpot for Startups puts the core tradeoff this way: debt
-        &quot;preserves control but requires regular payments regardless of
-        performance.&quot; (
-        <ExtLink href="https://www.hubspot.com/startups/fundraising/equity-vs-debt-financing">
-          HubSpot for Startups
-        </ExtLink>
-        )
+        We find it helps to strip each option down to what you give and what you
+        get.
       </p>
       <p>
-        <strong>Venture capital.</strong> You sell ownership shares; the same
-        guide notes there is no obligation to repay if the company fails, but
-        every round dilutes your stake.
+        <strong>Venture capital.</strong> You sell ownership shares. There is no
+        obligation to repay if the company fails, but every round dilutes your
+        stake.
       </p>
       <p>
-        <strong>Venture debt.</strong> The guide describes it as similar in
+        <strong>Venture debt.</strong> It is similar in
         structure to a bank loan, often paired with a small equity component for
         the lender. Warrants are rights to buy shares later, and they sometimes
         come attached to a loan.
@@ -86,9 +80,8 @@ export default function VentureDebtPostContent() {
         <ExtLink href="https://pressbooks.pub/introductiontofinancialanalysis/chapter/11-20-loans-the-conventional-mortgage/">
           Touro University open textbook
         </ExtLink>
-        ). The startup guide quoted above describes revenue based financing as
-        repaid from a fixed percentage of future revenue, and notes it is still
-        a loan that must be repaid.
+        ). Revenue based financing is repaid from a fixed percentage of future
+        revenue.
       </p>
 
       <h2
@@ -101,30 +94,21 @@ export default function VentureDebtPostContent() {
         Why venture debt may not be available to a bootstrapped GovTech company
       </h2>
       <p>
-        Here is the catch for the founders I talk to most: classic venture debt
-        is built for companies that already have VC backing. The same guide says
-        that after a Series A, you &quot;can unlock debt options,&quot;
-        including venture debt, credit lines, and revenue based financing. (
-        <ExtLink href="https://www.hubspot.com/startups/fundraising/equity-vs-debt-financing">
-          equity vs debt guide
-        </ExtLink>
-        )
+        Here is the catch for the founders we talk to most: classic venture debt
+        is built for companies that already have VC backing.
       </p>
       <p>
-        That does not close the door on debt. The guide also notes that lenders
-        generally want proven revenue and predictable cash flow. A GovTech
-        company with years of renewals often has exactly that, which makes loans
-        with bullet payments and revenue based financing the more natural
-        comparison.
+        That does not close the door on debt. The next section covers what
+        lenders look at when your customers are governments.
       </p>
 
       <h2 id={H["What lenders look at when your customers are governments"]}>
         What lenders look at when your customers are governments
       </h2>
       <p>
-        In my experience, government customers tend to stick once a system is in
-        place, but lenders will not take that on faith. When I review a
-        government contract, I start with the exit doors. Federal contracts can
+        In our experience, government customers tend to stick once a system is in
+        place, but lenders will not take that on faith. When we review a
+        government contract, we start with the exit doors. Federal contracts can
         be ended for convenience: the standard clause lets the government
         terminate &quot;if the Contracting Officer determines that a termination
         is in the Government&apos;s interest&quot; (
@@ -174,21 +158,8 @@ export default function VentureDebtPostContent() {
         When debt fits and when VC fits
       </h2>
       <p>
-        I tell founders to decide based on the business they actually want to
-        run, not the one a pitch deck describes. The equity vs debt guide quoted
-        earlier puts it plainly: &quot;Choose debt when you have predictable
-        revenue streams, want to maintain full ownership and control, prefer
-        sustainable growth over hypergrowth, or have strong financials and
-        credit history.&quot; (
-        <ExtLink href="https://www.hubspot.com/startups/fundraising/equity-vs-debt-financing">
-          equity vs debt guide
-        </ExtLink>
-        )
-      </p>
-      <p>
-        On the other side, the guide says equity fits companies chasing fast
-        growth, industry dominance, or large liquidity events, and companies
-        that are prerevenue or cannot handle regular debt payments.
+        We tell founders to decide based on the business they actually want to
+        run, not the one a pitch deck describes.
       </p>
 
       <h2
@@ -202,8 +173,7 @@ export default function VentureDebtPostContent() {
       </h2>
       <p>
         <em>
-          Typical structures described by the sources cited; terms vary by
-          lender and deal.
+          Typical structures; terms vary by lender and deal.
         </em>
       </p>
 
@@ -268,28 +238,6 @@ export default function VentureDebtPostContent() {
               </td>
               <td data-label="Loan with bullet payments or revenue based financing">
                 Kept, as long as payments are timely
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Row">Typical stage</td>
-              <td data-label="Venture capital round">
-                Often the only option before revenue
-              </td>
-              <td data-label="Venture debt">After a Series A</td>
-              <td data-label="Loan with bullet payments or revenue based financing">
-                Proven revenue and cash flow
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Row">Best fit</td>
-              <td data-label="Venture capital round">
-                Fast growth, large liquidity events
-              </td>
-              <td data-label="Venture debt">
-                Runway between equity rounds
-              </td>
-              <td data-label="Loan with bullet payments or revenue based financing">
-                Predictable revenue, owners who want control
               </td>
             </tr>
           </tbody>

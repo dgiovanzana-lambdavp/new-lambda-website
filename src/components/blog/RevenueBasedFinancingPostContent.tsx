@@ -96,13 +96,7 @@ export default function RevenueBasedFinancingPostContent() {
         Why government receipts are lumpy
       </h2>
       <p>
-        Government money arrives on the government&apos;s schedule.{" "}
-        <ExtLink href="https://amerifusionbookkeeping.com/cash-flow-government-contractors/">
-          Amerifusion Bookkeeping
-        </ExtLink>
-        , which works with government contractors, describes the pattern:
-        &quot;you deliver the work first, then wait 30, 60, or 90 days for the
-        government to pay.&quot;
+        Government money arrives on the government&apos;s schedule.
       </p>
       <p>
         Budgets add a second layer. Under the{" "}
@@ -110,15 +104,9 @@ export default function RevenueBasedFinancingPostContent() {
           Antideficiency Act
         </ExtLink>
         , federal officials cannot commit the government to pay money before it
-        has been appropriated, unless a law authorizes it. Billing adds a third.{" "}
-        <ExtLink href="https://govexpress.ai/blog/federal-invoicing-prompt-payment-software-companies/">
-          GovExpress
-        </ExtLink>
-        , a federal readiness publisher, notes that commercial software as a
-        service (SaaS) is usually billed annually in advance, and that federal
-        appropriations law generally bars that. For state, local, and education
-        (SLED) customers, check each customer&apos;s fiscal year and payment
-        terms before forecasting when receipts will arrive.
+        has been appropriated, unless a law authorizes it. For state, local, and
+        education (SLED) customers, check each customer&apos;s fiscal year and
+        payment terms before forecasting when receipts will arrive.
       </p>
       <p>
         For more on payment timing, see{" "}
@@ -195,14 +183,7 @@ export default function RevenueBasedFinancingPostContent() {
       </h2>
       <p>
         The billing structure on a government contract is set before award, and
-        that is when to raise it. On advance payment,{" "}
-        <ExtLink href="https://govexpress.ai/blog/federal-invoicing-prompt-payment-software-companies/">
-          the same invoicing guide
-        </ExtLink>{" "}
-        is direct: &quot;It&apos;s something you negotiate, not a default, and
-        many contracting officers won&apos;t offer it on a first award.&quot; The
-        guide adds that if your pricing assumes cash up front and the contract
-        pays in arrears, your first year&apos;s cash flow changes.
+        that is when to raise it.
       </p>
 
       <h2 id={H["When another tool fits better"]}>

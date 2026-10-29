@@ -480,7 +480,7 @@ const NEOCLOUD_H2_TEXTS = [
   "The exception: SpaceX borrows the same week",
   "Why the lenders said yes",
   "The neocloud that still borrowed",
-  "My take: lenders fund revenue the asset does not create",
+  "Our take: lenders fund revenue the asset does not create",
   "Which tool fits which problem",
   "The risks",
   "Frequently asked questions",
@@ -605,7 +605,6 @@ const REVOLVING_LINE_H2_TEXTS = [
   "What a revolver is for, and what it is not for",
   "Planning for renewal",
   "When you are waiting months on a government payment",
-  "Why growth makes the gap wider",
   "Lines tied to receivables",
   "Revolving line of credit vs installment loan",
   "Frequently asked questions",
@@ -963,7 +962,7 @@ export const PROMPT_PAYMENT_FAQ: FaqItem[] = [
     question:
       "Is late payment interest enough to cover the cost of waiting for government payment?",
     answer:
-      "In my view, rarely. Interest accrues only after the due date, is paid with the late payment rather than during the wait, and usually stops during disputes. It does not fund payroll or hosting while you wait, which is why many vendors pair it with early payment programs or contract-backed financing.",
+      "In our view, rarely. Interest accrues only after the due date, is paid with the late payment rather than during the wait, and usually stops during disputes. It does not fund payroll or hosting while you wait, which is why many vendors pair it with early payment programs or contract financing.",
   },
 ];
 
@@ -1151,27 +1150,27 @@ export const VENTURE_DEBT_FAQ: FaqItem[] = [
     question:
       "What is the difference between venture debt and venture capital?",
     answer:
-      "Venture capital buys shares, so your ownership is diluted, but there is no repayment obligation. Venture debt is a loan you repay with interest no matter how the business performs. One startup financing guide describes venture debt as structured like a bank loan, often with a small equity component for the lender.",
+      "Venture capital buys shares, so your ownership is diluted, but there is no repayment obligation. Venture debt is a loan you repay with interest no matter how the business performs.",
   },
   {
     question: "Can a bootstrapped GovTech company get venture debt?",
     answer:
-      "Often not in the classic form. One startup financing guide places venture debt after a Series A. A company without venture backing will usually look at loans or revenue based financing instead.",
+      "Often not in the classic form. Classic venture debt is built for companies that already have venture backing. A company without venture backing will usually look at loans or revenue based financing instead.",
   },
   {
     question: "What is revenue based financing?",
     answer:
-      "One startup financing guide describes revenue based financing as a flexible loan repaid using a fixed percentage of future revenue, so payments scale with performance. It notes that it is still a loan and must be repaid. Lenders generally want proven revenue and cash flow.",
+      "Revenue based financing is repaid from a fixed percentage of future revenue, so payments scale with performance.",
   },
   {
     question: "Do government contracts help or hurt when borrowing?",
     answer:
-      "They can do both. In my experience government customers tend to renew, but lenders will look at termination for convenience rights, non appropriation risk, customer concentration, and how long collections take. Federal receivables can be assigned to a lender only under the Assignment of Claims Act. Bring your renewal history and contract terms to any lender conversation.",
+      "They can do both. In our experience government customers tend to renew, but lenders will look at termination for convenience rights, non appropriation risk, customer concentration, and how long collections take. Federal receivables can be assigned to a lender only under the Assignment of Claims Act. Bring your renewal history and contract terms to any lender conversation.",
   },
   {
     question: "When is VC the better choice than debt?",
     answer:
-      "One startup financing guide says equity fits companies chasing fast growth, industry dominance, or large liquidity events. Debt fits predictable revenue, owners who want control, and sustainable growth. A steadily growing company with long term government customers often matches the debt profile, if cash flow can carry the payments.",
+      "We tell founders to decide based on the business they actually want to run. A steadily growing company with long term government customers often fits debt better than venture capital, if cash flow can carry the payments.",
   },
 ];
 
@@ -1302,7 +1301,7 @@ export const FINANCING_STRATEGY_FAQ: FaqItem[] = [
   {
     question: "Is venture capital right for a vertical software company?",
     answer:
-      "Sometimes. Venture funds need exits large enough to reach their target returns, and big funding raises the bar for exit. A company that plans a modest sale or no sale may fit other tools better.",
+      "Sometimes. Venture capital is built for companies aiming for very large outcomes. A company that plans a modest sale or no sale may fit other tools better.",
   },
   {
     question:
@@ -1328,7 +1327,7 @@ export const FINANCING_STRATEGY_FAQ: FaqItem[] = [
   {
     question: "How do slow government payments affect financing strategy?",
     answer:
-      "On complex federal contracts, payment delays of 90 days or more are common, and growth widens the gap between paying for work and collecting. That gap is a cash flow question separate from growth capital.",
+      "Getting paid faster on a signed contract is a separate decision from raising growth capital. The wait between paying for work and collecting is a cash flow question.",
   },
 ];
 
@@ -1384,17 +1383,12 @@ export const VC_WRONG_CHOICE_FAQ: FaqItem[] = [
   {
     question: "Is vertical SaaS too small for venture capital?",
     answer:
-      "Venture firms disagree. Some argue the market size objection is not supported by the facts, while others describe why many founders have avoided small markets.",
+      "Investors disagree. Our read is that some vertical companies can be venture businesses, but that does not mean every vertical company should be one.",
   },
   {
     question: "Do venture investors expect dividends?",
     answer:
-      "Usually not. Venture investors generally prefer that companies use their cash to grow and scale. A company that wants to distribute profits to owners may fit other capital better.",
-  },
-  {
-    question: "How long do venture capital funds last?",
-    answer:
-      "Most venture funds have a stated lifespan of about ten years, and some extend a few additional years.",
+      "Usually not. Venture investors usually want cash reinvested. A company that wants to distribute profits to owners may fit other capital better.",
   },
   {
     question:
@@ -1405,12 +1399,12 @@ export const VC_WRONG_CHOICE_FAQ: FaqItem[] = [
   {
     question: "Is venture capital a good fit for GovTech companies?",
     answer:
-      "It can be, but government payment timing matters. On complex federal contracts, delays of 90 days or more are common, and that wait is a cash flow question separate from growth capital.",
+      "It can be, but government payment timing matters. A long wait on a signed contract is a cash flow problem with its own tools, separate from growth capital.",
   },
   {
     question: "What are the alternatives to venture capital?",
     answer:
-      "Alternatives include bootstrapping, revenue based financing, grants, and competitions. Some investors also offer models built around profitable growth.",
+      "Alternatives include bootstrapping, revenue based financing, grants, and competitions.",
   },
 ];
 
@@ -1480,7 +1474,7 @@ export const REVENUE_BASED_FINANCING_FAQ: FaqItem[] = [
   {
     question: "Can I ask an agency for upfront or milestone payments instead?",
     answer:
-      "You can raise it before award. Advance payment is something you negotiate with the agency, not a default, and many contracting officers will not offer it on a first award.",
+      "Yes, before award. The billing structure on a government contract is set before award, and that is when to raise it.",
   },
   {
     question: "How is revenue based financing different from a bullet loan?",
@@ -1549,16 +1543,6 @@ export const REVOLVING_LINE_FAQ: FaqItem[] = [
     answer:
       "Renewal. A federal bank regulator notes that revolving working capital lines can face refinancing at renewal, so a revolver fits best when you know how the balance will be paid down or renewed.",
   },
-  {
-    question: "How long do government payments usually take?",
-    answer:
-      "Government contractors often deliver work first and wait 30, 60, or 90 days to be paid, and a rejected invoice, a government shutdown, or a continuing resolution can stretch a 45 day cycle to 90.",
-  },
-  {
-    question: "Why does growth increase the need for working capital?",
-    answer:
-      "Growing contractors hire staff and incur costs before invoices are submitted, then wait weeks or months for payment, so revenue can grow while cash lags behind.",
-  },
 ];
 
 export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
@@ -1602,7 +1586,7 @@ export const TERM_LOAN_AMORTIZING_FAQ: FaqItem[] = [
   {
     question: "How do slow government payments affect loan repayment?",
     answer:
-      "Government contractors often deliver work first and wait 30, 60, or 90 days to be paid, and growth can widen the gap between costs and cash. Scheduled loan payments come due regardless of when an agency pays.",
+      "Scheduled loan payments come due regardless of when an agency pays, so the structure that fits is the one whose payment schedule matches when your cash actually arrives.",
   },
 ];
 
@@ -1686,7 +1670,7 @@ export const CAPITAL_STACK_SENIORITY_FAQ: FaqItem[] = [
   {
     question: "In what order are people paid when a software company is sold?",
     answer:
-      "Debts and transaction costs are paid first. Preferred shareholders are then paid according to their place in the stack, and common shareholders are paid last.",
+      "Lenders are paid first. Preferred shareholders are then paid according to their place in the stack, and common shareholders are paid last.",
   },
   {
     question: "Where does preferred stock sit in the capital stack?",
@@ -1790,9 +1774,9 @@ export const COMMON_STOCK_FINANCING_FAQ: FaqItem[] = [
       "It can. The Small Business Administration adds the employees or receipts of all affiliates when it measures size, and an investor that controls or has the power to control your company can be an affiliate. A merger, acquisition or sale that changes the controlling interest requires recertification within 30 calendar days.",
   },
   {
-    question: "Do I need to tell DCSA if a foreign investor buys shares?",
+    question: "Does a foreign investor affect a facility clearance?",
     answer:
-      "If your company holds a facility security clearance, it has a duty to inform the Defense Counterintelligence and Security Agency when its ownership and control change. The SF 328 asks about foreign persons who own five percent or more of the company on a fully diluted basis.",
+      "If your company holds a facility security clearance, foreign ownership, control or influence rules apply to foreign shareholders, and the Defense Counterintelligence and Security Agency oversees those clearances. Talk to counsel before a foreign investor buys shares.",
   },
   {
     question: "Which option should I use?",
