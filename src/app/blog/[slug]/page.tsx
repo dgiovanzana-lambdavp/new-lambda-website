@@ -22,12 +22,14 @@ import MetaHyperionPostContent from "@/components/blog/MetaHyperionPostContent";
 import NeocloudFinancingPostContent from "@/components/blog/NeocloudFinancingPostContent";
 import FiscalYear2027PostContent from "@/components/blog/FiscalYear2027PostContent";
 import WorkingCapitalVsGrowthPostContent from "@/components/blog/WorkingCapitalVsGrowthPostContent";
+import EarlyPaymentDiscountPostContent from "@/components/blog/EarlyPaymentDiscountPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
   CAPITAL_STACK_SENIORITY_POST,
   COMMON_STOCK_FINANCING_POST,
+  EARLY_PAYMENT_DISCOUNT_POST,
   FINANCING_STRATEGY_POST,
   FISCAL_YEAR_2027_POST,
   META_HYPERION_POST,
@@ -118,6 +120,8 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === FISCAL_YEAR_2027_POST.slug) return <FiscalYear2027PostContent />;
   if (slug === WORKING_CAPITAL_VS_GROWTH_POST.slug)
     return <WorkingCapitalVsGrowthPostContent />;
+  if (slug === EARLY_PAYMENT_DISCOUNT_POST.slug)
+    return <EarlyPaymentDiscountPostContent />;
   if (slug === REVOLVING_LINE_POST.slug) return <RevolvingLinePostContent />;
   if (slug === TERM_LOAN_AMORTIZING_POST.slug)
     return <TermLoanAmortizingPostContent />;
@@ -187,7 +191,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     slug === IMPLEMENTATION_MILESTONES_POST.slug ||
     slug === ASSIGNMENT_OF_CLAIMS_POST.slug ||
     slug === FISCAL_YEAR_2027_POST.slug ||
-    slug === WORKING_CAPITAL_VS_GROWTH_POST.slug
+    slug === WORKING_CAPITAL_VS_GROWTH_POST.slug ||
+    slug === EARLY_PAYMENT_DISCOUNT_POST.slug
       ? "Signed contracts and long receivables?"
       : "Growing a GovTech software company?";
 

@@ -596,6 +596,48 @@ export const WORKING_CAPITAL_VS_GROWTH_POST: BlogPostMeta = {
   breadcrumbsTitle: "Working Capital vs Growth Capital",
 };
 
+const EARLY_PAYMENT_DISCOUNT_SLUG =
+  "early-payment-discount-government-contracts";
+
+const EARLY_PAYMENT_DISCOUNT_DATE = "2026-10-29";
+
+const EARLY_PAYMENT_DISCOUNT_H2_TEXTS = [
+  "The problem: the contract is signed, the cash is not here",
+  "The example: $10,000 to get paid 20 days sooner",
+  "Choice one: free speed first",
+  "Choice two: the discount, and how it works",
+  "The decision: price the discount like financing",
+  "Why each party acts as it does",
+  "Lesson: speed has a price, so buy only what you need",
+  "Bridging the gap: use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const EARLY_PAYMENT_DISCOUNT_HEADINGS: BlogHeading[] =
+  EARLY_PAYMENT_DISCOUNT_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const EARLY_PAYMENT_DISCOUNT_POST: BlogPostMeta = {
+  slug: EARLY_PAYMENT_DISCOUNT_SLUG,
+  metaTitle:
+    "Early Payment Discounts on Government Contracts: What Getting Paid Faster Really Costs",
+  h1: "Early Payment Discounts on Government Contracts: What Getting Paid Faster Really Costs",
+  description:
+    "Taking $10,000 off a $500,000 invoice to get paid 20 days sooner costs about 36.7% a year. When an early payment discount fits for GovTech software.",
+  category: "Growth capital",
+  date: EARLY_PAYMENT_DISCOUNT_DATE,
+  updated: EARLY_PAYMENT_DISCOUNT_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-early-payment-discount-hero.jpg",
+  ogImage: `/og/blog-${EARLY_PAYMENT_DISCOUNT_SLUG}.jpg`,
+  breadcrumbsTitle: "Early Payment Discounts on Government Contracts",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -676,6 +718,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  EARLY_PAYMENT_DISCOUNT_POST,
   WORKING_CAPITAL_VS_GROWTH_POST,
   FISCAL_YEAR_2027_POST,
   NEOCLOUD_POST,
@@ -720,6 +763,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === FISCAL_YEAR_2027_SLUG) return FISCAL_YEAR_2027_HEADINGS;
   if (slug === WORKING_CAPITAL_VS_GROWTH_SLUG)
     return WORKING_CAPITAL_VS_GROWTH_HEADINGS;
+  if (slug === EARLY_PAYMENT_DISCOUNT_SLUG)
+    return EARLY_PAYMENT_DISCOUNT_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -757,6 +802,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === FISCAL_YEAR_2027_SLUG) return FISCAL_YEAR_2027_JSON_LD;
   if (slug === WORKING_CAPITAL_VS_GROWTH_SLUG)
     return WORKING_CAPITAL_VS_GROWTH_JSON_LD;
+  if (slug === EARLY_PAYMENT_DISCOUNT_SLUG)
+    return EARLY_PAYMENT_DISCOUNT_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -2135,6 +2182,89 @@ export const WORKING_CAPITAL_VS_GROWTH_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: WORKING_CAPITAL_VS_GROWTH_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const EARLY_PAYMENT_DISCOUNT_FAQ: FaqItem[] = [
+  {
+    question: "Can a vendor offer a federal agency a discount to pay faster?",
+    answer:
+      "Yes. You can put one in your offer or on an individual invoice after award.",
+  },
+  {
+    question: "Does offering a discount help you win the contract?",
+    answer:
+      "No. Discounts are not considered when offers are evaluated, but an offered discount becomes part of the award.",
+  },
+  {
+    question: "Will the agency take your discount?",
+    answer:
+      "Likely, if it can pay in time. Treasury tells agencies to take a discount when its annual rate beats the Current Value of Funds Rate. That rate is 4.00% for 2026.",
+  },
+  {
+    question: "What does 2/10 net 30 cost the vendor?",
+    answer:
+      "About 36.7% a year, measured on the cash received with a 360 day year. On a $500,000 invoice, it is $10,000 to get paid 20 days sooner.",
+  },
+  {
+    question: "When does the discount clock start?",
+    answer:
+      "On the date of your proper invoice. The agency can take the discount only after acceptance.",
+  },
+  {
+    question: "Is there a free way to get paid faster?",
+    answer:
+      "Small businesses on federal contracts may get accelerated payment. Agencies other than the Department of Defense aim to pay within 15 days of a proper invoice.",
+  },
+  {
+    question: "Do state and local governments follow the same rules?",
+    answer:
+      "No. Each sets its own. Minnesota state agencies, for example, must pay inside your early payment discount period.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const EARLY_PAYMENT_DISCOUNT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Early Payment Discounts on Government Contracts: What Getting Paid Faster Really Costs",
+      description:
+        "Taking $10,000 off a $500,000 invoice to get paid 20 days sooner costs about 36.7% a year. When an early payment discount fits for GovTech software.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-10-29",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/early-payment-discount-government-contracts",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: EARLY_PAYMENT_DISCOUNT_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
