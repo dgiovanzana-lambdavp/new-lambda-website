@@ -30,6 +30,76 @@ const nextConfig: NextConfig = {
         destination: VENTURE_DEBT_VS_VC_PATH,
         statusCode: 301,
       },
+      {
+        source: "/blog/warrant-coverage-explained-govtech",
+        destination: VENTURE_DEBT_VS_VC_PATH,
+        statusCode: 301,
+      },
+      {
+        source: "/blog/warrant-coverage-explained-govtech/",
+        destination: VENTURE_DEBT_VS_VC_PATH,
+        statusCode: 301,
+      },
+      {
+        source: "/blog/warrant-coverage-venture-debt",
+        destination: VENTURE_DEBT_VS_VC_PATH,
+        statusCode: 301,
+      },
+      {
+        source: "/blog/warrant-coverage-venture-debt/",
+        destination: VENTURE_DEBT_VS_VC_PATH,
+        statusCode: 301,
+      },
+      {
+        source: "/blog/term-loan-vs-amortizing-loan-software-companies",
+        destination: "/blog/bullet-loan-vs-amortizing-loan-software-companies",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/term-loan-vs-amortizing-loan-software-companies/",
+        destination: "/blog/bullet-loan-vs-amortizing-loan-software-companies",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/non-convertible-preferred-stock",
+        destination: "/blog/capital-stack-seniority-govtech-software",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/non-convertible-preferred-stock/",
+        destination: "/blog/capital-stack-seniority-govtech-software",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/preferred-stock-financing-govtech",
+        destination: "/blog/capital-stack-seniority-govtech-software",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/preferred-stock-financing-govtech/",
+        destination: "/blog/capital-stack-seniority-govtech-software",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/how-much-can-a-saas-company-borrow",
+        destination: "/blog/working-capital-vs-growth-capital-govtech-software",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/how-much-can-a-saas-company-borrow/",
+        destination: "/blog/working-capital-vs-growth-capital-govtech-software",
+        statusCode: 301,
+      },
+      {
+        source: "/financing-toolbelt",
+        destination: "/blog/software-company-financing-strategy",
+        statusCode: 301,
+      },
+      {
+        source: "/financing-toolbelt/",
+        destination: "/blog/software-company-financing-strategy",
+        statusCode: 301,
+      },
     ];
   },
 };
