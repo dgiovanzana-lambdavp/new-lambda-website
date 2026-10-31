@@ -638,6 +638,86 @@ export const EARLY_PAYMENT_DISCOUNT_POST: BlogPostMeta = {
   breadcrumbsTitle: "Early Payment Discounts on Government Contracts",
 };
 
+const CASH_FLOW_GAP_SLUG = "government-contractor-cash-flow-gap";
+
+const CASH_FLOW_GAP_DATE = "2026-10-30";
+
+const CASH_FLOW_GAP_H2_TEXTS = [
+  "The problem: record bookings, a thinner bank balance",
+  "First, confirm it is a timing gap",
+  "Step one: put a dollar figure on the gap",
+  "Step two: split the gap into a base and a peak",
+  "Step three: shrink the gap before you fund it",
+  "Step four: how much to raise",
+  "Lesson: fund the floor and the swings differently",
+  "Bridging the gap: use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const CASH_FLOW_GAP_HEADINGS: BlogHeading[] =
+  CASH_FLOW_GAP_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const CASH_FLOW_GAP_POST: BlogPostMeta = {
+  slug: CASH_FLOW_GAP_SLUG,
+  metaTitle:
+    "The Government Contractor Cash Flow Gap: How to Size It and What Should Fill It",
+  h1: "The Government Contractor Cash Flow Gap: How to Size It and What Should Fill It",
+  description:
+    "Put a dollar figure on your government contractor cash flow gap, split the permanent base from the peaks, and match each layer to the right kind of capital.",
+  category: "Growth capital",
+  date: CASH_FLOW_GAP_DATE,
+  updated: CASH_FLOW_GAP_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-government-contractor-cash-flow-gap-hero.jpg",
+  ogImage: `/og/blog-${CASH_FLOW_GAP_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Contractor Cash Flow Gap",
+};
+
+const INVOICE_ACCEPTANCE_SLUG = "government-invoice-acceptance-payment-office";
+
+const INVOICE_ACCEPTANCE_DATE = "2026-10-31";
+
+const INVOICE_ACCEPTANCE_H2_TEXTS = [
+  "The problem: a 30 day promise that takes 76 days",
+  "Map the clock, one handoff at a time",
+  "Fix it: the days you can remove",
+  "Finance it: the days that remain",
+  "Lesson: own your days, shape the contract's days, fund the days that remain",
+  "Bridging what remains: use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const INVOICE_ACCEPTANCE_HEADINGS: BlogHeading[] =
+  INVOICE_ACCEPTANCE_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const INVOICE_ACCEPTANCE_POST: BlogPostMeta = {
+  slug: INVOICE_ACCEPTANCE_SLUG,
+  metaTitle:
+    "Government Invoice Acceptance: Which Days to Fix, Which to Finance",
+  h1: "Government Invoice Acceptance: Where the Days Go and Which Ones to Finance",
+  description:
+    "Map every step from invoice to acceptance to the payment office, see which days you can remove, and finance only the days that remain. For GovTech CEOs.",
+  category: "Growth capital",
+  date: INVOICE_ACCEPTANCE_DATE,
+  updated: INVOICE_ACCEPTANCE_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-government-invoice-acceptance-hero.jpg",
+  ogImage: `/og/blog-${INVOICE_ACCEPTANCE_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Invoice Acceptance",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -718,6 +798,8 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  INVOICE_ACCEPTANCE_POST,
+  CASH_FLOW_GAP_POST,
   EARLY_PAYMENT_DISCOUNT_POST,
   WORKING_CAPITAL_VS_GROWTH_POST,
   FISCAL_YEAR_2027_POST,
@@ -765,6 +847,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return WORKING_CAPITAL_VS_GROWTH_HEADINGS;
   if (slug === EARLY_PAYMENT_DISCOUNT_SLUG)
     return EARLY_PAYMENT_DISCOUNT_HEADINGS;
+  if (slug === CASH_FLOW_GAP_SLUG) return CASH_FLOW_GAP_HEADINGS;
+  if (slug === INVOICE_ACCEPTANCE_SLUG) return INVOICE_ACCEPTANCE_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -804,6 +888,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return WORKING_CAPITAL_VS_GROWTH_JSON_LD;
   if (slug === EARLY_PAYMENT_DISCOUNT_SLUG)
     return EARLY_PAYMENT_DISCOUNT_JSON_LD;
+  if (slug === CASH_FLOW_GAP_SLUG) return CASH_FLOW_GAP_JSON_LD;
+  if (slug === INVOICE_ACCEPTANCE_SLUG) return INVOICE_ACCEPTANCE_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -2265,6 +2351,162 @@ export const EARLY_PAYMENT_DISCOUNT_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: EARLY_PAYMENT_DISCOUNT_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const CASH_FLOW_GAP_FAQ: FaqItem[] = [
+  {
+    question: "How do you calculate your cash flow gap on government contracts?",
+    answer:
+      "Multiply your daily cash cost to deliver by the days from paying for the work to collecting for it. At $13,000 a day and 135 days, that is about $1,755,000.",
+  },
+  {
+    question: "How long does the federal government take to pay?",
+    answer:
+      "A typical federal invoice is due the later of 30 days after the billing office receives a proper invoice or 30 days after acceptance. State and local timing varies by buyer.",
+  },
+  {
+    question: "Why does a profitable, growing contractor run short of cash?",
+    answer:
+      "Growth needs more working capital before it brings in more cash. At 20% growth, the permanent part of the gap rises every year.",
+  },
+  {
+    question: "How much working capital should you raise?",
+    answer:
+      "Look a year ahead: next year's base plus the expected peak. In our example, that is about $2.8M, against about $1.76M today.",
+  },
+  {
+    question: "Is the whole gap a short term problem?",
+    answer:
+      "No. Part of it is a permanent base that is always needed while you deliver.",
+  },
+  {
+    question: "Can the contracting officer help?",
+    answer:
+      "Ask what contract financing the contract allows. The FAR tells contracting officers to give special attention to a small business's contract financing need.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const CASH_FLOW_GAP_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "The Government Contractor Cash Flow Gap: How to Size It and What Should Fill It",
+      description:
+        "Put a dollar figure on your government contractor cash flow gap, split the permanent base from the peaks, and match each layer to the right kind of capital.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-10-30",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-contractor-cash-flow-gap",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: CASH_FLOW_GAP_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const INVOICE_ACCEPTANCE_FAQ: FaqItem[] = [
+  {
+    question: "How long does the federal government have to pay your invoice?",
+    answer:
+      "Usually 30 days after the later of a proper invoice or government acceptance, under FAR 32.904. State and local timing varies by buyer.",
+  },
+  {
+    question: "Does constructive acceptance mean you get paid sooner?",
+    answer:
+      "No. The 7th day rule counts only when the government computes a late payment interest penalty. It does not make payment due sooner.",
+  },
+  {
+    question: "What happens if your invoice is not proper?",
+    answer:
+      "The billing office must return it within 7 days with the reasons. The clock waits for the corrected invoice.",
+  },
+  {
+    question: "What is a receiving report and why does it matter to you?",
+    answer:
+      "It is the government document that confirms acceptance and authorizes payment. It should reach the payment office by the 5th working day after acceptance.",
+  },
+  {
+    question: "Can you ask the agency to speed up acceptance?",
+    answer:
+      "Yes. Ask the contracting officer to name the accepting official and state the acceptance period in the contract. That is a contract conversation about process with your customer.",
+  },
+  {
+    question: "Should you fix your invoicing or finance the wait?",
+    answer:
+      "Use fixes for the days you and the contract control. Use a tool built for timing for the days that remain.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const INVOICE_ACCEPTANCE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Government Invoice Acceptance: Which Days to Fix, Which to Finance",
+      description:
+        "Map every step from invoice to acceptance to the payment office, see which days you can remove, and finance only the days that remain. For GovTech CEOs.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-10-31",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-invoice-acceptance-payment-office",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: INVOICE_ACCEPTANCE_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
