@@ -718,6 +718,50 @@ export const INVOICE_ACCEPTANCE_POST: BlogPostMeta = {
   breadcrumbsTitle: "Government Invoice Acceptance",
 };
 
+const PURCHASE_CARD_SLUG =
+  "government-purchase-card-payment-software-vendors";
+
+const PURCHASE_CARD_DATE = "2026-11-01";
+
+const PURCHASE_CARD_H2_TEXTS = [
+  "The direct answer",
+  "The problem: the swipe and the contract",
+  "How a purchase card payment works",
+  "Is the purchase card only for small purchases?",
+  "What you give up when the card pays",
+  "When the card is worth the fee",
+  "The decision",
+  "How to get set up (agency facing steps)",
+  "Lesson: the card fixes days, it does not finance them",
+  "Bridging what remains: use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const PURCHASE_CARD_HEADINGS: BlogHeading[] =
+  PURCHASE_CARD_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const PURCHASE_CARD_POST: BlogPostMeta = {
+  slug: PURCHASE_CARD_SLUG,
+  metaTitle:
+    "Can the Government Pay Your Software Invoice by Purchase Card?",
+  h1: "Can the Government Pay My Software Invoice With a Purchase Card?",
+  description:
+    "Yes. A government purchase card can pay you right away. Here is when the card fee is worth it, and why big contracts may need a different plan.",
+  category: "Growth capital",
+  date: PURCHASE_CARD_DATE,
+  updated: PURCHASE_CARD_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-government-purchase-card-hero.jpg",
+  ogImage: `/og/blog-${PURCHASE_CARD_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Purchase Card Payment",
+};
+
 const REVOLVING_LINE_SLUG = "revolving-line-of-credit-saas";
 
 const REVOLVING_LINE_DATE = "2026-10-21";
@@ -798,6 +842,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  PURCHASE_CARD_POST,
   INVOICE_ACCEPTANCE_POST,
   CASH_FLOW_GAP_POST,
   EARLY_PAYMENT_DISCOUNT_POST,
@@ -849,6 +894,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return EARLY_PAYMENT_DISCOUNT_HEADINGS;
   if (slug === CASH_FLOW_GAP_SLUG) return CASH_FLOW_GAP_HEADINGS;
   if (slug === INVOICE_ACCEPTANCE_SLUG) return INVOICE_ACCEPTANCE_HEADINGS;
+  if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   return [];
@@ -890,6 +936,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return EARLY_PAYMENT_DISCOUNT_JSON_LD;
   if (slug === CASH_FLOW_GAP_SLUG) return CASH_FLOW_GAP_JSON_LD;
   if (slug === INVOICE_ACCEPTANCE_SLUG) return INVOICE_ACCEPTANCE_JSON_LD;
+  if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   return null;
@@ -2507,6 +2554,84 @@ export const INVOICE_ACCEPTANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: INVOICE_ACCEPTANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const PURCHASE_CARD_FAQ: FaqItem[] = [
+  {
+    question: "Can a federal agency pay my invoice by credit card?",
+    answer:
+      "Yes. Agencies can pay with the Governmentwide commercial purchase card when you agree, and the card issuer is authorized to pay you immediately.",
+  },
+  {
+    question: "Is the purchase card only for purchases under $15,000?",
+    answer:
+      "No. That is the general micro purchase threshold. Federal rules tell agencies not to limit the card to micro purchases. Larger payments work when you agree, and written contracts paid by card should include the Payment by Third Party clause.",
+  },
+  {
+    question: "Do you still get Prompt Payment Act interest on a card payment?",
+    answer:
+      "No. Card payments come from the issuer, not the government, so the Prompt Payment Act does not cover them.",
+  },
+  {
+    question: "Can you finance a contract that is paid by purchase card?",
+    answer:
+      "Not by assignment of claims. If any payment on a contract is made by card under the clause, payments on that contract cannot be assigned. Keep contracts you plan to finance that way on invoice.",
+  },
+  {
+    question: "Do you pay higher card fees on government purchases?",
+    answer:
+      "No. GSA says your normal card acceptance fees also apply to government purchases.",
+  },
+  {
+    question: "Can state and local agencies pay by card?",
+    answer:
+      "Each state, county and city runs its own rules. We did not review them for this post, so ask your buyer.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const PURCHASE_CARD_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline:
+        "Can the Government Pay Your Software Invoice by Purchase Card?",
+      description:
+        "Yes. A government purchase card can pay you right away. Here is when the card fee is worth it, and why big contracts may need a different plan.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-01",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-purchase-card-payment-software-vendors",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: PURCHASE_CARD_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {

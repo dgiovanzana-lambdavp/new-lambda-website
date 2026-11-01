@@ -25,6 +25,7 @@ import WorkingCapitalVsGrowthPostContent from "@/components/blog/WorkingCapitalV
 import EarlyPaymentDiscountPostContent from "@/components/blog/EarlyPaymentDiscountPostContent";
 import CashFlowGapPostContent from "@/components/blog/CashFlowGapPostContent";
 import InvoiceAcceptancePostContent from "@/components/blog/InvoiceAcceptancePostContent";
+import PurchaseCardPostContent from "@/components/blog/PurchaseCardPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
@@ -41,6 +42,7 @@ import {
   GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
+  PURCHASE_CARD_POST,
   REVENUE_BASED_FINANCING_POST,
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
@@ -129,6 +131,7 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === CASH_FLOW_GAP_POST.slug) return <CashFlowGapPostContent />;
   if (slug === INVOICE_ACCEPTANCE_POST.slug)
     return <InvoiceAcceptancePostContent />;
+  if (slug === PURCHASE_CARD_POST.slug) return <PurchaseCardPostContent />;
   if (slug === REVOLVING_LINE_POST.slug) return <RevolvingLinePostContent />;
   if (slug === TERM_LOAN_AMORTIZING_POST.slug)
     return <TermLoanAmortizingPostContent />;
@@ -201,7 +204,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     slug === WORKING_CAPITAL_VS_GROWTH_POST.slug ||
     slug === EARLY_PAYMENT_DISCOUNT_POST.slug ||
     slug === CASH_FLOW_GAP_POST.slug ||
-    slug === INVOICE_ACCEPTANCE_POST.slug
+    slug === INVOICE_ACCEPTANCE_POST.slug ||
+    slug === PURCHASE_CARD_POST.slug
       ? "Signed contracts and long receivables?"
       : "Growing a GovTech software company?";
 
