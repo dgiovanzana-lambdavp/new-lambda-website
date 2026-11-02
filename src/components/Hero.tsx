@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from './Button';
+import { HOME_HERO_COPY } from '@/config/cta';
 
 const Hero: React.FC = () => {
   return (
@@ -46,8 +47,12 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white">
-              Lambda Capital
+            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-white tracking-tight">
+              {HOME_HERO_COPY.brand}
+            </p>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white max-w-5xl mx-auto leading-tight">
+              {HOME_HERO_COPY.headline}
             </h1>
           
           <motion.p
@@ -56,7 +61,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Growth capital investments in vertical software
+            {HOME_HERO_COPY.subhead}
           </motion.p>
 
           <motion.div
@@ -65,8 +70,8 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-          <Button href="/contact" variant="white" size="lg">
-            Apply for funding
+          <Button href={HOME_HERO_COPY.href} variant="white" size="lg">
+            {HOME_HERO_COPY.buttonLabel}
           </Button>
           </motion.div>
         </motion.div>

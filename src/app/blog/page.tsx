@@ -60,7 +60,7 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
-      <CtaBand heading="Ready to Work with Us?" />
+      <CtaBand />
     </main>
   );
 }

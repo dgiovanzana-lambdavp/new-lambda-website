@@ -105,61 +105,64 @@ export function ThankYou({
       );
     }
 
-    switch (response.outcome) {
-      case "book":
-        return (
-          <>
-            {/*
-              One short line, then the calendar. The spec requires the
-              heading and the calendar both be visible without scrolling
-              at 768px height, so this must not grow into a paragraph.
-            */}
-            <p className="text-lg text-lambda-body">
-              Let&rsquo;s find a time to talk.
-            </p>
-
-            {showCalendar ? (
-              <div className="mt-6 h-[32rem] overflow-hidden rounded-xl border border-lambda-border">
-                <BookingCalendar
-                  bookingLink={response.calendarUrl!}
-                  persona={persona}
-                  utmSource={utmSource}
-                />
-              </div>
-            ) : (
-              /* Booking link not configured — fall back to a manual promise. */
-              <p className="mt-4 max-w-prose text-lg text-lambda-body">
-                We&rsquo;ll follow up shortly with a time.
-              </p>
-            )}
-          </>
-        );
-
-      case "review":
-        return (
-          <p className="max-w-prose text-lg text-lambda-body">
-            We&rsquo;ve got the details on your company. Someone from our team
-            will review them and come back to you {RESPONSE_WINDOW_COPY}.
+    // Founders always land on the calendar path when the booking link
+    // is configured. Scoring still happens server-side for the team;
+    // the visitor just gets a time to talk.
+    if (showCalendar || response.outcome === "book") {
+      return (
+        <>
+          {/*
+            One short line, then the calendar. The heading and the
+            calendar should both be visible without scrolling at 768px
+            height, so this must not grow into a paragraph.
+          */}
+          <p className="text-lg text-lambda-body">
+            Let&rsquo;s find a time to talk.
           </p>
-        );
 
-      case "decline":
-        return (
-          <div className="max-w-prose">
-            <p className="text-lg text-lambda-body">
-              We invest in a deliberately narrow set of areas, and what
-              you&rsquo;re building sits outside them. We&rsquo;d rather tell
-              you now than take a meeting under false pretences.
+          {showCalendar ? (
+            <div className="mt-6 h-[32rem] overflow-hidden rounded-xl border border-lambda-border">
+              <BookingCalendar
+                bookingLink={response.calendarUrl!}
+                persona={persona}
+                utmSource={utmSource}
+              />
+            </div>
+          ) : (
+            /* Booking link not configured — fall back to a manual promise. */
+            <p className="mt-4 max-w-prose text-lg text-lambda-body">
+              We&rsquo;ll follow up shortly with a time.
             </p>
-            <p className="mt-4 text-lg text-lambda-body">
-              We&rsquo;ve kept your details. If our focus widens, or if we can
-              point you toward someone better suited, we&rsquo;ll be in touch.
-            </p>
-          </div>
-        );
-
-      default:
-        return null;
+          )}
+        </>
+      );
     }
+
+    if (response.outcome === "review") {
+      return (
+        <p className="max-w-prose text-lg text-lambda-body">
+          We&rsquo;ve got the details on your company. Someone from our team
+          will review them and come back to you {RESPONSE_WINDOW_COPY}.
+        </p>
+      );
+    }
+
+    if (response.outcome === "decline") {
+      return (
+        <div className="max-w-prose">
+          <p className="text-lg text-lambda-body">
+            We invest in a deliberately narrow set of areas, and what
+            you&rsquo;re building sits outside them. We&rsquo;d rather tell
+            you now than take a meeting under false pretences.
+          </p>
+          <p className="mt-4 text-lg text-lambda-body">
+            We&rsquo;ve kept your details. If our focus widens, or if we can
+            point you toward someone better suited, we&rsquo;ll be in touch.
+          </p>
+        </div>
+      );
+    }
+
+    return null;
   }
 }
