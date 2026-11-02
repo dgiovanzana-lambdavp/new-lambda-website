@@ -75,7 +75,7 @@ The practical point: none of this is automatic. These are contract terms you ask
 
 Even a well negotiated schedule leaves months of delivery cost ahead of cash. So most GovTech companies with long receivables end up with a financing tool alongside their contract terms: an early payment program if their agency offers one, factoring on large one-time invoices, a credit line, or capital backed by the signed contract. I compared those options in detail in [government contract financing for software companies](https://www.lambdavp.com/blog/government-contract-financing-for-software-companies).
 
-Lambda Capital is a permanent capital holding company that provides growth capital to vertical software companies, and GovTech is one of our focus areas.
+Lambda Capital provides growth capital to profitable software companies. GovTech is one of our focus areas.
 
 One closing note: a financing relationship with Lambda can also grow into an equity investment.
 

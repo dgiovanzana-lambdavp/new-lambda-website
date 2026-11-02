@@ -92,7 +92,7 @@ One startup financing guide says equity fits companies chasing fast growth, indu
 
 ## About Lambda Capital
 
-Lambda Capital is a permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy. We take a patient approach and invest for the long term. GovTech contract funding is one of our lines of business.
+Lambda Capital provides growth capital to profitable software companies. We take a patient approach and invest for the long term. GovTech contract funding is one of our lines of business.
 
 [Contact Lambda Capital](https://www.lambdavp.com/contact)
 

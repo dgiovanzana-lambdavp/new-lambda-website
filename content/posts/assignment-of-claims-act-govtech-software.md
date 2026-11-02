@@ -121,7 +121,7 @@ Under FAR 32.904, the due date for many invoice payments is the later of the 30t
 
 ## About Lambda Capital
 
-Lambda Capital is a permanent capital holding company. We take a patient approach and invest for the long term. GovTech contract funding is one of our businesses.
+Lambda Capital provides growth capital to profitable software companies. We take a patient approach and invest for the long term. GovTech contract funding is one of our businesses.
 
 If you are thinking about how to fund the gap on a government contract, [get in touch](https://www.lambdavp.com/contact).
 
