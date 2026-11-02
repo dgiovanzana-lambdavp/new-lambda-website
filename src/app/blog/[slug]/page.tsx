@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import JumpList from "@/components/blog/JumpList";
 import CtaBand from "@/components/blog/CtaBand";
+import InlineCta from "@/components/blog/InlineCta";
 import AuthorBox from "@/components/blog/AuthorBox";
 import ScrollDepthTracker from "@/components/blog/ScrollDepthTracker";
 import GovTechPostContent from "@/components/blog/GovTechPostContent";
@@ -27,6 +28,7 @@ import CashFlowGapPostContent from "@/components/blog/CashFlowGapPostContent";
 import InvoiceAcceptancePostContent from "@/components/blog/InvoiceAcceptancePostContent";
 import PurchaseCardPostContent from "@/components/blog/PurchaseCardPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
+import { LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT } from "@/config/cta";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
@@ -168,6 +170,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         publisher: {
           "@type": "Organization",
           name: "Lambda Capital",
+          description: LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT,
           logo: {
             "@type": "ImageObject",
             url: `${BLOG_SITE_ORIGIN}/Capital%20-%20Black%20Long.png`,
@@ -194,20 +197,6 @@ export default async function BlogPostPage({ params }: PageProps) {
       },
     ],
   };
-
-  const ctaHeading =
-    slug === PROMPT_PAYMENT_POST.slug ||
-    slug === UPFRONT_PAYMENT_POST.slug ||
-    slug === IMPLEMENTATION_MILESTONES_POST.slug ||
-    slug === ASSIGNMENT_OF_CLAIMS_POST.slug ||
-    slug === FISCAL_YEAR_2027_POST.slug ||
-    slug === WORKING_CAPITAL_VS_GROWTH_POST.slug ||
-    slug === EARLY_PAYMENT_DISCOUNT_POST.slug ||
-    slug === CASH_FLOW_GAP_POST.slug ||
-    slug === INVOICE_ACCEPTANCE_POST.slug ||
-    slug === PURCHASE_CARD_POST.slug
-      ? "Signed contracts and long receivables?"
-      : "Growing a GovTech software company?";
 
   return (
     <main className="blog-page">
@@ -266,10 +255,17 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         <JumpList headings={headings} postSlug={slug} />
 
+        {/*
+          Phone-visible mid-post ask. Desktop readers still get the end
+          band; most LinkedIn traffic is on phones and never scrolls that
+          far.
+        */}
+        <InlineCta postSlug={slug} mobileOnly />
+
         <PostBody slug={slug} />
       </article>
 
-      <CtaBand heading={ctaHeading} postSlug={slug} />
+      <CtaBand postSlug={slug} />
       <AuthorBox />
     </main>
   );

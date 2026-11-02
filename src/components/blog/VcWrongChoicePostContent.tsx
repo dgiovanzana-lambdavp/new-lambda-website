@@ -313,7 +313,7 @@ export default function VcWrongChoicePostContent() {
 
       <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
-        Lambda Capital is a permanent capital holding company. We take a patient
+        Lambda Capital provides growth capital to profitable software companies. We take a patient
         approach and invest for the long term. GovTech contract funding is one
         of our lines of business.
       </p>

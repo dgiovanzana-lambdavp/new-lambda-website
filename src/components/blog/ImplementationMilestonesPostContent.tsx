@@ -452,8 +452,8 @@ export default function ImplementationMilestonesPostContent() {
         .
       </p>
       <p>
-        Lambda Capital is a permanent capital holding company that provides
-        growth capital to vertical software companies, and GovTech is one of our
+        Lambda Capital provides growth capital to profitable software companies.
+        GovTech is one of our
         focus areas.
       </p>
       <p>

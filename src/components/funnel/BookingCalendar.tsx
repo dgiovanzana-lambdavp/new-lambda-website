@@ -12,7 +12,7 @@ interface BookingCalendarProps {
 }
 
 /**
- * The Tier A inline booking surface.
+ * Inline booking surface shown after a founder completes the form.
  *
  * The iframe must use Google's appointment embed URL (`gv=true`). The
  * calendar.app.google short link refuses to load in a frame. The
@@ -36,7 +36,6 @@ export function BookingCalendar({
   useEffect(() => {
     track("funnel_calendar_shown", {
       persona,
-      tier: "A",
       utm_source: utmSource,
     });
   }, [persona, utmSource]);
@@ -59,7 +58,6 @@ export function BookingCalendar({
           onClick={() =>
             track("funnel_booking_link_clicked", {
               persona,
-              tier: "A",
               utm_source: utmSource,
             })
           }

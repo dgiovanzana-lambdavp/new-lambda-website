@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import PortfolioCard from '@/components/PortfolioCard';
 import { portfolioCompanies, focusAreas } from '@/lib/data';
 import Button from '@/components/Button';
+import { LAMBDA_GROWTH_CAPITAL_DESCRIPTION } from '@/config/cta';
 
 export default function HomePage() {
   // Get first 6 portfolio companies for homepage preview
@@ -27,10 +28,10 @@ export default function HomePage() {
             className="text-center max-w-4xl mx-auto"
           >
         <h2 className="text-4xl md:text-5xl font-bold mb-8">
-          Permanent, Patient <span className="text-foreground">Capital</span>
+          Growth capital for <span className="text-foreground">software companies</span>
         </h2>
         <p className="text-xl md:text-2xl text-muted leading-relaxed mb-8">
-          Lambda Capital is a permanent capital holding company. We take a patient approach and invest for the long term.
+          {LAMBDA_GROWTH_CAPITAL_DESCRIPTION}
         </p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
               <div className="text-center">

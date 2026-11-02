@@ -6,25 +6,25 @@ import {
   blogIndexCanonical,
   getNewestPost,
 } from "@/lib/blog/posts";
+import { LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT } from "@/config/cta";
+
+const BLOG_INDEX_DESCRIPTION = `Notes from Lambda Capital on growth capital for vertical software companies. ${LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT}`;
 
 export const metadata: Metadata = {
   title: "Blog | Lambda Capital",
-  description:
-    "Notes from Lambda Capital on growth capital, permanent capital and building vertical software companies.",
+  description: BLOG_INDEX_DESCRIPTION,
   alternates: { canonical: blogIndexCanonical() },
   openGraph: {
     type: "website",
     title: "Lambda Capital Blog",
-    description:
-      "Notes from Lambda Capital on growth capital, permanent capital and building vertical software companies.",
+    description: BLOG_INDEX_DESCRIPTION,
     url: blogIndexCanonical(),
     images: [{ url: "/og/blog-index.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Lambda Capital Blog",
-    description:
-      "Notes from Lambda Capital on growth capital, permanent capital and building vertical software companies.",
+    description: BLOG_INDEX_DESCRIPTION,
     images: ["/og/blog-index.jpg"],
   },
 };
@@ -60,7 +60,7 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
-      <CtaBand heading="Ready to Work with Us?" />
+      <CtaBand />
     </main>
   );
 }

@@ -1,10 +1,20 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Button from './Button';
+import { HOME_HERO_COPY } from '@/config/cta';
 
 const Hero: React.FC = () => {
+  const reduceMotion = useReducedMotion();
+
+  const enter = reduceMotion
+    ? { opacity: 1, y: 0 }
+    : { opacity: 0, y: 30 };
+  const enterSub = reduceMotion
+    ? { opacity: 1, y: 0 }
+    : { opacity: 0, y: 20 };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
@@ -42,31 +52,37 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-30 container-custom text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={enter}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 0.2 }}
         >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white">
-              Lambda Capital
+            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-white tracking-tight">
+              {HOME_HERO_COPY.brand}
+            </p>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white max-w-5xl mx-auto leading-tight">
+              Growth capital for
+              <br />
+              profitable software companies.
             </h1>
           
           <motion.p
             className="text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
+            initial={enterSub}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 0.4 }}
           >
-            Growth capital investments in vertical software
+            {HOME_HERO_COPY.subhead}
           </motion.p>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
+            initial={enterSub}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 0.8 }}
           >
-          <Button href="/contact" variant="white" size="lg">
-            Apply for funding
+          <Button href={HOME_HERO_COPY.href} variant="white" size="lg">
+            {HOME_HERO_COPY.buttonLabel}
           </Button>
           </motion.div>
         </motion.div>

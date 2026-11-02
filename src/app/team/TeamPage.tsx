@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import TeamShowcase from '@/components/TeamShowcase';
 import { teamMembers } from '@/lib/data';
 import Button from '@/components/Button';
+import { LAMBDA_GROWTH_CAPITAL_DESCRIPTION } from '@/config/cta';
 
 export default function TeamPage() {
   return (
@@ -51,7 +52,7 @@ export default function TeamPage() {
               Team Expertise
             </h2>
             <p className="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
-              Lambda Capital is a permanent capital holding company. We take a patient approach and invest for the long term.
+              {LAMBDA_GROWTH_CAPITAL_DESCRIPTION}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12 max-w-6xl mx-auto">
               <div className="text-center">

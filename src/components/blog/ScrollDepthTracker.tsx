@@ -40,6 +40,9 @@ export default function ScrollDepthTracker({
             post_slug: postSlug,
             percent: milestone,
           });
+          if (milestone === 100) {
+            track("scroll_100", { post_slug: postSlug });
+          }
         }
       }
     };

@@ -6,6 +6,11 @@ import "./blog/blog.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
+import {
+  LAMBDA_GROWTH_CAPITAL_DESCRIPTION,
+  LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT,
+  LAMBDA_ORGANIZATION_JSON_LD,
+} from "@/config/cta";
 
 /**
  * The site's two typefaces.
@@ -29,10 +34,9 @@ const robotoCondensed = Roboto_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.lambdavp.com"),
   title: "Lambda Capital - Investing in Mission-Critical Technology",
-  description:
-    "Lambda Capital is a permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",
+  description: LAMBDA_GROWTH_CAPITAL_DESCRIPTION,
   keywords:
-    "permanent capital, vertical SaaS, govtech, compliance technology, financial services technology, national security, investment",
+    "growth capital, vertical SaaS, govtech, compliance technology, financial services technology, national security, software financing",
   authors: [{ name: "Lambda Capital" }],
   creator: "Lambda Capital",
   publisher: "Lambda Capital",
@@ -60,16 +64,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     title: "Lambda Capital - Investing in Mission-Critical Technology",
-    description:
-      "A permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",
+    description: LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT,
     siteName: "Lambda Capital",
   },
 
   twitter: {
     card: "summary_large_image",
     title: "Lambda Capital - Investing in Mission-Critical Technology",
-    description:
-      "A permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",
+    description: LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT,
   },
   robots: {
     index: true,
@@ -107,6 +109,12 @@ export default function RootLayout({
       className={`${inter.variable} ${robotoCondensed.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(LAMBDA_ORGANIZATION_JSON_LD),
+          }}
+        />
         <Suspense fallback={null}>
           <AnalyticsProvider>
             <a href="#main-content" className="skip-to-content">
