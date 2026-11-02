@@ -103,9 +103,9 @@ test.describe("founder continue control", () => {
       expect(box).toBeTruthy();
       if (box) {
         // Full-width sticky control should sit near the bottom of the
-        // 390px viewport and span most of the content width.
+        // 390px viewport and span nearly the full content width.
         expect(box.y + box.height).toBeGreaterThan(700);
-        expect(box.width).toBeGreaterThan(250);
+        expect(box.width).toBeGreaterThan(300);
       }
     }
 

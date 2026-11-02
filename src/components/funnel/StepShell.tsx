@@ -32,7 +32,7 @@ const FORWARD_BUTTON =
   "hover:border-lambda-border-strong hover:bg-lambda-raised " +
   "disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent " +
   "disabled:hover:border-lambda-border " +
-  "max-sm:w-full max-sm:flex-1";
+  "max-sm:w-full";
 
 export function StepShell({
   questionId,
@@ -116,16 +116,16 @@ export function StepShell({
       <div
         className={
           "mt-10 flex items-center gap-3 " +
-          "max-sm:sticky max-sm:bottom-0 max-sm:z-10 " +
-          "max-sm:-mx-6 max-sm:border-t max-sm:border-lambda-border " +
-          "max-sm:bg-lambda-panel max-sm:px-6 max-sm:py-3"
+          "max-sm:sticky max-sm:bottom-0 max-sm:z-10 max-sm:flex-col-reverse " +
+          "max-sm:items-stretch max-sm:-mx-6 max-sm:border-t " +
+          "max-sm:border-lambda-border max-sm:bg-lambda-panel max-sm:px-6 max-sm:py-3"
         }
       >
         <button
           type="button"
           onClick={onBack}
           disabled={!canGoBack}
-          className={BACK_BUTTON}
+          className={`${BACK_BUTTON} max-sm:self-start`}
           aria-label="Previous question"
         >
           <ArrowLeftIcon />
@@ -134,7 +134,7 @@ export function StepShell({
         {forwardMode === "hidden" ? (
           // Keeps the back button pinned left when there is no forward
           // control — single-selects advance on click and need none.
-          <span aria-hidden="true" className="h-11 w-11 max-sm:ml-auto" />
+          <span aria-hidden="true" className="h-11 w-11 max-sm:hidden" />
         ) : (
           <button
             type="button"
