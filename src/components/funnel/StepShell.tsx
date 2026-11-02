@@ -27,12 +27,12 @@ const BACK_BUTTON =
   "disabled:hover:border-lambda-border";
 
 const FORWARD_BUTTON =
-  "inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-lambda-border " +
+  "flex h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-lambda-border " +
   "px-5 text-sm font-medium text-lambda-body transition-colors " +
   "hover:border-lambda-border-strong hover:bg-lambda-raised " +
   "disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent " +
   "disabled:hover:border-lambda-border " +
-  "max-sm:w-full";
+  "max-sm:w-full max-sm:rounded-lg";
 
 export function StepShell({
   questionId,
