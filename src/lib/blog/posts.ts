@@ -718,6 +718,47 @@ export const INVOICE_ACCEPTANCE_POST: BlogPostMeta = {
   breadcrumbsTitle: "Government Invoice Acceptance",
 };
 
+const INVOICE_PAYMENT_STATUS_SLUG = "government-invoice-payment-status";
+
+const INVOICE_PAYMENT_STATUS_DATE = "2026-11-02";
+
+const INVOICE_PAYMENT_STATUS_H2_TEXTS = [
+  "The direct answer",
+  "The problem: the invoice nobody was watching",
+  "Where to look: federal and state",
+  "What each status means, and who acts",
+  "Why Texas pays near day 30",
+  "The decision",
+  "A weekly status routine (agency facing)",
+  "Lesson: a status is a to do list",
+  "Bridging what remains: use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const INVOICE_PAYMENT_STATUS_HEADINGS: BlogHeading[] =
+  INVOICE_PAYMENT_STATUS_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const INVOICE_PAYMENT_STATUS_POST: BlogPostMeta = {
+  slug: INVOICE_PAYMENT_STATUS_SLUG,
+  metaTitle: "How to Check When a Government Agency Will Pay Your Invoice",
+  h1: "How Do I Check When the Government Will Pay My Invoice?",
+  description:
+    "Federal and state systems show where your invoice sits. Here is how to read each status, what to fix, and how to plan cash around the pay date.",
+  category: "Growth capital",
+  date: INVOICE_PAYMENT_STATUS_DATE,
+  updated: INVOICE_PAYMENT_STATUS_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-government-invoice-payment-status-hero.jpg",
+  ogImage: `/og/blog-${INVOICE_PAYMENT_STATUS_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Invoice Payment Status",
+};
+
 const PURCHASE_CARD_SLUG =
   "government-purchase-card-payment-software-vendors";
 
@@ -842,6 +883,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  INVOICE_PAYMENT_STATUS_POST,
   PURCHASE_CARD_POST,
   INVOICE_ACCEPTANCE_POST,
   CASH_FLOW_GAP_POST,
@@ -894,6 +936,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return EARLY_PAYMENT_DISCOUNT_HEADINGS;
   if (slug === CASH_FLOW_GAP_SLUG) return CASH_FLOW_GAP_HEADINGS;
   if (slug === INVOICE_ACCEPTANCE_SLUG) return INVOICE_ACCEPTANCE_HEADINGS;
+  if (slug === INVOICE_PAYMENT_STATUS_SLUG)
+    return INVOICE_PAYMENT_STATUS_HEADINGS;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
@@ -936,6 +980,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return EARLY_PAYMENT_DISCOUNT_JSON_LD;
   if (slug === CASH_FLOW_GAP_SLUG) return CASH_FLOW_GAP_JSON_LD;
   if (slug === INVOICE_ACCEPTANCE_SLUG) return INVOICE_ACCEPTANCE_JSON_LD;
+  if (slug === INVOICE_PAYMENT_STATUS_SLUG)
+    return INVOICE_PAYMENT_STATUS_JSON_LD;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
@@ -2554,6 +2600,83 @@ export const INVOICE_ACCEPTANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: INVOICE_ACCEPTANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const INVOICE_PAYMENT_STATUS_FAQ: FaqItem[] = [
+  {
+    question: "How do you check the status of a federal invoice?",
+    answer:
+      "If your contract uses Treasury's IPP, sign in as a Collector and search by invoice or purchase order number. If it uses another system, ask your billing office.",
+  },
+  {
+    question: "What does In Exception mean in IPP?",
+    answer:
+      "Your invoice failed the buyer's checks when you submitted it. You must fix it and submit it again before it can move forward.",
+  },
+  {
+    question: "What is the difference between Approved to Pay and Scheduled To Pay?",
+    answer:
+      "Approved to Pay means the invoice is approved but has no pay date yet. Scheduled To Pay means a pay date is set.",
+  },
+  {
+    question: "Why does a Texas agency pay on the due date instead of early?",
+    answer:
+      "Texas law has agencies schedule payments for just before they would be late. Early payment is allowed in some cases, such as an invoice under $5,000 or a business reason.",
+  },
+  {
+    question: "How do you know when a Texas agency has paid you?",
+    answer:
+      "Use the Comptroller's SSPI tool, and sign up for its Advance Payment Notification email. For payments not yet issued, ask the paying agency.",
+  },
+  {
+    question: "Does checking status make the government pay faster?",
+    answer:
+      "Not by itself. It finds failed or stuck invoices sooner, so you can fix them before they cost you weeks.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const INVOICE_PAYMENT_STATUS_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "How to Check When a Government Agency Will Pay Your Invoice",
+      description:
+        "Federal and state systems show where your invoice sits. Here is how to read each status, what to fix, and how to plan cash around the pay date.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-02",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-invoice-payment-status",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: INVOICE_PAYMENT_STATUS_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
