@@ -107,7 +107,7 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <p className="text-muted leading-relaxed">
+                <p className="text-lg text-foreground leading-relaxed">
                   We provide growth capital to profitable software companies where a venture raise is the wrong fit.
                 </p>
               </motion.div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <p className="text-muted leading-relaxed">
+                <p className="text-lg text-foreground leading-relaxed">
                   We work with founders who need capital for the next hires, contracts or products.
                 </p>
               </motion.div>
@@ -141,8 +141,8 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
-                <p className="text-muted leading-relaxed">
-                  We structure growth capital to fit the company. The details depend on the opportunity.
+                <p className="text-lg text-foreground leading-relaxed">
+                  We structure growth capital to fit the company. The details depend on the opportunity. We keep agreements simple and aligned with the founder&apos;s plan.
                 </p>
               </motion.div>
             </div>
@@ -215,55 +215,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* How we partner - Side by side */}
-      <section className="section-padding bg-gradient-to-br from-secondary/50 to-background">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="flex items-start gap-6 mb-12">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ type: 'spring', duration: 0.6 }}
-                viewport={{ once: true }}
-                className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center text-white font-bold text-2xl shadow-lg"
-              >
-                3
-              </motion.div>
-              <div className="flex-1">
-                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
-                  How we partner
-                </h2>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="card p-8"
-              >
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <p className="text-lg text-muted leading-relaxed">
-                  We keep agreements simple and aligned with the founder&apos;s plan.
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Growth capital - Feature Highlight */}
       <section className="section-padding bg-background">
         <div className="container-custom">
@@ -282,7 +233,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center text-white font-bold text-2xl shadow-lg"
               >
-                4
+                3
               </motion.div>
               <div className="flex-1">
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
@@ -323,7 +274,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Track record - Split Design */}
+      {/* Our approach - Split Design */}
       <section className="section-padding bg-secondary/30">
         <div className="container-custom">
           <motion.div
@@ -341,11 +292,11 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center text-white font-bold text-2xl shadow-lg"
               >
-                5
+                4
               </motion.div>
               <div className="flex-1">
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
-                  Track record and approach
+                  Our approach
                 </h2>
               </div>
             </div>
