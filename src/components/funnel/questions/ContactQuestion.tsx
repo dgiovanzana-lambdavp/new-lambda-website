@@ -15,6 +15,8 @@ interface ContactQuestionProps {
   onHoneypotChange: (value: string) => void;
   /** Submit on Enter from any field. */
   onSubmitStep: () => void;
+  /** First focus or keystroke marks a real funnel start. */
+  onInteract?: () => void;
 }
 
 const INPUT_BASE =
@@ -24,14 +26,13 @@ const INPUT_BASE =
   "focus-visible:outline-lambda-accent";
 
 /**
- * The contact step — the first screen after persona selection, and the
- * reason the whole funnel is ordered the way it is.
+ * The contact step.
  *
- * Asking for contact details before qualification feels backwards and
- * is deliberate: someone who abandons at question 4 is still a named
- * lead with an email address, and most abandonment happens after the
- * email is already typed. Moving this to the end would forfeit every
- * partial lead the funnel produces.
+ * On founder and LP lanes this sits after one or two one-click
+ * questions. Asking for contact details while the visitor is still
+ * engaged means someone who abandons later is still a named lead with
+ * an email address. Most abandonment happens after the email is already
+ * typed.
  */
 export function ContactQuestion({
   question,
@@ -41,6 +42,7 @@ export function ContactQuestion({
   honeypot,
   onHoneypotChange,
   onSubmitStep,
+  onInteract,
 }: ContactQuestionProps) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -81,8 +83,13 @@ export function ContactQuestion({
               // invisible to anyone not looking at it.
               aria-invalid={error ? true : undefined}
               aria-describedby={error ? errorId : undefined}
-              onChange={(e) => onChange(field.name, e.target.value)}
+              onFocus={() => onInteract?.()}
+              onChange={(e) => {
+                onInteract?.();
+                onChange(field.name, e.target.value);
+              }}
               onKeyDown={(e) => {
+                onInteract?.();
                 if (e.key === "Enter") {
                   e.preventDefault();
                   onSubmitStep();

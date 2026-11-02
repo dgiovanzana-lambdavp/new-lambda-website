@@ -16,12 +16,18 @@ describe("lp question path", () => {
     });
 
     expect(pathIds).toEqual([
-      "contact",
       "investor_type",
       "discuss",
+      "contact",
       "notes",
       "heard_about",
     ]);
+  });
+
+  it("puts one-click questions before contact", () => {
+    const ids = lpQuestions.map((question) => question.id);
+    expect(ids.indexOf("investor_type")).toBeLessThan(ids.indexOf("contact"));
+    expect(ids.indexOf("discuss")).toBeLessThan(ids.indexOf("contact"));
   });
 
   it("keeps optional notes off the required path when blank", () => {
@@ -32,9 +38,9 @@ describe("lp question path", () => {
     });
 
     expect(pathIds).toEqual([
-      "contact",
       "investor_type",
       "discuss",
+      "contact",
       "notes",
       "heard_about",
     ]);
@@ -100,9 +106,9 @@ describe("investor walks the lp funnel", () => {
     }
 
     expect(steps).toEqual([
-      "contact",
       "investor_type",
       "discuss",
+      "contact",
       "notes",
       "heard_about",
     ]);

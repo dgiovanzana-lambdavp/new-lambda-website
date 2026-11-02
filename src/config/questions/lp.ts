@@ -8,8 +8,37 @@ import type { Question } from "./types";
  * and non-promotional: the copy describes a conversation, not an
  * investment. Check size, accreditation, and net worth stay off the
  * public form and are handled by a human follow-up.
+ *
+ * One-click questions come before contact so the first screen is a
+ * tap, not a form.
  */
 export const lpQuestions: Question[] = [
+  {
+    id: "investor_type",
+    type: "choice",
+    title: "Which best describes you?",
+    required: true,
+    options: [
+      { value: "family_office", label: "Family office" },
+      { value: "institutional", label: "Institutional investor" },
+      { value: "fund_of_funds", label: "Fund of funds" },
+      { value: "individual", label: "Individual investor" },
+      { value: "advisor", label: "Financial advisor / consultant" },
+      { value: "other", label: "Other" },
+    ],
+  },
+  {
+    id: "discuss",
+    type: "choice",
+    title: "What would you like to discuss?",
+    required: true,
+    options: [
+      { value: "learn_more", label: "Learning more about Lambda" },
+      { value: "portfolio_company", label: "A specific portfolio company" },
+      { value: "co_investment", label: "Co-investment" },
+      { value: "other", label: "Other" },
+    ],
+  },
   {
     id: "contact",
     type: "contact",
@@ -55,32 +84,6 @@ export const lpQuestions: Question[] = [
         autoComplete: "organization",
         width: "half",
       },
-    ],
-  },
-  {
-    id: "investor_type",
-    type: "choice",
-    title: "Which best describes you?",
-    required: true,
-    options: [
-      { value: "family_office", label: "Family office" },
-      { value: "institutional", label: "Institutional investor" },
-      { value: "fund_of_funds", label: "Fund of funds" },
-      { value: "individual", label: "Individual investor" },
-      { value: "advisor", label: "Financial advisor / consultant" },
-      { value: "other", label: "Other" },
-    ],
-  },
-  {
-    id: "discuss",
-    type: "choice",
-    title: "What would you like to discuss?",
-    required: true,
-    options: [
-      { value: "learn_more", label: "Learning more about Lambda" },
-      { value: "portfolio_company", label: "A specific portfolio company" },
-      { value: "co_investment", label: "Co-investment" },
-      { value: "other", label: "Other" },
     ],
   },
   {
