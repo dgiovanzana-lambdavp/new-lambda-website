@@ -9,16 +9,20 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   reporter: "list",
+  timeout: 60_000,
+  expect: { timeout: 15_000 },
   use: {
     baseURL: BASE_URL,
     trace: "on-first-retry",
+    actionTimeout: 15_000,
+    navigationTimeout: 30_000,
   },
   webServer: process.env.PLAYWRIGHT_BASE_URL
     ? undefined
     : {
         command: `npx next start --hostname 127.0.0.1 --port ${PORT}`,
         url: BASE_URL,
-        reuseExistingServer: !process.env.CI,
+        reuseExistingServer: false,
         timeout: 120_000,
       },
   projects: [

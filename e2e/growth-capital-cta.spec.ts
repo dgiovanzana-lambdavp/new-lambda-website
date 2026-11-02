@@ -30,13 +30,12 @@ test.describe("home hero growth capital CTA", () => {
     page,
   }, testInfo) => {
     await mockOutbound(page);
-    await page.goto("/");
+    await page.goto("/", { waitUntil: "load" });
+    await page.locator("h1").waitFor({ state: "visible" });
 
-    await expect(
-      page.getByRole("heading", {
-        name: "Growth capital for profitable software companies.",
-      }),
-    ).toBeVisible();
+    const heroHeading = page.getByRole("heading", { level: 1 });
+    await expect(heroHeading).toContainText("Growth capital for");
+    await expect(heroHeading).toContainText("profitable software companies.");
     await expect(
       page.getByText(
         "Fund your next hires, contract or product without raising venture capital.",
@@ -62,8 +61,9 @@ test.describe("blog owner CTA", () => {
     page,
   }, testInfo) => {
     await mockOutbound(page);
-    await page.goto("/blog/meta-hyperion-data-center-spv-financing");
-
+    await page.goto("/blog/meta-hyperion-data-center-spv-financing", {
+      waitUntil: "load",
+    });
 
     const band = page.locator(".blog-cta-band");
     await expect(band.getByRole("heading", { level: 2 })).toHaveText(
@@ -99,8 +99,9 @@ test.describe("founder thank-you calendar", () => {
     page,
   }, testInfo) => {
     await mockOutbound(page);
-    await page.goto("/contact/founder?resetProgress=1");
-
+    await page.goto("/contact/founder?resetProgress=1", {
+      waitUntil: "load",
+    });
     await page.getByRole("radio", { name: "GovTech" }).click();
     await page.getByRole("radio", { name: "$3M - $10M" }).click();
 
@@ -131,6 +132,7 @@ test.describe("founder thank-you calendar", () => {
     await expect(
       page.getByRole("heading", { name: "Thanks, Maya." }),
     ).toBeVisible();
+    await expect(page.getByText(/Thanks, we got your note/)).toBeVisible();
     await expect(page.getByText(/find a time to talk/)).toBeVisible();
     await expect(
       page.getByTitle("Schedule a meeting with Lambda Capital"),

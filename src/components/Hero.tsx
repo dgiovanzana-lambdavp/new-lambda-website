@@ -52,7 +52,9 @@ const Hero: React.FC = () => {
             </p>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white max-w-5xl mx-auto leading-tight">
-              {HOME_HERO_COPY.headline}
+              Growth capital for
+              <br />
+              profitable software companies.
             </h1>
           
           <motion.p

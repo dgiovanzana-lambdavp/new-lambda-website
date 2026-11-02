@@ -12,7 +12,7 @@ export const LAMBDA_GROWTH_CAPITAL_DESCRIPTION =
   "Lambda Capital provides growth capital to profitable, bootstrapped vertical software companies, so founders can fund their next hires, contracts or products without raising venture capital." as const;
 
 export const LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT =
-  "Lambda Capital provides growth capital to profitable software companies." as const;
+  "Lambda Capital provides growth capital to profitable software companies in vertical markets." as const;
 
 export const LAMBDA_ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",

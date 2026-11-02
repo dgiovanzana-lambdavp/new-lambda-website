@@ -49,7 +49,7 @@ export default function AboutPage() {
               </span>
             </h1>
 
-            <div className="space-y-6 text-lg md:text-xl text-muted leading-relaxed">
+            <div className="space-y-6 text-lg md:text-xl text-foreground/90 leading-relaxed">
               {taglines.map((tagline, index) => (
                 <motion.div
                   key={index}
@@ -125,7 +125,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-muted leading-relaxed">
-                  We work with founders who need capital for the next hires, contracts or products, and who want a clear partner.
+                  We work with founders who need capital for the next hires, contracts or products.
                 </p>
               </motion.div>
 
@@ -242,24 +242,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="card p-8"
-              >
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <p className="text-lg text-muted leading-relaxed">
-                  We tailor the capital to the company. Founders stay in charge of the business they are building.
-                </p>
-              </motion.div>
-
+            <div className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -273,7 +256,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-lg text-muted leading-relaxed">
-                  We prefer agreements that align incentives and keep execution simple. We work with management, not around it.
+                  We keep agreements simple and aligned with the founder&apos;s plan.
                 </p>
               </motion.div>
             </div>
@@ -329,7 +312,7 @@ export default function AboutPage() {
                   Lambda Capital provides growth capital so founders can fund the next stage without raising venture capital.
                 </p>
                 <p>
-                  That focus lets us emphasize durable cash flow, clear use of proceeds, and growth that fits the business.
+                  We look for durable cash flow, a clear use of proceeds, and growth that fits the business.
                 </p>
                 <p>
                   We take a long view with companies that already work, and that want capital matched to their next hires, contracts or products.
@@ -377,7 +360,7 @@ export default function AboutPage() {
               >
                 <h3 className="text-2xl font-bold text-foreground mb-4">We fund growth</h3>
                 <p className="text-lg text-muted leading-relaxed">
-                  We focus on profitable outcomes and capital that helps founders grow what they have already built.
+                  We back founders growing what they have already built.
                 </p>
               </motion.div>
 

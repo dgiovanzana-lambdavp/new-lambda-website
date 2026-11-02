@@ -47,8 +47,9 @@ for (const lane of [
   test.describe(`${lane.path}`, () => {
     test("step 1 renders and advances", async ({ page }, testInfo) => {
       await mockOutbound(page);
-      await page.goto(`${lane.path}?resetProgress=1`);
-
+      await page.goto(`${lane.path}?resetProgress=1`, {
+        waitUntil: "load",
+      });
       await expect(
         page.getByRole("heading", { name: lane.step1Heading }),
       ).toBeVisible();
@@ -86,8 +87,9 @@ for (const lane of [
 test.describe("founder continue control", () => {
   test("shows Continue on the contact step", async ({ page }, testInfo) => {
     await mockOutbound(page);
-    await page.goto("/contact/founder?resetProgress=1");
-
+    await page.goto("/contact/founder?resetProgress=1", {
+      waitUntil: "load",
+    });
     await page.getByRole("radio", { name: "GovTech" }).click();
     await page.getByRole("radio", { name: "$3M - $10M" }).click();
 

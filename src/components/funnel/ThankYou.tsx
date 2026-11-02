@@ -117,7 +117,7 @@ export function ThankYou({
             height, so this must not grow into a paragraph.
           */}
           <p className="text-lg text-lambda-body">
-            Let&rsquo;s find a time to talk.
+            Thanks, we got your note. Let&rsquo;s find a time to talk.
           </p>
 
           {showCalendar ? (
