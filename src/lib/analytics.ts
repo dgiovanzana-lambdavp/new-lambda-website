@@ -20,11 +20,19 @@ import type { Persona } from "@/lib/leads/types";
  * payloads is only a value the server already decided.
  */
 
-/** The seven funnel events. A closed set, so reports stay comparable. */
+/**
+ * Funnel events. A closed set, so reports stay comparable.
+ *
+ * `funnel_view` fires on page load. `funnel_start` fires on the first
+ * real interaction (focus, keypress, or pill click), so bounces are
+ * not counted as abandoned starts.
+ */
 export type FunnelEvent =
+  | "funnel_view"
   | "funnel_start"
   | "funnel_step_view"
   | "funnel_answer"
+  | "funnel_validation_error"
   | "funnel_partial"
   | "funnel_complete"
   | "funnel_calendar_shown"
@@ -44,6 +52,8 @@ export interface EventProps {
   step_id?: string;
   utm_source?: string;
   tier?: string;
+  /** Failing field names for `funnel_validation_error`. */
+  fields?: string[];
   [key: string]: unknown;
 }
 
@@ -72,6 +82,7 @@ export function ensureAnalytics(): void {
     api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com",
     capture_pageview: false,
     autocapture: false,
+    capture_exceptions: true,
     disable_session_recording: true,
     persistence: "memory",
   });

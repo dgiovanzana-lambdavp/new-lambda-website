@@ -19,7 +19,7 @@ import type {
   LeadSubmission,
   Persona,
 } from "@/lib/leads/types";
-import { clearSessionId, getSessionId } from "@/lib/session";
+import { getSessionId } from "@/lib/session";
 import { StepShell } from "./StepShell";
 import { ChoiceQuestion } from "./questions/ChoiceQuestion";
 import { ContactQuestion } from "./questions/ContactQuestion";
@@ -31,6 +31,9 @@ import { ThankYou } from "./ThankYou";
 const ADVANCE_DELAY_MS = 180;
 
 const EMPTY_VALIDATION: StepValidation = { ok: true, fieldErrors: {} };
+
+/** Sentinel written when an all-optional contact step is continued. */
+const OPTIONAL_CONTACT_DONE = "done";
 
 interface FunnelProps {
   persona: Persona;
@@ -58,6 +61,7 @@ export function Funnel({ persona }: FunnelProps) {
   const startedAtRef = useRef(Date.now());
   const advancingRef = useRef(false);
   const partialSentRef = useRef(false);
+  const funnelStartedRef = useRef(false);
   /**
    * The beacon fires from an event handler during page teardown, where
    * reading React state would give whatever was captured when the
@@ -83,6 +87,12 @@ export function Funnel({ persona }: FunnelProps) {
     (q) => q.id === currentId,
   );
 
+  const markFunnelStart = useCallback(() => {
+    if (funnelStartedRef.current) return;
+    funnelStartedRef.current = true;
+    track("funnel_start", { persona, utm_source: utmSource });
+  }, [persona, utmSource]);
+
   // ── Hydration ───────────────────────────────────────────────────
   // sessionStorage cannot be read during render without causing a
   // hydration mismatch, so restoring happens here and the flow renders
@@ -100,7 +110,7 @@ export function Funnel({ persona }: FunnelProps) {
     // distinct_id = sessionId, so the client funnel and the server lead
     // row describe the same person and the two are joinable.
     initAnalytics(id);
-    track("funnel_start", { persona, utm_source: attribution.utm_source });
+    track("funnel_view", { persona, utm_source: attribution.utm_source });
 
     const restored = loadState(persona);
     setState(restored);
@@ -238,7 +248,7 @@ export function Funnel({ persona }: FunnelProps) {
         setStatus("error");
       }
     },
-    [buildSubmission, honeypot, questions],
+    [buildSubmission, honeypot, questions, persona, utmSource],
   );
 
   // ── Partial capture ─────────────────────────────────────────────
@@ -251,10 +261,14 @@ export function Funnel({ persona }: FunnelProps) {
       if (partialSentRef.current) return;
 
       const { state: latest } = latestRef.current;
+      // Nothing to capture until an email exists — a partial with no
+      // email is a row you can never act on. Required name fields are
+      // still validated on the contact step itself.
+      const email = (latest.contact.email ?? "").trim();
+      if (!email) return;
+
       const contactQuestion = questions.find((q) => q.type === "contact");
-      // Nothing to capture until contact details exist — a partial with
-      // no email is a row you can never act on.
-      if (!contactQuestion || !isAnswered(contactQuestion, latest)) return;
+      if (contactQuestion && !isAnswered(contactQuestion, latest)) return;
 
       const latestPath = resolvePath(questions, latest.answers);
       const completed = latestPath.filter((id) => {
@@ -288,7 +302,7 @@ export function Funnel({ persona }: FunnelProps) {
       document.removeEventListener("visibilitychange", onVisibilityChange);
       window.removeEventListener("beforeunload", flush);
     };
-  }, [buildSubmission, honeypot, questions, status]);
+  }, [buildSubmission, honeypot, persona, questions, status, utmSource]);
 
   // ── Navigation ──────────────────────────────────────────────────
   const goBack = useCallback(() => {
@@ -302,14 +316,33 @@ export function Funnel({ persona }: FunnelProps) {
     const result = validateStep(current, state.answers, state.contact);
     if (!result.ok) {
       setValidation(result);
+      const failingFields = Object.keys(result.fieldErrors);
+      track("funnel_validation_error", {
+        persona,
+        step_id: current.id,
+        utm_source: utmSource,
+        fields: failingFields.length > 0 ? failingFields : [current.id],
+      });
       return;
     }
     setValidation(EMPTY_VALIDATION);
 
-    const nextId = path[currentIndex + 1];
+    let nextState = state;
+    // All-optional contact steps need a sentinel so resume does not
+    // skip them before the visitor has seen them.
+    if (current.type === "contact" && isOptionalOnlyContact(current)) {
+      nextState = {
+        ...state,
+        answers: { ...state.answers, [current.id]: OPTIONAL_CONTACT_DONE },
+      };
+      setState(nextState);
+    }
+
+    const nextPath = resolvePath(questions, nextState.answers);
+    const nextId = nextPath[nextPath.indexOf(current.id) + 1];
     if (nextId) setCurrentId(nextId);
-    else void submit(state);
-  }, [current, currentIndex, path, state, submit]);
+    else void submit(nextState);
+  }, [current, persona, questions, state, submit, utmSource]);
 
   /**
    * Single-select: record the answer and advance without a Next click.
@@ -322,6 +355,8 @@ export function Funnel({ persona }: FunnelProps) {
     (questionId: string, value: string) => {
       if (advancingRef.current) return;
       advancingRef.current = true;
+
+      markFunnelStart();
 
       const nextAnswers = { ...state.answers, [questionId]: value };
       const nextState = { ...state, answers: nextAnswers };
@@ -343,7 +378,7 @@ export function Funnel({ persona }: FunnelProps) {
         else void submit(nextState);
       }, ADVANCE_DELAY_MS);
     },
-    [questions, state, submit],
+    [markFunnelStart, persona, questions, state, submit, utmSource],
   );
 
   // ── Render ──────────────────────────────────────────────────────
@@ -414,6 +449,7 @@ export function Funnel({ persona }: FunnelProps) {
             honeypot={honeypot}
             onHoneypotChange={setHoneypot}
             onSubmitStep={goForward}
+            onInteract={markFunnelStart}
           />
         );
 
@@ -439,12 +475,13 @@ export function Funnel({ persona }: FunnelProps) {
                 ? (state.answers[current.id] as string[])
                 : []
             }
-            onChange={(value) =>
+            onChange={(value) => {
+              markFunnelStart();
               setState((s) => ({
                 ...s,
                 answers: { ...s.answers, [current.id]: value },
-              }))
-            }
+              }));
+            }}
           />
         );
 
@@ -457,12 +494,13 @@ export function Funnel({ persona }: FunnelProps) {
                 ? (state.answers[current.id] as string)
                 : ""
             }
-            onChange={(value) =>
+            onChange={(value) => {
+              markFunnelStart();
               setState((s) => ({
                 ...s,
                 answers: { ...s.answers, [current.id]: value },
-              }))
-            }
+              }));
+            }}
             onSubmitStep={goForward}
           />
         );
@@ -473,9 +511,23 @@ export function Funnel({ persona }: FunnelProps) {
   }
 }
 
+function isOptionalOnlyContact(question: Question): boolean {
+  return (
+    question.type === "contact" && question.fields.every((field) => !field.required)
+  );
+}
+
 /** Whether a question has a usable answer, used for resume and counts. */
 function isAnswered(question: Question, state: PersistedState): boolean {
   if (question.type === "contact") {
+    if (isOptionalOnlyContact(question)) {
+      return (
+        state.answers[question.id] === OPTIONAL_CONTACT_DONE ||
+        question.fields.some(
+          (f) => (state.contact[f.name] ?? "").trim().length > 0,
+        )
+      );
+    }
     return question.fields
       .filter((f) => f.required)
       .every((f) => (state.contact[f.name] ?? "").trim().length > 0);

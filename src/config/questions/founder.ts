@@ -11,10 +11,10 @@ import type { Question } from "./types";
 /**
  * Founder branch — the primary lane.
  *
- * Question order is deliberate: the three hard gates (focus area,
- * revenue, profitability) come first, so a visitor who abandons at
- * question 4 has already given us everything needed to tier them. That
- * only pays off because contact details were captured at question 1.
+ * Question order is deliberate: one or two one-click gates come before
+ * contact details so the first screen is low-friction. Contact still
+ * lands early enough that a visitor who abandons mid-funnel is a named
+ * lead. Phone and website sit later as optional.
  *
  * Lambda's structure is credit-first with an equity component — a loan
  * first, equity second. That makes qualification substantially more
@@ -22,6 +22,42 @@ import type { Question } from "./types";
  * real gates, not judgement calls.
  */
 export const founderQuestions: Question[] = [
+  // ── GATE 1 ────────────────────────────────────────────────────────
+  {
+    id: "focus_area",
+    type: "choice",
+    title: "Which best describes your company?",
+    required: true,
+    options: FOCUS_AREAS.map((value) => ({
+      value,
+      label: FOCUS_AREA_LABELS[value],
+    })),
+    /**
+     * The only branch point in this tree.
+     *
+     * Someone outside the focus areas is not a fit regardless of how
+     * they answer everything else, so running them through six more
+     * questions wastes their time and teaches us nothing. Short-circuit
+     * through contact (so we still have a name) to a free-text capture,
+     * then a courteous decline. The record is still stored — an
+     * out-of-focus founder today may be a referral source later.
+     */
+    next: (answers) =>
+      answers.focus_area === "none" ? "contact" : "revenue",
+  },
+
+  // ── GATE 2 ────────────────────────────────────────────────────────
+  {
+    id: "revenue",
+    type: "choice",
+    title: "What is your current annual revenue?",
+    required: true,
+    options: REVENUE_BANDS.map((value) => ({
+      value,
+      label: REVENUE_LABELS[value],
+    })),
+  },
+
   {
     id: "contact",
     type: "contact",
@@ -53,67 +89,16 @@ export const founderQuestions: Question[] = [
         width: "full",
       },
       {
-        name: "phone",
-        label: "Phone",
-        type: "tel",
-        required: false,
-        autoComplete: "tel",
-        width: "half",
-      },
-      {
         name: "company",
         label: "Company",
         type: "text",
         required: true,
         autoComplete: "organization",
-        width: "half",
-      },
-      {
-        name: "companyUrl",
-        label: "Company website",
-        type: "url",
-        required: false,
-        autoComplete: "url",
-        placeholder: "https://",
         width: "full",
       },
     ],
-  },
-
-  // ── GATE 1 ────────────────────────────────────────────────────────
-  {
-    id: "focus_area",
-    type: "choice",
-    title: "Which best describes your company?",
-    required: true,
-    options: FOCUS_AREAS.map((value) => ({
-      value,
-      label: FOCUS_AREA_LABELS[value],
-    })),
-    /**
-     * The only branch point in this tree.
-     *
-     * Someone outside the focus areas is not a fit regardless of how
-     * they answer everything else, so running them through six more
-     * questions wastes their time and teaches us nothing. Short-circuit
-     * to a free-text capture and attribution, then a courteous decline.
-     * The record is still stored — an out-of-focus founder today may be
-     * a referral source later.
-     */
     next: (answers) =>
-      answers.focus_area === "none" ? "out_of_focus" : "revenue",
-  },
-
-  // ── GATE 2 ────────────────────────────────────────────────────────
-  {
-    id: "revenue",
-    type: "choice",
-    title: "What is your current annual revenue?",
-    required: true,
-    options: REVENUE_BANDS.map((value) => ({
-      value,
-      label: REVENUE_LABELS[value],
-    })),
+      answers.focus_area === "none" ? "out_of_focus" : "financials",
   },
 
   // ── GATE 3 ────────────────────────────────────────────────────────
@@ -160,6 +145,32 @@ export const founderQuestions: Question[] = [
       { value: "10m_25m", label: "$10M - $25M" },
       { value: "over_25m", label: "Over $25M" },
       { value: "not_sure", label: "Not sure yet" },
+    ],
+  },
+
+  {
+    id: "optional_details",
+    type: "contact",
+    title: "A couple of optional details",
+    subtitle: "Phone and website help us prepare. Skip if you prefer.",
+    fields: [
+      {
+        name: "phone",
+        label: "Phone",
+        type: "tel",
+        required: false,
+        autoComplete: "tel",
+        width: "half",
+      },
+      {
+        name: "companyUrl",
+        label: "Company website",
+        type: "url",
+        required: false,
+        autoComplete: "url",
+        placeholder: "https://",
+        width: "half",
+      },
     ],
   },
 

@@ -19,12 +19,20 @@ interface StepShellProps {
   children: React.ReactNode;
 }
 
-const NAV_BUTTON =
-  "flex h-11 w-11 items-center justify-center rounded-full border border-lambda-border " +
+const BACK_BUTTON =
+  "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-lambda-border " +
   "text-lambda-body transition-colors " +
   "hover:border-lambda-border-strong hover:bg-lambda-raised " +
   "disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent " +
   "disabled:hover:border-lambda-border";
+
+const FORWARD_BUTTON =
+  "flex h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-lambda-border " +
+  "px-5 text-sm font-medium text-lambda-body transition-colors " +
+  "hover:border-lambda-border-strong hover:bg-lambda-raised " +
+  "disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent " +
+  "disabled:hover:border-lambda-border " +
+  "max-sm:w-full max-sm:rounded-lg";
 
 export function StepShell({
   questionId,
@@ -57,6 +65,8 @@ export function StepShell({
   useEffect(() => {
     headingRef.current?.focus({ preventScroll: true });
   }, [questionId]);
+
+  const forwardLabel = forwardMode === "send" ? "Send" : "Continue";
 
   return (
     <div className="flex min-h-full flex-col justify-between">
@@ -103,12 +113,19 @@ export function StepShell({
         )}
       </div>
 
-      <div className="mt-10 flex items-center justify-between">
+      <div
+        className={
+          "mt-10 flex items-center gap-3 " +
+          "max-sm:sticky max-sm:bottom-0 max-sm:z-10 max-sm:flex-col-reverse " +
+          "max-sm:items-stretch max-sm:-mx-6 max-sm:border-t " +
+          "max-sm:border-lambda-border max-sm:bg-lambda-panel max-sm:px-6 max-sm:py-3"
+        }
+      >
         <button
           type="button"
           onClick={onBack}
           disabled={!canGoBack}
-          className={NAV_BUTTON}
+          className={`${BACK_BUTTON} max-sm:self-start`}
           aria-label="Previous question"
         >
           <ArrowLeftIcon />
@@ -117,15 +134,16 @@ export function StepShell({
         {forwardMode === "hidden" ? (
           // Keeps the back button pinned left when there is no forward
           // control — single-selects advance on click and need none.
-          <span aria-hidden="true" className="h-11 w-11" />
+          <span aria-hidden="true" className="h-11 w-11 max-sm:hidden" />
         ) : (
           <button
             type="button"
             onClick={onForward}
             disabled={forwardDisabled}
-            className={NAV_BUTTON}
-            aria-label={forwardMode === "send" ? "Submit" : "Next question"}
+            className={FORWARD_BUTTON}
+            aria-label={forwardLabel}
           >
+            <span>{forwardLabel}</span>
             {forwardMode === "send" ? <SendIcon /> : <ArrowRightIcon />}
           </button>
         )}

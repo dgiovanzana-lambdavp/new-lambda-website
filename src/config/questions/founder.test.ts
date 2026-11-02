@@ -16,23 +16,54 @@ describe("founder question path", () => {
       financials: "ebitda_positive",
       use_of_proceeds: "growth",
       capital_amount: "3m_10m",
+      optional_details: "done",
       timeline: "immediate",
     });
 
     expect(pathIds).toEqual([
-      "contact",
       "focus_area",
       "revenue",
+      "contact",
       "financials",
       "use_of_proceeds",
       "capital_amount",
+      "optional_details",
       "timeline",
     ]);
   });
 
   it("short-circuits out-of-focus founders without attribution", () => {
     const pathIds = resolvePath(founderQuestions, { focus_area: "none" });
-    expect(pathIds).toEqual(["contact", "focus_area", "out_of_focus"]);
+    expect(pathIds).toEqual(["focus_area", "contact", "out_of_focus"]);
+  });
+
+  it("puts one-click gates before contact", () => {
+    const ids = founderQuestions.map((question) => question.id);
+    expect(ids.indexOf("focus_area")).toBeLessThan(ids.indexOf("contact"));
+    expect(ids.indexOf("revenue")).toBeLessThan(ids.indexOf("contact"));
+  });
+
+  it("keeps phone and website off the primary contact screen", () => {
+    const contact = founderQuestions.find((question) => question.id === "contact");
+    expect(contact?.type).toBe("contact");
+    if (contact?.type !== "contact") return;
+    expect(contact.fields.map((field) => field.name)).toEqual([
+      "firstName",
+      "lastName",
+      "email",
+      "company",
+    ]);
+
+    const optional = founderQuestions.find(
+      (question) => question.id === "optional_details",
+    );
+    expect(optional?.type).toBe("contact");
+    if (optional?.type !== "contact") return;
+    expect(optional.fields.map((field) => field.name)).toEqual([
+      "phone",
+      "companyUrl",
+    ]);
+    expect(optional.fields.every((field) => !field.required)).toBe(true);
   });
 
   it("does not ask how they heard about Lambda", () => {
@@ -71,9 +102,10 @@ describe("founder copy", () => {
 
 describe("Maya Chen walks the founder funnel", () => {
   /**
-   * Mirrors a real qualifying founder: contact first, website left
-   * blank, then the six remaining questions. Each step has to validate
-   * before the next one is reachable.
+   * Mirrors a real qualifying founder: one-click gates first, then a
+   * slim contact screen, website left for the optional step, then the
+   * remaining questions. Each step has to validate before the next one
+   * is reachable.
    */
   it("can finish without a website and without an attribution question", () => {
     const contact = {
@@ -93,6 +125,9 @@ describe("Maya Chen walks the founder funnel", () => {
 
       if (question.type === "contact") {
         expect(validateStep(question, answers, contact).ok).toBe(true);
+        if (question.id === "optional_details") {
+          answers.optional_details = "done";
+        }
         steps.push(question.id);
         continue;
       }
@@ -109,12 +144,13 @@ describe("Maya Chen walks the founder funnel", () => {
     }
 
     expect(steps).toEqual([
-      "contact",
       "focus_area",
       "revenue",
+      "contact",
       "financials",
       "use_of_proceeds",
       "capital_amount",
+      "optional_details",
       "timeline",
     ]);
     expect(steps).not.toContain("heard_about");
@@ -132,5 +168,14 @@ describe("progress indicator", () => {
     expect(returnedMarkup).not.toMatch(/of 9/);
     expect(returnedMarkup).not.toMatch(/{currentIndex/);
     expect(returnedMarkup).not.toMatch(/totalSteps/);
+  });
+
+  it("labels the forward control with Continue or Send", () => {
+    const source = readFileSync(
+      path.join(process.cwd(), "src/components/funnel/StepShell.tsx"),
+      "utf8",
+    );
+    expect(source).toContain('"Continue"');
+    expect(source).toContain('"Send"');
   });
 });
