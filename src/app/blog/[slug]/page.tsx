@@ -25,6 +25,7 @@ import WorkingCapitalVsGrowthPostContent from "@/components/blog/WorkingCapitalV
 import EarlyPaymentDiscountPostContent from "@/components/blog/EarlyPaymentDiscountPostContent";
 import CashFlowGapPostContent from "@/components/blog/CashFlowGapPostContent";
 import InvoiceAcceptancePostContent from "@/components/blog/InvoiceAcceptancePostContent";
+import InvoicePaymentStatusPostContent from "@/components/blog/InvoicePaymentStatusPostContent";
 import PurchaseCardPostContent from "@/components/blog/PurchaseCardPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
@@ -37,6 +38,7 @@ import {
   FINANCING_STRATEGY_POST,
   FISCAL_YEAR_2027_POST,
   INVOICE_ACCEPTANCE_POST,
+  INVOICE_PAYMENT_STATUS_POST,
   META_HYPERION_POST,
   NEOCLOUD_POST,
   GOVTECH_POST,
@@ -131,6 +133,8 @@ function PostBody({ slug }: { slug: string }) {
   if (slug === CASH_FLOW_GAP_POST.slug) return <CashFlowGapPostContent />;
   if (slug === INVOICE_ACCEPTANCE_POST.slug)
     return <InvoiceAcceptancePostContent />;
+  if (slug === INVOICE_PAYMENT_STATUS_POST.slug)
+    return <InvoicePaymentStatusPostContent />;
   if (slug === PURCHASE_CARD_POST.slug) return <PurchaseCardPostContent />;
   if (slug === REVOLVING_LINE_POST.slug) return <RevolvingLinePostContent />;
   if (slug === TERM_LOAN_AMORTIZING_POST.slug)
@@ -205,6 +209,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     slug === EARLY_PAYMENT_DISCOUNT_POST.slug ||
     slug === CASH_FLOW_GAP_POST.slug ||
     slug === INVOICE_ACCEPTANCE_POST.slug ||
+    slug === INVOICE_PAYMENT_STATUS_POST.slug ||
     slug === PURCHASE_CARD_POST.slug
       ? "Signed contracts and long receivables?"
       : "Growing a GovTech software company?";
