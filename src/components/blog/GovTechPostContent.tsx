@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import InlineCta from "./InlineCta";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
 import { GOVTECH_FAQ, GOVTECH_POST, POST_HEADINGS } from "@/lib/blog/posts";
@@ -393,8 +392,6 @@ export default function GovTechPostContent() {
         </ExtLink>
         )
       </p>
-
-      <InlineCta postSlug={GOVTECH_POST.slug} />
 
       <h2
         id={

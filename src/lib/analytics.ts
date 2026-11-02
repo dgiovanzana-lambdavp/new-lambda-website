@@ -11,7 +11,8 @@ import type { Persona } from "@/lib/leads/types";
  * What this module covers once the key is present:
  *   • site-wide `$pageview` via `trackPageview` / AnalyticsProvider
  *     (initial load + App Router SPA navigations; blog tagged)
- *   • blog `blog_cta_click`, `jump_link_click`, `blog_scroll_depth`
+ *   • blog `cta_view`, `cta_click`, `scroll_100`, plus legacy
+ *     `blog_cta_click` / `blog_scroll_depth` / `jump_link_click`
  *   • contact funnel events via `track` + `initAnalytics`
  *
  * Every call no-ops when the key is unset — local/test stay clean.
@@ -42,6 +43,9 @@ export type FunnelEvent =
 /** Marketing / blog events outside the contact funnel. */
 export type MarketingEvent =
   | "blog_cta_click"
+  | "cta_view"
+  | "cta_click"
+  | "scroll_100"
   | "jump_link_click"
   | "blog_scroll_depth";
 
@@ -54,6 +58,8 @@ export interface EventProps {
   tier?: string;
   /** Failing field names for `funnel_validation_error`. */
   fields?: string[];
+  /** Where a CTA lived when clicked or viewed. */
+  location?: string;
   [key: string]: unknown;
 }
 

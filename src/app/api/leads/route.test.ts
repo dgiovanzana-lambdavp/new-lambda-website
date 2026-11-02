@@ -204,7 +204,7 @@ describe("POST /api/leads — other realistic paths", () => {
     expect(lastStored().scoring).toBeNull();
   });
 
-  it("declines an out-of-focus founder without exposing the reason", async () => {
+  it("scores an out-of-focus founder as decline but still returns the calendar", async () => {
     const { status, json } = await postLead(
       harborComplianceLead({
         answers: {
@@ -223,7 +223,11 @@ describe("POST /api/leads — other realistic paths", () => {
     );
 
     expect(status).toBe(200);
-    expect(json).toEqual({ outcome: "decline" });
+    // Public response always offers the calendar; scoring stays internal.
+    expect(json).toEqual({
+      outcome: "book",
+      calendarUrl: BOOKING_CONFIG.embedUrl,
+    });
     expect(json).not.toHaveProperty("failedGates");
     expect(lastStored().scoring).toMatchObject({
       tier: "C",
@@ -231,7 +235,7 @@ describe("POST /api/leads — other realistic paths", () => {
     });
   });
 
-  it("sends a near-miss founder to review, not the calendar", async () => {
+  it("scores a near-miss founder as review but still returns the calendar", async () => {
     const { json } = await postLead(
       harborComplianceLead({
         answers: {
@@ -245,7 +249,10 @@ describe("POST /api/leads — other realistic paths", () => {
       }),
     );
 
-    expect(json).toEqual({ outcome: "review" });
+    expect(json).toEqual({
+      outcome: "book",
+      calendarUrl: BOOKING_CONFIG.embedUrl,
+    });
     expect(lastStored().scoring).toMatchObject({
       tier: "B",
       outcome: "review",

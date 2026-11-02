@@ -155,13 +155,16 @@ async function buildResponse(
     return { outcome: "review" };
   }
 
-  if (scoring.outcome === "book") {
-    const link = await getBookingLink();
-    return {
-      outcome: "book",
-      ...(link ? { calendarUrl: link } : {}),
-    };
-  }
-
-  return { outcome: scoring.outcome };
+  /**
+   * Every completed founder sees the booking calendar immediately.
+   *
+   * Scoring still runs and is stored for the team (tier, gates), but the
+   * public thank-you screen no longer gates the calendar on a Tier A
+   * verdict. Growth-capital conversations start with a call.
+   */
+  const link = await getBookingLink();
+  return {
+    outcome: "book",
+    ...(link ? { calendarUrl: link } : {}),
+  };
 }
