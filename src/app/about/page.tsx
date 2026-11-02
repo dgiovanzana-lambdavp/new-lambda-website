@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import AboutPage from "./AboutPage";
+import { LAMBDA_GROWTH_CAPITAL_DESCRIPTION } from "@/config/cta";
 
 export const metadata: Metadata = {
   title: "About | Lambda Capital",
-  description:
-    "Lambda Capital is a permanent capital holding company. We buy and build profitable niche software businesses with patient capital and operator-first execution.",
+  description: LAMBDA_GROWTH_CAPITAL_DESCRIPTION,
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About | Lambda Capital",
-    description:
-      "Lambda Capital is a permanent capital holding company. We buy and build profitable niche software businesses with patient capital and operator-first execution.",
+    description: LAMBDA_GROWTH_CAPITAL_DESCRIPTION,
     url: "/about",
   },
 };

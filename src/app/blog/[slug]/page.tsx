@@ -28,6 +28,7 @@ import CashFlowGapPostContent from "@/components/blog/CashFlowGapPostContent";
 import InvoiceAcceptancePostContent from "@/components/blog/InvoiceAcceptancePostContent";
 import PurchaseCardPostContent from "@/components/blog/PurchaseCardPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
+import { LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT } from "@/config/cta";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
@@ -169,6 +170,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         publisher: {
           "@type": "Organization",
           name: "Lambda Capital",
+          description: LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT,
           logo: {
             "@type": "ImageObject",
             url: `${BLOG_SITE_ORIGIN}/Capital%20-%20Black%20Long.png`,

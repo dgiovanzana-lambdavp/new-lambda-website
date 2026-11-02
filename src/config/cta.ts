@@ -7,6 +7,22 @@
 
 export const FOUNDER_CONTACT_HREF = "/contact/founder" as const;
 
+/** Site-wide Lambda voice (growth capital only). */
+export const LAMBDA_GROWTH_CAPITAL_DESCRIPTION =
+  "Lambda Capital provides growth capital to profitable, bootstrapped vertical software companies, so founders can fund their next hires, contracts or products without raising venture capital." as const;
+
+export const LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT =
+  "Lambda Capital provides growth capital to profitable software companies." as const;
+
+export const LAMBDA_ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Lambda Capital",
+  url: "https://www.lambdavp.com",
+  description: LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT,
+  logo: "https://www.lambdavp.com/Capital%20-%20Black%20Long.png",
+} as const;
+
 export const HOME_HERO_COPY = {
   brand: "Lambda Capital",
   headline: "Growth capital for profitable software companies.",

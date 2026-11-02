@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT } from '@/config/cta';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -60,7 +61,7 @@ const Footer: React.FC = () => {
                   />
                 </Link>
                 <p className="text-white text-lg leading-relaxed mb-6 max-w-md">
-                  Lambda Capital is a permanent capital holding company that invests in vertical market technology.
+                  {LAMBDA_GROWTH_CAPITAL_DESCRIPTION_SHORT} We focus on vertical market technology.
                 </p>
                 <div className="flex space-x-4">
                   {footerLinks.social.map((social) => (

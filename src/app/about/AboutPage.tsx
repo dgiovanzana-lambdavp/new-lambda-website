@@ -6,16 +6,16 @@ import Button from '@/components/Button';
 
 export default function AboutPage() {
   const taglines = [
-    'We buy and build profitable niche software businesses.',
-    'We provide flexible capital and operator-first execution.',
+    'Lambda Capital provides growth capital to profitable, bootstrapped vertical software companies, so founders can fund their next hires, contracts or products without raising venture capital.',
     'We move quickly. We prefer clarity over noise.',
+    'We partner with founders who want capital that fits their growth plan.',
   ];
 
   const whatWeLookFor = [
     'Vertical software and recurring-revenue businesses.',
     'Clear product-market fit in a definable niche.',
     'Predictable cash flow or a visible path to it.',
-    'Teams willing to hand off day-to-day or partner on growth.',
+    'Founders who want growth capital without a venture-style raise.',
   ];
 
   return (
@@ -42,10 +42,10 @@ export default function AboutPage() {
             </motion.div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-12 text-foreground">
-              We Buy & Build
+              Growth Capital for
               <br />
               <span className="text-gradient bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent">
-                Profitable Businesses
+                Profitable Software Companies
               </span>
             </h1>
 
@@ -108,7 +108,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-muted leading-relaxed">
-                  We deploy patient, pragmatic capital across companies and situations where others overcomplicate the deal.
+                  We provide growth capital to profitable software companies where a venture raise is the wrong fit.
                 </p>
               </motion.div>
 
@@ -125,7 +125,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-muted leading-relaxed">
-                  We work with companies that want an honest buyer and with teams who need a partner that can operate and scale revenue.
+                  We work with founders who need capital for the next hires, contracts or products, and who want a clear partner.
                 </p>
               </motion.div>
 
@@ -142,7 +142,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-muted leading-relaxed">
-                  We invest across structures and stages. The details depend on the opportunity.
+                  We structure growth capital to fit the company. The details depend on the opportunity.
                 </p>
               </motion.div>
             </div>
@@ -256,7 +256,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-lg text-muted leading-relaxed">
-                  We tailor the deal to the company. Sometimes we lead operations. Sometimes we back the existing leadership team.
+                  We tailor the capital to the company. Founders stay in charge of the business they are building.
                 </p>
               </motion.div>
 
@@ -273,7 +273,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <p className="text-lg text-muted leading-relaxed">
-                  We prefer agreements that align incentives and simplify execution. We are operationally capable and expect to work with management, not around it.
+                  We prefer agreements that align incentives and keep execution simple. We work with management, not around it.
                 </p>
               </motion.div>
             </div>
@@ -281,7 +281,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Permanent capital - Feature Highlight */}
+      {/* Growth capital - Feature Highlight */}
       <section className="section-padding bg-background">
         <div className="container-custom">
           <motion.div
@@ -303,7 +303,7 @@ export default function AboutPage() {
               </motion.div>
               <div className="flex-1">
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
-                  Permanent capital and long-term ownership
+                  Growth capital without venture pressure
                 </h2>
               </div>
             </div>
@@ -311,28 +311,28 @@ export default function AboutPage() {
             <div className="card p-8 md:p-12 bg-gradient-to-br from-accent/5 to-background border-2 border-accent/20">
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-accent mb-2">30+</div>
-                  <div className="text-muted">Years holding capacity</div>
+                  <div className="text-4xl font-bold text-accent mb-2">Bootstrapped</div>
+                  <div className="text-muted">Built for profitable software</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-accent mb-2">∞</div>
-                  <div className="text-muted">No forced exit timing</div>
+                  <div className="text-4xl font-bold text-accent mb-2">Flexible</div>
+                  <div className="text-muted">Capital shaped to the plan</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-accent mb-2">100%</div>
-                  <div className="text-muted">Focus on durable value</div>
+                  <div className="text-4xl font-bold text-accent mb-2">Patient</div>
+                  <div className="text-muted">Focus on durable growth</div>
                 </div>
               </div>
 
               <div className="space-y-4 text-lg text-muted leading-relaxed">
                 <p>
-                  We are a permanent capital holding company. We can hold and steward businesses for decades when that best serves owners and customers.
+                  Lambda Capital provides growth capital so founders can fund the next stage without raising venture capital.
                 </p>
                 <p>
-                  No forced exit timing. No selling pressure. That lets us focus on durable cash flow, margin expansion, and repeatable operational improvements.
+                  That focus lets us emphasize durable cash flow, clear use of proceeds, and growth that fits the business.
                 </p>
                 <p>
-                  We take a long view that is inspired by long-term owners who have kept excellent companies for 30+ years.
+                  We take a long view with companies that already work, and that want capital matched to their next hires, contracts or products.
                 </p>
               </div>
             </div>
@@ -375,9 +375,9 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="card p-8 border-l-4 border-accent"
               >
-                <h3 className="text-2xl font-bold text-foreground mb-4">We buy to operate</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4">We fund growth</h3>
                 <p className="text-lg text-muted leading-relaxed">
-                  We focus on profitable outcomes and repeatable operational improvements.
+                  We focus on profitable outcomes and capital that helps founders grow what they have already built.
                 </p>
               </motion.div>
 
@@ -411,7 +411,7 @@ export default function AboutPage() {
               Ready to connect?
             </h2>
             <p className="text-xl text-muted max-w-3xl mx-auto mb-8">
-              Explore our portfolio or get in touch to discuss how we can work together.
+              Explore our portfolio or get in touch to discuss growth capital for your software company.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/portfolio" variant="primary" size="lg">
