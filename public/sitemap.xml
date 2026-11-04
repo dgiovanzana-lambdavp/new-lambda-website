@@ -32,9 +32,21 @@
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lambdavp.com/blog/grant-funded-government-customers-vendor-payments</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lambdavp.com/blog/local-government-board-approval-vendor-payments</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog/government-invoice-payment-status</loc>
