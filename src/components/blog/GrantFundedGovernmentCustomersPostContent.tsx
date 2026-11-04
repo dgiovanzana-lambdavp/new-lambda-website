@@ -602,8 +602,6 @@ export default function GrantFundedGovernmentCustomersPostContent() {
           </Link>
         </li>
       </ul>
-      {/* LINK WHEN LIVE: local-government-board-approval-vendor-payments */}
-
       <p>
         <em>
           This post is general education, not financial, legal, or tax advice.

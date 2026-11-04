@@ -759,6 +759,90 @@ export const INVOICE_PAYMENT_STATUS_POST: BlogPostMeta = {
   breadcrumbsTitle: "Government Invoice Payment Status",
 };
 
+const LOCAL_GOVERNMENT_BOARD_APPROVAL_SLUG =
+  "local-government-board-approval-vendor-payments";
+
+const LOCAL_GOVERNMENT_BOARD_APPROVAL_DATE = "2026-11-03";
+
+const LOCAL_GOVERNMENT_BOARD_APPROVAL_H2_TEXTS = [
+  "The direct answer",
+  "How a local bill gets paid",
+  "Pay first, approve later: the Washington example",
+  "When the law ties the deadline to the meeting calendar: the Minnesota example",
+  "The problem: the invoice that missed the meeting",
+  "The decision: choice 3",
+  "A meeting calendar routine (agency facing)",
+  "Lesson: find out whose delay it is, and when it ends",
+  "Timing or growth? Use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const LOCAL_GOVERNMENT_BOARD_APPROVAL_HEADINGS: BlogHeading[] =
+  LOCAL_GOVERNMENT_BOARD_APPROVAL_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const LOCAL_GOVERNMENT_BOARD_APPROVAL_POST: BlogPostMeta = {
+  slug: LOCAL_GOVERNMENT_BOARD_APPROVAL_SLUG,
+  metaTitle: "Why Local Governments Pay Vendors After Board Approval",
+  h1: "Why Does My City or County Customer Wait for a Board Meeting to Pay Me?",
+  description:
+    "Many cities and counties approve bills at public meetings. Learn the cutoff, ask about pay before approval, and fund only the dated wait that remains.",
+  category: "Growth capital",
+  date: LOCAL_GOVERNMENT_BOARD_APPROVAL_DATE,
+  updated: LOCAL_GOVERNMENT_BOARD_APPROVAL_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-local-government-board-approval-vendor-payments-hero.jpg",
+  ogImage: `/og/blog-${LOCAL_GOVERNMENT_BOARD_APPROVAL_SLUG}.jpg`,
+  breadcrumbsTitle: "Local Government Board Approval",
+};
+
+const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_SLUG =
+  "grant-funded-government-customers-vendor-payments";
+
+const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_DATE = "2026-11-04";
+
+const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_H2_TEXTS = [
+  "The direct answer",
+  "How a grant funded customer pays you",
+  "What the grant can change about your invoice: the Kentucky example",
+  "The grant end date: a deadline that works for you",
+  "The grant that changed the invoice",
+  "A grant customer routine",
+  "Timing or growth? Use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_HEADINGS: BlogHeading[] =
+  GRANT_FUNDED_GOVERNMENT_CUSTOMERS_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST: BlogPostMeta = {
+  slug: GRANT_FUNDED_GOVERNMENT_CUSTOMERS_SLUG,
+  metaTitle: "Grant Funded Government Customers: When Vendors Get Paid",
+  h1: "My Government Customer Is Paying Me With a Grant. Will That Slow My Payment?",
+  description:
+    "Many state and local customers pay vendors with grant money they claim back later. Learn the rules that shape your invoice and fund only the dated wait.",
+  category: "Growth capital",
+  date: GRANT_FUNDED_GOVERNMENT_CUSTOMERS_DATE,
+  updated: GRANT_FUNDED_GOVERNMENT_CUSTOMERS_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-grant-funded-government-customers-vendor-payments-hero.jpg",
+  ogImage: `/og/blog-${GRANT_FUNDED_GOVERNMENT_CUSTOMERS_SLUG}.jpg`,
+  breadcrumbsTitle: "Grant Funded Government Customers",
+};
+
 const PURCHASE_CARD_SLUG =
   "government-purchase-card-payment-software-vendors";
 
@@ -883,6 +967,8 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
+  LOCAL_GOVERNMENT_BOARD_APPROVAL_POST,
   INVOICE_PAYMENT_STATUS_POST,
   PURCHASE_CARD_POST,
   INVOICE_ACCEPTANCE_POST,
@@ -938,6 +1024,10 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === INVOICE_ACCEPTANCE_SLUG) return INVOICE_ACCEPTANCE_HEADINGS;
   if (slug === INVOICE_PAYMENT_STATUS_SLUG)
     return INVOICE_PAYMENT_STATUS_HEADINGS;
+  if (slug === LOCAL_GOVERNMENT_BOARD_APPROVAL_SLUG)
+    return LOCAL_GOVERNMENT_BOARD_APPROVAL_HEADINGS;
+  if (slug === GRANT_FUNDED_GOVERNMENT_CUSTOMERS_SLUG)
+    return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_HEADINGS;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
@@ -982,6 +1072,10 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === INVOICE_ACCEPTANCE_SLUG) return INVOICE_ACCEPTANCE_JSON_LD;
   if (slug === INVOICE_PAYMENT_STATUS_SLUG)
     return INVOICE_PAYMENT_STATUS_JSON_LD;
+  if (slug === LOCAL_GOVERNMENT_BOARD_APPROVAL_SLUG)
+    return LOCAL_GOVERNMENT_BOARD_APPROVAL_JSON_LD;
+  if (slug === GRANT_FUNDED_GOVERNMENT_CUSTOMERS_SLUG)
+    return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_JSON_LD;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
@@ -2755,6 +2849,152 @@ export const PURCHASE_CARD_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_CARD_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const LOCAL_GOVERNMENT_BOARD_APPROVAL_FAQ: FaqItem[] = [
+  {
+    question: "Why does your city customer pay only after a council meeting?",
+    answer:
+      "Many local governments approve bills at a public meeting. An official checks your invoice, then the council approves the claims list. If your invoice misses the cutoff, it waits for the next meeting.",
+  },
+  {
+    question: "Can a city pay you before the council approves the bill?",
+    answer:
+      "In some states, yes. Washington lets a council allow payment before approval if officials are bonded and controls are in place. The council then approves the payments at its next regular meeting.",
+  },
+  {
+    question: "How long does a Minnesota city have to pay your invoice?",
+    answer:
+      "If the contract has no payment terms, 35 days after receipt when the board meets at least monthly, and 45 days when it meets less often.",
+  },
+  {
+    question: "Does missing the cutoff make your invoice late?",
+    answer:
+      "Not by itself. The deadline comes from your contract and state law. Check both before you expect interest.",
+  },
+  {
+    question: "How do you find a customer's cutoff?",
+    answer:
+      "Ask the finance office for its meeting calendar, its claims cutoff and whether it pays before approval.",
+  },
+  {
+    question: "Should you raise growth capital to cover slow local payments?",
+    answer:
+      "If the wait has a known end, it is a timing problem. Fix what you can and use tools built for timing. Use growth capital for growth.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+export const LOCAL_GOVERNMENT_BOARD_APPROVAL_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Why Local Governments Pay Vendors After Board Approval",
+      description:
+        "Many cities and counties approve bills at public meetings. Learn the cutoff, ask about pay before approval, and fund only the dated wait that remains.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-03",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/local-government-board-approval-vendor-payments",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: LOCAL_GOVERNMENT_BOARD_APPROVAL_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_FAQ: FaqItem[] = [
+  {
+    question: "Will a grant funded customer pay you slower?",
+    answer:
+      "It can. Many pay you first and claim the money back later, and some grants need invoices after service. Your contract terms still apply.",
+  },
+  {
+    question: "Can a customer use a grant to pay an annual subscription up front?",
+    answer:
+      "It depends on the grant. Some programs do not reimburse prepaid invoices. Ask your customer before you bill.",
+  },
+  {
+    question: "What should your invoice show for a grant funded customer?",
+    answer:
+      "Ask. Common items are service dates inside the grant period, the purchase order number, your invoice number and what you delivered.",
+  },
+  {
+    question: "Does the grant change when your customer must pay you?",
+    answer:
+      "Your contract and state law set your payment terms. The grant adds an end date by which your customer must pay what it owes.",
+  },
+  {
+    question: "How do you find out whether a contract is grant funded?",
+    answer:
+      "Ask the customer's finance or grants office which program pays for it and whether it is paid in advance or by reimbursement.",
+  },
+  {
+    question: "Should you raise growth capital to cover grant funded customers?",
+    answer:
+      "If the wait follows a known schedule, it is a timing problem. Fix what you can and use tools built for timing. Use growth capital for growth.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+export const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Grant Funded Government Customers: When Vendors Get Paid",
+      description:
+        "Many state and local customers pay vendors with grant money they claim back later. Learn the rules that shape your invoice and fund only the dated wait.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-04",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/grant-funded-government-customers-vendor-payments",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GRANT_FUNDED_GOVERNMENT_CUSTOMERS_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
