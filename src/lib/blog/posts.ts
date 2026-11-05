@@ -843,6 +843,48 @@ export const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST: BlogPostMeta = {
   breadcrumbsTitle: "Grant Funded Government Customers",
 };
 
+const SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG =
+  "subcontractor-payment-from-prime-government-contracts";
+
+const SUBCONTRACTOR_PAYMENT_FROM_PRIME_DATE = "2026-11-05";
+
+const SUBCONTRACTOR_PAYMENT_FROM_PRIME_H2_TEXTS = [
+  "The direct answer",
+  "How money reaches a subcontractor",
+  "When states set a clock: Maryland and Pennsylvania",
+  "Federal contracts: faster payments passed down",
+  "The invoice that missed the prime's cutoff",
+  "A subcontractor payment routine",
+  "Timing or growth? Use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_HEADINGS: BlogHeading[] =
+  SUBCONTRACTOR_PAYMENT_FROM_PRIME_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST: BlogPostMeta = {
+  slug: SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG,
+  metaTitle:
+    "When Primes Must Pay Subcontractors on Government Contracts",
+  h1: "I Am a Subcontractor on a Government Contract. When Does the Prime Have to Pay Me?",
+  description:
+    "As a subcontractor, your pay date follows the prime's billing cycle and the government's payment. Learn the pass down rules and fund only the dated wait.",
+  category: "Growth capital",
+  date: SUBCONTRACTOR_PAYMENT_FROM_PRIME_DATE,
+  updated: SUBCONTRACTOR_PAYMENT_FROM_PRIME_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-subcontractor-payment-from-prime-government-contracts-hero.jpg",
+  ogImage: `/og/blog-${SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG}.jpg`,
+  breadcrumbsTitle: "Subcontractor Payment From Prime",
+};
+
 const PURCHASE_CARD_SLUG =
   "government-purchase-card-payment-software-vendors";
 
@@ -967,6 +1009,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
   LOCAL_GOVERNMENT_BOARD_APPROVAL_POST,
   INVOICE_PAYMENT_STATUS_POST,
@@ -1028,6 +1071,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return LOCAL_GOVERNMENT_BOARD_APPROVAL_HEADINGS;
   if (slug === GRANT_FUNDED_GOVERNMENT_CUSTOMERS_SLUG)
     return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_HEADINGS;
+  if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG)
+    return SUBCONTRACTOR_PAYMENT_FROM_PRIME_HEADINGS;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
@@ -1076,6 +1121,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return LOCAL_GOVERNMENT_BOARD_APPROVAL_JSON_LD;
   if (slug === GRANT_FUNDED_GOVERNMENT_CUSTOMERS_SLUG)
     return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_JSON_LD;
+  if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG)
+    return SUBCONTRACTOR_PAYMENT_FROM_PRIME_JSON_LD;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
@@ -2995,6 +3042,79 @@ export const GRANT_FUNDED_GOVERNMENT_CUSTOMERS_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: GRANT_FUNDED_GOVERNMENT_CUSTOMERS_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_FAQ: FaqItem[] = [
+  {
+    question: "When does a prime have to pay you?",
+    answer:
+      "Your subcontract sets the terms. Some states add a clock: Maryland expects payment of undisputed amounts within 10 days after the prime is paid by the State.",
+  },
+  {
+    question: "Does the Prompt Payment Act protect you as a subcontractor?",
+    answer:
+      "The federal clause on passing down faster payments says it adds no new Prompt Payment Act rights. Check your subcontract terms.",
+  },
+  {
+    question: "What can you do if the prime holds an undisputed payment?",
+    answer:
+      "Ask the prime first. In Maryland, the State has a written process: the procurement officer can tell the prime to pay an undisputed amount within three business days.",
+  },
+  {
+    question: "Why do subcontractor payments swing so much?",
+    answer:
+      "Usually the chain. An invoice that misses the prime's monthly cutoff can wait a full billing cycle.",
+  },
+  {
+    question: "How do you get paid faster as a subcontractor?",
+    answer:
+      "Learn the prime's cutoff, invoice before it with every document the prime needs, and ask the prime to tell you when the government pays.",
+  },
+  {
+    question: "Should you raise growth capital to carry a prime contract?",
+    answer:
+      "If the wait follows a known schedule, it is a timing problem. Fix what you can and use tools built for timing. Use growth capital for growth.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "When Primes Must Pay Subcontractors on Government Contracts",
+      description:
+        "As a subcontractor, your pay date follows the prime's billing cycle and the government's payment. Learn the pass down rules and fund only the dated wait.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-05",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/subcontractor-payment-from-prime-government-contracts",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: SUBCONTRACTOR_PAYMENT_FROM_PRIME_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
