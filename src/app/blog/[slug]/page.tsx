@@ -28,6 +28,7 @@ import InvoiceAcceptancePostContent from "@/components/blog/InvoiceAcceptancePos
 import InvoicePaymentStatusPostContent from "@/components/blog/InvoicePaymentStatusPostContent";
 import LocalGovernmentBoardApprovalPostContent from "@/components/blog/LocalGovernmentBoardApprovalPostContent";
 import GrantFundedGovernmentCustomersPostContent from "@/components/blog/GrantFundedGovernmentCustomersPostContent";
+import SubcontractorPaymentFromPrimePostContent from "@/components/blog/SubcontractorPaymentFromPrimePostContent";
 import PurchaseCardPostContent from "@/components/blog/PurchaseCardPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
@@ -42,6 +43,7 @@ import {
   INVOICE_ACCEPTANCE_POST,
   INVOICE_PAYMENT_STATUS_POST,
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
+  SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
   LOCAL_GOVERNMENT_BOARD_APPROVAL_POST,
   META_HYPERION_POST,
   NEOCLOUD_POST,
@@ -143,6 +145,8 @@ function PostBody({ slug }: { slug: string }) {
     return <LocalGovernmentBoardApprovalPostContent />;
   if (slug === GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST.slug)
     return <GrantFundedGovernmentCustomersPostContent />;
+  if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST.slug)
+    return <SubcontractorPaymentFromPrimePostContent />;
   if (slug === PURCHASE_CARD_POST.slug) return <PurchaseCardPostContent />;
   if (slug === REVOLVING_LINE_POST.slug) return <RevolvingLinePostContent />;
   if (slug === TERM_LOAN_AMORTIZING_POST.slug)
@@ -220,6 +224,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     slug === INVOICE_PAYMENT_STATUS_POST.slug ||
     slug === LOCAL_GOVERNMENT_BOARD_APPROVAL_POST.slug ||
     slug === GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST.slug ||
+    slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST.slug ||
     slug === PURCHASE_CARD_POST.slug
       ? "Signed contracts and long receivables?"
       : "Growing a GovTech software company?";

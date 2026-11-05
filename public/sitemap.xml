@@ -32,9 +32,15 @@
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lambdavp.com/blog/subcontractor-payment-from-prime-government-contracts</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog/grant-funded-government-customers-vendor-payments</loc>
