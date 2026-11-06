@@ -19,6 +19,7 @@ import RevenueBasedFinancingPostContent from "@/components/blog/RevenueBasedFina
 import CapitalStackSeniorityPostContent from "@/components/blog/CapitalStackSeniorityPostContent";
 import CommonStockFinancingPostContent from "@/components/blog/CommonStockFinancingPostContent";
 import MetaHyperionPostContent from "@/components/blog/MetaHyperionPostContent";
+import MetaElPasoTexasVentureSpvPostContent from "@/components/blog/MetaElPasoTexasVentureSpvPostContent";
 import NeocloudFinancingPostContent from "@/components/blog/NeocloudFinancingPostContent";
 import FiscalYear2027PostContent from "@/components/blog/FiscalYear2027PostContent";
 import WorkingCapitalVsGrowthPostContent from "@/components/blog/WorkingCapitalVsGrowthPostContent";
@@ -45,6 +46,7 @@ import {
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
   LOCAL_GOVERNMENT_BOARD_APPROVAL_POST,
+  META_EL_PASO_POST,
   META_HYPERION_POST,
   NEOCLOUD_POST,
   GOVTECH_POST,
@@ -129,6 +131,8 @@ function PostBody({ slug }: { slug: string }) {
     return <CapitalStackSeniorityPostContent />;
   if (slug === COMMON_STOCK_FINANCING_POST.slug)
     return <CommonStockFinancingPostContent />;
+  if (slug === META_EL_PASO_POST.slug)
+    return <MetaElPasoTexasVentureSpvPostContent />;
   if (slug === META_HYPERION_POST.slug) return <MetaHyperionPostContent />;
   if (slug === NEOCLOUD_POST.slug) return <NeocloudFinancingPostContent />;
   if (slug === FISCAL_YEAR_2027_POST.slug) return <FiscalYear2027PostContent />;
