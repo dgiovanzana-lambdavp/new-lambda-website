@@ -885,6 +885,46 @@ export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST: BlogPostMeta = {
   breadcrumbsTitle: "Subcontractor Payment From Prime",
 };
 
+const PURCHASE_ORDER_BALANCE_SLUG =
+  "purchase-order-balance-government-invoice-hold";
+
+const PURCHASE_ORDER_BALANCE_DATE = "2026-11-07";
+
+const PURCHASE_ORDER_BALANCE_H2_TEXTS = [
+  "The direct answer",
+  "Why the purchase order caps what an agency can pay",
+  "What the state manuals say",
+  "The invoice that outgrew its PO",
+  "A PO balance routine",
+  "Timing or growth? Use X if you have Y problem",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const PURCHASE_ORDER_BALANCE_HEADINGS: BlogHeading[] =
+  PURCHASE_ORDER_BALANCE_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const PURCHASE_ORDER_BALANCE_POST: BlogPostMeta = {
+  slug: PURCHASE_ORDER_BALANCE_SLUG,
+  metaTitle: "Government Invoice Over the PO Balance? How to Get Paid",
+  h1: "Why Is My Government Invoice on Hold When the Purchase Order Runs Out?",
+  description:
+    "When your invoice is larger than the PO balance, the agency needs a change order to pay the excess. Ask for partial payment and fund only the dated wait.",
+  category: "Growth capital",
+  date: PURCHASE_ORDER_BALANCE_DATE,
+  updated: PURCHASE_ORDER_BALANCE_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-purchase-order-balance-government-invoice-hold-hero.jpg",
+  ogImage: `/og/blog-${PURCHASE_ORDER_BALANCE_SLUG}.jpg`,
+  breadcrumbsTitle: "Purchase Order Balance and Invoice Hold",
+};
+
 const PURCHASE_CARD_SLUG =
   "government-purchase-card-payment-software-vendors";
 
@@ -1009,6 +1049,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  PURCHASE_ORDER_BALANCE_POST,
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
   LOCAL_GOVERNMENT_BOARD_APPROVAL_POST,
@@ -1073,6 +1114,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_HEADINGS;
   if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG)
     return SUBCONTRACTOR_PAYMENT_FROM_PRIME_HEADINGS;
+  if (slug === PURCHASE_ORDER_BALANCE_SLUG)
+    return PURCHASE_ORDER_BALANCE_HEADINGS;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
@@ -1123,6 +1166,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_JSON_LD;
   if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG)
     return SUBCONTRACTOR_PAYMENT_FROM_PRIME_JSON_LD;
+  if (slug === PURCHASE_ORDER_BALANCE_SLUG)
+    return PURCHASE_ORDER_BALANCE_JSON_LD;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
@@ -3115,6 +3160,74 @@ export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: SUBCONTRACTOR_PAYMENT_FROM_PRIME_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const PURCHASE_ORDER_BALANCE_FAQ: FaqItem[] = [
+  {
+    question: "Why is your invoice on hold when the PO runs out?",
+    answer:
+      "The agency can only pay what the PO has reserved. The excess needs a change order.",
+  },
+  {
+    question: "How long does a change order take?",
+    answer:
+      "It needs the same approvals as the original PO in some states, so it can take weeks. Ask your program manager.",
+  },
+  {
+    question: "Can the agency pay part of your invoice?",
+    answer:
+      "Often yes. Some state manuals tell agencies to pay the covered amount and take a second invoice for the rest.",
+  },
+  {
+    question: "How do you avoid PO overages?",
+    answer:
+      "Track the balance after every invoice and warn the agency a quarter before it runs out.",
+  },
+  {
+    question: "Should you raise growth capital to cover a held invoice?",
+    answer:
+      "If the release has a date, it is a timing problem. Use growth capital for growth.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+export const PURCHASE_ORDER_BALANCE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Government Invoice Over the PO Balance? How to Get Paid",
+      description:
+        "When your invoice is larger than the PO balance, the agency needs a change order to pay the excess. Ask for partial payment and fund only the dated wait.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-07",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/purchase-order-balance-government-invoice-hold",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
