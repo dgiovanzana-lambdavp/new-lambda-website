@@ -885,6 +885,48 @@ export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST: BlogPostMeta = {
   breadcrumbsTitle: "Subcontractor Payment From Prime",
 };
 
+const GOVERNMENT_VENDOR_REGISTRATION_SLUG =
+  "government-vendor-registration-eft-payment";
+
+const GOVERNMENT_VENDOR_REGISTRATION_DATE = "2026-11-08";
+
+const GOVERNMENT_VENDOR_REGISTRATION_H2_TEXTS = [
+  "The direct answer",
+  "Two different registrations",
+  "How Texas splits payee setup and direct deposit",
+  "Why the payment system blocks first",
+  "The invoice that beat the vendor file",
+  "A vendor setup routine",
+  "A simple checklist mindset",
+  "Is this a timing gap or a growth gap?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_VENDOR_REGISTRATION_HEADINGS: BlogHeading[] =
+  GOVERNMENT_VENDOR_REGISTRATION_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_VENDOR_REGISTRATION_POST: BlogPostMeta = {
+  slug: GOVERNMENT_VENDOR_REGISTRATION_SLUG,
+  metaTitle: "Why First Government Invoices Wait on Vendor Registration",
+  h1: "I Signed a Government Contract. Why Am I Not Getting Paid Yet?",
+  description:
+    "Signed contracts still need payee registration and often EFT setup before the first invoice can pay. Start at signing and fund only the dated wait.",
+  category: "Growth capital",
+  date: GOVERNMENT_VENDOR_REGISTRATION_DATE,
+  updated: GOVERNMENT_VENDOR_REGISTRATION_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-vendor-registration-eft-payment-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_VENDOR_REGISTRATION_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Vendor Registration and EFT Payment",
+};
+
 const PURCHASE_ORDER_BALANCE_SLUG =
   "purchase-order-balance-government-invoice-hold";
 
@@ -1049,6 +1091,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_VENDOR_REGISTRATION_POST,
   PURCHASE_ORDER_BALANCE_POST,
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
@@ -1114,6 +1157,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_HEADINGS;
   if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG)
     return SUBCONTRACTOR_PAYMENT_FROM_PRIME_HEADINGS;
+  if (slug === GOVERNMENT_VENDOR_REGISTRATION_SLUG)
+    return GOVERNMENT_VENDOR_REGISTRATION_HEADINGS;
   if (slug === PURCHASE_ORDER_BALANCE_SLUG)
     return PURCHASE_ORDER_BALANCE_HEADINGS;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_HEADINGS;
@@ -1166,6 +1211,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_JSON_LD;
   if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG)
     return SUBCONTRACTOR_PAYMENT_FROM_PRIME_JSON_LD;
+  if (slug === GOVERNMENT_VENDOR_REGISTRATION_SLUG)
+    return GOVERNMENT_VENDOR_REGISTRATION_JSON_LD;
   if (slug === PURCHASE_ORDER_BALANCE_SLUG)
     return PURCHASE_ORDER_BALANCE_JSON_LD;
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_JSON_LD;
@@ -3160,6 +3207,78 @@ export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: SUBCONTRACTOR_PAYMENT_FROM_PRIME_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_VENDOR_REGISTRATION_FAQ: FaqItem[] = [
+  {
+    question: "Why are you not getting paid after signing?",
+    answer:
+      "Often the payee record is missing. Washington and Texas cannot pay until you are in their system.",
+  },
+  {
+    question: "When should you register?",
+    answer: "As soon as you sign. Washington says that directly.",
+  },
+  {
+    question: "How long does registration take?",
+    answer:
+      "Washington says up to five business days. Other states differ. Ask your agency.",
+  },
+  {
+    question: "Is electronic payment the same step?",
+    answer:
+      "Often no. In Texas, direct deposit comes after the payee master and mail code exist.",
+  },
+  {
+    question: "Is this the same as a purchase card?",
+    answer:
+      "No. Cards are a different path. Registration still matters for invoice payments.",
+  },
+  {
+    question: "Should you raise growth capital while you wait on setup?",
+    answer:
+      "If the block is a checklist with a date, it is a timing problem. Use growth capital for growth.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+export const GOVERNMENT_VENDOR_REGISTRATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Why First Government Invoices Wait on Vendor Registration",
+      description:
+        "Signed contracts still need payee registration and often EFT setup before the first invoice can pay. Start at signing and fund only the dated wait.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-08",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-vendor-registration-eft-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_VENDOR_REGISTRATION_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
