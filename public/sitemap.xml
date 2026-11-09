@@ -32,9 +32,21 @@
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lambdavp.com/blog/government-vendor-registration-eft-payment</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lambdavp.com/blog/purchase-order-balance-government-invoice-hold</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog/meta-el-paso-texas-venture-spv-financing</loc>
