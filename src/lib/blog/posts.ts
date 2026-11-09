@@ -885,6 +885,48 @@ export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST: BlogPostMeta = {
   breadcrumbsTitle: "Subcontractor Payment From Prime",
 };
 
+const GOVERNMENT_CONTRACT_RENEWAL_LAPSE_SLUG =
+  "government-contract-renewal-lapse-payment";
+
+const GOVERNMENT_CONTRACT_RENEWAL_LAPSE_DATE = "2026-11-09";
+
+const GOVERNMENT_CONTRACT_RENEWAL_LAPSE_H2_TEXTS = [
+  "The direct answer",
+  "Why the end date matters",
+  "What one city's audit shows",
+  "Federal options have their own rule",
+  "The invoice with no clear contract behind it",
+  "Do not let a cash plan stand in for approval",
+  "A calm renewal routine",
+  "Timing or growth?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_CONTRACT_RENEWAL_LAPSE_HEADINGS: BlogHeading[] =
+  GOVERNMENT_CONTRACT_RENEWAL_LAPSE_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST: BlogPostMeta = {
+  slug: GOVERNMENT_CONTRACT_RENEWAL_LAPSE_SLUG,
+  metaTitle: "Contract Expired Before Renewal? When Government Pays You",
+  h1: "My Government Contract Expired Before the Renewal Was Signed. Can I Still Get Paid?",
+  description:
+    "A government renewal lapse raises a contract authority question before a cash timing question. Learn what to check before treating gap invoices as due.",
+  category: "Growth capital",
+  date: GOVERNMENT_CONTRACT_RENEWAL_LAPSE_DATE,
+  updated: GOVERNMENT_CONTRACT_RENEWAL_LAPSE_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-contract-renewal-lapse-payment-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_CONTRACT_RENEWAL_LAPSE_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Contract Renewal Lapse Payment",
+};
+
 const GOVERNMENT_VENDOR_REGISTRATION_SLUG =
   "government-vendor-registration-eft-payment";
 
@@ -1091,6 +1133,7 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST,
   GOVERNMENT_VENDOR_REGISTRATION_POST,
   PURCHASE_ORDER_BALANCE_POST,
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
@@ -1157,6 +1200,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_HEADINGS;
   if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG)
     return SUBCONTRACTOR_PAYMENT_FROM_PRIME_HEADINGS;
+  if (slug === GOVERNMENT_CONTRACT_RENEWAL_LAPSE_SLUG)
+    return GOVERNMENT_CONTRACT_RENEWAL_LAPSE_HEADINGS;
   if (slug === GOVERNMENT_VENDOR_REGISTRATION_SLUG)
     return GOVERNMENT_VENDOR_REGISTRATION_HEADINGS;
   if (slug === PURCHASE_ORDER_BALANCE_SLUG)
@@ -1211,6 +1256,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GRANT_FUNDED_GOVERNMENT_CUSTOMERS_JSON_LD;
   if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_SLUG)
     return SUBCONTRACTOR_PAYMENT_FROM_PRIME_JSON_LD;
+  if (slug === GOVERNMENT_CONTRACT_RENEWAL_LAPSE_SLUG)
+    return GOVERNMENT_CONTRACT_RENEWAL_LAPSE_JSON_LD;
   if (slug === GOVERNMENT_VENDOR_REGISTRATION_SLUG)
     return GOVERNMENT_VENDOR_REGISTRATION_JSON_LD;
   if (slug === PURCHASE_ORDER_BALANCE_SLUG)
@@ -3207,6 +3254,75 @@ export const SUBCONTRACTOR_PAYMENT_FROM_PRIME_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: SUBCONTRACTOR_PAYMENT_FROM_PRIME_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_CONTRACT_RENEWAL_LAPSE_FAQ: FaqItem[] = [
+  {
+    question: "Can you get paid if your government contract expired?",
+    answer:
+      "Possibly. It depends on the contract, the rules and the approval path for the work. A later signature does not mean gap invoices will be paid.",
+  },
+  {
+    question: "What is ratification?",
+    answer:
+      "A later approval of work done without a current contract covering it. Richmond's audit describes that process, but it is not a universal promise of approval.",
+  },
+  {
+    question: "When should a renewal be signed?",
+    answer:
+      "Check the contract and the rules that apply. Indiana's state professional services manual says an expired contract cannot be renewed or amended.",
+  },
+  {
+    question: "How early should you start?",
+    answer:
+      "Work back from the contract's deadlines. Richmond reviews contracts expiring within 180 days, but that is one city's process, not a national rule.",
+  },
+  {
+    question: "Do federal options work the same way?",
+    answer:
+      "FAR 17.207 requires written notice within the period the federal contract specifies. It covers federal options, not all renewals.",
+  },
+  {
+    question: "Should you fund a renewal gap as a timing problem?",
+    answer:
+      "Resolve authority for the work first. Once payment has a sound basis and a dated wait, assess timing tools. Use growth capital for a growth need.",
+  },
+];
+
+export const GOVERNMENT_CONTRACT_RENEWAL_LAPSE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Contract Expired Before Renewal? When Government Pays You",
+      description:
+        "A government renewal lapse raises a contract authority question before a cash timing question. Learn what to check before treating gap invoices as due.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-09",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-contract-renewal-lapse-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_CONTRACT_RENEWAL_LAPSE_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
