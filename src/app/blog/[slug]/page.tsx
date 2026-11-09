@@ -30,6 +30,7 @@ import LocalGovernmentBoardApprovalPostContent from "@/components/blog/LocalGove
 import GrantFundedGovernmentCustomersPostContent from "@/components/blog/GrantFundedGovernmentCustomersPostContent";
 import SubcontractorPaymentFromPrimePostContent from "@/components/blog/SubcontractorPaymentFromPrimePostContent";
 import PurchaseOrderBalancePostContent from "@/components/blog/PurchaseOrderBalancePostContent";
+import GovernmentContractRenewalLapsePostContent from "@/components/blog/GovernmentContractRenewalLapsePostContent";
 import GovernmentVendorRegistrationPostContent from "@/components/blog/GovernmentVendorRegistrationPostContent";
 import PurchaseCardPostContent from "@/components/blog/PurchaseCardPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
@@ -46,6 +47,7 @@ import {
   INVOICE_PAYMENT_STATUS_POST,
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
+  GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST,
   GOVERNMENT_VENDOR_REGISTRATION_POST,
   PURCHASE_ORDER_BALANCE_POST,
   LOCAL_GOVERNMENT_BOARD_APPROVAL_POST,
@@ -151,6 +153,8 @@ function PostBody({ slug }: { slug: string }) {
     return <GrantFundedGovernmentCustomersPostContent />;
   if (slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST.slug)
     return <SubcontractorPaymentFromPrimePostContent />;
+  if (slug === GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST.slug)
+    return <GovernmentContractRenewalLapsePostContent />;
   if (slug === GOVERNMENT_VENDOR_REGISTRATION_POST.slug)
     return <GovernmentVendorRegistrationPostContent />;
   if (slug === PURCHASE_ORDER_BALANCE_POST.slug)
@@ -233,6 +237,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     slug === LOCAL_GOVERNMENT_BOARD_APPROVAL_POST.slug ||
     slug === GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST.slug ||
     slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST.slug ||
+    slug === GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST.slug ||
     slug === GOVERNMENT_VENDOR_REGISTRATION_POST.slug ||
     slug === PURCHASE_ORDER_BALANCE_POST.slug ||
     slug === PURCHASE_CARD_POST.slug
