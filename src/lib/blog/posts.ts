@@ -1132,7 +1132,49 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const BIG_TECH_EQUITY_SLUG = "big-tech-equity-raises-ai-data-center-capex";
+
+const BIG_TECH_EQUITY_DATE = "2026-11-10";
+
+const BIG_TECH_EQUITY_H2_TEXTS = [
+  "Bottom line for founders",
+  "What Alphabet actually sold",
+  "How Meta paid in the reported period",
+  "Oracle used both stock and debt",
+  "Three AI builders, three different equity events",
+  "Why the capital mix matters",
+  "Read the cash line before the headline",
+  "What a software founder can take from this",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const BIG_TECH_EQUITY_HEADINGS: BlogHeading[] =
+  BIG_TECH_EQUITY_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
+  slug: BIG_TECH_EQUITY_SLUG,
+  metaTitle: "Are Google and Meta Selling Stock to Fund AI Data Centers?",
+  h1: "Are Google and Meta Raising Equity to Pay for AI Data Centers?",
+  description:
+    "Alphabet sold common stock and convertible preferred. Meta's filing shows no common stock offering through September 2026. Compare AI funding sources.",
+  category: "Growth capital",
+  date: BIG_TECH_EQUITY_DATE,
+  updated: BIG_TECH_EQUITY_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-big-tech-equity-raises-ai-data-center-capex-hero.jpg",
+  ogImage: `/og/blog-${BIG_TECH_EQUITY_SLUG}.jpg`,
+  breadcrumbsTitle: "Big Tech Equity Raises for AI Data Center Capex",
+};
+
 export const ALL_POSTS: BlogPostMeta[] = [
+  BIG_TECH_EQUITY_POST,
   GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST,
   GOVERNMENT_VENDOR_REGISTRATION_POST,
   PURCHASE_ORDER_BALANCE_POST,
@@ -1209,6 +1251,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_HEADINGS;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
+  if (slug === BIG_TECH_EQUITY_SLUG) return BIG_TECH_EQUITY_HEADINGS;
   return [];
 }
 
@@ -1265,6 +1308,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === PURCHASE_CARD_SLUG) return PURCHASE_CARD_JSON_LD;
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
+  if (slug === BIG_TECH_EQUITY_SLUG) return BIG_TECH_EQUITY_JSON_LD;
   return null;
 }
 
@@ -3463,6 +3507,79 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const BIG_TECH_EQUITY_FAQ: FaqItem[] = [
+  {
+    question: "Did Alphabet sell common stock for AI investment?",
+    answer:
+      "Yes. Its June 2026 public offering raised $20.5 billion net and its private placement raised $10.0 billion net. Stated uses include AI infrastructure capex among general corporate purposes.",
+  },
+  {
+    question: "Is Alphabet's preferred issue common equity?",
+    answer:
+      "Not when first sold. The $19.0 billion net mandatory convertible preferred issue is a separate security that must later turn into common stock under its terms.",
+  },
+  {
+    question: "Do Alphabet's ATM sales fund AI capex?",
+    answer:
+      "The filing says their main intended use is employee equity tax obligations. Do not count them as cash earmarked for AI capex.",
+  },
+  {
+    question: "Did Meta sell stock in the same period?",
+    answer:
+      "Its filing for the first nine months of 2026 shows no common stock offering. That does not mean Meta has never raised equity.",
+  },
+  {
+    question: "Did Oracle complete its whole announced funding plan?",
+    answer:
+      "The cited releases and filing report specific completed raises. Its $45 billion to $50 billion gross calendar year plan should not itself be treated as a completed raise.",
+  },
+  {
+    question: "What is the founder takeaway?",
+    answer:
+      "Match the tool to the cash need. Use timing tools for dated waits. Use growth capital for a growth need. Do not just copy the size or label of a public deal.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const BIG_TECH_EQUITY_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Are Google and Meta Selling Stock to Fund AI Data Centers?",
+      description:
+        "Alphabet sold common stock and convertible preferred. Meta's filing shows no common stock offering through September 2026. Compare AI funding sources.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-10",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/big-tech-equity-raises-ai-data-center-capex",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: BIG_TECH_EQUITY_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
