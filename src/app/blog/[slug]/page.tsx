@@ -33,10 +33,12 @@ import PurchaseOrderBalancePostContent from "@/components/blog/PurchaseOrderBala
 import GovernmentContractRenewalLapsePostContent from "@/components/blog/GovernmentContractRenewalLapsePostContent";
 import GovernmentVendorRegistrationPostContent from "@/components/blog/GovernmentVendorRegistrationPostContent";
 import PurchaseCardPostContent from "@/components/blog/PurchaseCardPostContent";
+import BigTechEquityRaisesPostContent from "@/components/blog/BigTechEquityRaisesPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
+  BIG_TECH_EQUITY_POST,
   CAPITAL_STACK_SENIORITY_POST,
   CASH_FLOW_GAP_POST,
   COMMON_STOCK_FINANCING_POST,
@@ -118,6 +120,8 @@ export async function generateMetadata({
 }
 
 function PostBody({ slug }: { slug: string }) {
+  if (slug === BIG_TECH_EQUITY_POST.slug)
+    return <BigTechEquityRaisesPostContent />;
   if (slug === GOVTECH_POST.slug) return <GovTechPostContent />;
   if (slug === PROMPT_PAYMENT_POST.slug) return <PromptPaymentPostContent />;
   if (slug === UPFRONT_PAYMENT_POST.slug) return <UpfrontPaymentPostContent />;
