@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const DATA_CENTER_LEASE_SLUG =
+  "data-center-lease-commitments-off-balance-sheet";
+
+const DATA_CENTER_LEASE_DATE = "2026-11-11";
+
+const DATA_CENTER_LEASE_H2_TEXTS = [
+  "Bottom line for founders",
+  "Signed does not mean started",
+  "Three filings, not one uniform measure",
+  "Meta's guarantee is another layer, not another rent total",
+  "Oracle's revenue promise is not cash in hand",
+  "A promise is not a bill due today",
+  "Read the dates, not just the big number",
+  "What a software founder can take from this",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const DATA_CENTER_LEASE_HEADINGS: BlogHeading[] =
+  DATA_CENTER_LEASE_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const DATA_CENTER_LEASE_POST: BlogPostMeta = {
+  slug: DATA_CENTER_LEASE_SLUG,
+  metaTitle: "Big Tech's Unbooked Data Center Leases, Explained",
+  h1: "How Much Have Big Tech Companies Signed in Data Center Leases Not Yet on Their Books?",
+  description:
+    "Our math totals about $774B of uncommenced leases across Alphabet, Meta and Oracle. Dates and scopes differ. Learn what the disclosures do and do not mean.",
+  category: "Growth capital",
+  date: DATA_CENTER_LEASE_DATE,
+  updated: DATA_CENTER_LEASE_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-data-center-lease-commitments-off-balance-sheet-hero.jpg",
+  ogImage: `/og/blog-${DATA_CENTER_LEASE_SLUG}.jpg`,
+  breadcrumbsTitle: "Data Center Lease Commitments Off Balance Sheet",
+};
+
 const BIG_TECH_EQUITY_SLUG = "big-tech-equity-raises-ai-data-center-capex";
 
 const BIG_TECH_EQUITY_DATE = "2026-11-10";
@@ -1174,6 +1216,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  DATA_CENTER_LEASE_POST,
   BIG_TECH_EQUITY_POST,
   GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST,
   GOVERNMENT_VENDOR_REGISTRATION_POST,
@@ -1252,6 +1295,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_HEADINGS;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   if (slug === BIG_TECH_EQUITY_SLUG) return BIG_TECH_EQUITY_HEADINGS;
+  if (slug === DATA_CENTER_LEASE_SLUG) return DATA_CENTER_LEASE_HEADINGS;
   return [];
 }
 
@@ -1309,6 +1353,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === REVOLVING_LINE_SLUG) return REVOLVING_LINE_JSON_LD;
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   if (slug === BIG_TECH_EQUITY_SLUG) return BIG_TECH_EQUITY_JSON_LD;
+  if (slug === DATA_CENTER_LEASE_SLUG) return DATA_CENTER_LEASE_JSON_LD;
   return null;
 }
 
@@ -3507,6 +3552,79 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const DATA_CENTER_LEASE_FAQ: FaqItem[] = [
+  {
+    question: "What does a lease not yet commenced mean?",
+    answer:
+      "It is a signed lease that has not started. The filings distinguish those future commitments from lease liabilities already recorded on the balance sheet.",
+  },
+  {
+    question: "Is about $774 billion a disclosed data center total?",
+    answer:
+      "No. It is our math: $130.5 billion for Alphabet, $355.73 billion for Meta and $288 billion for Oracle. The dates and asset scopes differ, and the scopes include more than data centers alone.",
+  },
+  {
+    question: "Is this hidden debt?",
+    answer:
+      "No. These amounts are disclosed in filing notes. A lease that has not started is distinct from a lease liability on the books.",
+  },
+  {
+    question: "Are Meta's maximum guarantees expected losses?",
+    answer:
+      "No. Maximum exposure is not an expected loss forecast or automatic debt. The guarantee amount is already included in Meta's venture exposure total.",
+  },
+  {
+    question: "Does Oracle's RPO prove its leases are fully covered?",
+    answer:
+      "No. Contracted revenue still to be earned is not cash in hand. Its scope and timing differ from those of the lease commitments.",
+  },
+  {
+    question: "What should a software founder take from this?",
+    answer:
+      "Match costs to expected cash dates. Use timing tools for dated waits and growth capital for a growth need, rather than assuming every signed commitment creates the same cash problem.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const DATA_CENTER_LEASE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Big Tech's Unbooked Data Center Leases, Explained",
+      description:
+        "Our math totals about $774B of uncommenced leases across Alphabet, Meta and Oracle. Dates and scopes differ. Learn what the disclosures do and do not mean.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-11",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/data-center-lease-commitments-off-balance-sheet",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: DATA_CENTER_LEASE_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
