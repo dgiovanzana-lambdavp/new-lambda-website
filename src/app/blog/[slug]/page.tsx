@@ -34,11 +34,13 @@ import GovernmentContractRenewalLapsePostContent from "@/components/blog/Governm
 import GovernmentVendorRegistrationPostContent from "@/components/blog/GovernmentVendorRegistrationPostContent";
 import PurchaseCardPostContent from "@/components/blog/PurchaseCardPostContent";
 import BigTechEquityRaisesPostContent from "@/components/blog/BigTechEquityRaisesPostContent";
+import DataCenterLeaseCommitmentsPostContent from "@/components/blog/DataCenterLeaseCommitmentsPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
   BIG_TECH_EQUITY_POST,
+  DATA_CENTER_LEASE_POST,
   CAPITAL_STACK_SENIORITY_POST,
   CASH_FLOW_GAP_POST,
   COMMON_STOCK_FINANCING_POST,
@@ -120,6 +122,8 @@ export async function generateMetadata({
 }
 
 function PostBody({ slug }: { slug: string }) {
+  if (slug === DATA_CENTER_LEASE_POST.slug)
+    return <DataCenterLeaseCommitmentsPostContent />;
   if (slug === BIG_TECH_EQUITY_POST.slug)
     return <BigTechEquityRaisesPostContent />;
   if (slug === GOVTECH_POST.slug) return <GovTechPostContent />;
