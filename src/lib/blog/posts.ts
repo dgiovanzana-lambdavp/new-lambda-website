@@ -1132,6 +1132,50 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const UNDISPUTED_INVOICE_PORTION_SLUG =
+  "undisputed-invoice-portion-government-payment";
+
+const UNDISPUTED_INVOICE_PORTION_DATE = "2026-11-12";
+
+const UNDISPUTED_INVOICE_PORTION_H2_TEXTS = [
+  "The direct answer",
+  "A small dispute can freeze a large invoice",
+  "What Texas caps",
+  "Keep the three states separate",
+  "What California and Virginia require",
+  "The dispute is not the whole bill",
+  "What to do this week",
+  "Plain cash math",
+  "Why the cash frame matters",
+  "Timing or growth?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const UNDISPUTED_INVOICE_PORTION_HEADINGS: BlogHeading[] =
+  UNDISPUTED_INVOICE_PORTION_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const UNDISPUTED_INVOICE_PORTION_POST: BlogPostMeta = {
+  slug: UNDISPUTED_INVOICE_PORTION_SLUG,
+  metaTitle: "When a Government Invoice Dispute Freezes the Wrong Dollars",
+  h1: "Can the Government Hold My Whole Invoice Over a Small Dispute?",
+  description:
+    "When an agency disputes part of your invoice, some states limit how much it can withhold. Ask for the undisputed portion and fund only the disputed slice.",
+  category: "Growth capital",
+  date: UNDISPUTED_INVOICE_PORTION_DATE,
+  updated: UNDISPUTED_INVOICE_PORTION_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-undisputed-invoice-portion-government-payment-hero.jpg",
+  ogImage: `/og/blog-${UNDISPUTED_INVOICE_PORTION_SLUG}.jpg`,
+  breadcrumbsTitle: "Undisputed Invoice Portion Government Payment",
+};
+
 const DATA_CENTER_LEASE_SLUG =
   "data-center-lease-commitments-off-balance-sheet";
 
@@ -1216,6 +1260,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  UNDISPUTED_INVOICE_PORTION_POST,
   DATA_CENTER_LEASE_POST,
   BIG_TECH_EQUITY_POST,
   GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST,
@@ -1296,6 +1341,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_HEADINGS;
   if (slug === BIG_TECH_EQUITY_SLUG) return BIG_TECH_EQUITY_HEADINGS;
   if (slug === DATA_CENTER_LEASE_SLUG) return DATA_CENTER_LEASE_HEADINGS;
+  if (slug === UNDISPUTED_INVOICE_PORTION_SLUG)
+    return UNDISPUTED_INVOICE_PORTION_HEADINGS;
   return [];
 }
 
@@ -1354,6 +1401,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === TERM_LOAN_AMORTIZING_SLUG) return TERM_LOAN_AMORTIZING_JSON_LD;
   if (slug === BIG_TECH_EQUITY_SLUG) return BIG_TECH_EQUITY_JSON_LD;
   if (slug === DATA_CENTER_LEASE_SLUG) return DATA_CENTER_LEASE_JSON_LD;
+  if (slug === UNDISPUTED_INVOICE_PORTION_SLUG)
+    return UNDISPUTED_INVOICE_PORTION_JSON_LD;
   return null;
 }
 
@@ -3552,6 +3601,76 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const UNDISPUTED_INVOICE_PORTION_FAQ: FaqItem[] = [
+  {
+    question:
+      "Can the government hold your whole invoice over a small dispute?",
+    answer:
+      "In Texas, generally no beyond 110 percent of the disputed amount. Other states use undisputed invoice rules or limit interest exceptions to the disputed portion. Ask your agency.",
+  },
+  {
+    question: "How soon must the agency say what is disputed?",
+    answer:
+      "In Texas, by the 21st day after it receives the invoice, with a detailed statement of the disputed dollars. California uses 15 working days for a dispute notice. Virginia state agencies have fifteen days for a defect notice.",
+  },
+  {
+    question: "What is an undisputed invoice?",
+    answer:
+      "An invoice the agency has not challenged for a listed cause. California's Act requires payment of properly submitted undisputed invoices within 45 days.",
+  },
+  {
+    question: "Is this the same as a purchase order that ran out of money?",
+    answer:
+      "No. A PO balance hold is about reserved funds. A dispute hold is about whether the agency agrees with the invoice. Different fix.",
+  },
+  {
+    question: "Should you raise growth capital when an invoice is disputed?",
+    answer:
+      "Usually no. Size a timing tool to the disputed slice. Keep growth capital for growth.",
+  },
+  {
+    question: "Do these rules apply to every city and county?",
+    answer:
+      "No. Texas covers state and local bodies covered by the chapter including political units. California's Act is written for state agencies. Local rules differ. Read your contract and ask the pay office.",
+  },
+];
+
+export const UNDISPUTED_INVOICE_PORTION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "When a Government Invoice Dispute Freezes the Wrong Dollars",
+      description:
+        "When an agency disputes part of your invoice, some states limit how much it can withhold. Ask for the undisputed portion and fund only the disputed slice.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-12",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/undisputed-invoice-portion-government-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: UNDISPUTED_INVOICE_PORTION_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
