@@ -431,6 +431,49 @@ export const COMMON_STOCK_FINANCING_POST: BlogPostMeta = {
     "Common Stock Financing for GovTech Software Companies",
 };
 
+const META_EL_PASO_SLUG = "meta-el-paso-texas-venture-spv-financing";
+
+const META_EL_PASO_DATE = "2026-11-06";
+
+const META_EL_PASO_H2_TEXTS = [
+  "The direct answer",
+  "The deal at a glance",
+  "Do not confuse three Meta headlines",
+  "Who is who",
+  "How the money and the lease flow",
+  "Same playbook as Hyperion, different partner",
+  "Why each party said yes",
+  "The lease back and the residual value guarantee",
+  "Why Meta does not put this debt on its own balance sheet",
+  "What this means for software founders",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const META_EL_PASO_HEADINGS: BlogHeading[] = META_EL_PASO_H2_TEXTS.map(
+  (text) => ({
+    id: slugifyHeading(text),
+    text,
+  }),
+);
+
+export const META_EL_PASO_POST: BlogPostMeta = {
+  slug: META_EL_PASO_SLUG,
+  metaTitle: "Meta El Paso Financing: BlackRock Texas Venture SPV",
+  h1: "How Did Meta Finance Its El Paso Data Center With BlackRock?",
+  description:
+    "Meta's El Paso campus reuses the Hyperion SPV shape: an 80/20 BlackRock venture, $12.5B of debt, a lease back and a residual value guarantee.",
+  category: "AI buildout SPVs",
+  date: META_EL_PASO_DATE,
+  updated: META_EL_PASO_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-meta-el-paso-texas-venture-spv-financing-hero.jpg",
+  ogImage: `/og/blog-${META_EL_PASO_SLUG}.jpg`,
+  breadcrumbsTitle: "Meta El Paso Data Center Financing",
+};
+
 const META_HYPERION_SLUG = "meta-hyperion-data-center-spv-financing";
 
 const META_HYPERION_DATE = "2026-10-26";
@@ -1266,6 +1309,7 @@ export const ALL_POSTS: BlogPostMeta[] = [
   GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST,
   GOVERNMENT_VENDOR_REGISTRATION_POST,
   PURCHASE_ORDER_BALANCE_POST,
+  META_EL_PASO_POST,
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
   LOCAL_GOVERNMENT_BOARD_APPROVAL_POST,
@@ -1313,6 +1357,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return CAPITAL_STACK_SENIORITY_HEADINGS;
   if (slug === COMMON_STOCK_FINANCING_SLUG)
     return COMMON_STOCK_FINANCING_HEADINGS;
+  if (slug === META_EL_PASO_SLUG) return META_EL_PASO_HEADINGS;
   if (slug === META_HYPERION_SLUG) return META_HYPERION_HEADINGS;
   if (slug === NEOCLOUD_SLUG) return NEOCLOUD_HEADINGS;
   if (slug === FISCAL_YEAR_2027_SLUG) return FISCAL_YEAR_2027_HEADINGS;
@@ -1373,6 +1418,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return CAPITAL_STACK_SENIORITY_JSON_LD;
   if (slug === COMMON_STOCK_FINANCING_SLUG)
     return COMMON_STOCK_FINANCING_JSON_LD;
+  if (slug === META_EL_PASO_SLUG) return META_EL_PASO_JSON_LD;
   if (slug === META_HYPERION_SLUG) return META_HYPERION_JSON_LD;
   if (slug === NEOCLOUD_SLUG) return NEOCLOUD_JSON_LD;
   if (slug === FISCAL_YEAR_2027_SLUG) return FISCAL_YEAR_2027_JSON_LD;
@@ -2457,6 +2503,81 @@ export const COMMON_STOCK_FINANCING_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: COMMON_STOCK_FINANCING_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const META_EL_PASO_FAQ: FaqItem[] = [
+  {
+    question: "How did Meta finance the El Paso data center?",
+    answer:
+      "Through a joint venture with funds managed by BlackRock. BlackRock funds own 80% and Meta owns 20%. Part of BlackRock's capital comes from a $12.5 billion debt financing.",
+  },
+  {
+    question: "Is this the same deal as Hyperion?",
+    answer:
+      "No. Hyperion is the Louisiana campus with Blue Owl. El Paso is the Texas Venture with BlackRock. Meta's filing says the two ventures are similar in purpose and design.",
+  },
+  {
+    question: "When did Meta announce El Paso itself?",
+    answer:
+      "Meta broke ground on the El Paso campus in October 2025. The BlackRock financing was announced in July 2026.",
+  },
+  {
+    question: "What is a residual value guarantee?",
+    answer:
+      "A promise to cover a value shortfall if Meta ends or does not renew a lease. It applies when the campus is worth less than a set threshold. Meta says payments are not probable today.",
+  },
+  {
+    question: "Does this debt sit on Meta's balance sheet?",
+    answer:
+      "Meta says it does not consolidate these ventures, so the venture's debt is not Meta's consolidated debt. Meta still reports its maximum exposure in a footnote.",
+  },
+  {
+    question: "What should a GovTech founder take from this?",
+    answer:
+      "Match the tool to who pays you and when. Signed contracts with known payers are the small company version of a lease a capital partner can underwrite.",
+  },
+  {
+    question: "Is this financial advice?",
+    answer: "No. This post is general education only.",
+  },
+];
+
+/**
+ * Article + FAQPage JSON-LD from the draft @graph, pasted as-is.
+ * FAQ answers match the visible FAQ word for word.
+ */
+export const META_EL_PASO_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Meta El Paso Financing: BlackRock Texas Venture SPV",
+      description:
+        "Meta's El Paso campus reuses the Hyperion SPV shape: an 80/20 BlackRock venture, $12.5B of debt, a lease back and a residual value guarantee.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-06",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: META_EL_PASO_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
