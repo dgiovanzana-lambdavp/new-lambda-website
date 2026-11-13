@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_SLUG =
+  "incrementally-funded-government-contract-payment";
+
+const INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_DATE = "2026-11-13";
+
+const INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_H2_TEXTS = [
+  "The direct answer",
+  "What does it mean if your government contract is only partly funded?",
+  "Can you invoice more than the agency has allotted?",
+  "Do you have to keep working if the funded amount is almost gone?",
+  "What do California and Texas require?",
+  "The ceiling is not the cash",
+  "What should you do this week?",
+  "Should you finance the unfunded remainder?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_HEADINGS: BlogHeading[] =
+  INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST: BlogPostMeta = {
+  slug: INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_SLUG,
+  metaTitle: "Size Cash to the Funded Part of a Government Contract",
+  h1: "My Government Contract Is Only Partly Funded. Can I Invoice the Rest?",
+  description:
+    "If only part of your government contract is funded, you can generally collect only the allotted or appropriated amount. Size cash to that, not the ceiling.",
+  category: "Growth capital",
+  date: INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_DATE,
+  updated: INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-incrementally-funded-government-contract-payment-hero.jpg",
+  ogImage: `/og/blog-${INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_SLUG}.jpg`,
+  breadcrumbsTitle: "Incrementally Funded Government Contract Payment",
+};
+
 const UNDISPUTED_INVOICE_PORTION_SLUG =
   "undisputed-invoice-portion-government-payment";
 
@@ -1260,6 +1302,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST,
   UNDISPUTED_INVOICE_PORTION_POST,
   DATA_CENTER_LEASE_POST,
   BIG_TECH_EQUITY_POST,
@@ -1343,6 +1386,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
   if (slug === DATA_CENTER_LEASE_SLUG) return DATA_CENTER_LEASE_HEADINGS;
   if (slug === UNDISPUTED_INVOICE_PORTION_SLUG)
     return UNDISPUTED_INVOICE_PORTION_HEADINGS;
+  if (slug === INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_SLUG)
+    return INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_HEADINGS;
   return [];
 }
 
@@ -1403,6 +1448,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
   if (slug === DATA_CENTER_LEASE_SLUG) return DATA_CENTER_LEASE_JSON_LD;
   if (slug === UNDISPUTED_INVOICE_PORTION_SLUG)
     return UNDISPUTED_INVOICE_PORTION_JSON_LD;
+  if (slug === INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_SLUG)
+    return INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_JSON_LD;
   return null;
 }
 
@@ -3601,6 +3648,77 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_FAQ: FaqItem[] = [
+  {
+    question:
+      "Can you invoice the full value of a partly funded government contract?",
+    answer:
+      "Usually no. On this kind of federal contract, only the allotted amount is committed until more is allotted in writing. State contracts often limit payment to funds already set aside. Read your contract. Ask your agency.",
+  },
+  {
+    question: "What is incremental funding?",
+    answer:
+      "The agency commits funds in parts, rather than funding the full ceiling at award. FAR 32.703-1 says that if the contract is incrementally funded, funds cover the amount allotted.",
+  },
+  {
+    question:
+      "Does the Limitation of Funds clause apply to every software contract?",
+    answer:
+      "No. It is prescribed for incrementally funded federal cost reimbursement contracts. Many firm fixed price software contracts use different funding terms. Read the clause in your contract.",
+  },
+  {
+    question: "Is this the same as a purchase order that ran out of money?",
+    answer:
+      "No. A PO balance hold is about reserved funds on an invoice already in process. A partly funded contract is about how much the agency has funded at all. Different fix.",
+  },
+  {
+    question: "Should you raise growth capital against the unfunded ceiling?",
+    answer:
+      "Usually no. Size a timing tool to the funded increment and its payment lag. Keep growth capital for growth.",
+  },
+  {
+    question: "Do California and Texas use the same federal allotment rule?",
+    answer:
+      "No. California's manual gives sample budget language for missing or reduced funds. Texas requires multi year contracts to limit what the agency owes to funds already set aside. Local rules differ.",
+  },
+];
+
+export const INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Size Cash to the Funded Part of a Government Contract",
+      description:
+        "If only part of your government contract is funded, you can generally collect only the allotted or appropriated amount. Size cash to that, not the ceiling.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-13",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/incrementally-funded-government-contract-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
