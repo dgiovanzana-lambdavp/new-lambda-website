@@ -37,12 +37,14 @@ import BigTechEquityRaisesPostContent from "@/components/blog/BigTechEquityRaise
 import DataCenterLeaseCommitmentsPostContent from "@/components/blog/DataCenterLeaseCommitmentsPostContent";
 import UndisputedInvoicePortionPostContent from "@/components/blog/UndisputedInvoicePortionPostContent";
 import IncrementallyFundedGovernmentContractPostContent from "@/components/blog/IncrementallyFundedGovernmentContractPostContent";
+import ExtraWorkGovernmentContractModificationPostContent from "@/components/blog/ExtraWorkGovernmentContractModificationPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
   BIG_TECH_EQUITY_POST,
   DATA_CENTER_LEASE_POST,
+  EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST,
   INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST,
   UNDISPUTED_INVOICE_PORTION_POST,
   CAPITAL_STACK_SENIORITY_POST,
@@ -126,6 +128,8 @@ export async function generateMetadata({
 }
 
 function PostBody({ slug }: { slug: string }) {
+  if (slug === EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST.slug)
+    return <ExtraWorkGovernmentContractModificationPostContent />;
   if (slug === INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST.slug)
     return <IncrementallyFundedGovernmentContractPostContent />;
   if (slug === UNDISPUTED_INVOICE_PORTION_POST.slug)

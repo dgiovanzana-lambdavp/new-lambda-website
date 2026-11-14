@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_SLUG =
+  "extra-work-government-contract-modification-payment";
+
+const EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_DATE = "2026-11-14";
+
+const EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_H2_TEXTS = [
+  "The direct answer",
+  "What counts as extra work on a signed government contract?",
+  "Can you invoice before the modification is signed?",
+  "Does an email from the program manager authorize payment?",
+  "What do California and Texas require?",
+  "The email is not the cash",
+  "What should you do this week?",
+  "Should you finance unsigned extra work?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_HEADINGS: BlogHeading[] =
+  EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST: BlogPostMeta = {
+  slug: EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_SLUG,
+  metaTitle: "Size Cash to Signed Government Contract Changes",
+  h1: "The Agency Asked Me to Do Extra Work. Can I Invoice Before the Modification Is Signed?",
+  description:
+    "A program manager email is not a payable contract change. Invoice extra government work after a written, priced modification, and size cash to signed work.",
+  category: "Growth capital",
+  date: EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_DATE,
+  updated: EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-extra-work-government-contract-modification-payment-hero.jpg",
+  ogImage: `/og/blog-${EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_SLUG}.jpg`,
+  breadcrumbsTitle: "Extra Work Government Contract Modification Payment",
+};
+
 const INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_SLUG =
   "incrementally-funded-government-contract-payment";
 
@@ -1302,6 +1344,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST,
   INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST,
   UNDISPUTED_INVOICE_PORTION_POST,
   DATA_CENTER_LEASE_POST,
@@ -1388,6 +1431,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return UNDISPUTED_INVOICE_PORTION_HEADINGS;
   if (slug === INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_SLUG)
     return INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_HEADINGS;
+  if (slug === EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_SLUG)
+    return EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_HEADINGS;
   return [];
 }
 
@@ -1450,6 +1495,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return UNDISPUTED_INVOICE_PORTION_JSON_LD;
   if (slug === INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_SLUG)
     return INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_JSON_LD;
+  if (slug === EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_SLUG)
+    return EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_JSON_LD;
   return null;
 }
 
@@ -3655,6 +3702,79 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
           text: item.answer,
         },
       })),
+    },
+  ],
+} as const;
+
+export const EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_FAQ: FaqItem[] = [
+  {
+    question:
+      "Can you invoice extra work before the government signs a modification?",
+    answer:
+      "Usually no. On many federal commercial software contracts, changes may be made only by written agreement of the parties. Only a contracting officer can sign a federal written change. State rules often require a formal amendment before extra work is payable. Read your contract and ask your agency.",
+  },
+  {
+    question: "Does a program manager email count as a contract modification?",
+    answer:
+      "Usually no. Federal policy says only contracting officers acting within their role may sign those changes. Other government staff shall not direct or encourage work that should be the subject of a modification.",
+  },
+  {
+    question: "What if the agency issued a change order without a price?",
+    answer:
+      "That is not a finished amount you can collect. Federal contract rules say an unpriced change order still needs a later priced agreement. That officer must secure any added funds before adjusting the contract.",
+  },
+  {
+    question: "Is this the same as a purchase order that ran out of money?",
+    answer:
+      "No. A PO balance hold is about reserved funds on work already in the contract. Extra work is about scope that is not yet in a signed, priced modification. Different fix.",
+  },
+  {
+    question: "Should you raise growth capital against unsigned extra work?",
+    answer:
+      "Usually no. Size a timing tool to signed, priced work and its payment lag. Keep growth capital for growth.",
+  },
+  {
+    question:
+      "Do California and Texas use the same federal contracting officer rule?",
+    answer:
+      "No. California's purchasing manual says verbal notices cannot modify a contract and that an amendment must be issued before performance. Texas limits added payments on a modified state contract to cases with an added benefit. Local rules differ.",
+  },
+];
+
+export const EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Size Cash to Signed Government Contract Changes",
+      description:
+        "A program manager email is not a payable contract change. Invoice extra government work after a written, priced modification, and size cash to signed work.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-14",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/extra-work-government-contract-modification-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_FAQ.map(
+        (item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        }),
+      ),
     },
   ],
 } as const;
