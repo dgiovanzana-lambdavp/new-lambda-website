@@ -38,12 +38,14 @@ import DataCenterLeaseCommitmentsPostContent from "@/components/blog/DataCenterL
 import UndisputedInvoicePortionPostContent from "@/components/blog/UndisputedInvoicePortionPostContent";
 import IncrementallyFundedGovernmentContractPostContent from "@/components/blog/IncrementallyFundedGovernmentContractPostContent";
 import ExtraWorkGovernmentContractModificationPostContent from "@/components/blog/ExtraWorkGovernmentContractModificationPostContent";
+import GovernmentPaymentOffsetWarrantHoldPostContent from "@/components/blog/GovernmentPaymentOffsetWarrantHoldPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
   ASSIGNMENT_OF_CLAIMS_POST,
   BIG_TECH_EQUITY_POST,
   DATA_CENTER_LEASE_POST,
+  GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST,
   EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST,
   INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST,
   UNDISPUTED_INVOICE_PORTION_POST,
@@ -128,6 +130,8 @@ export async function generateMetadata({
 }
 
 function PostBody({ slug }: { slug: string }) {
+  if (slug === GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST.slug)
+    return <GovernmentPaymentOffsetWarrantHoldPostContent />;
   if (slug === EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST.slug)
     return <ExtraWorkGovernmentContractModificationPostContent />;
   if (slug === INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST.slug)

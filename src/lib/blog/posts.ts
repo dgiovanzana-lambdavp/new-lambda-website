@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_SLUG =
+  "government-payment-offset-warrant-hold";
+
+const GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_DATE = "2026-11-15";
+
+const GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_H2_TEXTS = [
+  "The direct answer",
+  "What is a government payment offset?",
+  "How can you tell if a short payment was an offset or something else?",
+  "If the payment was offset, is the invoice still unpaid?",
+  "What do Texas and California do?",
+  "The missing amount is not always cash you can collect",
+  "What should you do this week?",
+  "Should you finance the missing amount?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_HEADINGS: BlogHeading[] =
+  GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST: BlogPostMeta = {
+  slug: GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_SLUG,
+  metaTitle: "Size Cash After a Government Payment Offset",
+  h1: "The Government Paid Me Less Than My Invoice. Was the Payment Offset?",
+  description:
+    "A government payment may be offset or held against a debt. That is not a late invoice. Size cash to what will still be paid, not dollars already applied.",
+  category: "Growth capital",
+  date: GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_DATE,
+  updated: GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-payment-offset-warrant-hold-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Payment Offset Warrant Hold",
+};
+
 const EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_SLUG =
   "extra-work-government-contract-modification-payment";
 
@@ -1344,6 +1386,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST,
   EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST,
   INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST,
   UNDISPUTED_INVOICE_PORTION_POST,
@@ -1433,6 +1476,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_HEADINGS;
   if (slug === EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_SLUG)
     return EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_HEADINGS;
+  if (slug === GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_SLUG)
+    return GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_HEADINGS;
   return [];
 }
 
@@ -1497,6 +1542,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_JSON_LD;
   if (slug === EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_SLUG)
     return EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_JSON_LD;
+  if (slug === GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_SLUG)
+    return GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_JSON_LD;
   return null;
 }
 
@@ -3695,6 +3742,75 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_FAQ: FaqItem[] = [
+  {
+    question: "Was a short government payment an offset?",
+    answer:
+      "Maybe, but not always. It may be an offset or a hold against a debt, a dispute, a purchase order shortfall, or a process error. Read the notice before you treat the missing amount as a late receivable.",
+  },
+  {
+    question: "What is the Treasury Offset Program?",
+    answer:
+      "It is the federal program that can reduce an eligible payment when the payee's name and tax identification number match a debt in its database, and the payment is a type that can be offset. Any amount that remains goes to the payee, and Treasury sends a letter.",
+  },
+  {
+    question: "If a federal payment is offset, is the invoice still unpaid?",
+    answer:
+      "Not in the same way as a late invoice. In the federal contractor example, once the offset is credited to a delinquent debt owed to another federal agency, the contractor has been paid in full for those services. Talk to counsel about the underlying debt.",
+  },
+  {
+    question: "Is a Texas warrant hold the same as a federal offset?",
+    answer:
+      "No. Texas may retain a held warrant until the debt is paid or the reporting agency authorizes release, and in certain circumstances later apply the payment to the debt. That is not a copy of the Treasury Offset Program.",
+  },
+  {
+    question: "Should you raise growth capital against the missing amount?",
+    answer:
+      "Usually no, if that amount has already been applied to a debt. Size a timing tool to amounts that will still be paid and their payment lag. Keep growth capital for growth.",
+  },
+  {
+    question: "Do California and Texas use the same federal offset rule?",
+    answer:
+      "No. California's Controller may offset amounts a person or entity owes a state agency against amounts a state agency owes them, and the amount due is the net after the offset. Texas uses a warrant hold and, in certain cases, an offset under state law. Local rules differ.",
+  },
+];
+
+export const GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Size Cash After a Government Payment Offset",
+      description:
+        "A government payment may be offset or held against a debt. That is not a late invoice. Size cash to what will still be paid, not dollars already applied.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-15",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-payment-offset-warrant-hold",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
