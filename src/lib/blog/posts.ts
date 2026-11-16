@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_SLUG =
+  "government-contract-closeout-final-invoice-payment";
+
+const GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_DATE = "2026-11-16";
+
+const GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_H2_TEXTS = [
+  "The direct answer",
+  "Is contract closeout the same as getting paid?",
+  "When is a federal contract physically complete?",
+  "How long can closeout delay a final invoice?",
+  "The calendar is not the due date",
+  "What should you do this week?",
+  "Should you finance a final invoice stuck in closeout?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_HEADINGS: BlogHeading[] =
+  GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST: BlogPostMeta =
+  {
+    slug: GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_SLUG,
+    metaTitle: "Size Cash Around a Final Government Invoice in Closeout",
+    h1: "The Work Is Done. Why Hasn't the Government Paid My Final Invoice?",
+    description:
+      "A final invoice can wait while the agency closes the contract file. Those file timelines are not payment due dates. Size cash to a longer last invoice lag.",
+    category: "Growth capital",
+    date: GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_DATE,
+    updated: GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_DATE,
+    author: BLOG_AUTHOR.name,
+    authorRole: BLOG_AUTHOR.role,
+    featuredImage:
+      "/blog/featured-government-contract-closeout-final-invoice-payment-hero.jpg",
+    ogImage: `/og/blog-${GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_SLUG}.jpg`,
+    breadcrumbsTitle: "Government Contract Closeout Final Invoice Payment",
+  };
+
 const GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_SLUG =
   "government-payment-offset-warrant-hold";
 
@@ -1386,6 +1428,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST,
   GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST,
   EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST,
   INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST,
@@ -1478,6 +1521,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_HEADINGS;
   if (slug === GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_SLUG)
     return GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_HEADINGS;
+  if (slug === GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_SLUG)
+    return GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_HEADINGS;
   return [];
 }
 
@@ -1544,6 +1589,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_JSON_LD;
   if (slug === GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_SLUG)
     return GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_JSON_LD;
+  if (slug === GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_SLUG)
+    return GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_JSON_LD;
   return null;
 }
 
@@ -3749,6 +3796,78 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
           text: item.answer,
         },
       })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_FAQ: FaqItem[] =
+  [
+    {
+      question: "Is contract closeout the same as getting paid?",
+      answer:
+        "No. Closeout is the agency's work to close the contract file after the work is physically complete. Your final invoice is one item on that list. A should timeline for closing the file is not your payment due date.",
+    },
+    {
+      question: "When is a federal contract physically complete?",
+      answer:
+        "For services, when you have performed the required work and the government has accepted it. Any option provisions must also have expired, unless the government gave notice of complete contract termination. If the work has not been accepted, the delay is an acceptance issue.",
+    },
+    {
+      question:
+        "Do the 6, 20, or 36 month closeout standards mean you will be paid by then?",
+      answer:
+        "No. Those are agency file closing standards written as should, not vendor payment due dates. Prompt payment rules, where they apply to a proper invoice, are a different clock.",
+    },
+    {
+      question: "What should you ask the agency if the final invoice is unpaid?",
+      answer:
+        "Confirm that the work was accepted and that the final invoice was received. Ask whether closeout, unused funds, a closing statement, or unsettled subcontracts are holding payment.",
+    },
+    {
+      question: "Is grant closeout the same as contract closeout?",
+      answer:
+        "No. Grant closeout windows are a different clock, on the customer's grant, not a vendor payment right under FAR 4.804-1.",
+    },
+    {
+      question: "Should you finance a final invoice stuck in closeout?",
+      answer:
+        "If the amount is still due, size a timing tool to the invoice and a longer lag. Do not raise growth capital against a closeout delay.",
+    },
+  ];
+
+export const GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Size Cash Around a Final Government Invoice in Closeout",
+      description:
+        "A final invoice can wait while the agency closes the contract file. Those file timelines are not payment due dates. Size cash to a longer last invoice lag.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-16",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-contract-closeout-final-invoice-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity:
+        GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_FAQ.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
     },
   ],
 } as const;
