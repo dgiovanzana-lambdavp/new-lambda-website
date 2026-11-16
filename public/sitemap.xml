@@ -32,9 +32,15 @@
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lambdavp.com/blog/government-contract-closeout-final-invoice-payment</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.lambdavp.com/blog/government-payment-offset-warrant-hold</loc>
