@@ -108,17 +108,16 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <Suspense fallback={null}>
-          <AnalyticsProvider>
-            <a href="#main-content" className="skip-to-content">
-              Skip to content
-            </a>
-            <Navigation />
-            <div id="main-content" className="flex-1" tabIndex={-1}>
-              {children}
-            </div>
-            <Footer />
-          </AnalyticsProvider>
+          <AnalyticsProvider />
         </Suspense>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
+        <Navigation />
+        <div id="main-content" className="flex-1" tabIndex={-1}>
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

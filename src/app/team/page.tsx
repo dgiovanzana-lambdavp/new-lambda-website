@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Meet the Lambda Capital team. Deep technical expertise with operational and strategic experience at a permanent capital holding company.",
     url: "/team",
+    images: [{ url: "/opengraph-image.jpg", width: 1200, height: 630 }],
   },
 };
 

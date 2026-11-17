@@ -8,11 +8,17 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
-      <div className="absolute inset-0 bg-navy-blue overflow-hidden">
-        {/* Local MP4 Background Video - Fullscreen */}
+      <div
+        className="absolute inset-0 bg-navy-blue bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: "url(/hero-poster.jpg)" }}
+      >
+        {/* Local MP4 Background Video - Fullscreen. Hidden for users who
+            prefer reduced motion (see .hero-video in globals.css), in which
+            case the poster frame above is what they see. */}
         <div className="absolute inset-0 w-full h-full" aria-hidden="true">
           <video
-            className="absolute top-1/2 left-1/2 w-screen h-screen"
+            className="hero-video absolute top-1/2 left-1/2 w-screen h-screen"
+            poster="/hero-poster.jpg"
             style={{
               transform: 'translate(-50%, -50%)',
               minWidth: '100vw',
@@ -25,7 +31,7 @@ const Hero: React.FC = () => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
           >
             <source src="/Defense-plus.mp4" type="video/mp4" />
           </video>
@@ -33,7 +39,7 @@ const Hero: React.FC = () => {
         
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 via-gray-900/40 to-gray-950/80 z-10" />
-        {/* Extra top cover to mask YouTube UI (title/watch-later) */}
+        {/* Top fade so the nav stays legible over the footage */}
         <div className="absolute top-0 left-0 right-0 h-16 md:h-20 bg-gradient-to-b from-black/70 to-transparent z-20" />
         <div className="absolute inset-0 tactical-grid opacity-20 z-10" />
         <div className="absolute inset-0 noise-texture opacity-10 z-10" />

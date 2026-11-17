@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     description:
       "Tell us who you are and we'll route you to the right conversation.",
     url: "/contact",
+    images: [{ url: "/opengraph-image.jpg", width: 1200, height: 630 }],
   },
 };
 

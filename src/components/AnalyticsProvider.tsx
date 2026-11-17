@@ -7,6 +7,11 @@ import { ensureAnalytics, trackPageview } from "@/lib/analytics";
 /**
  * Site-wide PostHog bootstrap + SPA pageviews.
  *
+ * Mounted once in the root layout, inside its own <Suspense>, and renders
+ * nothing. It must not wrap the page: `useSearchParams` suspends, and a
+ * Suspense boundary around the page makes every route client-render only
+ * (empty server HTML).
+ *
  * Mounted once in the root layout. No-ops when NEXT_PUBLIC_POSTHOG_KEY
  * is unset. Fires `$pageview` on the initial load and on every App
  * Router pathname / search change.
@@ -15,11 +20,7 @@ import { ensureAnalytics, trackPageview } from "@/lib/analytics";
  * plus explicit `section` / `post_slug` tags so funnel reports can
  * filter marketing traffic without parsing URLs.
  */
-export default function AnalyticsProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AnalyticsProvider() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -49,5 +50,5 @@ export default function AnalyticsProvider({
     });
   }, [pathname, searchParams]);
 
-  return children;
+  return null;
 }

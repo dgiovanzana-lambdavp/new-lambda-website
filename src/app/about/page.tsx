@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Lambda Capital is a permanent capital holding company. We buy and build profitable niche software businesses with patient capital and operator-first execution.",
     url: "/about",
+    images: [{ url: "/opengraph-image.jpg", width: 1200, height: 630 }],
   },
 };
 

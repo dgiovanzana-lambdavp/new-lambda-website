@@ -148,3 +148,9 @@
   background: var(--color-accent);
   color: var(--color-accent-foreground);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+}

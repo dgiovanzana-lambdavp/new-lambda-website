@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Lambda Capital takes a concentrated approach to its portfolio, investing in a small number of vertical software companies each year and partnering closely on growth.",
     url: "/portfolio",
+    images: [{ url: "/opengraph-image.jpg", width: 1200, height: 630 }],
   },
 };
 
