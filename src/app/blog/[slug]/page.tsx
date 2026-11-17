@@ -40,6 +40,7 @@ import IncrementallyFundedGovernmentContractPostContent from "@/components/blog/
 import ExtraWorkGovernmentContractModificationPostContent from "@/components/blog/ExtraWorkGovernmentContractModificationPostContent";
 import GovernmentContractCloseoutFinalInvoicePaymentPostContent from "@/components/blog/GovernmentContractCloseoutFinalInvoicePaymentPostContent";
 import GovernmentPaymentOffsetWarrantHoldPostContent from "@/components/blog/GovernmentPaymentOffsetWarrantHoldPostContent";
+import SamRegistrationExpiredGovernmentPaymentPostContent from "@/components/blog/SamRegistrationExpiredGovernmentPaymentPostContent";
 import { BLOG_AUTHOR, BLOG_SITE_ORIGIN } from "@/config/blog";
 import {
   ALL_POSTS,
@@ -48,6 +49,7 @@ import {
   DATA_CENTER_LEASE_POST,
   GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST,
   GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST,
+  SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_POST,
   EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST,
   INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST,
   UNDISPUTED_INVOICE_PORTION_POST,
@@ -132,6 +134,8 @@ export async function generateMetadata({
 }
 
 function PostBody({ slug }: { slug: string }) {
+  if (slug === SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_POST.slug)
+    return <SamRegistrationExpiredGovernmentPaymentPostContent />;
   if (slug === GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST.slug)
     return <GovernmentContractCloseoutFinalInvoicePaymentPostContent />;
   if (slug === GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST.slug)
