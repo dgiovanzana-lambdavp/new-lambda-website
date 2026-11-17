@@ -1132,6 +1132,47 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_SLUG =
+  "sam-registration-expired-government-payment";
+
+const SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_DATE = "2026-11-17";
+
+const SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_H2_TEXTS = [
+  "The direct answer",
+  "Do you have to keep SAM active after award?",
+  "Can a lapsed SAM registration hold your payment?",
+  "Is this the same as state vendor setup or a purchase card issue?",
+  "The record is not the invoice",
+  "What should you do this week?",
+  "Should you finance invoices held by a SAM lapse?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_HEADINGS: BlogHeading[] =
+  SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_POST: BlogPostMeta = {
+  slug: SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_SLUG,
+  metaTitle: "Size Cash When a SAM Registration Lapse Holds Payment",
+  h1: "My SAM Registration Expired. Why Did the Government Stop Paying Me?",
+  description:
+    "A lapsed SAM registration can hold a federal payment. Keep the record Active through final payment, then size cash to the invoices that will still be paid.",
+  category: "Growth capital",
+  date: SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_DATE,
+  updated: SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-sam-registration-expired-government-payment-hero.jpg",
+  ogImage: `/og/blog-${SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_SLUG}.jpg`,
+  breadcrumbsTitle: "SAM Registration Expired Government Payment",
+};
+
 const GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_SLUG =
   "government-contract-closeout-final-invoice-payment";
 
@@ -1428,6 +1469,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_POST,
   GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST,
   GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST,
   EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST,
@@ -1523,6 +1565,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_HEADINGS;
   if (slug === GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_SLUG)
     return GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_HEADINGS;
+  if (slug === SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_SLUG)
+    return SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_HEADINGS;
   return [];
 }
 
@@ -1591,6 +1635,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_JSON_LD;
   if (slug === GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_SLUG)
     return GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_JSON_LD;
+  if (slug === SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_SLUG)
+    return SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_JSON_LD;
   return null;
 }
 
@@ -3796,6 +3842,77 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
           text: item.answer,
         },
       })),
+    },
+  ],
+} as const;
+
+export const SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_FAQ: FaqItem[] = [
+  {
+    question: "Do you have to keep SAM active after award?",
+    answer:
+      "Yes, on a federal contract that includes the maintenance clause. You must maintain registration during performance and through final payment. You must also renew it every 365 days to keep it active.",
+  },
+  {
+    question: "Can a lapsed SAM registration hold a federal payment?",
+    answer:
+      "It can delay or hold payment. The government pays using EFT information in SAM. If that information is incorrect, the government need not pay until it is corrected. Ask the payment office. Do not treat an expired record as automatically the same thing as incorrect EFT information.",
+  },
+  {
+    question: "Is the invoice forfeited if SAM expires?",
+    answer:
+      "No. A lapse can delay or hold payment. It does not, by itself, cancel accepted work. Size cash to amounts that will still be paid once the record is Active.",
+  },
+  {
+    question: "Is this the same as state vendor registration?",
+    answer:
+      "No. State payee setup is a different system. Federal SAM maintenance mid contract is the issue in this post.",
+  },
+  {
+    question: "Does a purchase card use the same SAM rule?",
+    answer:
+      "Not always. Certain purchase card micro purchases are excepted from the SAM registration policy. A card can also be blocked by a SAM debt flag, which is a different issue.",
+  },
+  {
+    question: "Should you finance invoices held by a SAM lapse?",
+    answer:
+      "If the amounts are still due, size a timing tool to those invoices and the lag. Do not raise growth capital against a registration hold.",
+  },
+];
+
+export const SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Size Cash When a SAM Registration Lapse Holds Payment",
+      description:
+        "A lapsed SAM registration can hold a federal payment. Keep the record Active through final payment, then size cash to the invoices that will still be paid.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-17",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/sam-registration-expired-government-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_FAQ.map(
+        (item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        }),
+      ),
     },
   ],
 } as const;
