@@ -1132,6 +1132,47 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_STOP_WORK_ORDER_PAYMENT_SLUG =
+  "government-stop-work-order-payment";
+
+const GOVERNMENT_STOP_WORK_ORDER_PAYMENT_DATE = "2026-11-18";
+
+const GOVERNMENT_STOP_WORK_ORDER_PAYMENT_H2_TEXTS = [
+  "The direct answer",
+  "What is a stop work order, and do you have to comply?",
+  "Can you still get paid for work already accepted?",
+  "Is a stop work order the same as a termination, a funding stop, or a payment dispute?",
+  "The order pauses work. It does not settle the invoices.",
+  "What should you do this week?",
+  "Should you finance invoices during a stop work order?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_STOP_WORK_ORDER_PAYMENT_HEADINGS: BlogHeading[] =
+  GOVERNMENT_STOP_WORK_ORDER_PAYMENT_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_STOP_WORK_ORDER_PAYMENT_POST: BlogPostMeta = {
+  slug: GOVERNMENT_STOP_WORK_ORDER_PAYMENT_SLUG,
+  metaTitle: "Size Cash When a Stop Work Order Pauses a Contract",
+  h1: "The Government Issued a Stop Work Order. Can I Still Get Paid?",
+  description:
+    "A stop work order can pause remaining work. It does not, by itself, cancel invoices already accepted. Size cash to amounts still collectible.",
+  category: "Growth capital",
+  date: GOVERNMENT_STOP_WORK_ORDER_PAYMENT_DATE,
+  updated: GOVERNMENT_STOP_WORK_ORDER_PAYMENT_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-stop-work-order-payment-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_STOP_WORK_ORDER_PAYMENT_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Stop Work Order Payment",
+};
+
 const SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_SLUG =
   "sam-registration-expired-government-payment";
 
@@ -1469,6 +1510,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_STOP_WORK_ORDER_PAYMENT_POST,
   SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_POST,
   GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST,
   GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST,
@@ -1567,6 +1609,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_HEADINGS;
   if (slug === SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_SLUG)
     return SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_HEADINGS;
+  if (slug === GOVERNMENT_STOP_WORK_ORDER_PAYMENT_SLUG)
+    return GOVERNMENT_STOP_WORK_ORDER_PAYMENT_HEADINGS;
   return [];
 }
 
@@ -1637,6 +1681,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_JSON_LD;
   if (slug === SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_SLUG)
     return SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_JSON_LD;
+  if (slug === GOVERNMENT_STOP_WORK_ORDER_PAYMENT_SLUG)
+    return GOVERNMENT_STOP_WORK_ORDER_PAYMENT_JSON_LD;
   return null;
 }
 
@@ -3835,6 +3881,76 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_STOP_WORK_ORDER_PAYMENT_FAQ: FaqItem[] = [
+  {
+    question: "Do you have to comply with a government stop work order?",
+    answer:
+      "Yes, if your contract includes the clause and the written order is issued under it. You must comply at once and take reasonable steps to minimize costs allocable to the covered work. Read the order to see what work is covered.",
+  },
+  {
+    question: "Can you still get paid after a stop work order?",
+    answer:
+      "You may still be paid for work already accepted, under the payment terms in the contract. The order does not, by itself, cancel those invoices. It also does not, by itself, set a new payment date. Ask the payment office.",
+  },
+  {
+    question: "Is a stop work order the same as a termination?",
+    answer:
+      "No. It shall not be used in place of a termination notice after a decision to terminate has been made. If the order is canceled or expires, you resume work. If the covered work is later terminated, settlement is a different path.",
+  },
+  {
+    question: "Do federal and California rules use the same day counts?",
+    answer:
+      "No. The federal clause uses a 90 day stop period, which may be shorter. It also uses a 30 day window after the stoppage ends to assert an adjustment. California's standard information technology cloud terms, where they apply, use a period up to 60 days. They also use a 45 day window to cancel or terminate, and a 60 day assertion window. Read the contract.",
+  },
+  {
+    question:
+      "Is this the same as pausing work because the agency has not paid you?",
+    answer:
+      "No. Some prompt payment laws give a vendor a right to suspend work for nonpayment after notice. That is the opposite direction from a government issued stop work order.",
+  },
+  {
+    question: "Should you finance invoices during a stop work order?",
+    answer:
+      "If amounts for work already accepted are still collectible, size a timing tool to those invoices and the lag. Do not raise growth capital against remaining work that is stopped.",
+  },
+];
+
+export const GOVERNMENT_STOP_WORK_ORDER_PAYMENT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Size Cash When a Stop Work Order Pauses a Contract",
+      description:
+        "A stop work order can pause remaining work. It does not, by itself, cancel invoices already accepted. Size cash to amounts still collectible.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-18",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-stop-work-order-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_STOP_WORK_ORDER_PAYMENT_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
