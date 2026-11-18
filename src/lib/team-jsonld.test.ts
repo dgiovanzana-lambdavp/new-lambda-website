@@ -21,7 +21,10 @@ describe("getTeamPageJsonLd", () => {
     expect(person.image).toBe(
       "https://www.lambdavp.com/headshots/domenic-giovanzana.webp",
     );
-    expect(person.sameAs).toEqual(["https://www.linkedin.com/in/dgiovanzana"]);
+    expect(person.sameAs).toEqual([
+      "https://www.linkedin.com/in/dgiovanzana",
+      "https://x.com/VestlessVC",
+    ]);
 
     expect(organization.name).toBe("Lambda Capital");
     expect(organization.url).toBe("https://www.lambdavp.com");

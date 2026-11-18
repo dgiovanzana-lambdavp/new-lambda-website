@@ -3,8 +3,10 @@ const SITE_ORIGIN = "https://www.lambdavp.com";
 const DOMENIC_PERSON_ID = `${SITE_ORIGIN}/team#domenic-giovanzana`;
 const LAMBDA_ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 
-/** LinkedIn is linked from team data; no other personal profile URLs appear on the site. */
-const DOMENIC_SAME_AS = ["https://www.linkedin.com/in/dgiovanzana"] as const;
+const DOMENIC_SAME_AS = [
+  "https://www.linkedin.com/in/dgiovanzana",
+  "https://x.com/VestlessVC",
+] as const;
 
 const DOMENIC_HEADSHOT_PATH = "/headshots/domenic-giovanzana.webp";
 
