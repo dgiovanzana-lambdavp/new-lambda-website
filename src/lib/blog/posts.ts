@@ -3989,8 +3989,6 @@ export const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_JSON_LD = {
         name: "Lambda Capital",
         url: "https://www.lambdavp.com",
       },
-      mainEntityOfPage:
-        "https://www.lambdavp.com/blog/government-termination-for-convenience-payment",
     },
     {
       "@type": "FAQPage",
