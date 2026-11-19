@@ -13,10 +13,10 @@ export default function TeamPage() {
       {/* Hero Section */}
       <Hero
         sources={[
-          { src: '/team-hero.mp4', type: 'video/mp4' },
-          { src: '/team-hero.webm', type: 'video/webm' },
+          { src: '/team-hero-v3.mp4', type: 'video/mp4' },
+          { src: '/team-hero-v3.webm', type: 'video/webm' },
         ]}
-        poster="/team-hero-poster.jpg"
+        poster="/team-hero-v3-poster.jpg"
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
