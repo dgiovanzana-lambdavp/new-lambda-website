@@ -20,12 +20,12 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Show white background on all pages except homepage
-  const isHomePage = pathname === '/';
-  const isSpecialPage = !isHomePage;
+  // Transparent hero-overlay nav on home and team; solid bar elsewhere
+  const isHeroOverlayPage = pathname === '/' || pathname === '/team';
+  const isSpecialPage = !isHeroOverlayPage;
 
-  const shouldShowDarkBackground = isScrolled && isHomePage;
-  const shouldShowWhiteBackground = isSpecialPage; // Always white on non-homepage pages
+  const shouldShowDarkBackground = isScrolled && isHeroOverlayPage;
+  const shouldShowWhiteBackground = isSpecialPage;
 
 
   const navItems = [
