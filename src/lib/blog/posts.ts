@@ -1132,6 +1132,46 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_SLUG =
+  "government-termination-for-convenience-payment";
+
+const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_DATE = "2026-11-19";
+
+const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_H2_TEXTS = [
+  "The direct answer",
+  "What is a termination for convenience, and do you have to stop work?",
+  "When do you get paid after a termination for convenience?",
+  "Is this the same as a default, a funding cutoff, or ordinary closeout?",
+  "What should you do this week?",
+  "Should you finance invoices after a termination for convenience?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_HEADINGS: BlogHeading[] =
+  GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_POST: BlogPostMeta = {
+  slug: GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_SLUG,
+  metaTitle: "Size Cash After a Termination for Convenience",
+  h1: "The Government Terminated My Contract for Convenience. When Do I Get Paid?",
+  description:
+    "A termination for convenience ends remaining work. You may still be paid for work performed, plus demonstrated charges. Size cash to collectible amounts.",
+  category: "Growth capital",
+  date: GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_DATE,
+  updated: GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-termination-for-convenience-payment-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Termination for Convenience Payment",
+};
+
 const GOVERNMENT_STOP_WORK_ORDER_PAYMENT_SLUG =
   "government-stop-work-order-payment";
 
@@ -1510,6 +1550,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_POST,
   GOVERNMENT_STOP_WORK_ORDER_PAYMENT_POST,
   SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_POST,
   GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST,
@@ -1611,6 +1652,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_HEADINGS;
   if (slug === GOVERNMENT_STOP_WORK_ORDER_PAYMENT_SLUG)
     return GOVERNMENT_STOP_WORK_ORDER_PAYMENT_HEADINGS;
+  if (slug === GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_SLUG)
+    return GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_HEADINGS;
   return [];
 }
 
@@ -1683,6 +1726,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_JSON_LD;
   if (slug === GOVERNMENT_STOP_WORK_ORDER_PAYMENT_SLUG)
     return GOVERNMENT_STOP_WORK_ORDER_PAYMENT_JSON_LD;
+  if (slug === GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_SLUG)
+    return GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_JSON_LD;
   return null;
 }
 
@@ -3888,6 +3933,77 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
           text: item.answer,
         },
       })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_FAQ: FaqItem[] = [
+  {
+    question: "Do you have to stop work after a termination for convenience?",
+    answer:
+      "Yes, if the clause is in your contract and the written notice covers that work. You must stop at once and cause suppliers and subcontractors to cease the covered work.",
+  },
+  {
+    question: "When do you get paid after a termination for convenience?",
+    answer:
+      "On a federal commercial contract, you are to be paid a share of the contract price for work done before the notice, plus reasonable charges you can show, and not for costs you could have avoided. That is not the same thing as a scheduled invoice date.",
+  },
+  {
+    question: "Is a termination for convenience the same as a default?",
+    answer:
+      "No. It is the government's choice to end the work, not a finding that you failed to perform. A non appropriation exit, a funded limit, and ordinary closeout after completed work are also different paths. So is a contract that lapsed before renewal.",
+  },
+  {
+    question: "Do federal and state rules use the same clocks?",
+    answer:
+      "No. The federal commercial rule does not set a single proposal deadline. Part 49 does not apply to those commercial endings. California's standard information technology cloud terms, where they apply, use a notice of at least 15 days. They also use a proposal due no later than 30 days after the ending date unless the notice says otherwise. Texas settlement follows the contract. Read the clause.",
+  },
+  {
+    question: "Are invoices for work already performed automatically canceled?",
+    answer:
+      "No. They are not, by themselves, canceled. They are also not, by themselves, guaranteed on the old date. Ask the payment office, and size cash to amounts that are still collectible.",
+  },
+  {
+    question: "Should you finance invoices after a termination for convenience?",
+    answer:
+      "If amounts for work already done, plus allowable charges you can show, are still collectible, size a timing tool to those amounts and the lag. Do not raise growth capital against leftover work that will not be performed.",
+  },
+];
+
+export const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Size Cash After a Termination for Convenience",
+      description:
+        "A termination for convenience ends remaining work. You may still be paid for work performed, plus demonstrated charges. Size cash to collectible amounts.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-19",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+      mainEntityOfPage:
+        "https://www.lambdavp.com/blog/government-termination-for-convenience-payment",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_FAQ.map(
+        (item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        }),
+      ),
     },
   ],
 } as const;
