@@ -1132,6 +1132,49 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_SLUG =
+  "government-contract-performance-bond-letter-of-credit";
+
+const GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_DATE =
+  "2026-11-20";
+
+const GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_H2_TEXTS = [
+  "The direct answer",
+  "Will your government contract require a performance bond?",
+  "How much cash does the security tie up, and for how long?",
+  "Does the cost of the bond come back to you?",
+  "What should you do before you bid?",
+  "How should you fund a performance bond on a signed contract?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_HEADINGS: BlogHeading[] =
+  GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_POST: BlogPostMeta =
+  {
+    slug: GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_SLUG,
+    metaTitle: "Performance Bonds on Government Software Contracts",
+    h1: "My Government Customer Wants a Performance Bond or Letter of Credit. How Much Cash Will It Tie Up?",
+    description:
+      "A bond or letter of credit on a signed government contract can tie up cash before your first invoice. Size it with the payment lag and fund it as timing.",
+    category: "Growth capital",
+    date: GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_DATE,
+    updated: GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_DATE,
+    author: BLOG_AUTHOR.name,
+    authorRole: BLOG_AUTHOR.role,
+    featuredImage:
+      "/blog/featured-government-contract-performance-bond-letter-of-credit-hero.jpg",
+    ogImage: `/og/blog-${GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_SLUG}.jpg`,
+    breadcrumbsTitle:
+      "Government Contract Performance Bond Letter of Credit",
+  };
+
 const GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_SLUG =
   "government-termination-for-convenience-payment";
 
@@ -1550,6 +1593,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_POST,
   GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_POST,
   GOVERNMENT_STOP_WORK_ORDER_PAYMENT_POST,
   SAM_REGISTRATION_EXPIRED_GOVERNMENT_PAYMENT_POST,
@@ -1654,6 +1698,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_STOP_WORK_ORDER_PAYMENT_HEADINGS;
   if (slug === GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_SLUG)
     return GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_HEADINGS;
+  if (slug === GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_SLUG)
+    return GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_HEADINGS;
   return [];
 }
 
@@ -1728,6 +1774,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_STOP_WORK_ORDER_PAYMENT_JSON_LD;
   if (slug === GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_SLUG)
     return GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_JSON_LD;
+  if (slug === GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_SLUG)
+    return GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_JSON_LD;
   return null;
 }
 
@@ -3933,6 +3981,76 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
           text: item.answer,
         },
       })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_FAQ: FaqItem[] =
+  [
+    {
+      question: "Do federal software contracts require a performance bond?",
+      answer:
+        "Generally not. Federal agencies generally do not require performance bonds on non construction contracts. One may still be required above the simplified acquisition threshold when needed to protect the government's interest.",
+    },
+    {
+      question:
+        "Can you post a letter of credit or a cashier's check instead of a surety bond?",
+      answer:
+        "On a federal contract, yes. You may post a certified or cashier's check, money order, or currency equal to the penal sum, or a bond secured by an irrevocable letter of credit. State solicitations list the forms they accept.",
+    },
+    {
+      question: "When do you get the security back?",
+      answer:
+        "When the bond obligation has ceased. For a federal letter of credit on a non construction contract, coverage runs to the later of 90 days after final payment or the end of any warranty period.",
+    },
+    {
+      question: "Does California require a bond on every IT contract?",
+      answer:
+        "No. California's IT risk analysis determines the need for financial protection. The menu includes a performance bond, a surety, a letter of credit, contract terms, or other security.",
+    },
+    {
+      question: "Does Texas require performance bonds?",
+      answer:
+        "Texas guidance says the solicitation must give notice if a bond is required. The Statewide Procurement Division discourages performance bonds unless there is a compelling need or statutory requirement.",
+    },
+    {
+      question: "Should you raise growth capital to post a performance bond?",
+      answer:
+        "Usually not on its own. The security comes back when the bond ends. Size it with the payment lag and fund it as a timing problem. Use growth capital when the real need is building or selling more.",
+    },
+  ];
+
+export const GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Performance Bonds on Government Software Contracts",
+      description:
+        "A bond or letter of credit on a signed government contract can tie up cash before your first invoice. Size it with the payment lag and fund it as timing.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-20",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity:
+        GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_FAQ.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
     },
   ],
 } as const;
