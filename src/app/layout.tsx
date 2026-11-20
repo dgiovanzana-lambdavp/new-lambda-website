@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import "./blog/blog.css";
@@ -107,18 +106,16 @@ export default function RootLayout({
       className={`${inter.variable} ${robotoCondensed.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <Suspense fallback={null}>
-          <AnalyticsProvider>
-            <a href="#main-content" className="skip-to-content">
-              Skip to content
-            </a>
-            <Navigation />
-            <div id="main-content" className="flex-1" tabIndex={-1}>
-              {children}
-            </div>
-            <Footer />
-          </AnalyticsProvider>
-        </Suspense>
+        <AnalyticsProvider>
+          <a href="#main-content" className="skip-to-content">
+            Skip to content
+          </a>
+          <Navigation />
+          <div id="main-content" className="flex-1" tabIndex={-1}>
+            {children}
+          </div>
+          <Footer />
+        </AnalyticsProvider>
       </body>
     </html>
   );
