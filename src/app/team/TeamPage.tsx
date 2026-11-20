@@ -34,7 +34,7 @@ export default function TeamPage() {
       </Hero>
 
       {/* Team — vertical scroll, alternating image side */}
-      <section className="section-padding bg-tactical-gray/20">
+      <section className="section-padding section-after-hero">
         <div className="container-custom max-w-6xl">
           {teamMembers.map((member, index) => (
             <TeamShowcase key={member.id} member={member} index={index} />

@@ -47,7 +47,7 @@ export default function HomePage() {
       </Hero>
 
       {/* Mission Statement */}
-      <section className="section-padding bg-tactical-gray/20">
+      <section className="section-padding section-after-hero">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

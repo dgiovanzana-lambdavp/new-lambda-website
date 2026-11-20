@@ -149,18 +149,18 @@
   color: var(--color-accent-foreground);
 }
 
-@keyframes hero-scroll-bob {
-  0%,
-  100% {
-    opacity: 0.9;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translateY(3px);
+/* First screen hero: stop short of the viewport so the next section peeks through. */
+.hero-first-screen {
+  height: calc(100svh - 44px);
+}
+
+@supports (height: 100dvh) {
+  .hero-first-screen {
+    height: calc(100dvh - 44px);
   }
 }
 
-.hero-scroll-indicator {
-  animation: hero-scroll-bob 2.6s ease-in-out infinite;
+/* First section after a hero: white strip at top aligns with the hero gap. */
+.section-after-hero {
+  background: linear-gradient(to bottom, #ffffff 44px, hsl(220 25% 45% / 0.2) 44px);
 }
