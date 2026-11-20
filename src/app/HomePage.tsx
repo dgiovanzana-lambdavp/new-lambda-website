@@ -14,10 +14,40 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <Hero />
+      <Hero sources={[{ src: '/Defense-plus.mp4', type: 'video/mp4' }]}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white">
+            Lambda Capital
+          </h1>
+
+          <motion.p
+            className="text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-4xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Growth capital investments in vertical software
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <Button href="/contact" variant="white" size="lg">
+              Apply for funding
+            </Button>
+          </motion.div>
+        </motion.div>
+      </Hero>
 
       {/* Mission Statement */}
-      <section className="section-padding bg-tactical-gray/20">
+      <section className="section-padding section-after-hero">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -1,36 +1,40 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import Button from './Button';
 
-const Hero: React.FC = () => {
+export type HeroVideoSource = {
+  src: string;
+  type: string;
+};
+
+export type HeroProps = {
+  sources: HeroVideoSource[];
+  poster?: string;
+  children: React.ReactNode;
+};
+
+const Hero: React.FC<HeroProps> = ({ sources, poster, children }) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="hero-first-screen relative flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 bg-navy-blue overflow-hidden">
         {/* Local MP4 Background Video - Fullscreen */}
         <div className="absolute inset-0 w-full h-full" aria-hidden="true">
           <video
-            className="absolute top-1/2 left-1/2 w-screen h-screen"
-            style={{
-              transform: 'translate(-50%, -50%)',
-              minWidth: '100vw',
-              minHeight: '100vh',
-              width: '177.77vh',
-              height: '56.25vw',
-              objectFit: 'cover'
-            }}
+            className="absolute inset-0 h-full w-full object-cover"
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
+            poster={poster}
           >
-            <source src="/Defense-plus.mp4" type="video/mp4" />
+            {sources.map((source) => (
+              <source key={`${source.src}-${source.type}`} src={source.src} type={source.type} />
+            ))}
           </video>
         </div>
-        
+
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-gray-950/70 via-gray-900/40 to-gray-950/80 z-10" />
         {/* Extra top cover to mask YouTube UI (title/watch-later) */}
@@ -40,37 +44,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-30 container-custom text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white">
-              Lambda Capital
-            </h1>
-          
-          <motion.p
-            className="text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Growth capital investments in vertical software
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-          <Button href="/contact" variant="white" size="lg">
-            Apply for funding
-          </Button>
-          </motion.div>
-        </motion.div>
-      </div>
+      <div className="relative z-30 container-custom text-center">{children}</div>
     </section>
   );
 };

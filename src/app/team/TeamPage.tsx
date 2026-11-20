@@ -2,34 +2,39 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Hero from '@/components/Hero';
 import TeamShowcase from '@/components/TeamShowcase';
 import { teamMembers } from '@/lib/data';
 import Button from '@/components/Button';
 
 export default function TeamPage() {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-8 text-gray-900">
-              Meet Our Team
-            </h1>
-            <p className="text-xl md:text-2xl text-text-secondary leading-relaxed">
-              The Lambda Capital team combines deep technical expertise with operational and strategic experience.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Hero
+        sources={[
+          { src: '/team-hero-v6.mp4', type: 'video/mp4' },
+          { src: '/team-hero-v6.webm', type: 'video/webm' },
+        ]}
+        poster="/team-hero-v6-poster.jpg"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white">
+            Meet Our Team
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            The Lambda Capital team combines deep technical expertise with operational and strategic experience.
+          </p>
+        </motion.div>
+      </Hero>
 
       {/* Team — vertical scroll, alternating image side */}
-      <section className="section-padding bg-tactical-gray/20">
+      <section className="section-padding section-after-hero">
         <div className="container-custom max-w-6xl">
           {teamMembers.map((member, index) => (
             <TeamShowcase key={member.id} member={member} index={index} />
