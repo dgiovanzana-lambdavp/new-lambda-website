@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 
 export type HeroVideoSource = {
   src: string;
@@ -14,8 +14,20 @@ export type HeroProps = {
 };
 
 const Hero: React.FC<HeroProps> = ({ sources, poster, children }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const scrollToNextSection = useCallback(() => {
+    const next = sectionRef.current?.nextElementSibling;
+    if (next instanceof HTMLElement) {
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Video */}
       <div className="absolute inset-0 bg-navy-blue overflow-hidden">
         {/* Local MP4 Background Video - Fullscreen */}
@@ -53,6 +65,18 @@ const Hero: React.FC<HeroProps> = ({ sources, poster, children }) => {
 
       {/* Content */}
       <div className="relative z-30 container-custom text-center">{children}</div>
+
+      <button
+        type="button"
+        onClick={scrollToNextSection}
+        aria-label="Scroll to next section"
+        className="absolute bottom-7 left-1/2 z-40 -translate-x-1/2 cursor-pointer border-0 bg-transparent p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-full"
+      >
+        <span
+          aria-hidden
+          className="hero-scroll-indicator block h-1 w-11 rounded-full bg-white/85 sm:w-12"
+        />
+      </button>
     </section>
   );
 };
