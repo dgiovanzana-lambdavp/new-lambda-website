@@ -1,8 +1,37 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ensureAnalytics, trackPageview } from "@/lib/analytics";
+
+/**
+ * Fires SPA pageviews on route changes. Uses `usePathname` only (no
+ * `useSearchParams`) so the layout never opts into client-side rendering;
+ * query strings are read from `window.location` inside the effect.
+ */
+function AnalyticsPageviewTracker() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (!pathname || typeof window === "undefined") return;
+
+    const url = `${window.location.origin}${window.location.pathname}${window.location.search}`;
+
+    const onBlog = pathname === "/blog" || pathname.startsWith("/blog/");
+    const postSlug = pathname.startsWith("/blog/")
+      ? pathname.slice("/blog/".length).split("/")[0] || undefined
+      : undefined;
+
+    trackPageview({
+      $current_url: url,
+      path: pathname,
+      section: onBlog ? "blog" : undefined,
+      post_slug: postSlug,
+    });
+  }, [pathname]);
+
+  return null;
+}
 
 /**
  * Site-wide PostHog bootstrap + SPA pageviews.
@@ -20,34 +49,14 @@ export default function AnalyticsProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
   useEffect(() => {
     ensureAnalytics();
   }, []);
 
-  useEffect(() => {
-    if (!pathname) return;
-
-    const search = searchParams?.toString();
-    const url =
-      typeof window !== "undefined"
-        ? `${window.location.origin}${pathname}${search ? `?${search}` : ""}`
-        : pathname;
-
-    const onBlog = pathname === "/blog" || pathname.startsWith("/blog/");
-    const postSlug = pathname.startsWith("/blog/")
-      ? pathname.slice("/blog/".length).split("/")[0] || undefined
-      : undefined;
-
-    trackPageview({
-      $current_url: url,
-      path: pathname,
-      section: onBlog ? "blog" : undefined,
-      post_slug: postSlug,
-    });
-  }, [pathname, searchParams]);
-
-  return children;
+  return (
+    <>
+      <AnalyticsPageviewTracker />
+      {children}
+    </>
+  );
 }
