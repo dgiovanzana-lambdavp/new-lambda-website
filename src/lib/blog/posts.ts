@@ -1132,6 +1132,47 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_SLUG =
+  "government-contract-financial-capability";
+
+const GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_DATE = "2026-11-21";
+
+const GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_H2_TEXTS = [
+  "The direct answer",
+  "Will the government check whether you can afford to perform the contract?",
+  "What counts as proof that you can finance the contract?",
+  "What happens if a contracting officer decides you are not responsible?",
+  "Do state and local agencies check your finances too?",
+  "Should you take on a contract bigger than your cash can carry?",
+  "What should you do before you submit the bid?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_HEADINGS: BlogHeading[] =
+  GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_POST: BlogPostMeta = {
+  slug: GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_SLUG,
+  metaTitle: "Government Contract Financial Capability, Explained",
+  h1: "Will the Government Check Whether My Company Can Afford the Contract?",
+  description:
+    "Before award, federal contracting officers must find you have the money to perform, or the ability to get it. Here is what they check and how to fund the gap.",
+  category: "Growth capital",
+  date: GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_DATE,
+  updated: GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-contract-financial-capability-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Contract Financial Capability",
+};
+
 const GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_SLUG =
   "government-contract-performance-bond-letter-of-credit";
 
@@ -1593,6 +1634,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_POST,
   GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_POST,
   GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_POST,
   GOVERNMENT_STOP_WORK_ORDER_PAYMENT_POST,
@@ -1700,6 +1742,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_HEADINGS;
   if (slug === GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_SLUG)
     return GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_HEADINGS;
+  if (slug === GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_SLUG)
+    return GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_HEADINGS;
   return [];
 }
 
@@ -1776,6 +1820,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_JSON_LD;
   if (slug === GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_SLUG)
     return GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_JSON_LD;
+  if (slug === GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_SLUG)
+    return GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_JSON_LD;
   return null;
 }
 
@@ -3981,6 +4027,77 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
           text: item.answer,
         },
       })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_FAQ: FaqItem[] = [
+  {
+    question:
+      "Does the government check a contractor's finances before a federal award?",
+    answer:
+      "Yes. The contracting officer must make an affirmative determination of responsibility before award. The first standard is adequate financial resources to perform, or the ability to obtain them.",
+  },
+  {
+    question: "Do you need all the cash in the bank before you win?",
+    answer:
+      "No. FAR accepts the ability to obtain resources. When you do not already have them, acceptable proof is normally a commitment or an explicit arrangement that exists at the time of award.",
+  },
+  {
+    question: "Will every federal software award get a preaward survey?",
+    answer:
+      "No. A preaward survey is normally required only when the information on hand is not enough. For commercial services, it should not be requested unless circumstances justify its cost.",
+  },
+  {
+    question:
+      "What if a contracting officer finds your small business nonresponsible?",
+    answer:
+      "The officer must refer the matter to the SBA for a possible certificate. Award is withheld for 15 business days, or longer if agreed, after a complete referral is received.",
+  },
+  {
+    question: "Do state agencies ask for financial statements?",
+    answer:
+      "Many do on large projects. Texas guidance describes requesting audited statements, or CPA attested statements when audited ones are unavailable, on high risk or high dollar buys. Read each bid request.",
+  },
+  {
+    question: "How should you fund the gap before the first payment?",
+    answer:
+      "As a timing problem, sized to the months before the first payment and arranged before award. Use growth capital when the real need is building capacity for more and larger contracts.",
+  },
+];
+
+export const GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Government Contract Financial Capability, Explained",
+      description:
+        "Before award, federal contracting officers must find you have the money to perform, or the ability to get it. Here is what they check and how to fund the gap.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-21",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_FAQ.map(
+        (item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        }),
+      ),
     },
   ],
 } as const;
