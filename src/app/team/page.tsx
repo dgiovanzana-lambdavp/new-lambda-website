@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import TeamPage from "./TeamPage";
+import { getTeamPageJsonLd } from "@/lib/team-jsonld";
+
+const teamPageJsonLd = getTeamPageJsonLd();
 
 export const metadata: Metadata = {
   title: "Team | Lambda Capital",
@@ -15,5 +18,15 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <TeamPage />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(teamPageJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <TeamPage />
+    </>
+  );
 }
