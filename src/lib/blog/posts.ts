@@ -1132,6 +1132,47 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_SLUG =
+  "idiq-contract-task-order-cash-gap";
+
+const IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_DATE = "2026-11-22";
+
+const IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_H2_TEXTS = [
+  "The direct answer",
+  "Does winning an IDIQ contract mean the government has to buy from you?",
+  "Why can months pass before the first task order arrives?",
+  "Do state and local contracts promise any minimum?",
+  "Should you hire your delivery team before the first task order?",
+  "How should you fund the gap once a task order is signed?",
+  "What should you do the week you win an IDIQ contract?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_HEADINGS: BlogHeading[] =
+  IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_POST: BlogPostMeta = {
+  slug: IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_SLUG,
+  metaTitle: "Won an IDIQ Contract? When the Money Actually Starts",
+  h1: "We Won an IDIQ Contract. When Will the Government Actually Pay Us?",
+  description:
+    "An IDIQ award only guarantees the minimum. Cash starts with signed task orders. Here is how to plan and fund the gap from award to first payment.",
+  category: "Growth capital",
+  date: IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_DATE,
+  updated: IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-idiq-contract-task-order-cash-gap-hero.jpg",
+  ogImage: `/og/blog-${IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_SLUG}.jpg`,
+  breadcrumbsTitle: "IDIQ Contract Task Order Cash Gap",
+};
+
 const GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_SLUG =
   "government-contract-financial-capability";
 
@@ -1634,6 +1675,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_POST,
   GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_POST,
   GOVERNMENT_TERMINATION_FOR_CONVENIENCE_PAYMENT_POST,
@@ -1744,6 +1786,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_HEADINGS;
   if (slug === GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_SLUG)
     return GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_HEADINGS;
+  if (slug === IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_SLUG)
+    return IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_HEADINGS;
   return [];
 }
 
@@ -1822,6 +1866,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_JSON_LD;
   if (slug === GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_SLUG)
     return GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_JSON_LD;
+  if (slug === IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_SLUG)
+    return IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_JSON_LD;
   return null;
 }
 
@@ -4020,6 +4066,73 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_FAQ: FaqItem[] = [
+  {
+    question: "Does an IDIQ contract guarantee revenue?",
+    answer:
+      "Only the minimum. The FAR requires the contract to bind the government to order at least a stated minimum that is more than a nominal quantity. Schedule quantities above it are estimates only.",
+  },
+  {
+    question: "Is the ceiling the contract's value?",
+    answer:
+      "No. The ceiling is the most the government may order. Revenue comes from task orders actually issued and paid.",
+  },
+  {
+    question: "When do you get paid on an IDIQ contract?",
+    answer:
+      "After a task order is issued, the work is performed and accepted, and the invoice is paid. Nothing is performed without an order.",
+  },
+  {
+    question: "Do you compete again after winning a multiple award IDIQ?",
+    answer:
+      "Usually. Contracting officers generally must give each awardee a fair opportunity to be considered for each order above a small threshold, with some exceptions.",
+  },
+  {
+    question: "Do state contracts guarantee a minimum?",
+    answer:
+      "Often not. Texas guidance recommends a clause stating the agency guarantees no minimum compensation or quantity. Other states and local governments vary. Read the contract.",
+  },
+  {
+    question: "How should you fund the gap?",
+    answer:
+      "Fund the gap between a signed order and its first payment as a timing problem. Use growth capital for the team and capacity to compete for orders.",
+  },
+];
+
+export const IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Won an IDIQ Contract? When the Money Actually Starts",
+      description:
+        "An IDIQ award only guarantees the minimum. Cash starts with signed task orders. Here is how to plan and fund the gap from award to first payment.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-22",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
