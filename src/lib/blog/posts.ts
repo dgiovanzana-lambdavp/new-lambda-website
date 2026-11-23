@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_SLUG =
+  "government-contract-bid-protest-cash-gap";
+
+const GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_DATE = "2026-11-23";
+
+const GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_H2_TEXTS = [
+  "The direct answer",
+  "Can a competitor's protest stop work on a contract you already won?",
+  "How long can a bid protest delay your first payment?",
+  "Do state contracts pause for protests too?",
+  "Should you hire your delivery team before the protest window closes?",
+  "Can you recover costs if a protest stops your work?",
+  "How should you fund the gap a protest creates?",
+  "What should you do the week you win a government contract?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_HEADINGS: BlogHeading[] =
+  GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_POST: BlogPostMeta = {
+  slug: GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_SLUG,
+  metaTitle: "Contract Award Protested? When Your Cash Really Starts",
+  h1: "We Won a Government Contract and a Competitor Protested. When Do We Get Paid?",
+  description:
+    "A timely bid protest can pause a federal award for up to 100 days. Here is how the pause works and how to fund the gap to your first payment.",
+  category: "Growth capital",
+  date: GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_DATE,
+  updated: GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-contract-bid-protest-cash-gap-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Contract Bid Protest Cash Gap",
+};
+
 const IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_SLUG =
   "idiq-contract-task-order-cash-gap";
 
@@ -1675,6 +1717,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_POST,
   IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_POST,
   GOVERNMENT_CONTRACT_PERFORMANCE_BOND_LETTER_OF_CREDIT_POST,
@@ -1788,6 +1831,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_HEADINGS;
   if (slug === IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_SLUG)
     return IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_HEADINGS;
+  if (slug === GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_SLUG)
+    return GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_HEADINGS;
   return [];
 }
 
@@ -1868,6 +1913,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_JSON_LD;
   if (slug === IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_SLUG)
     return IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_JSON_LD;
+  if (slug === GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_SLUG)
+    return GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_JSON_LD;
   return null;
 }
 
@@ -4066,6 +4113,73 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_FAQ: FaqItem[] = [
+  {
+    question: "Can a bid protest stop work on a federal contract?",
+    answer:
+      "Yes, if GAO gets it to the agency within 10 days after award or 5 days after a required debriefing, whichever is later. The contracting officer must then suspend performance or terminate the award unless the agency overrides in writing.",
+  },
+  {
+    question: "How long does a GAO bid protest take?",
+    answer:
+      "GAO must decide within 100 days of filing, or 65 days under the express option. Many end sooner. 100 days is the limit, not the norm.",
+  },
+  {
+    question: "Can you keep working while a protest is pending?",
+    answer:
+      "Only if the agency overrides in writing on a best interests or urgent and compelling finding, or the protest came too late to require a pause.",
+  },
+  {
+    question: "Do state contracts pause for protests?",
+    answer:
+      "Often. California holds state IT awards while a timely protest is pending. Texas agencies follow their own protest rules. Local governments vary. Read the solicitation.",
+  },
+  {
+    question: "Can you recover costs from the pause?",
+    answer:
+      "Possibly, in part. If the contract has the Protest after Award clause and a stop work order issues under it, you can seek an equitable adjustment for properly allocable costs, asserted within 30 days after the stoppage ends.",
+  },
+  {
+    question: "How should you fund the gap?",
+    answer:
+      "Fund the ramp after the pause as a timing problem. Treat pause payroll as a bet you choose. Use growth capital for the capacity to win more awards.",
+  },
+];
+
+export const GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Contract Award Protested? When Your Cash Really Starts",
+      description:
+        "A timely bid protest can pause a federal award for up to 100 days. Here is how the pause works and how to fund the gap to your first payment.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-23",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
