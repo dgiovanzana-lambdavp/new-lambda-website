@@ -1132,6 +1132,47 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_SLUG =
+  "government-customer-concentration-cash-gap";
+
+const GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_DATE = "2026-11-24";
+
+const GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_H2_TEXTS = [
+  "The direct answer",
+  "Are four federal agencies four customers, or one?",
+  "Why does one big government customer make your cash gap bigger?",
+  "How much cash should you plan for a slowdown at your biggest payer?",
+  "Is customer concentration a timing problem or a growth problem?",
+  "How should you fund the gap when one government customer dominates?",
+  "What should you do this quarter if one customer is most of your revenue?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_HEADINGS: BlogHeading[] =
+  GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST: BlogPostMeta = {
+  slug: GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_SLUG,
+  metaTitle: "One Government Customer, Most of Revenue? Fund the Gap",
+  h1: "One Government Customer Is Most of Our Revenue. How Should We Fund the Cash Gap?",
+  description:
+    "Ten federal agencies count as one customer. Here is how concentration enlarges the cash gap on signed contracts and how to fund each part.",
+  category: "Growth capital",
+  date: GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_DATE,
+  updated: GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-customer-concentration-cash-gap-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Customer Concentration Cash Gap",
+};
+
 const GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_SLUG =
   "government-contract-bid-protest-cash-gap";
 
@@ -1717,6 +1758,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_POST,
   IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_POST,
@@ -1833,6 +1875,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_HEADINGS;
   if (slug === GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_SLUG)
     return GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_HEADINGS;
+  if (slug === GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_SLUG)
+    return GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_HEADINGS;
   return [];
 }
 
@@ -1915,6 +1959,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_JSON_LD;
   if (slug === GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_SLUG)
     return GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_JSON_LD;
+  if (slug === GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_SLUG)
+    return GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_JSON_LD;
   return null;
 }
 
@@ -4113,6 +4159,73 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_FAQ: FaqItem[] = [
+  {
+    question: "Are different federal agencies separate customers?",
+    answer:
+      "Not under the accounting standard. The federal government counts as a single customer, and so does each state government and each local government (a county or municipality). Count them as one.",
+  },
+  {
+    question: "What counts as a major customer?",
+    answer:
+      "For public company disclosure, any customer that brings in 10 percent or more of revenue. It is a disclosure line, not a safety limit.",
+  },
+  {
+    question: "Why does concentration make the cash gap bigger?",
+    answer:
+      "Every contract with one government shares one budget process. When it slows, all of those payments slow together, so the gap is set by your biggest customer. The average payer is the wrong base.",
+  },
+  {
+    question: "Can a state contract end because the legislature does not fund it?",
+    answer:
+      "In Texas, a funding out clause must be included in a state agency contract if the contract term will cross a fiscal year. Texas agencies may not incur obligations in excess of amounts lawfully appropriated over the course of a biennium. They cannot promise more than the funds they have for that span. Other states and local governments likely have similar terms. Read your contract.",
+  },
+  {
+    question: "How much cash should you plan for a slowdown?",
+    answer:
+      "Take your biggest customer's monthly billing and multiply by the months its payments could slip. Arrange a timing tool for that amount before you need it. Plan that cash now.",
+  },
+  {
+    question: "Is customer concentration a timing problem or a growth problem?",
+    answer:
+      "Both. The cash tied up in a slowdown is timing. The concentration is growth, fixed by winning customers on other budget calendars with growth capital. Use different money for each.",
+  },
+];
+
+export const GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "One Government Customer, Most of Revenue? Fund the Gap",
+      description:
+        "Ten federal agencies count as one customer. Here is how concentration enlarges the cash gap on signed contracts and how to fund each part.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-24",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {

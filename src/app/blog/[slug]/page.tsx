@@ -41,6 +41,7 @@ import ExtraWorkGovernmentContractModificationPostContent from "@/components/blo
 import GovernmentContractCloseoutFinalInvoicePaymentPostContent from "@/components/blog/GovernmentContractCloseoutFinalInvoicePaymentPostContent";
 import GovernmentPaymentOffsetWarrantHoldPostContent from "@/components/blog/GovernmentPaymentOffsetWarrantHoldPostContent";
 import GovernmentStopWorkOrderPaymentPostContent from "@/components/blog/GovernmentStopWorkOrderPaymentPostContent";
+import GovernmentCustomerConcentrationCashGapPostContent from "@/components/blog/GovernmentCustomerConcentrationCashGapPostContent";
 import GovernmentContractBidProtestCashGapPostContent from "@/components/blog/GovernmentContractBidProtestCashGapPostContent";
 import IdiqContractTaskOrderCashGapPostContent from "@/components/blog/IdiqContractTaskOrderCashGapPostContent";
 import GovernmentContractFinancialCapabilityPostContent from "@/components/blog/GovernmentContractFinancialCapabilityPostContent";
@@ -55,6 +56,7 @@ import {
   DATA_CENTER_LEASE_POST,
   GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST,
   GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST,
+  GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_POST,
   IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_POST,
@@ -146,6 +148,8 @@ export async function generateMetadata({
 }
 
 function PostBody({ slug }: { slug: string }) {
+  if (slug === GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST.slug)
+    return <GovernmentCustomerConcentrationCashGapPostContent />;
   if (slug === GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_POST.slug)
     return <GovernmentContractBidProtestCashGapPostContent />;
   if (slug === IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_POST.slug)
