@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   CAPITAL_STACK_SENIORITY_POST,
   COMMON_STOCK_FINANCING_POST,
   FINANCING_STRATEGY_POST,
@@ -16,8 +16,7 @@ import {
   UPFRONT_PAYMENT_POST,
   VC_WRONG_CHOICE_POST,
   WORKING_CAPITAL_VS_GROWTH_FAQ,
-  WORKING_CAPITAL_VS_GROWTH_HEADINGS,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_HEADINGS, WORKING_CAPITAL_VS_GROWTH_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   WORKING_CAPITAL_VS_GROWTH_HEADINGS.map((h) => [h.text, h.id]),
@@ -531,7 +530,10 @@ export default function WorkingCapitalVsGrowthPostContent() {
         </li>
       </ul>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={WORKING_CAPITAL_VS_GROWTH_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital is a permanent capital holding company investing in

@@ -1,14 +1,13 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  PROMPT_PAYMENT_POST,
+import {PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_POST,
   IMPLEMENTATION_MILESTONES_POST,
   VENTURE_DEBT_FAQ,
-  VENTURE_DEBT_HEADINGS,
-} from "@/lib/blog/posts";
+  VENTURE_DEBT_HEADINGS, VENTURE_DEBT_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   VENTURE_DEBT_HEADINGS.map((h) => [h.text, h.id]),
@@ -269,7 +268,10 @@ export default function VentureDebtPostContent() {
         </li>
       </ul>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={VENTURE_DEBT_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
         Lambda Capital is a permanent capital holding company investing in
         vertical market technology that strengthens national security and core

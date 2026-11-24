@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  CASH_FLOW_GAP_POST,
+import {CASH_FLOW_GAP_POST,
   FISCAL_YEAR_2027_POST,
   GOVERNMENT_CONTRACT_RENEWAL_LAPSE_FAQ,
   GOVERNMENT_CONTRACT_RENEWAL_LAPSE_HEADINGS,
@@ -11,8 +11,7 @@ import {
   LOCAL_GOVERNMENT_BOARD_APPROVAL_POST,
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   GOVERNMENT_CONTRACT_RENEWAL_LAPSE_HEADINGS.map((h) => [h.text, h.id]),
@@ -455,7 +454,10 @@ export default function GovernmentContractRenewalLapsePostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies in

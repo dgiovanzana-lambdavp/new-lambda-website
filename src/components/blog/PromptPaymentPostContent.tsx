@@ -1,12 +1,11 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  GOVTECH_POST,
+import {GOVTECH_POST,
   PROMPT_PAYMENT_FAQ,
-  PROMPT_PAYMENT_HEADINGS,
-} from "@/lib/blog/posts";
+  PROMPT_PAYMENT_HEADINGS, PROMPT_PAYMENT_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   PROMPT_PAYMENT_HEADINGS.map((h) => [h.text, h.id]),
@@ -546,7 +545,10 @@ export default function PromptPaymentPostContent() {
       <h2 id={H["Frequently asked questions"]}>Frequently asked questions</h2>
       <Faq items={PROMPT_PAYMENT_FAQ} />
 
-      <p className="blog-disclaimer">
+      
+      <FounderCtaBlock position="bottom" postSlug={PROMPT_PAYMENT_POST.slug} />
+
+<p className="blog-disclaimer">
         This article is general information, not legal, tax, or financial
         advice. Statutes, rates and agency practices change, so confirm the
         current rule for your jurisdiction and contract with counsel.

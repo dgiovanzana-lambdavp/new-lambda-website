@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  CAPITAL_STACK_SENIORITY_POST,
+import {CAPITAL_STACK_SENIORITY_POST,
   CASH_FLOW_GAP_POST,
   EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_FAQ,
   EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_HEADINGS,
@@ -16,8 +16,7 @@ import {
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
   WORKING_CAPITAL_VS_GROWTH_POST,
-  FINANCING_STRATEGY_POST,
-} from "@/lib/blog/posts";
+  FINANCING_STRATEGY_POST, EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_HEADINGS.map((h) => [
@@ -573,7 +572,10 @@ export default function ExtraWorkGovernmentContractModificationPostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={EXTRA_WORK_GOVERNMENT_CONTRACT_MODIFICATION_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies in

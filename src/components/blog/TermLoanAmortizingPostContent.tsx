@@ -1,17 +1,16 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   FINANCING_STRATEGY_POST,
   GOVTECH_POST,
   PROMPT_PAYMENT_POST,
   TERM_LOAN_AMORTIZING_FAQ,
   TERM_LOAN_AMORTIZING_HEADINGS,
   VC_WRONG_CHOICE_POST,
-  VENTURE_DEBT_POST,
-} from "@/lib/blog/posts";
+  VENTURE_DEBT_POST, TERM_LOAN_AMORTIZING_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   TERM_LOAN_AMORTIZING_HEADINGS.map((h) => [h.text, h.id]),
@@ -325,7 +324,10 @@ export default function TermLoanAmortizingPostContent() {
           </Link>
         </li>
       </ul>
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={TERM_LOAN_AMORTIZING_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
         Lambda Capital is a permanent capital holding company. We take a patient
         approach and invest for the long term. GovTech contract funding is one

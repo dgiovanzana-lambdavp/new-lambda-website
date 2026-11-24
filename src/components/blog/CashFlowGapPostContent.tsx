@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   CAPITAL_STACK_SENIORITY_POST,
   CASH_FLOW_GAP_FAQ,
   CASH_FLOW_GAP_HEADINGS,
@@ -16,8 +16,7 @@ import {
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
   UPFRONT_PAYMENT_POST,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, CASH_FLOW_GAP_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   CASH_FLOW_GAP_HEADINGS.map((h) => [h.text, h.id]),
@@ -682,6 +681,8 @@ export default function CashFlowGapPostContent() {
           This post is general education, not financial, legal, or tax advice.
         </em>
       </p>
+
+      <FounderCtaBlock position="bottom" postSlug={CASH_FLOW_GAP_POST.slug} />
 
       <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 

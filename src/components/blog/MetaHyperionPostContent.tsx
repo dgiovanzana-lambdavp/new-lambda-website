@@ -1,15 +1,14 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   CAPITAL_STACK_SENIORITY_POST,
   FINANCING_STRATEGY_POST,
   META_HYPERION_FAQ,
   META_HYPERION_HEADINGS,
-  TERM_LOAN_AMORTIZING_POST,
-} from "@/lib/blog/posts";
+  TERM_LOAN_AMORTIZING_POST, META_HYPERION_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   META_HYPERION_HEADINGS.map((h) => [h.text, h.id]),
@@ -565,7 +564,10 @@ export default function MetaHyperionPostContent() {
         </li>
       </ul>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={META_HYPERION_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
         Lambda Capital is a permanent capital holding company investing in
         vertical market technology that strengthens national security and core

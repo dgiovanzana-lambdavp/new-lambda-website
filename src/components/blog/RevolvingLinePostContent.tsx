@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   FINANCING_STRATEGY_POST,
   GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
@@ -11,8 +11,7 @@ import {
   REVOLVING_LINE_FAQ,
   REVOLVING_LINE_HEADINGS,
   UPFRONT_PAYMENT_POST,
-  VC_WRONG_CHOICE_POST,
-} from "@/lib/blog/posts";
+  VC_WRONG_CHOICE_POST, REVOLVING_LINE_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   REVOLVING_LINE_HEADINGS.map((h) => [h.text, h.id]),
@@ -264,7 +263,10 @@ export default function RevolvingLinePostContent() {
         </li>
       </ul>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={REVOLVING_LINE_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
         Lambda Capital is a permanent capital holding company. We take a patient
         approach and invest for the long term. GovTech contract funding is one

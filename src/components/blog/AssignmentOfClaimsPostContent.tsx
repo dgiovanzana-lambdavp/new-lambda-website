@@ -1,16 +1,15 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_FAQ,
+import {ASSIGNMENT_OF_CLAIMS_FAQ,
   ASSIGNMENT_OF_CLAIMS_HEADINGS,
   GOVTECH_POST,
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_POST,
-  VENTURE_DEBT_POST,
-} from "@/lib/blog/posts";
+  VENTURE_DEBT_POST, ASSIGNMENT_OF_CLAIMS_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   ASSIGNMENT_OF_CLAIMS_HEADINGS.map((h) => [h.text, h.id]),
@@ -329,7 +328,10 @@ export default function AssignmentOfClaimsPostContent() {
         </li>
       </ul>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={ASSIGNMENT_OF_CLAIMS_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
         Lambda Capital is a permanent capital holding company. We take a patient
         approach and invest for the long term. GovTech contract funding is one

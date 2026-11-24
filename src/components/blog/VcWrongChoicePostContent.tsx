@@ -1,16 +1,15 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   FINANCING_STRATEGY_POST,
   GOVTECH_POST,
   PROMPT_PAYMENT_POST,
   VC_WRONG_CHOICE_FAQ,
   VC_WRONG_CHOICE_HEADINGS,
-  VENTURE_DEBT_POST,
-} from "@/lib/blog/posts";
+  VENTURE_DEBT_POST, VC_WRONG_CHOICE_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   VC_WRONG_CHOICE_HEADINGS.map((h) => [h.text, h.id]),
@@ -311,7 +310,10 @@ export default function VcWrongChoicePostContent() {
         </li>
       </ul>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={VC_WRONG_CHOICE_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
         Lambda Capital is a permanent capital holding company. We take a patient
         approach and invest for the long term. GovTech contract funding is one

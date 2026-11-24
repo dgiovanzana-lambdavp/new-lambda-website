@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import InlineCta from "./InlineCta";
 import TableWrap from "./TableWrap";
@@ -618,7 +619,10 @@ export default function GovTechPostContent() {
       <h2 id={H["Frequently asked questions"]}>Frequently asked questions</h2>
       <Faq items={GOVTECH_FAQ} />
 
-      <p className="blog-disclaimer">
+      
+      <FounderCtaBlock position="bottom" postSlug={GOVTECH_POST.slug} />
+
+<p className="blog-disclaimer">
         This article is general information, not legal, tax, or financial
         advice. Payment rules and financing terms vary by jurisdiction, agency,
         and provider.
