@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_SLUG =
+  "government-contract-interest-financing-costs";
+
+const GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_DATE = "2026-11-25";
+
+const GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_H2_TEXTS = [
+  "The direct answer",
+  "Can you bill the government for interest on money you borrow to deliver a contract?",
+  "Does a fixed price contract let you build the cost of waiting into your price?",
+  "Will the agency pay early if you ask?",
+  "How much does a slow government receivable cost a company with 20 percent margins?",
+  "Is the cost of slow government payment a timing problem or a growth problem?",
+  "How should you fund the cost the government will not pay?",
+  "What should you do this quarter if the government will not pay your carrying cost?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_HEADINGS: BlogHeading[] =
+  GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST: BlogPostMeta = {
+  slug: GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_SLUG,
+  metaTitle: "Can You Bill the Government for Financing Costs?",
+  h1: "Can We Charge the Government for the Cost of Financing Our Contract?",
+  description:
+    "Interest is unallowable and fixed prices do not move, so the cost of a slow government receivable is yours. Here is how to plan and fund it.",
+  category: "Growth capital",
+  date: GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_DATE,
+  updated: GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-government-contract-interest-financing-costs-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Contract Interest Financing Costs",
+};
+
 const GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_SLUG =
   "government-customer-concentration-cash-gap";
 
@@ -1758,6 +1800,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST,
   GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_POST,
   IDIQ_CONTRACT_TASK_ORDER_CASH_GAP_POST,
@@ -1877,6 +1920,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_HEADINGS;
   if (slug === GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_SLUG)
     return GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_HEADINGS;
+  if (slug === GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_SLUG)
+    return GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_HEADINGS;
   return [];
 }
 
@@ -1961,6 +2006,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_JSON_LD;
   if (slug === GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_SLUG)
     return GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_JSON_LD;
+  if (slug === GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_SLUG)
+    return GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_JSON_LD;
   return null;
 }
 
@@ -4166,6 +4213,76 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
           text: item.answer,
         },
       })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_FAQ: FaqItem[] = [
+  {
+    question: "Can we add interest to a government invoice?",
+    answer:
+      "Not under the federal cost principles. Interest on borrowings and the costs of financing capital are unallowable, so keep them off invoices and cost proposals. Those principles apply when cost analysis is performed or a contract clause requires them, including reimbursable costs on cost reimbursement contracts and the cost portion of time and materials contracts.",
+  },
+  {
+    question: "Is cost of money the same as interest?",
+    answer:
+      "No. It is an imputed charge for capital tied up in facilities, set by accounting standards. Our reading: it does not cover cash tied up in unpaid invoices.",
+  },
+  {
+    question: "Does a fixed price contract cover our financing costs?",
+    answer:
+      "Only if your price does. A firm fixed price does not change with your costs, so the cost of waiting sits inside the price you bid.",
+  },
+  {
+    question:
+      'Will an agency pay early if our invoice says "immediately upon receipt"?',
+    answer:
+      "Generally no. Texas agencies are told not to pay before the due date unless law, contract, or another obligation requires it, and a note on an invoice does not. Other governments likely have similar rules. Read your contract.",
+  },
+  {
+    question: "Does prompt payment interest cover the wait?",
+    answer:
+      "Only the late part. Federal interest starts only after the due date and when the clause's conditions are met, so the normal days before the due date are unpaid.",
+  },
+  {
+    question: "How should we fund the cost of slow government payment?",
+    answer:
+      "Shrink the gap first. Use a timing tool for swings on signed work, longer dated capital for the base that grows with revenue, and growth capital for real growth.",
+  },
+];
+
+export const GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Can You Bill the Government for Financing Costs?",
+      description:
+        "Interest is unallowable and fixed prices do not move, so the cost of a slow government receivable is yours. Here is how to plan and fund it.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-25",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_FAQ.map(
+        (item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        }),
+      ),
     },
   ],
 } as const;
