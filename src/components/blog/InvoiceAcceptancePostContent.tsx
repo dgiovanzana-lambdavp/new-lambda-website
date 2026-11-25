@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   CASH_FLOW_GAP_POST,
   EARLY_PAYMENT_DISCOUNT_POST,
   FINANCING_STRATEGY_POST,
@@ -16,8 +16,7 @@ import {
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
   UPFRONT_PAYMENT_POST,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, INVOICE_ACCEPTANCE_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   INVOICE_ACCEPTANCE_HEADINGS.map((h) => [h.text, h.id]),
@@ -667,7 +666,10 @@ export default function InvoiceAcceptancePostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={INVOICE_ACCEPTANCE_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital is a permanent capital holding company investing in

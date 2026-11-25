@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
 import { slugifyHeading } from "@/lib/blog/slugify";
-import {
-  BIG_TECH_EQUITY_FAQ,
+import {BIG_TECH_EQUITY_FAQ,
   BIG_TECH_EQUITY_HEADINGS,
   CAPITAL_STACK_SENIORITY_POST,
   CASH_FLOW_GAP_POST,
@@ -14,8 +14,7 @@ import {
   NEOCLOUD_POST,
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, BIG_TECH_EQUITY_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   BIG_TECH_EQUITY_HEADINGS.map((h) => [h.text, h.id]),
@@ -495,7 +494,10 @@ export default function BigTechEquityRaisesPostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={BIG_TECH_EQUITY_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies in

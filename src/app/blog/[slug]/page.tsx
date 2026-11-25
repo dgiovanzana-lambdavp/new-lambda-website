@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import JumpList from "@/components/blog/JumpList";
-import CtaBand from "@/components/blog/CtaBand";
+import FounderCtaBlock from "@/components/blog/FounderCtaBlock";
 import AuthorBox from "@/components/blog/AuthorBox";
 import ScrollDepthTracker from "@/components/blog/ScrollDepthTracker";
 import GovTechPostContent from "@/components/blog/GovTechPostContent";
@@ -287,27 +287,6 @@ export default async function BlogPostPage({ params }: PageProps) {
     ],
   };
 
-  const ctaHeading =
-    slug === PROMPT_PAYMENT_POST.slug ||
-    slug === UPFRONT_PAYMENT_POST.slug ||
-    slug === IMPLEMENTATION_MILESTONES_POST.slug ||
-    slug === ASSIGNMENT_OF_CLAIMS_POST.slug ||
-    slug === FISCAL_YEAR_2027_POST.slug ||
-    slug === WORKING_CAPITAL_VS_GROWTH_POST.slug ||
-    slug === EARLY_PAYMENT_DISCOUNT_POST.slug ||
-    slug === CASH_FLOW_GAP_POST.slug ||
-    slug === INVOICE_ACCEPTANCE_POST.slug ||
-    slug === INVOICE_PAYMENT_STATUS_POST.slug ||
-    slug === LOCAL_GOVERNMENT_BOARD_APPROVAL_POST.slug ||
-    slug === GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST.slug ||
-    slug === SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST.slug ||
-    slug === GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST.slug ||
-    slug === GOVERNMENT_VENDOR_REGISTRATION_POST.slug ||
-    slug === PURCHASE_ORDER_BALANCE_POST.slug ||
-    slug === PURCHASE_CARD_POST.slug
-      ? "Signed contracts and long receivables?"
-      : "Growing a GovTech software company?";
-
   return (
     <main className="blog-page">
       {articleJsonLd ? (
@@ -365,10 +344,11 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         <JumpList headings={headings} postSlug={slug} />
 
+        <FounderCtaBlock position="top" postSlug={slug} />
+
         <PostBody slug={slug} />
       </article>
 
-      <CtaBand heading={ctaHeading} postSlug={slug} />
       <AuthorBox />
     </main>
   );

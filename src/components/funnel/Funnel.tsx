@@ -244,6 +244,14 @@ export function Funnel({ persona }: FunnelProps) {
           // behind it never reach the browser.
           tier: result.outcome === "book" ? "A" : undefined,
         });
+        if (persona === "founder") {
+          track("founder_form_submitted", {
+            persona,
+            utm_source: utmSource,
+            tier: result.outcome === "book" ? "A" : undefined,
+            outcome: result.outcome,
+          });
+        }
       } catch {
         setStatus("error");
       }

@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   CASH_FLOW_GAP_POST,
   FINANCING_STRATEGY_POST,
   FISCAL_YEAR_2027_POST,
@@ -15,8 +15,7 @@ import {
   PROMPT_PAYMENT_POST,
   REVOLVING_LINE_POST,
   UPFRONT_PAYMENT_POST,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_HEADINGS.map((h) => [h.text, h.id]),
@@ -732,7 +731,10 @@ export default function GovernmentCustomerConcentrationCashGapPostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies in

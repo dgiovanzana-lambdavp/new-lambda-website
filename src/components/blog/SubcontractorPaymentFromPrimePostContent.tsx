@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  CASH_FLOW_GAP_POST,
+import {CASH_FLOW_GAP_POST,
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
   INVOICE_ACCEPTANCE_POST,
   INVOICE_PAYMENT_STATUS_POST,
@@ -13,8 +13,7 @@ import {
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_FAQ,
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_HEADINGS,
   TERM_LOAN_AMORTIZING_POST,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_HEADINGS.map((h) => [h.text, h.id]),
@@ -565,7 +564,10 @@ export default function SubcontractorPaymentFromPrimePostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies

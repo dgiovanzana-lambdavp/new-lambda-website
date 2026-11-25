@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  CASH_FLOW_GAP_POST,
+import {CASH_FLOW_GAP_POST,
   GRANT_FUNDED_GOVERNMENT_CUSTOMERS_POST,
   INVOICE_ACCEPTANCE_POST,
   INVOICE_PAYMENT_STATUS_POST,
@@ -13,8 +13,7 @@ import {
   REVOLVING_LINE_POST,
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
   TERM_LOAN_AMORTIZING_POST,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, PURCHASE_ORDER_BALANCE_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   PURCHASE_ORDER_BALANCE_HEADINGS.map((h) => [h.text, h.id]),
@@ -473,7 +472,10 @@ export default function PurchaseOrderBalancePostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={PURCHASE_ORDER_BALANCE_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies in

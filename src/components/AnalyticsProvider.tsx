@@ -2,7 +2,9 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { applyInternalTrafficFlagFromUrl } from "@/lib/analytics-attribution";
 import { ensureAnalytics, trackPageview } from "@/lib/analytics";
+import { registerPosthogAttribution } from "@/lib/register-posthog-attribution";
 
 /**
  * Fires SPA pageviews on route changes. Uses `usePathname` only (no
@@ -50,7 +52,9 @@ export default function AnalyticsProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
+    applyInternalTrafficFlagFromUrl();
     ensureAnalytics();
+    registerPosthogAttribution();
   }, []);
 
   return (

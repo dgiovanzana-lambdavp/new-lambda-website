@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
@@ -6,6 +7,7 @@ import {
   ASSIGNMENT_OF_CLAIMS_POST,
   FISCAL_YEAR_2027_FAQ,
   FISCAL_YEAR_2027_HEADINGS,
+  FISCAL_YEAR_2027_POST,
   IMPLEMENTATION_MILESTONES_POST,
   PROMPT_PAYMENT_POST,
   TERM_LOAN_AMORTIZING_POST,
@@ -863,7 +865,10 @@ export default function FiscalYear2027PostContent() {
         </li>
       </ul>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={FISCAL_YEAR_2027_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital is a permanent capital holding company investing in

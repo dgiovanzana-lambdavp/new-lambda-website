@@ -1,13 +1,12 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  GOVTECH_POST,
+import {GOVTECH_POST,
   PROMPT_PAYMENT_POST,
   UPFRONT_PAYMENT_FAQ,
-  UPFRONT_PAYMENT_HEADINGS,
-} from "@/lib/blog/posts";
+  UPFRONT_PAYMENT_HEADINGS, UPFRONT_PAYMENT_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   UPFRONT_PAYMENT_HEADINGS.map((h) => [h.text, h.id]),
@@ -469,6 +468,8 @@ export default function UpfrontPaymentPostContent() {
 
       <h2 id={H["Frequently asked questions"]}>Frequently asked questions</h2>
       <Faq items={UPFRONT_PAYMENT_FAQ} />
+      <FounderCtaBlock position="bottom" postSlug={UPFRONT_PAYMENT_POST.slug} />
+
     </div>
   );
 }

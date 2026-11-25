@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   CAPITAL_STACK_SENIORITY_POST,
   CASH_FLOW_GAP_POST,
   FINANCING_STRATEGY_POST,
@@ -15,8 +15,7 @@ import {
   SUBCONTRACTOR_PAYMENT_FROM_PRIME_POST,
   TERM_LOAN_AMORTIZING_POST,
   UPFRONT_PAYMENT_POST,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_HEADINGS.map((h) => [
@@ -346,7 +345,10 @@ export default function GovernmentContractFinancialCapabilityPostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={GOVERNMENT_CONTRACT_FINANCIAL_CAPABILITY_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies in

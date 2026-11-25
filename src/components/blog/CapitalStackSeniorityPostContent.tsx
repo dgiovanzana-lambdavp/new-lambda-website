@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  ASSIGNMENT_OF_CLAIMS_POST,
+import {ASSIGNMENT_OF_CLAIMS_POST,
   CAPITAL_STACK_SENIORITY_FAQ,
   CAPITAL_STACK_SENIORITY_HEADINGS,
   FINANCING_STRATEGY_POST,
@@ -12,8 +12,7 @@ import {
   PROMPT_PAYMENT_POST,
   TERM_LOAN_AMORTIZING_POST,
   UPFRONT_PAYMENT_POST,
-  VC_WRONG_CHOICE_POST,
-} from "@/lib/blog/posts";
+  VC_WRONG_CHOICE_POST, CAPITAL_STACK_SENIORITY_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   CAPITAL_STACK_SENIORITY_HEADINGS.map((h) => [h.text, h.id]),
@@ -337,7 +336,10 @@ export default function CapitalStackSeniorityPostContent() {
         </li>
       </ul>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={CAPITAL_STACK_SENIORITY_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
         Lambda Capital is a permanent capital holding company investing in
         vertical market technology that strengthens national security and core

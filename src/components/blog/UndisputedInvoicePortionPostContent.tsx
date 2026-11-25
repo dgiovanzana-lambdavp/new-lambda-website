@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  CAPITAL_STACK_SENIORITY_POST,
+import {CAPITAL_STACK_SENIORITY_POST,
   CASH_FLOW_GAP_POST,
   FINANCING_STRATEGY_POST,
   INVOICE_ACCEPTANCE_POST,
@@ -15,8 +15,7 @@ import {
   TERM_LOAN_AMORTIZING_POST,
   UNDISPUTED_INVOICE_PORTION_FAQ,
   UNDISPUTED_INVOICE_PORTION_HEADINGS,
-  WORKING_CAPITAL_VS_GROWTH_POST,
-} from "@/lib/blog/posts";
+  WORKING_CAPITAL_VS_GROWTH_POST, UNDISPUTED_INVOICE_PORTION_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   UNDISPUTED_INVOICE_PORTION_HEADINGS.map((h) => [h.text, h.id]),
@@ -514,7 +513,10 @@ export default function UndisputedInvoicePortionPostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={UNDISPUTED_INVOICE_PORTION_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies in

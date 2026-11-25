@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  CASH_FLOW_GAP_POST,
+import {CASH_FLOW_GAP_POST,
   EARLY_PAYMENT_DISCOUNT_POST,
   INVOICE_ACCEPTANCE_POST,
   INVOICE_PAYMENT_STATUS_FAQ,
@@ -11,8 +11,7 @@ import {
   PROMPT_PAYMENT_POST,
   PURCHASE_CARD_POST,
   REVOLVING_LINE_POST,
-  TERM_LOAN_AMORTIZING_POST,
-} from "@/lib/blog/posts";
+  TERM_LOAN_AMORTIZING_POST, INVOICE_PAYMENT_STATUS_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   INVOICE_PAYMENT_STATUS_HEADINGS.map((h) => [h.text, h.id]),
@@ -617,7 +616,10 @@ export default function InvoicePaymentStatusPostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={INVOICE_PAYMENT_STATUS_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies

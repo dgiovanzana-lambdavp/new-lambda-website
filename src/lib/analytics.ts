@@ -1,5 +1,7 @@
 import posthog from "posthog-js";
 import type { Persona } from "@/lib/leads/types";
+import { attributionEventProps, isInternalTrafficOptedOut } from "@/lib/analytics-attribution";
+import { registerPosthogAttribution } from "@/lib/register-posthog-attribution";
 
 /**
  * Thin analytics wrapper.
@@ -37,11 +39,15 @@ export type FunnelEvent =
   | "funnel_complete"
   | "funnel_calendar_shown"
   | "funnel_booking_link_clicked"
-  | "funnel_booking_created";
+  | "funnel_booking_created"
+  | "booking_started"
+  | "booking_completed"
+  | "founder_form_submitted";
 
 /** Marketing / blog events outside the contact funnel. */
 export type MarketingEvent =
   | "blog_cta_click"
+  | "blog_cta_clicked"
   | "jump_link_click"
   | "blog_scroll_depth";
 
@@ -77,6 +83,7 @@ function isConfigured(): boolean {
  */
 export function ensureAnalytics(): void {
   if (initialised || !isConfigured() || typeof window === "undefined") return;
+  if (isInternalTrafficOptedOut()) return;
 
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
     api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com",
@@ -105,16 +112,18 @@ export function initAnalytics(sessionId: string): void {
 
   ensureAnalytics();
   posthog.identify(sessionId);
+  registerPosthogAttribution();
   posthog.startSessionRecording();
 }
 
 /** Manual `$pageview` for App Router navigations (including SPA). */
 export function trackPageview(props: EventProps = {}): void {
   if (!isConfigured() || typeof window === "undefined") return;
+  if (isInternalTrafficOptedOut()) return;
   ensureAnalytics();
   if (!initialised) return;
 
-  const clean = cleanProps(props);
+  const clean = cleanProps({ ...attributionEventProps(), ...props });
   posthog.capture("$pageview", clean);
 }
 
@@ -130,10 +139,15 @@ export function track(
   options?: CaptureOptions,
 ): void {
   if (!isConfigured() || typeof window === "undefined") return;
+  if (isInternalTrafficOptedOut()) return;
   ensureAnalytics();
   if (!initialised) return;
 
-  posthog.capture(event, cleanProps(props), options);
+  posthog.capture(
+    event,
+    cleanProps({ ...attributionEventProps(), ...props }),
+    options,
+  );
 }
 
 /** Flush pending events. Called before the page goes away. */

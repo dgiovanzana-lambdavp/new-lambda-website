@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
-import {
-  CAPITAL_STACK_SENIORITY_POST,
+import {CAPITAL_STACK_SENIORITY_POST,
   CASH_FLOW_GAP_POST,
   FISCAL_YEAR_2027_POST,
   GOVERNMENT_CONTRACT_RENEWAL_LAPSE_POST,
@@ -16,8 +16,7 @@ import {
   REVOLVING_LINE_POST,
   TERM_LOAN_AMORTIZING_POST,
   WORKING_CAPITAL_VS_GROWTH_POST,
-  FINANCING_STRATEGY_POST,
-} from "@/lib/blog/posts";
+  FINANCING_STRATEGY_POST, INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST} from "@/lib/blog/posts";
 
 const H = Object.fromEntries(
   INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_HEADINGS.map((h) => [h.text, h.id]),
@@ -543,7 +542,10 @@ export default function IncrementallyFundedGovernmentContractPostContent() {
         </em>
       </p>
 
-      <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
+      
+      <FounderCtaBlock position="bottom" postSlug={INCREMENTALLY_FUNDED_GOVERNMENT_CONTRACT_POST.slug} />
+
+<h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
 
       <p>
         Lambda Capital provides growth capital to profitable software companies in
