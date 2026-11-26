@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { searchDocuments } from "@/lib/agent/bm25";
-import { buildDocument } from "@/lib/agent/search-index";
+import { buildDocument } from "@/lib/agent/document";
 
 describe("searchDocuments", () => {
   const docs = [

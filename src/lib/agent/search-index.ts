@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { SITE_ORIGIN } from "@/lib/agent/constants";
-import { tokenize, type IndexedDocument } from "@/lib/agent/bm25";
+export { buildDocument } from "@/lib/agent/document";
 
 export type { AgentSearchIndex } from "@/lib/agent/search-index-edge";
 export { loadSearchIndex, searchSite } from "@/lib/agent/search-index-edge";
@@ -45,14 +45,4 @@ export function canonicalUrlForPath(pagePath: string): string {
   const norm = normalizeAgentPath(pagePath);
   if (norm === "/what-we-fund") return `${SITE_ORIGIN}/what-we-fund`;
   return `${SITE_ORIGIN}${norm === "/" ? "" : norm}`;
-}
-
-export function buildDocument(
-  id: string,
-  title: string,
-  url: string,
-  body: string,
-): IndexedDocument {
-  const tokens = tokenize(`${title} ${body}`);
-  return { id, title, url, body, tokens, length: tokens.length };
 }

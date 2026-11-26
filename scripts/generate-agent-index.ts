@@ -17,8 +17,8 @@ import {
   whatWeFundMarkdown,
 } from "../src/lib/agent/site-copy";
 import { SITE_ORIGIN } from "../src/lib/agent/constants";
-import { buildDocument } from "../src/lib/agent/search-index";
-import type { AgentSearchIndex } from "../src/lib/agent/search-index";
+import { buildDocument } from "../src/lib/agent/document";
+import type { AgentSearchIndex } from "../src/lib/agent/search-index-edge";
 
 const OUT_DIR = path.join(process.cwd(), "src/generated/agent/markdown");
 const INDEX_FILE = path.join(process.cwd(), "src/generated/agent/search-index.json");
