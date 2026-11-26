@@ -6,7 +6,7 @@
     "dev": "next dev",
     "prebuild": "tsx --tsconfig tsconfig.agent.json scripts/generate-agent-index.ts",
     "pretest": "tsx --tsconfig tsconfig.agent.json scripts/generate-agent-index.ts",
-    "build": "next build --webpack",
+    "build": "next build",
     "start": "node scripts/migrate.mjs; next start",
     "lint": "eslint",
     "db:migrate": "node scripts/migrate.mjs",
