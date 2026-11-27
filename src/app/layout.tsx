@@ -5,6 +5,7 @@ import "./blog/blog.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
+import { AGENT_META } from "@/lib/agent/constants";
 
 /**
  * The site's two typefaces.
@@ -69,6 +70,11 @@ export const metadata: Metadata = {
     title: "Lambda Capital - Investing in Mission-Critical Technology",
     description:
       "A permanent capital holding company investing in vertical market technology that strengthens national security and core sectors of the economy.",
+  },
+  other: {
+    "agent:instructions": AGENT_META.instructions,
+    "agent:endpoint": AGENT_META.endpoint,
+    "agent:method": AGENT_META.method,
   },
   robots: {
     index: true,

@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx --tsconfig tsconfig.agent.json scripts/generate-agent-index.ts",
+    "pretest": "tsx --tsconfig tsconfig.agent.json scripts/generate-agent-index.ts",
     "build": "next build",
     "start": "node scripts/migrate.mjs; next start",
     "lint": "eslint",
@@ -42,6 +44,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5",
     "vitest": "^4.1.10"
   }
