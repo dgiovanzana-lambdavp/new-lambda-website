@@ -13,6 +13,8 @@ const keyPages: { label: string; html: string; md: string }[] = [
   },
   { label: "Team", html: "/team", md: "/team.md" },
   { label: "Contact", html: "/contact", md: "/contact.md" },
+  { label: "Privacy Policy", html: "/privacy", md: "/privacy.md" },
+  { label: "Terms of Service", html: "/terms", md: "/terms.md" },
   { label: "Blog index", html: "/blog", md: "/blog.md" },
 ];
 

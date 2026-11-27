@@ -25,6 +25,8 @@ describe("agent artifacts", () => {
     expect(readMarkdownForPath("/about")).toMatch(/Profitable Businesses/i);
     expect(readMarkdownForPath("/what-we-fund")).toMatch(/permanent capital holding company/i);
     expect(readMarkdownForPath("/blog")).toMatch(/Blog/);
+    expect(readMarkdownForPath("/privacy")).toMatch(/Privacy Policy/i);
+    expect(readMarkdownForPath("/terms")).toMatch(/Terms of Service/i);
   });
 
   it("search returns relevant site hits", () => {

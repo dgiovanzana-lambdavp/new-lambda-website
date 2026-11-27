@@ -3,17 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { FOOTER_COMPANY_LINKS } from '@/lib/site/footer-links';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    company: [
-      { name: 'Team', href: '/team' },
-      { name: 'Portfolio', href: '/portfolio' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Blog', href: '/blog' },
-    ],
+    company: FOOTER_COMPANY_LINKS,
     social: [
       { name: 'LinkedIn', href: 'https://www.linkedin.com/company/lambda-capital-management/', icon: 'linkedin' },
       { name: 'X', href: 'https://x.com/vestlessvc', icon: 'x' },
