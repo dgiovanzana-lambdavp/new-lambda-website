@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_SLUG =
+  "self-funded-growth-government-contractors";
+
+const SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_DATE = "2026-11-27";
+
+const SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_H2_TEXTS = [
+  "The direct answer",
+  "Why does a profitable company run short of cash when it grows?",
+  "How fast can you grow on your own cash?",
+  "Can you get the government to pay you faster?",
+  "Which days can you actually cut?",
+  "Should you keep more profit in the business or pay it out?",
+  "How should you fund growth above your self funded rate?",
+  "What should you do before you set next year's growth target?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_HEADINGS: BlogHeading[] =
+  SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_POST: BlogPostMeta = {
+  slug: SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_SLUG,
+  metaTitle: "How Fast Can a GovTech Company Grow on Its Own Cash?",
+  h1: "How Fast Can We Grow on Our Own Cash When the Government Pays Slowly?",
+  description:
+    "Slow government pay caps how fast a profitable GovTech company can grow on its own cash. Find your self funded growth rate and fund the difference.",
+  category: "Growth capital",
+  date: SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_DATE,
+  updated: SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage:
+    "/blog/featured-self-funded-growth-government-contractors-hero.jpg",
+  ogImage: `/og/blog-${SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_SLUG}.jpg`,
+  breadcrumbsTitle: "Self Funded Growth Government Contractors",
+};
+
 const GOVERNMENT_CONTRACT_TYPE_CASH_GAP_SLUG =
   "government-contract-type-cash-gap";
 
@@ -1842,6 +1884,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_POST,
   GOVERNMENT_CONTRACT_TYPE_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST,
   GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST,
@@ -1967,6 +2010,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_HEADINGS;
   if (slug === GOVERNMENT_CONTRACT_TYPE_CASH_GAP_SLUG)
     return GOVERNMENT_CONTRACT_TYPE_CASH_GAP_HEADINGS;
+  if (slug === SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_SLUG)
+    return SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_HEADINGS;
   return [];
 }
 
@@ -2055,6 +2100,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_JSON_LD;
   if (slug === GOVERNMENT_CONTRACT_TYPE_CASH_GAP_SLUG)
     return GOVERNMENT_CONTRACT_TYPE_CASH_GAP_JSON_LD;
+  if (slug === SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_SLUG)
+    return SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_JSON_LD;
   return null;
 }
 
@@ -4253,6 +4300,73 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_FAQ: FaqItem[] = [
+  {
+    question: "How fast can a profitable GovTech company grow on its own cash?",
+    answer:
+      "Roughly the cash profit it keeps each year divided by the cash tied up in unpaid work. That is our rule of thumb, not a formula from a source. In our example, that is about 15 percent.",
+  },
+  {
+    question: "Why are we short of cash if we are profitable?",
+    answer:
+      "New revenue ties up cash before customers pay. When customers take months to pay, growth uses cash faster than profit replaces it.",
+  },
+  {
+    question: "Will the government pay early if we ask?",
+    answer:
+      "As a rule, no. Federal payments are not made more than 7 days before the due date unless an agency head decides otherwise, and Texas state agencies do not pay before the due date unless law, contract, or another obligation requires it.",
+  },
+  {
+    question: "Which days can we cut?",
+    answer:
+      "The days before the payment clock starts and the days lost to errors: send proper invoices on day one, get acceptance on smaller pieces of work, and bill subscriptions upfront where the rules allow.",
+  },
+  {
+    question: "Do distributions slow our growth?",
+    answer:
+      "They draw on the same cash. In our example, keeping all of the profit doubles the self funded rate from about 15 to about 30 percent.",
+  },
+  {
+    question: "How much outside capital do we need to grow faster?",
+    answer:
+      "About the difference between your target and your self funded rate, times the cash tied up, each year, plus room for peaks. In our example, about $83,000 this year to grow 20 percent.",
+  },
+];
+
+export const SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "How Fast Can a GovTech Company Grow on Its Own Cash?",
+      description:
+        "Slow government pay caps how fast a profitable GovTech company can grow on its own cash. Find your self funded growth rate and fund the difference.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-27",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
