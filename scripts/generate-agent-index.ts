@@ -16,6 +16,7 @@ import {
   teamMarkdown,
   whatWeFundMarkdown,
 } from "../src/lib/agent/site-copy";
+import { privacyMarkdown, termsMarkdown } from "../src/lib/legal/content";
 import { SITE_ORIGIN } from "../src/lib/agent/constants";
 import { buildDocument } from "../src/lib/agent/document";
 import type { AgentSearchIndex } from "../src/lib/agent/search-index-edge";
@@ -88,6 +89,18 @@ function main(): void {
     },
     { file: "team.md", path: "/team", title: "Team", md: teamMarkdown() },
     { file: "contact.md", path: "/contact", title: "Contact", md: contactMarkdown() },
+    {
+      file: "privacy.md",
+      path: "/privacy",
+      title: "Privacy Policy",
+      md: privacyMarkdown(),
+    },
+    {
+      file: "terms.md",
+      path: "/terms",
+      title: "Terms of Service",
+      md: termsMarkdown(),
+    },
     { file: "blog.md", path: "/blog", title: "Blog", md: blogIndexMarkdown() },
   ];
 

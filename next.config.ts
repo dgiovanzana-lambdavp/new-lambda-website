@@ -100,6 +100,36 @@ const nextConfig: NextConfig = {
         destination: "/blog/software-company-financing-strategy",
         statusCode: 301,
       },
+      {
+        source: "/privacy-policy",
+        destination: "/privacy",
+        statusCode: 301,
+      },
+      {
+        source: "/privacy-policy/",
+        destination: "/privacy",
+        statusCode: 301,
+      },
+      {
+        source: "/terms-of-service",
+        destination: "/terms",
+        statusCode: 301,
+      },
+      {
+        source: "/terms-of-service/",
+        destination: "/terms",
+        statusCode: 301,
+      },
+      {
+        source: "/terms-of-use",
+        destination: "/terms",
+        statusCode: 301,
+      },
+      {
+        source: "/terms-of-use/",
+        destination: "/terms",
+        statusCode: 301,
+      },
     ];
   },
 };
