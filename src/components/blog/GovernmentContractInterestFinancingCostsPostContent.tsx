@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import FounderCtaBlock from "./FounderCtaBlock";
 import Link from "next/link";
 import TableWrap from "./TableWrap";
 import Faq from "./Faq";
@@ -9,6 +10,7 @@ import {
   FINANCING_STRATEGY_POST,
   GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_FAQ,
   GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_HEADINGS,
+  GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST,
   IMPLEMENTATION_MILESTONES_POST,
   INVOICE_PAYMENT_STATUS_POST,
   PROMPT_PAYMENT_POST,
@@ -731,6 +733,10 @@ export default function GovernmentContractInterestFinancingCostsPostContent() {
           advice.
         </em>
       </p>
+      <FounderCtaBlock
+        position="bottom"
+        postSlug={GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST.slug}
+      />
       <h2 id={H["About Lambda Capital"]}>About Lambda Capital</h2>
       <p>
         Lambda Capital provides growth capital to profitable software companies in

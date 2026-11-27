@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const GOVERNMENT_CONTRACT_TYPE_CASH_GAP_SLUG =
+  "government-contract-type-cash-gap";
+
+const GOVERNMENT_CONTRACT_TYPE_CASH_GAP_DATE = "2026-11-26";
+
+const GOVERNMENT_CONTRACT_TYPE_CASH_GAP_H2_TEXTS = [
+  "The direct answer",
+  "Which government contract type gets you paid fastest?",
+  "Do you get to choose the contract type?",
+  "How does a fixed price contract pay you, and how can you shorten the wait?",
+  "How does a time and materials contract pay you?",
+  "Should you chase cost reimbursement work to get paid faster?",
+  "How much cash does each billing pattern tie up?",
+  "How should you fund what each billing pattern leaves?",
+  "What should you do before you sign your next government contract?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const GOVERNMENT_CONTRACT_TYPE_CASH_GAP_HEADINGS: BlogHeading[] =
+  GOVERNMENT_CONTRACT_TYPE_CASH_GAP_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const GOVERNMENT_CONTRACT_TYPE_CASH_GAP_POST: BlogPostMeta = {
+  slug: GOVERNMENT_CONTRACT_TYPE_CASH_GAP_SLUG,
+  metaTitle: "Which Government Contract Type Pays Fastest?",
+  h1: "Which Government Contract Type Gets Us Paid Fastest?",
+  description:
+    "Fixed price, time and materials, or cost reimbursement: how each pays on a signed government contract, how much cash it ties up, and how to fund it.",
+  category: "Growth capital",
+  date: GOVERNMENT_CONTRACT_TYPE_CASH_GAP_DATE,
+  updated: GOVERNMENT_CONTRACT_TYPE_CASH_GAP_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-government-contract-type-cash-gap-hero.jpg",
+  ogImage: `/og/blog-${GOVERNMENT_CONTRACT_TYPE_CASH_GAP_SLUG}.jpg`,
+  breadcrumbsTitle: "Government Contract Type Cash Gap",
+};
+
 const GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_SLUG =
   "government-contract-interest-financing-costs";
 
@@ -1800,6 +1842,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  GOVERNMENT_CONTRACT_TYPE_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST,
   GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_BID_PROTEST_CASH_GAP_POST,
@@ -1922,6 +1965,8 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_HEADINGS;
   if (slug === GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_SLUG)
     return GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_HEADINGS;
+  if (slug === GOVERNMENT_CONTRACT_TYPE_CASH_GAP_SLUG)
+    return GOVERNMENT_CONTRACT_TYPE_CASH_GAP_HEADINGS;
   return [];
 }
 
@@ -2008,6 +2053,8 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_JSON_LD;
   if (slug === GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_SLUG)
     return GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_JSON_LD;
+  if (slug === GOVERNMENT_CONTRACT_TYPE_CASH_GAP_SLUG)
+    return GOVERNMENT_CONTRACT_TYPE_CASH_GAP_JSON_LD;
   return null;
 }
 
@@ -4206,6 +4253,73 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const GOVERNMENT_CONTRACT_TYPE_CASH_GAP_FAQ: FaqItem[] = [
+  {
+    question: "Which government contract type pays fastest?",
+    answer:
+      "On paper, cost reimbursement, then time and materials, then fixed price. For commercial software, the contract is usually firm fixed price, not always, so the billing pattern inside it matters most. Cost reimbursement is prohibited for commercial products and services.",
+  },
+  {
+    question: "Can we choose time and materials to get paid faster?",
+    answer:
+      "No. The agency picks the type. Time and materials may be used only when it is not possible to estimate the work or its costs with reasonable confidence. Commercial buys also need extra conditions. One of those is a ceiling price that the contractor exceeds at its own risk.",
+  },
+  {
+    question: "How often can we invoice on a commercial time and materials contract?",
+    answer:
+      "Once a month, or more often if the contracting officer approves. That clause has no percentage withhold.",
+  },
+  {
+    question: "Can the government hold back part of a time and materials payment?",
+    answer:
+      "On noncommercial contracts, the contracting officer may require a 5 percent withhold, capped at $50,000, held until the contractor signs and delivers the release, per FAR 52.232-7. The commercial time and materials clause has no percentage withhold.",
+  },
+  {
+    question: "Is cost reimbursement a faster way to get paid?",
+    answer:
+      "It bills as work progresses. It is prohibited for commercial products and services. It needs an adequate accounting system. Interim payments are contract financing payments and earn no prompt payment interest. A reserve may be held, not to exceed 15 percent of the total fixed fee or $100,000, whichever is less. Most of that reserve is released only after a final indirect cost rate proposal.",
+  },
+  {
+    question: "How should we fund the gap on a fixed price implementation?",
+    answer:
+      "Shrink it first with smaller accepted pieces. Use a timing tool for lumps on signed work, longer dated capital for the base that grows with revenue, and growth capital for real growth.",
+  },
+];
+
+export const GOVERNMENT_CONTRACT_TYPE_CASH_GAP_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Which Government Contract Type Pays Fastest?",
+      description:
+        "Fixed price, time and materials, or cost reimbursement: how each pays on a signed government contract, how much cash it ties up, and how to fund it.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-26",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: GOVERNMENT_CONTRACT_TYPE_CASH_GAP_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
