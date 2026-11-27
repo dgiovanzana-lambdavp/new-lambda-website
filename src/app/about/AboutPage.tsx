@@ -6,7 +6,7 @@ import Button from '@/components/Button';
 
 export default function AboutPage() {
   const taglines = [
-    'We buy and build profitable niche software businesses.',
+    'We provide growth capital to profitable, mission-critical vertical software businesses.',
     'We provide flexible capital and operator-first execution.',
     'We move quickly. We prefer clarity over noise.',
   ];
