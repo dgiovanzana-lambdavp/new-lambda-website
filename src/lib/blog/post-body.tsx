@@ -34,6 +34,7 @@ import ExtraWorkGovernmentContractModificationPostContent from "@/components/blo
 import GovernmentContractCloseoutFinalInvoicePaymentPostContent from "@/components/blog/GovernmentContractCloseoutFinalInvoicePaymentPostContent";
 import GovernmentPaymentOffsetWarrantHoldPostContent from "@/components/blog/GovernmentPaymentOffsetWarrantHoldPostContent";
 import GovernmentStopWorkOrderPaymentPostContent from "@/components/blog/GovernmentStopWorkOrderPaymentPostContent";
+import SelfFundedGrowthGovernmentContractorsPostContent from "@/components/blog/SelfFundedGrowthGovernmentContractorsPostContent";
 import GovernmentContractTypeCashGapPostContent from "@/components/blog/GovernmentContractTypeCashGapPostContent";
 import GovernmentContractInterestFinancingCostsPostContent from "@/components/blog/GovernmentContractInterestFinancingCostsPostContent";
 import GovernmentCustomerConcentrationCashGapPostContent from "@/components/blog/GovernmentCustomerConcentrationCashGapPostContent";
@@ -49,6 +50,7 @@ import {
   DATA_CENTER_LEASE_POST,
   GOVERNMENT_CONTRACT_CLOSEOUT_FINAL_INVOICE_PAYMENT_POST,
   GOVERNMENT_PAYMENT_OFFSET_WARRANT_HOLD_POST,
+  SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_POST,
   GOVERNMENT_CONTRACT_TYPE_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST,
   GOVERNMENT_CUSTOMER_CONCENTRATION_CASH_GAP_POST,
@@ -93,6 +95,8 @@ import {
 
 /** Article body only (no chrome). Shared by the blog page and agent markdown export. */
 export function BlogPostBody({ slug }: { slug: string }) {
+  if (slug === SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_POST.slug)
+    return <SelfFundedGrowthGovernmentContractorsPostContent />;
   if (slug === GOVERNMENT_CONTRACT_TYPE_CASH_GAP_POST.slug)
     return <GovernmentContractTypeCashGapPostContent />;
   if (slug === GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST.slug)
