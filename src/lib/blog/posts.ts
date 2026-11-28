@@ -1132,6 +1132,48 @@ export const TERM_LOAN_AMORTIZING_POST: BlogPostMeta = {
   breadcrumbsTitle: "Bullet Loan vs Amortizing Loan",
 };
 
+const OPTIONS_VS_WARRANTS_SLUG = "options-vs-warrants";
+
+const OPTIONS_VS_WARRANTS_DATE = "2026-11-28";
+
+const OPTIONS_VS_WARRANTS_H2_TEXTS = [
+  "The direct answer",
+  "What is a stock option?",
+  "What is a warrant?",
+  "What is the difference between options and warrants?",
+  "Who usually gets each, and why?",
+  "What do strike price, vesting, exercise, and expiration mean?",
+  "What are ISOs, NSOs, and 409A?",
+  "What is a cashless or net exercise, and what do dilution and fully diluted mean?",
+  "What does warrant coverage mean?",
+  "Is a stock warrant the same as a government payment warrant?",
+  "Frequently asked questions",
+  "Related reading",
+  "About Lambda Capital",
+] as const;
+
+export const OPTIONS_VS_WARRANTS_HEADINGS: BlogHeading[] =
+  OPTIONS_VS_WARRANTS_H2_TEXTS.map((text) => ({
+    id: slugifyHeading(text),
+    text,
+  }));
+
+export const OPTIONS_VS_WARRANTS_POST: BlogPostMeta = {
+  slug: OPTIONS_VS_WARRANTS_SLUG,
+  metaTitle: "Options vs Warrants: What's the Difference?",
+  h1: "Options vs Warrants: What's the Difference?",
+  description:
+    "Options and warrants both can let someone buy shares later. They usually go to different people and follow different rules. A plain guide for founders.",
+  category: "Growth capital",
+  date: OPTIONS_VS_WARRANTS_DATE,
+  updated: OPTIONS_VS_WARRANTS_DATE,
+  author: BLOG_AUTHOR.name,
+  authorRole: BLOG_AUTHOR.role,
+  featuredImage: "/blog/featured-options-vs-warrants-hero.jpg",
+  ogImage: `/og/blog-${OPTIONS_VS_WARRANTS_SLUG}.jpg`,
+  breadcrumbsTitle: "Options vs Warrants",
+};
+
 const SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_SLUG =
   "self-funded-growth-government-contractors";
 
@@ -1884,6 +1926,7 @@ export const BIG_TECH_EQUITY_POST: BlogPostMeta = {
 };
 
 export const ALL_POSTS: BlogPostMeta[] = [
+  OPTIONS_VS_WARRANTS_POST,
   SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_POST,
   GOVERNMENT_CONTRACT_TYPE_CASH_GAP_POST,
   GOVERNMENT_CONTRACT_INTEREST_FINANCING_COSTS_POST,
@@ -2012,6 +2055,7 @@ export function getHeadingsForSlug(slug: string): BlogHeading[] {
     return GOVERNMENT_CONTRACT_TYPE_CASH_GAP_HEADINGS;
   if (slug === SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_SLUG)
     return SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_HEADINGS;
+  if (slug === OPTIONS_VS_WARRANTS_SLUG) return OPTIONS_VS_WARRANTS_HEADINGS;
   return [];
 }
 
@@ -2102,6 +2146,7 @@ export function getArticleFaqGraphJsonLdForSlug(slug: string): object | null {
     return GOVERNMENT_CONTRACT_TYPE_CASH_GAP_JSON_LD;
   if (slug === SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_SLUG)
     return SELF_FUNDED_GROWTH_GOVERNMENT_CONTRACTORS_JSON_LD;
+  if (slug === OPTIONS_VS_WARRANTS_SLUG) return OPTIONS_VS_WARRANTS_JSON_LD;
   return null;
 }
 
@@ -4300,6 +4345,73 @@ export const PURCHASE_ORDER_BALANCE_JSON_LD = {
     {
       "@type": "FAQPage",
       mainEntity: PURCHASE_ORDER_BALANCE_FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+} as const;
+
+export const OPTIONS_VS_WARRANTS_FAQ: FaqItem[] = [
+  {
+    question: "What is the difference between an option and a warrant?",
+    answer:
+      "Both can be a right to buy shares later at a set price. Options usually go to employees as pay for work. Warrants usually go to investors when the company raises money (likely).",
+  },
+  {
+    question: "Do options and warrants dilute founders?",
+    answer:
+      "They can, if they are exercised and the company issues new shares. That reduces an owner's share of the company. Fully diluted counts the shares as if those rights had already been used (our reading).",
+  },
+  {
+    question: "What is warrant coverage?",
+    answer:
+      "It is a phrase some financings use to describe how large a warrant is, often as a share of the money in the deal, not as a share of the company.",
+  },
+  {
+    question: "What is 409A, in one sentence?",
+    answer:
+      "For a compensatory stock option, it is a tax rule that, among other tests, looks at whether the strike is at least fair market value when the option is granted.",
+  },
+  {
+    question: "Can a consultant receive an ISO?",
+    answer:
+      "Not under the statutory employment rule. Statutory options have to go to an employee (or an employee of a related company) for the required period. A consultant may receive an NSO (likely). Talk to a tax advisor.",
+  },
+  {
+    question: "Is a government payment warrant the same as a stock warrant?",
+    answer:
+      "No. A payment warrant is a state's payment instrument. A stock warrant is a right to buy shares.",
+  },
+];
+
+export const OPTIONS_VS_WARRANTS_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: "Options vs Warrants: What's the Difference?",
+      description:
+        "Options and warrants both can let someone buy shares later. They usually go to different people and follow different rules. A plain guide for founders.",
+      author: {
+        "@type": "Person",
+        name: "Domenic Giovanzana",
+        jobTitle: "Founder and General Partner",
+      },
+      datePublished: "2026-11-28",
+      publisher: {
+        "@type": "Organization",
+        name: "Lambda Capital",
+        url: "https://www.lambdavp.com",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: OPTIONS_VS_WARRANTS_FAQ.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
